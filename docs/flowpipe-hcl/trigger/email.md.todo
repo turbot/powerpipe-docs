@@ -1,0 +1,28 @@
+---
+title: email
+sidebar_label: email
+---
+# COMING SOON!
+> This feature is not yet available for general release and is subject to change.
+
+<hr />
+
+# email
+
+
+
+## Example Usage
+
+```hcl
+```
+
+##### Arguments
+
+| Name | Type | Required? | Description
+|-|-|-|-
+| `description` |  String | Optional | A string containing a short description. 
+| `documentation` | String| Optional | A markdown string containing a long form description, used as documentation for the mod on hub.flowpipe.io. 
+| `tags` | Map | Optional | A map of key:value metadata for the mod, used to categorize, search, and filter.   
+| `title` | String | Optional | The display title of the mod.
+
+

@@ -1,0 +1,14 @@
+---
+title: FLOWPIPE_INSECURE
+sidebar_label: FLOWPIPE_INSECURE
+---
+
+# FLOWPIPE_INSECURE
+When set to `true`, ignore any TLS certificate errors and warnings when connecting to a Flowpipe API host. 
+
+
+## Usage 
+Ignore any TLS certificate errors and warning:
+```bash
+export FLOWPIPE_INSECURE=true
+```
