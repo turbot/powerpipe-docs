@@ -2,7 +2,7 @@
   {
     "type": "category",
     "id": "learn",
-    "label": "Learn Flowpipe",
+    "label": "Learn Powerpipe",
     "link": "learn",
     "items": [
     ]
@@ -10,36 +10,26 @@
 
   {
     "type": "category",
-    "id": "Run",
-    "label": "Run Flowpipe",
+    "id": "run",
+    "label": "Run Powerpipe",
     "link": "run/index",
     "items": [
-      "run/pipelines",
+      "run/dashboard",
+      "run/benchmark",
       "run/server",
-      "run/credentials",
       "run/workspaces"
     ]
   },
+
   {
     "type": "category",
     "id": "working-with-mods",
     "label": "Build Mods",
     "link": "build/index",
     "items": [
-      {
-        "type": "category",
-        "id": "build/write-pipelines",
-        "label": "Learn Flowpipe",
-        "link": "build/write-pipelines/index",
-        "items": [
-          "build/write-pipelines/control-flow",
-          "build/write-pipelines/inputs-outputs",
-          "build/write-pipelines/conditionals",
-          "build/write-pipelines/iteration",
-          "build/write-pipelines/errors"
-        ]
-      },
-      "build/triggers",
+      "build/writing-controls",
+      "build/writing-dashboards",
+      "build/param-query",
       "build/mod-variables",
       "build/mod-dependencies"
     ]
@@ -47,38 +37,31 @@
 
   {
     "type": "category",
-    "id": "flowpipe-hcl",
-    "link": "flowpipe-hcl/index",
+    "id": "powerpipe-hcl",
+    "link": "powerpipe-hcl/index",
     "items": [
-      "flowpipe-hcl/functions",
-      "flowpipe-hcl/locals",
-      "flowpipe-hcl/mod",
-      "flowpipe-hcl/pipeline",
-      {     
-        "type": "category",
-        "id": "steps",
-        "link": "flowpipe-hcl/step/index",
-        "items": [
-          "flowpipe-hcl/step/container",
-          "flowpipe-hcl/step/email",
-          "flowpipe-hcl/step/function",
-          "flowpipe-hcl/step/http",
-          "flowpipe-hcl/step/pipeline",
-          "flowpipe-hcl/step/query",
-          "flowpipe-hcl/step/sleep",
-          "flowpipe-hcl/step/transform"
-        ]
-      },
-      {     
-        "type": "category",
-        "id": "triggers",
-        "link": "flowpipe-hcl/trigger/index",
-        "items": [    
-          "flowpipe-hcl/trigger/http",
-          "flowpipe-hcl/trigger/schedule"
-        ]
-      },
-      "flowpipe-hcl/variable"
+      "powerpipe-hcl/benchmark",
+      "powerpipe-hcl/card",
+      "powerpipe-hcl/category",
+      "powerpipe-hcl/chart",
+      "powerpipe-hcl/container",
+      "powerpipe-hcl/control",
+      "powerpipe-hcl/dashboard",
+      "powerpipe-hcl/edge",
+      "powerpipe-hcl/flow",
+      "powerpipe-hcl/functions",
+      "powerpipe-hcl/graph",
+      "powerpipe-hcl/hierarchy",
+      "powerpipe-hcl/image",
+      "powerpipe-hcl/input",
+      "powerpipe-hcl/locals",
+      "powerpipe-hcl/mod",
+      "powerpipe-hcl/node",
+      "powerpipe-hcl/query",
+      "powerpipe-hcl/table",
+      "powerpipe-hcl/text",
+      "powerpipe-hcl/variable",
+      "powerpipe-hcl/with"
       ]       
   },
   
@@ -96,10 +79,7 @@
         "items": [
           "reference/cli/help",
           "reference/cli/server",
-          "reference/cli/mod",
-          "reference/cli/pipeline",
-          "reference/cli/process",
-          "reference/cli/trigger"
+          "reference/cli/mod"
         ]
       },
       
@@ -109,17 +89,17 @@
         "label": "Environment Variables",
         "link": "reference/env-vars/index",
         "items": [
-          "reference/env-vars/flowpipe_config_path",
-          "reference/env-vars/flowpipe_host",
-          "reference/env-vars/flowpipe_install_dir",
-          "reference/env-vars/flowpipe_listen",
-          "reference/env-vars/flowpipe_log_level",
-          "reference/env-vars/flowpipe_memory_max_mb",
-          "reference/env-vars/flowpipe_mod_location",
-          "reference/env-vars/flowpipe_port",
-          "reference/env-vars/flowpipe_telemetry",
-          "reference/env-vars/flowpipe_update_check",
-          "reference/env-vars/flowpipe_workspace"
+          "reference/env-vars/powerpipe_config_path",
+          "reference/env-vars/powerpipe_host",
+          "reference/env-vars/powerpipe_install_dir",
+          "reference/env-vars/powerpipe_listen",
+          "reference/env-vars/powerpipe_log_level",
+          "reference/env-vars/powerpipe_memory_max_mb",
+          "reference/env-vars/powerpipe_mod_location",
+          "reference/env-vars/powerpipe_port",
+          "reference/env-vars/powerpipe_telemetry",
+          "reference/env-vars/powerpipe_update_check",
+          "reference/env-vars/powerpipe_workspace"
         ]
       },
 
@@ -129,43 +109,6 @@
         "label": "Configuration Files",
         "link": "reference/config-files/index",
         "items": [
-          {
-            "type": "category",
-            "id": "credential",
-            "link": "reference/config-files/credential/index",
-            "items": [
-              "reference/config-files/credential/abuseipdb",
-              "reference/config-files/credential/aws",
-              "reference/config-files/credential/azure",
-              "reference/config-files/credential/bitbucket",
-              "reference/config-files/credential/clickup",
-              "reference/config-files/credential/discord",
-              "reference/config-files/credential/freshdesk",
-              "reference/config-files/credential/gcp",
-              "reference/config-files/credential/github",
-              "reference/config-files/credential/gitlab",
-              "reference/config-files/credential/ip2locationio",
-              "reference/config-files/credential/ipstack",
-              "reference/config-files/credential/jira",
-              "reference/config-files/credential/jumpcloud",
-              "reference/config-files/credential/mastodon",
-              "reference/config-files/credential/okta",
-              "reference/config-files/credential/openai",
-              "reference/config-files/credential/opsgenie",
-              "reference/config-files/credential/pagerduty",
-              "reference/config-files/credential/pipes",
-              "reference/config-files/credential/sendgrid",
-              "reference/config-files/credential/servicenow",
-              "reference/config-files/credential/slack",
-              "reference/config-files/credential/teams",
-              "reference/config-files/credential/trello",
-              "reference/config-files/credential/uptimerobot",
-              "reference/config-files/credential/urlscan",
-              "reference/config-files/credential/vault",
-              "reference/config-files/credential/virustotal",
-              "reference/config-files/credential/zendesk"
-            ]
-          },
           "reference/config-files/workspace"
         ]
       }

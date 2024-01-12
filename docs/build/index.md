@@ -2,49 +2,80 @@
 title: Build Mods
 sidebar_label: Build Mods
 ---
-
-# Flowpipe Mods
-
-Flowpipe allows you to write "pipelines as code", defining workflows and other tasks that are performed in a sequence.
-
-Flowpipe resources include:
-- **[Triggers](/docs/build/triggers)** - A way to initiate a pipeline (e.g. cron, webhook, etc).
-- **[Pipelines](/docs/build/write-pipelines/index)** - A sequence of steps to do work.
-- **[Variables, locals](/docs/build/mod-variables)** and standard HCL functions.
+# Powerpipe Mods
 
 
-A Flowpipe **mod** is a portable, versioned collection of Flowpipe [pipelines](/docs/build/write-pipelines/index) and [triggers](/docs/build/triggers). Flowpipe mods and mod resources are defined in HCL, and distributed as simple text files.  Modules can be found on the [Flowpipe Hub](https://hub.flowpipe.io) and may be shared with others from any public git repository. 
+A Powerpipe **mod** is a portable, versioned collection of related Powerpipe resources such as dashboards, benchmarks, queries, and controls. Powerpipe mods and mod resources are defined in HCL, and distributed as simple text files.  Modules can be found on the [Powerpipe Hub](https://hub.powerpipe.io), and may be shared with others from any public git repository. 
 
-Flowpipe mods are written in HCL. When Flowpipe runs, it will load the mod from the working directory and will read all files with the .fp extension from the directory and its subdirectories recursively.  
+Mods provide an easy way to share dashboards, benchmarks, and other resources.
 
-## Initializing a Mod
+You can install a mod by cloning the repository:
+```bash
+git clone https://github.com/turbot/powerpipe-mod-aws-compliance.git
+```
 
-Creating a mod is simple.  First, create a directory for your mod.
+Unlike plugins which are installed to the `~/.powerpipe` directory, mods are installed into (and loaded from) the current working directory.  Alternatively, you may specify a path with the `--workspace--chdir` argument:
 
 ```bash
-mkdir my_mod
+powerpipe query --mod-location  powerpipe-mod-aws-compliance
 ```
 
-Change to your mod directory and run `flowpipe mod init` to initial your mod:
+Notice that when running `powerpipe query` from the workspace directory, the mod's queries and controls appear in the auto-complete, and you can run them by name:
+
+```
+> query.s3_bucket_versioning_enabled
++--------------------------------------------------------------+--------+---------------------------------------------------------------------+----------------+--------------+
+| resource                                                     | status | reason                                                              | region         | account_id   |
++--------------------------------------------------------------+--------+---------------------------------------------------------------------+----------------+--------------+
+| arn:aws:s3:::vandelay-industries-georges-bucket01            | ok     | vandelay-industries-georges-bucket01 versioning enabled.            | us-east-1      | 876515858155 |
+| arn:aws:s3:::aws-cloudtrail-logs-876515858155-8592de2c       | ok     | aws-cloudtrail-logs-876515858155-8592de2c versioning enabled.       | us-east-1      | 876515858155 |
+| arn:aws:s3:::vandelay-industries-cosmos-bucket               | ok     | vandelay-industries-cosmos-bucket versioning enabled.               | us-east-1      | 876515858155 |
+| arn:aws:s3:::vanedaly-replicated-bucket-01                   | ok     | vanedaly-replicated-bucket-01 versioning enabled.                   | us-east-1      | 876515858155 |
+| arn:aws:s3:::vandelay-industries-elaines-bucket              | ok     | vandelay-industries-elaines-bucket versioning enabled.              | us-east-1      | 876515858155 |
+| arn:aws:s3:::vandelay-industries-vandelay01                  | ok     | vandelay-industries-vandelay01 versioning enabled.                  | us-east-1      | 876515858155 |
+| arn:aws:s3:::vandelay-industries-darins-bucket               | ok     | vandelay-industries-darins-bucket versioning enabled.               | us-east-1      | 876515858155 |
++--------------------------------------------------------------+--------+---------------------------------------------------------------------+----------------+--------------+
+```
+
+
+If your mod contains dashboards, you can view them with the `powerpipe dashboard` command. Simply change to the directory that contains the mod and run:
 ```bash
-cd my_mod
-flowpipe mod init
+powerpipe dashboard
 ```
 
-The `flowpipe mod init` command will create a file called `mod.fp` that contains a `mod` resource for mod named `local`:
-```hcl
-mod "local" {
-  title = "my_mod"
-}
+You can also run `powerpipe check` to run controls and benchmarks defined in the current directory:
+
+```bash
+powerpipe check all 
 ```
 
-You can use a text editor to modify the [mod definition](/docs/flowpipe-hcl/mod) in this file to give your mod a name, title, description, and other properties.
+When powerpipe runs, it loads all the resources defined in the mod and its dependencies and makes their resources available to `powerpipe query`, `powerpipe check`, and `powerpipe dashboard`.  Powerpipe can even create a set of introspection tables that allow you to query the mod resources in the workspace.  For performance reasons, introspection is disabled by default, however you can enable it by setting the [STEAMPIPE_INTROSPECTION](reference/env-vars/powerpipe_introspection) environment variable:
 
-```hcl
-mod "my_mod" {
-  title = "My First Flowpipe Mod"
-  description   = "Sample mod for Flowpipe documentation."
-}
+```bash
+export STEAMPIPE_INTROSPECTION=info
 ```
 
-Your mod is initialized!  You can add [pipelines](/docs/build/write-pipelines/index) and [triggers](/docs/build/triggers) to your mod using [Flowpipe HCL](/docs/flowpipe-hcl/index).  You can even [use resources from other mods](/docs/build/mod-dependencies); explore the available mods on the [Flowpipe Hub](https://hub.flowpipe.io/)!
+Once enabled, you can query the introspection tables.  For example, you can list all the benchmarks in the workspace:
+
+```
+> select resource_name from powerpipe_benchmark order by resource_name
++----------------------+
+| resource_name        |
++----------------------+
+| cis_v130             |
+| cis_v130_1           |
+| cis_v130_2           |
+| cis_v130_2_1         |
+| cis_v130_2_2         |
+| cis_v130_3           |
+| cis_v130_4           |
+| cis_v130_5           |
+| pci_v321             |
+| pci_v321_autoscaling |
+| pci_v321_cloudtrail  |
+| pci_v321_kms         |
++----------------------+
+```
+
+
+You can explore the available mods on the [Powerpipe Hub](https://hub.powerpipe.io/mods), and you can [create your own benchmarks](mods/writing-controls) and [dashboards](mods/writing-dashboards) with [SQL](sql/powerpipe-sql) and [HCL](reference/mod-resources/overview)! 

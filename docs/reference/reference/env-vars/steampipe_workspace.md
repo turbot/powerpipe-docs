@@ -1,0 +1,26 @@
+---
+title: STEAMPIPE_WORKSPACE
+sidebar_label: STEAMPIPE_WORKSPACE
+---
+
+
+# STEAMPIPE_WORKSPACE
+
+Sets the Powerpipe [workspace](/docs/reference/config-files/workspace). 
+
+A Powerpipe `workspace` is a "profile" that allows you to define a unified environment that the Powerpipe client can interact with. 
+
+To learn more, see **[Managing Workspaces →](/docs/managing/workspaces)**
+
+
+
+## Usage 
+Use the `my_workspace` workspace:
+```bash
+export STEAMPIPE_WORKSPACE=my_workspace
+```
+
+Use the `acme/prod` Turbot Pipes workspace:
+```bash
+export STEAMPIPE_WORKSPACE=acme/prod
+```

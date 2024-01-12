@@ -5,44 +5,71 @@ sidebar_label: Mod Dependencies
 
 # Mod Dependencies
 
-Flowpipe mods may depend on other mods, allowing you to quickly and easily extend them with additional features and functionality.  You can add, remove, and update your dependencies with the [flowpipe mod command](/docs/reference/cli/mod). 
+Powerpipe mods may depend on other mods, allowing you to quickly and easily extend them with additional features and functionality.  
 
-To add a dependency, run `flowpipe mod install` from the root directory of your mod, specifying the path to the mod's Github repo:
+To add a dependency, run `powerpipe mod install` from the root directory of your mod, specifying the path to the mod's Github repo:
 
 ```bash
 cd my-mod
-flowpipe mod install github.com/turbot/flowpipe-mod-slack
+powerpipe mod install github.com/turbot/powerpipe-mod-aws-compliance
 ```
 
-This will install the mod into the `.flowpipe` sub-directory, and will add the dependency to your `mod.fp` file:
+This will install the mod into the `.powerpipe` sub-directory, and will add the dependency to the [require block](/docs/reference/mod-resources/mod#require) of your `mod.sp` file:
 ```hcl
 mod "local" {
   title = "my-mod"
   require {
-    mod "github.com/turbot/flowpipe-mod-slack" {
+    mod "github.com/turbot/powerpipe-mod-aws-compliance" {
       version = "latest"
     }
   }
 }
 ```
 
-You can then create new `.fp` files in your mod that reference the resources in the dependency mods.  You can use a [pipeline step](/docs/flowpipe-hcl/step/pipeline) to run a pipeline in the dependency mod:
+
+You can then create new `.sp` files in your mod that reference the resources in the dependency mods.  You can create your own controls that use `query` resources from the dependency mod: 
 
 ```hcl
-pipeline "my_pipeline" {
-
-  step "pipeline" "post_message" {
-    pipeline = slack.pipeline.post_message
-    args = {
-      channel = "#general"
-      text    = "This is a test message"
-    }
-  }
+control "my_mod_public_ec2" {
+  title         = "EC2 instances should not have a public IP address"
+  description   = "This control checks whether EC2 instances have a public IPv4 address."
+  severity      = "high"
+  sql           = aws_compliance.query.ec2_instance_not_publicly_accessible.sql
 }
 ```
 
-You can run also run a pipeline from a direct dependency from the command line.  Since the pipeline is in a dependency mod, you have to qualify the pipeline reference with the mod name:
-
-```bash
-flowpipe pipeline run slack.pipeline.post_message --arg channel="#general" --arg text="This is a test message"
+Or create your own dashboards or benchmarks that reference resources from your own mod or any dependencies:
+```hcl
+benchmark "my_mod_public_resources" {
+  title       = "Public Resources"
+  description = "Resources that are public."
+  children = [
+    aws_compliance.control.dms_replication_instance_not_publicly_accessible,
+    aws_compliance.control.redshift_cluster_prohibit_public_access,
+    aws_compliance.control.s3_bucket_restrict_public_read_access,
+    aws_compliance.control.s3_bucket_restrict_public_write_access,
+    control.my_mod_public_ec2,
+  ]
+}
 ```
+
+You can add, remove, and update your dependencies with the [powerpipe mod command](/docs/reference/cli/mod). 
+
+You can run all the benchmarks in your mod:
+```bash
+powerpipe check all
+```
+
+When in a mod folder, `powerpipe check all` will only run benchmarks defined in the mod, however you can run the dependent controls and benchmarks by qualifying them with the mod name:
+```
+powerpipe check aws_compliance.benchmark.cis_v140 
+```
+
+Or you can run all benchmarks in a dependency mod by specifying only the mod name:
+```bash
+powerpipe check aws_compliance 
+```
+
+
+When running `powerpipe dashboard` from a mod, all dashboards in your mod and its direct dependencies will be available to run.
+

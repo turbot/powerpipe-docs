@@ -1,9 +1,9 @@
 ---
-title:  Flowpipe Reference
+title:  Powerpipe Reference
 sidebar_label: Reference
 ---
 
-# Flowpipe Reference
+# Powerpipe Reference
 
 When all else fails, read the manual...
 

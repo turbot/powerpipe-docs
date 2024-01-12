@@ -5,14 +5,14 @@ sidebar_label: Using Variables
 
 # Using Variables
 
-[Variables](flowpipe-hcl/variable) are module-level objects that allow you to pass values to your module at runtime.  When running Flowpipe, you can pass values on the command line or from a `.fpvars` file, and you will be prompted for any variables that have no values.
+[Variables](reference/mod-resources/variable) are module level objects that allow you to pass values to your module at runtime.  When running Powerpipe, you can pass values on the command line or from a `.spvars` file, and you will be prompted for any variables that have no values.
 
-[Locals](flowpipe-hcl/locals) are internal, private variables used only *within* your mod - you cannot pass values in at runtime.
+[Locals](reference/mod-resources/locals) are internal, private variables used only *within* your mod - you cannot pass values in at runtime.
 
 ##  Input Variables
 
 ### Defining Input Variables
-Flowpipe mods support input variables that are similar to [Terraform input variables](https://www.terraform.io/docs/language/values/variables.html):
+Powerpipe mods support input variables that are similar to [terraform input variables](https://www.terraform.io/docs/language/values/variables.html):
 
 You declare them with a `variable` block:
 ```hcl
@@ -28,6 +28,7 @@ variable "mandatory_tag_keys" {
 
 ```
 
+
 You can optionally define:
 - `default` - A default value.  If no value is passed, the user is not prompted and the default is used.
 - `type` - The data type of the variable.  This may be a simple type or a collection.
@@ -40,48 +41,46 @@ You can optionally define:
     - `set(<TYPE>)`
     - `map(<TYPE>)`
     - `object({<ATTR NAME> = <TYPE>, ... })`
+    - `tuple([<TYPE>, ...])`
   - The keyword `any` may be used to indicate that any type is acceptable 
 - `description` - A description of the variable.  This text is included when the user is prompted for a variable's value.
 
+<!--
+- `validation` - A block to define custom validation rules.
+- `sensitive` - Allows you to suppress showing the variable's value in output.
+-->
+
 ### Using Input Variables
-Variables may be referenced as `var.<NAME>`.  Variables are often used as defaults for pipeline parameters:
+Variables may be referenced as `var.<NAME>`.  Variables are often used to pass [parameters](mods/param-query) to queries:
 
 ```hcl
-pipeline "list_org_workspaces" {
-  param "org" {
-    type    = string
-    default = var.pipes_org
-  }
+variable "instance_state" {
+  type    = string
+  default = "stopped" 
+}
 
-  step "http" "list_workspaces" {
-    url    = "https://pipes.turbot.com/api/latest/org/${param.org}/workspace"
-    method = "get"
-
-    request_headers = {
-      Authorization = "Bearer ${file("~/.steampipe/internal/pipes.turbot.com.tptt")}"
-    }
-  }
-
-  output "workspaces" {
-    value = step.http.list_workspaces.response_body.items[*].handle 
-  }
+query "instances_in_state" {
+  sql = "select instance_id, instance_state from aws_ec2_instance where instance_state = $1;" 
+  param "find_state" {
+    default = var.instance_state
+  } 
 }
 ```
 
 ### Passing Input Variables
-When running Flowpipe, you can pass variables in several ways.  You can pass individual variable values on the command line with one or more `--var` arguments:
+When running Powerpipe, you can pass variables in several ways.  You can pass individual variables values on the command line with one or more `--var` arguments:
 
 ```bash
-flowpipe pipeline run list_org_workspaces --var=org="my_org"
+powerpipe query --var=instance_state="running"
 ```
 
 When passing list variables, they must be enclosed in single quotes:
 
 ```bash
-flowpipe pipeline run check_tags --var='mandatory_tags=["Owner","Application","Environment"]' 
+powerpipe check all --var='mandatory_tags=["Owner","Application","Environment"]' --var='sensitive_tags=["password","key"]'
 ```
 
-You can specify variable values in a `.fpvars` file, using HCL syntax:
+You can specify variable values in a `.spvars` file, using HCL syntax:
 ```hcl
 mandatory_tags = [
   "Owner",
@@ -89,35 +88,36 @@ mandatory_tags = [
   "Environment"
 ] 
 
-org = "my_org"
+sensitive_tags =[ 
+  "password",
+  "key"
+]
+```
+Powerpipe *automatically* reads in the file named `powerpipe.spvars` as well as any file ending in `.auto.spvars` from the working directory if they exist.  You can also specify a variable file by name on the command line:
+```bash
+powerpipe check all --var-file='tags.spvars'
 ```
 
-Flowpipe *automatically* reads in the file named `flowpipe.fpvars` as well as any file ending in `.auto.fpvars` from the working directory if they exist.  You can also specify a variable file by name on the command line:
+You may also set variable values via environment variables.  Simply prefix the powerpipe variable name with `SP_VAR_`:
 
 ```bash
-flowpipe pipeline run check_tags  --var-file='tags.fpvars'
+export SP_VAR_mandatory_tags='["Owner","Application", "Environment"]' 
 ```
 
-You may also set variable values via environment variables.  Simply prefix the Flowpipe variable name with `FP_VAR_`:
+If you run Powerpipe from a mod that defines input variables, and they are not set anywhere (no default, not set in a `.spvars` file, not set with `--var` argument, not set via environment variable) then Powerpipe will prompt you for them before running the control/benchmark.
 
-```bash
-export FP_VAR_mandatory_tags='["Owner","Application", "Environment"]' 
-```
-
-If you run Flowpipe from a mod that defines input variables, and they are not set anywhere (no default, not set in a `.fpvars` file, not set with `--var` argument, not set via an environment variable) then Flowpipe will prompt you for them before running the pipeline.
-
-Flowpipe loads variables in the following order, with later sources taking precedence over earlier ones:
+Powerpipe loads variables in the following order, with later sources taking precedence over earlier ones:
 1. Environment variables
-1. The `flowpipe.fpvars` file, if present.
-1. Any `*.auto.fpvars` files, in alphabetical order by filename.
+1. The `powerpipe.spvars` file, if present.
+1. Any `*.auto.spvars` files, in alphabetical order by filename.
 1. Any `--var` and `--var-file` options on the command line, in the order they are provided.
 
 
 ### Passing Variables for Dependency Mods
 
-A Flowpipe mod can depend on other mods, and those dependency mods may include variables that you would like to pass.  To set them, prefix the variable names with the mod name and then set them like any other variable.
+A Powerpipe mod can depend on other mods, and those dependency mods may include variables that you would like to pass.  To set them, prefix the variable names with the mod alias and them set them like any other variable.
 
-You can set them in a `.fpvars` file:
+You can set them in a `.spvars` file:
 ```hcl
 // direct dependency vars
 aws_tags.mandatory_tags = ["Owner","Application","Environment"]
@@ -126,28 +126,35 @@ azure_tags.mandatory_tags = ["Owner","Application","Environment"]
 
 Or pass them to the command with the `--var` argument
 ```bash
-flowpipe pipeline run check_tags  --var 'aws_tags.mandatory_tags=["Owner","Application","Environment"]'  --var 'azure_tags.mandatory_tags=["Owner","Application","Environment"]' --var 'gcp_labels.mandatory_labels=["Owner","Application","Environment"]'
+ powerpipe dashboard --var 'aws_tags.mandatory_tags=["Owner","Application","Environment"]'  --var 'azure_tags.mandatory_tags=["Owner","Application","Environment"]' --var 'gcp_labels.mandatory_labels=["Owner","Application","Environment"]'
  ```
 
 ##  Local Variables
-Flowpipe supports using local variables in a manner similar to [Terraform local values](https://www.terraform.io/docs/language/values/locals.html).  Unlike `variables`, locals cannot be passed in at runtime, but are useful as internal private variables.
+Powerpipe supports using local variables in a manner similar to [Terraform local values](https://www.terraform.io/docs/language/values/locals.html).  Unlike `variables`, locals cannot be passed in at runtime, but are useful as internal private variables.
 
 The `locals` block defines and sets one or more local variables, using standard HCL assignment syntax.  The locals are scoped to the mod, and a mod may contain multiple `locals` blocks.  Locals may reference other values in the mod, including other local values.
 
 A set of one or more local values can be declared in one or more `locals` blocks:
 ```hcl
 locals {
-  common_tags = {
-    owner       = "dev team"
-    environment = "prod"
+  cis_v140_common_tags = {
+    cis         = "true"
+    cis_version = "v1.4.0"
+    plugin      = "aws"
   }
+}
+
+locals {
+  cis_v140_1_common_tags = merge(local.cis_v140_common_tags, {
+    cis_section_id = "1"
+  })
 }
 ```
 
 Once a local value is declared, you can reference it in expressions as `local.<NAME>`.
 ```hcl
-pipeline "my_pipeline" {
+control "cis_v140_1_1" {
   ...
-  tags = local.common_tags
+  tags = local.cis_v140_1_common_tags
 }
 ```

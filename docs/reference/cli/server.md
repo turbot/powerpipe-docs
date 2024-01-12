@@ -1,17 +1,17 @@
 ---
-title: flowpipe server
-sidebar_label: flowpipe server
+title: powerpipe server
+sidebar_label: powerpipe server
 ---
 
 
-# flowpipe server
+# powerpipe server
 
-Run the Flowpipe server, including triggers, integrations, and the API.  Flowpipe server runs in the foreground; Press `Ctrl-C` to exit.
+Run the Powerpipe server, including triggers, integrations, and the API.  Powerpipe server runs in the foreground; Press `Ctrl-C` to exit.
 
 
 ## Usage
 ```bash
-flowpipe server
+powerpipe server
 ```
 
 ## Flags
@@ -22,33 +22,33 @@ flowpipe server
 | `--port int`        | Web server port (default `7103`).
 | `--var string=string` | Specify the value of a variable.  Multiple `--var` arguments may be passed. 
 | `--var-file string`| Specify a `.fpvar` file containing variable values.
-| `--watch`             | Watch mod files for changes when running `flowpipe server` (default `true`).
+| `--watch`             | Watch mod files for changes when running `powerpipe server` (default `true`).
 
 ## Examples
 
-Start Flowpipe in server mode:
+Start Powerpipe in server mode:
 ```bash
-flowpipe server
+powerpipe server
 ```
 
-Start Flowpipe on port 7104
+Start Powerpipe on port 7104
 ```bash
-flowpipe server --port 7104
+powerpipe server --port 7104
 ```
 
-Start Flowpipe on `localhost` only
+Start Powerpipe on `localhost` only
 ```bash
-flowpipe server  --listen local
+powerpipe server  --listen local
 ```
 
-Start Flowpipe using settings from a workspace
+Start Powerpipe using settings from a workspace
 ```bash
-flowpipe server --workspace my_flowpipe_server
+powerpipe server --workspace my_powerpipe_server
 ```
 
-Start Flowpipe in server mode but turn off file watching:
+Start Powerpipe in server mode but turn off file watching:
 ```bash
-flowpipe server --watch=false
+powerpipe server --watch=false
 ```
 
 <!--
@@ -56,9 +56,9 @@ TO DO
 The value takes the form of a comma-separated list of host names and/or numeric IP addresses. The special entry * corresponds to all available IP interfaces. The entry 0.0.0.0 allows listening for all IPv4 addresses and :: allows listening for all IPv6 addresses. If the list is empty, the server does not listen on any IP interface at all, in which case only Unix-domain sockets can be used to connect to it
 
 # postgres style
-flowpipe listen --port 7103 --addresses '*'       # all interfaces
-flowpipe listen --port 7103 --addresses 0.0.0.0   # all ipv4 interfaces
-flowpipe listen --port 7103 --addresses ::        # all ipv6 interfaces
-flowpipe listen --port 7103 --addresses localhost # loopback only
-flowpipe listen --port 7103 --addresses 10.0.0.1,127.0.0.1,192.168.0.1 # specific addresses
+powerpipe listen --port 7103 --addresses '*'       # all interfaces
+powerpipe listen --port 7103 --addresses 0.0.0.0   # all ipv4 interfaces
+powerpipe listen --port 7103 --addresses ::        # all ipv6 interfaces
+powerpipe listen --port 7103 --addresses localhost # loopback only
+powerpipe listen --port 7103 --addresses 10.0.0.1,127.0.0.1,192.168.0.1 # specific addresses
 -->

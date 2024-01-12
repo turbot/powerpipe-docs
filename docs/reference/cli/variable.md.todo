@@ -1,16 +1,16 @@
 ---
-title: flowpipe variable
-sidebar_label: flowpipe variable
+title: powerpipe variable
+sidebar_label: powerpipe variable
 ---
 
-# flowpipe variable
+# powerpipe variable
 
-Manage Flowpipe variables in the current mod and its direct dependents.
+Manage Powerpipe variables in the current mod and its direct dependents.
 
 
 ## Usage
 ```bash
-flowpipe variable [command] [flags]
+powerpipe variable [command] [flags]
 ```
 
 ## Sub-Commands
@@ -25,12 +25,12 @@ flowpipe variable [command] [flags]
 List variables:
 
 ```bash
-flowpipe variable list
+powerpipe variable list
 ```
 
 
 List variables in JSON format:
 
 ```bash
-flowpipe variable list --output json
+powerpipe variable list --output json
 ```
