@@ -4,28 +4,22 @@
     "id": "learn",
     "label": "Learn Powerpipe",
     "link": "learn",
-    "items": [
-    ]
+    "items": []
   },
 
   {
     "type": "category",
     "id": "run",
     "label": "Run Powerpipe",
-    "link": "run/index",
-    "items": [
-      "run/dashboard",
-      "run/benchmark",
-      "run/server",
-      "run/workspaces"
-    ]
+    "link": "run",
+    "items": ["run/dashboard", "run/benchmark", "run/server", "run/workspaces"]
   },
 
   {
     "type": "category",
     "id": "working-with-mods",
     "label": "Build Mods",
-    "link": "build/index",
+    "link": "build",
     "items": [
       "build/writing-controls",
       "build/writing-dashboards",
@@ -38,7 +32,7 @@
   {
     "type": "category",
     "id": "powerpipe-hcl",
-    "link": "powerpipe-hcl/index",
+    "link": "powerpipe-hcl",
     "items": [
       "powerpipe-hcl/benchmark",
       "powerpipe-hcl/card",
@@ -62,32 +56,32 @@
       "powerpipe-hcl/text",
       "powerpipe-hcl/variable",
       "powerpipe-hcl/with"
-      ]       
+    ]
   },
-  
+
   {
     "type": "category",
     "id": "reference",
     "label": "Reference",
-    "link": "reference/index",
+    "link": "reference",
     "items": [
       {
         "type": "category",
         "id": "cli",
         "label": "Command Line Arguments",
-        "link": "reference/cli/index",
+        "link": "reference/cli",
         "items": [
           "reference/cli/help",
           "reference/cli/server",
           "reference/cli/mod"
         ]
       },
-      
+
       {
         "type": "category",
         "id": "env-vars",
         "label": "Environment Variables",
-        "link": "reference/env-vars/index",
+        "link": "reference/env-vars",
         "items": [
           "reference/env-vars/powerpipe_config_path",
           "reference/env-vars/powerpipe_host",
@@ -107,10 +101,8 @@
         "type": "category",
         "id": "config-files",
         "label": "Configuration Files",
-        "link": "reference/config-files/index",
-        "items": [
-          "reference/config-files/workspace"
-        ]
+        "link": "reference/config-files",
+        "items": ["reference/config-files/workspace"]
       }
     ]
   }
