@@ -117,17 +117,17 @@ category "table" {
 |-------------|--------|-----------|------------
 | `args` | Map | Optional| A map of arguments to pass to the query. 
 | `base` |  Graph Reference		| Optional | A reference to a named `graph` resource that this `graph` should source its definition from.
-| `category` | Block | Optional| [category](/docs/reference/mod-resources/category) blocks that specify display options for nodes and edges with that category.
+| `category` | Block | Optional| [category](/docs/powerpipe-hcl/category) blocks that specify display options for nodes and edges with that category.
 | `direction` | String | Optional | The direction of the graph layout. Valid options are `left_right` and `top_down`.  The default is  `top_down`.
-| `edge` | Block | Optional| [edge](/docs/reference/mod-resources/edge) blocks that define the edges in the graph.
-| `node` | Block | Optional| [node](/docs/reference/mod-resources/node) blocks that define the nodes in the graph.
+| `edge` | Block | Optional| [edge](/docs/powerpipe-hcl/edge) blocks that define the edges in the graph.
+| `node` | Block | Optional| [node](/docs/powerpipe-hcl/node) blocks that define the nodes in the graph.
 | `param` | Block | Optional| A [param](reference/mod-resources/query#param) block that defines the parameters that can be passed in to the graph. You can only specify `param` blocks when the graph is defined as a top-level, named resource.
 | `query` | Query Reference | Optional | A reference to a [query](reference/mod-resources/query) resource that defines the query to run.  A graph may either specify the `query` argument or the `sql` argument, but not both.
 | `sql` |  String	| Optional |  A SQL string to provide data for the graph.  A graph may either specify the `query` argument or the `sql` argument, but not both.
 | `title`     | String | Optional | The title to display above the graph.
 | `type`      | String | Optional | The type of graph to display. Currently, only `graph` is supported. The default is `graph`.
-| `width` |  Number	| Optional | The [width](/docs/reference/mod-resources/dashboard#width) as a number of grid units that this item should consume from its parent.
-| `with` | Block | Optional| [with](/docs/reference/mod-resources/with) blocks that define prerequisite queries to run.  `with` blocks may only be specified when the graph is defined as a top-level (mod level), named resource.
+| `width` |  Number	| Optional | The [width](/docs/powerpipe-hcl/dashboard#width) as a number of grid units that this item should consume from its parent.
+| `with` | Block | Optional| [with](/docs/powerpipe-hcl/with) blocks that define prerequisite queries to run.  `with` blocks may only be specified when the graph is defined as a top-level (mod level), named resource.
 
 
 
@@ -138,7 +138,7 @@ category "table" {
 
 Some powerpipe dashboard elements can include `node` and `edge` blocks.  These elements are sometimes referred to as **node/edge visualizations** and include `graph`, `flow`, and `hierarchy`. These resources essentially implement the same interface:
   - They support `node` and `edge` blocks as children
-  - They are also [query-based resources](/docs/reference/mod-resources/query#query-based-resources), and support using the `sql` and `query` arguments instead of `node` and `edge` blocks
+  - They are also [query-based resources](/docs/powerpipe-hcl/query#query-based-resources), and support using the `sql` and `query` arguments instead of `node` and `edge` blocks
   - They must appear in a dashboard to be displayed, but may be defined as top level resources and referenced with `base`
   - They support `param` and `with` blocks, but only when in a top level resource
   - They support `category` blocks
@@ -618,12 +618,12 @@ dashboard "plugin_versions_mono" {
 
 ### Categories
 
-Node/Edge visualizations allow you to specify a [category](/docs/reference/mod-resources/category) for each node and edge.  Categories are used to define display properties such as color, title, and icon to provide a consistent look and feel across panels and dashboards.
+Node/Edge visualizations allow you to specify a [category](/docs/powerpipe-hcl/category) for each node and edge.  Categories are used to define display properties such as color, title, and icon to provide a consistent look and feel across panels and dashboards.
 
 Categories may be defined either at the mod level or in a `graph`, `flow`, or `hierarchy`.  When using `node` and `edge` blocks, it is typically preferable to define the categories as top-level, named mod resources.  This allows you to reference them via the `category` HCL argument in a node or edge.  When specifying a `category` column in SQL, such as when using the monolithic query approach, you will need to define the category in the graph, flow, or hierarchy.
 
 ### With blocks
 
-Node/Edge visualizations support [`with` blocks](/docs/reference/mod-resources/with). Similar to a `with` clause in a postgres CTE, the `with` block allows you to specify additional queries or SQL statements to run **first**, and then pass the query results as arguments to `sql`, `query`, and `node` & `edge` blocks.
+Node/Edge visualizations support [`with` blocks](/docs/powerpipe-hcl/with). Similar to a `with` clause in a postgres CTE, the `with` block allows you to specify additional queries or SQL statements to run **first**, and then pass the query results as arguments to `sql`, `query`, and `node` & `edge` blocks.
 
 You can only specify `with` blocks on **top-level named resources** in your mod. The results of the `with` query can be referenced only within the resource in which it is defined (including any sub-blocks).

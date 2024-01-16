@@ -20,6 +20,6 @@ Powerpipe will load [configuration files](/docs/reference/config-files/index) (`
 
 Powerpipe can operate in 2 modes.
 
-By default, Powerpipe runs in **Client-only Mode**.  Powerpipe loads the mod, runs the command, and exits. [Triggers](/docs/build/triggers) are not enabled in Client-Only Mode.
+By default, Powerpipe runs in **Client-only Mode**.  Powerpipe loads the mod, runs the command, and exits.  [Interactive dashboards](/docs/run/dashboard) are not enabled in Client-Only Mode.
 
-If you run Powerpipe in **Server Mode** mode, Powerpipe will run an API server (on port `7103` by default).  In [this mode](/docs/run/server), you can create [triggers](/docs/powerpipe-hcl/trigger/index) that run pipelines [on a schedule](/docs/powerpipe-hcl/trigger/schedule) or in response to events such as [webhooks](/docs/powerpipe-hcl/trigger/http).  After you start the Powerpipe server, you can run Powerpipe commands against it by specifying the [--host](/docs/reference/cli/index) argument.
+If you run Powerpipe in **Server Mode** mode, Powerpipe will run an API server (on port `9194` by default).  In [this mode](/docs/run/server), you can browse [Interactive dashboards](/docs/run/dashboard) by navigating to `http://localhost:9194/` in your web browser.  After you start the Powerpipe server, you can run Powerpipe commands against it by specifying the [--host](/docs/reference/cli/index) argument.

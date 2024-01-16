@@ -9,20 +9,22 @@ sidebar_label: Powerpipe CLI
 
 | Command | Description
 |-|-
-| [powerpipe help](reference/cli/help)      | Help about any command
-| [powerpipe mod](reference/cli/mod)        | Powerpipe mod management
-| [powerpipe pipeline](reference/cli/pipeline) | List, view, and run Powerpipe pipelines
-| [powerpipe process](reference/cli/process) | List and view Powerpipe processes
-| [powerpipe server](reference/cli/server)  | Run Powerpipe server, including triggers and integrations
-| [powerpipe trigger](reference/cli/pipeline) | List and view Powerpipe triggers
+| [powerpipe help](reference/cli/help)      | Help about any command.
+| [powerpipe login](reference/cli/login)    | Log in to Powerpipe CLoud
+| [powerpipe mod](reference/cli/mod)        | Powerpipe mod management.
+| [powerpipe benchmark](reference/cli/benchmark) | List, view, and run Powerpipe benchmarks.
+| [powerpipe control](reference/cli/control)| List and view Powerpipe controls.
+| [powerpipe dashboard](reference/cli/dashboard) | List and view Powerpipe dashboards.
+| [powerpipe query](reference/cli/query)    | List and view Powerpipe queries.
+| [powerpipe server](reference/cli/server)  | Run Powerpipe server, including triggers and integrations.
+| [powerpipe variable](reference/cli/variable)| Powerpipe variable management
+
 
 
 
 <!--
 
-| [powerpipe variable](reference/cli/variable)| Powerpipe variable management
 
-| [powerpipe login](reference/cli/login)    | Log in to Powerpipe CLoud
 
 | [powerpipe completion](reference/cli/completion)| Generate the autocompletion script for the specified shell
 
@@ -38,9 +40,9 @@ sidebar_label: Powerpipe CLI
   <tr> 
     <td nowrap="true"> <inlineCode>--config-path</inlineCode> </td> 
     <td>  
-    Sets the search path for <a href = "/docs/reference/config-files/index">configuration files</a>. This argument accepts a colon-separated list of directories.  All configuration files (<inlineCode>*.fpc</inlineCode>) will be loaded from each path, with decreasing precedence.  The default is <inlineCode>.:$POWERPIPE_INSTALL_DIR/config</inlineCode> (<inlineCode>.:~/.powerpipe/config</inlineCode>).  This allows you to manage your <a href="/docs/reference/config-files/workspace"> workspaces </a> and <a href="/docs/reference/config-files/credential/index">credentials</a> centrally in the <inlineCode>~/.powerpipe/config</inlineCode> directory, but override them in the working directory / mod location if desired.
+    Sets the search path for <a href = "/docs/reference/config-files/index">configuration files</a>. This argument accepts a colon-separated list of directories.  All configuration files (<inlineCode>*.ppc</inlineCode>) will be loaded from each path, with decreasing precedence.  The default is <inlineCode>.:$POWERPIPE_INSTALL_DIR/config</inlineCode> (<inlineCode>.:~/.powerpipe/config</inlineCode>).  This allows you to manage your <a href="/docs/reference/config-files/workspace"> workspaces </a> and <a href="/docs/reference/config-files/credential/index">credentials</a> centrally in the <inlineCode>~/.powerpipe/config</inlineCode> directory, but override them in the working directory / mod location if desired.
     </td> 
-  </tr>
+  </tr>   
 
   <tr> 
     <td nowrap="true"> <inlineCode>-h</inlineCode>, <inlineCode>--help</inlineCode> </td> 
@@ -50,11 +52,6 @@ sidebar_label: Powerpipe CLI
   <tr> 
     <td nowrap="true"> <inlineCode>--host</inlineCode> </td> 
     <td> Run the command against a local or remote server instance.  You may specify the full host and port (e.g. <inlineCode>--host https://powerpipe.my-org.com:7103</inlineCode>), or use the keyword <inlineCode>local</inlineCode> to connect to the local server instance as a shortcut for <inlineCode>https://localhost:7103</inlineCode> (e.g. <inlineCode>--host local</inlineCode>) </td> 
-  </tr>
-
-  <tr> 
-    <td nowrap="true">  <inlineCode>--insecure</inlineCode> </td> 
-    <td> Ignore any TLS certificate errors and warnings when connecting to a Powerpipe API host. </td> 
   </tr>
 
 
@@ -78,11 +75,6 @@ sidebar_label: Powerpipe CLI
     <td nowrap="true"> <inlineCode>--workspace	</inlineCode>  </td> 
     <td>  Sets the Powerpipe workspace profile. If not specified, the default workspace will be used if it exists. See <a href="/docs/reference/env-vars/powerpipe_workspace">POWERPIPE_WORKSPACE</a> for details. </td> 
   </tr>
-
-
-  
-
-
 
 </table>
 

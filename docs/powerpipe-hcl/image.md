@@ -33,8 +33,8 @@ image {
 | `query` | Query Reference | Optional | A reference to a [query](reference/mod-resources/query) resource that defines the query to run.  An `image`  may either specify the `query` argument or the `sql` argument, but not both.
 | `sql` |  String	| Optional |  An SQL string to provide data for the `image`.  An `image` may either specify the `query` argument or the `sql` argument, but not both.
 | `src` |  String	| Optional | Publicly-accessible URL for the image.
-| `title` |  String	| Optional | A plain text [title](/docs/reference/mod-resources/dashboard#title) to display for this image.
-| `width` |  Number	| Optional | The [width](/docs/reference/mod-resources/dashboard#width) as a number of grid units that this item should consume from its parent.
+| `title` |  String	| Optional | A plain text [title](/docs/powerpipe-hcl/dashboard#title) to display for this image.
+| `width` |  Number	| Optional | The [width](/docs/powerpipe-hcl/dashboard#width) as a number of grid units that this item should consume from its parent.
 
 ## Data Structure
 

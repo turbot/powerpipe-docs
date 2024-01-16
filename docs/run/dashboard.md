@@ -7,20 +7,19 @@ sidebar_label: View Dashboards
 # Powerpipe Dashboards
 
 
-Powerpipe **dashboards** provide rich visualizations of Powerpipe data.  Dashboards are [written in simple HCL](/docs/reference/mod-resources/dashboard), and packaged in [mods](/docs/mods/overview).  It is simple to [create your own](mods/writing-dashboards), but there are also hundreds of dashboards available on the [Powerpipe Mods](https://hub.powerpipe.io/mods) section of the [Powerpipe Hub](https://hub.powerpipe.io).  
+Powerpipe **dashboards** provide rich visualizations of Powerpipe data.  Dashboards are [written in simple HCL](/docs/powerpipe-hcl/dashboard), and packaged in [mods](/docs/mods/overview).  It is simple to [create your own](mods/writing-dashboards), but there are also hundreds of dashboards available on the [Powerpipe Hub](https://hub.powerpipe.io).  
 
 
-You can start the dashboard server and view dashboards with the [powerpipe dashboard](/docs/reference/cli/dashboard) command.  Dashboards must be packaged in a mod, and Powerpipe looks for dashboards in the current directory by default.  
+You can start the dashboard server and view dashboards with the [powerpipe server](/docs/reference/cli/server) command.  Dashboards must be packaged in a mod, and Powerpipe looks for dashboards in the current directory by default.  
 
 
-To view the AWS Insights dashboards, for example, first clone the repo, then change to that directory, then run the `powerpipe dashboard` command:
+To view the AWS Insights dashboards, for example, first clone the repo, then change to that directory, then run the `powerpipe server` command:
 
 ```bash
 git clone https://github.com/turbot/powerpipe-mod-aws-insights.git
 cd powerpipe-mod-aws-insights
-powerpipe dashboard
+powerpipe server
 ```
-
 
 Powerpipe will start the dashboard server and will open http://localhost:9194/ in your web browser to view the dashboards in the mod. 
 <img src="/images/docs/dashboard_home.png" width="100%" />
@@ -38,25 +37,13 @@ You can type in the search bar at the top of any page to navigate to another das
 
 
 
-
-
------
-
-
-
----
-title: Viewing Details
-sidebar_label: Viewing Details
----
-
-# Viewing Details
+## Panel View
 
 Most Powerpipe dashboard elements (chart, card, table, etc) support a **Panel View** that allows you to enlarge the element, inspect its definition, and easily export its data.  
 
 To see the panel view, hover over the element and the expand button (4 opposing arrows) will appear at the top of the chart or table:   
 
 <img src="/images/docs/cost_chart_with_expander.png" width="500px" />
-
 
 
 Click the expand button to enter panel view.

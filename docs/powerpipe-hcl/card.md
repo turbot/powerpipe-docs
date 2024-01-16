@@ -44,10 +44,10 @@ card {
 | `param` | Block | Optional| A [param](reference/mod-resources/query#param) block that defines the parameters that can be passed in to the query.  `param` blocks may only be specified for cards that specify the `sql` argument. 
 | `query` | Query Reference | Optional | A reference to a [query](reference/mod-resources/query) resource that defines the query to run.  A card may either specify the `query` argument or the `sql` argument, but not both.
 | `sql` |  String	| Optional |  An SQL string to provide data for the card.  A card may either specify the `query` argument or the `sql` argument, but not both.
-| `title` |  String	| Optional | A plain text [title](/docs/reference/mod-resources/dashboard#title) to display for this card.
+| `title` |  String	| Optional | A plain text [title](/docs/powerpipe-hcl/dashboard#title) to display for this card.
 | `type` |  String	| Optional | `plain` (default), `alert`, `info` or `ok`. You can also use `table` to review the raw data.
 | `value` |  String	| Optional | Inferred from the first column's value in simple data format.
-| `width` |  Number	| Optional | The [width](/docs/reference/mod-resources/dashboard#width) as a number of grid units that this item should consume from its parent.
+| `width` |  Number	| Optional | The [width](/docs/powerpipe-hcl/dashboard#width) as a number of grid units that this item should consume from its parent.
 
 ## Data Structure
 
@@ -132,7 +132,7 @@ card {
 Note that for a `card`, we pass `label` , `value` , `type`  or `icon` HCL attributes in the JQ context, but the columns from the SQL query will overwrite any of the statically-defined HCL attributes.
 
 
-Refer to [JQ Escaping & Interpolation ](/docs/reference/mod-resources/dashboard#jq-escaping--interpolation) for more advanced examples.
+Refer to [JQ Escaping & Interpolation ](/docs/powerpipe-hcl/dashboard#jq-escaping--interpolation) for more advanced examples.
 
 
 ## More Examples
