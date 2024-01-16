@@ -29,7 +29,7 @@ workspace "remote_server" {
 }
 ```
 
-and [easily switch between them](#using-workspaces) using the `--workspace` argument or `FLOWPIPE_WORKSPACE` 
+and [easily switch between them](#using-workspaces) using the `--workspace` argument or `POWERPIPE_WORKSPACE` 
 environment variable:
 
 ```bash
@@ -80,7 +80,7 @@ workspace "prod" {
 
 ## Using Workspaces
 The workspace named `default` is special; if a workspace named `default` exists,
-`--workspace` is not  specified in the command, and `FLOWPIPE_WORKSPACE` is not set, then Powerpipe uses the `default` workspace:
+`--workspace` is not  specified in the command, and `POWERPIPE_WORKSPACE` is not set, then Powerpipe uses the `default` workspace:
 
 ```bash
 powerpipe pipeline run my_pipeline
@@ -94,16 +94,16 @@ You can pass any workspace to `--workspace` to use its values:
 powerpipe pipeline run my_pipeline --workspace=dev 
 ```
 
-Or do the same with the `FLOWPIPE_WORKSPACE` environment variable:
+Or do the same with the `POWERPIPE_WORKSPACE` environment variable:
 
 ```bash
-FLOWPIPE_WORKSPACE=dev powerpipe pipeline run my_pipeline 
+POWERPIPE_WORKSPACE=dev powerpipe pipeline run my_pipeline 
 ```
-If you specify the `--workspace` argument and the `FLOWPIPE_WORKSPACE` environment variable, the `--workspace` argument wins:
+If you specify the `--workspace` argument and the `POWERPIPE_WORKSPACE` environment variable, the `--workspace` argument wins:
 
 ```bash
 # prod will be used as the effective workspace
-export FLOWPIPE_WORKSPACE=dev 
+export POWERPIPE_WORKSPACE=dev 
 powerpipe pipeline run my_pipeline --workspace=prod
 ```
 
@@ -117,7 +117,7 @@ powerpipe pipeline run my_pipeline --workspace=dev --host=local
 Environment variable values override `default` workspace settings when the `default` workspace is *implicitly used*:
 ```bash
 # will use 7777 as the port, but get the rest of the values from the default workspace
-export FLOWPIPE_PORT=7777 
+export POWERPIPE_PORT=7777 
 powerpipe server 
 ```
 
@@ -125,14 +125,14 @@ If the default  workspace is *explicitly* passed to the `--workspace` argument, 
 
 ```bash
 # will NOT use 7777 as port - will use ALL of the values from default workspace so the port is 7103
-export FLOWPIPE_PORT=7777 
+export POWERPIPE_PORT=7777 
 powerpipe server --workspace=default 
 ```
 
 The same is true of any named workspace:
 ```bash
 # will NOT use 7777 as port - will use ALL of the values from prod workspace so the port is 7103
-export FLOWPIPE_PORT=7777 
+export POWERPIPE_PORT=7777 
 powerpipe server --workspace=prod 
 ```
 
@@ -140,7 +140,7 @@ powerpipe server --workspace=prod
 ## Implicit Workspaces
 
 Named workspaces follow normal standards for HCL identifiers, thus they cannot contain
-the slash (`/`) character.  If you pass a value to `--workspace` or `FLOWPIPE_WORKSPACE`
+the slash (`/`) character.  If you pass a value to `--workspace` or `POWERPIPE_WORKSPACE`
 in the form of `{identity_handle}/{workspace_handle}`, it will be interpreted as
 an **implicit workspace**.  Implicit workspaces, as the name suggests, do not
 need to be specified in the `workspaces.fpc` file.  Instead, they will be assumed

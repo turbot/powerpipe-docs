@@ -38,7 +38,7 @@ sidebar_label: Powerpipe CLI
   <tr> 
     <td nowrap="true"> <inlineCode>--config-path</inlineCode> </td> 
     <td>  
-    Sets the search path for <a href = "/docs/reference/config-files/index">configuration files</a>. This argument accepts a colon-separated list of directories.  All configuration files (<inlineCode>*.fpc</inlineCode>) will be loaded from each path, with decreasing precedence.  The default is <inlineCode>.:$FLOWPIPE_INSTALL_DIR/config</inlineCode> (<inlineCode>.:~/.powerpipe/config</inlineCode>).  This allows you to manage your <a href="/docs/reference/config-files/workspace"> workspaces </a> and <a href="/docs/reference/config-files/credential/index">credentials</a> centrally in the <inlineCode>~/.powerpipe/config</inlineCode> directory, but override them in the working directory / mod location if desired.
+    Sets the search path for <a href = "/docs/reference/config-files/index">configuration files</a>. This argument accepts a colon-separated list of directories.  All configuration files (<inlineCode>*.fpc</inlineCode>) will be loaded from each path, with decreasing precedence.  The default is <inlineCode>.:$POWERPIPE_INSTALL_DIR/config</inlineCode> (<inlineCode>.:~/.powerpipe/config</inlineCode>).  This allows you to manage your <a href="/docs/reference/config-files/workspace"> workspaces </a> and <a href="/docs/reference/config-files/credential/index">credentials</a> centrally in the <inlineCode>~/.powerpipe/config</inlineCode> directory, but override them in the working directory / mod location if desired.
     </td> 
   </tr>
 
@@ -61,7 +61,7 @@ sidebar_label: Powerpipe CLI
 
   <tr> 
     <td nowrap="true"> <inlineCode>--mod-location</inlineCode>  </td> 
-    <td> Sets the Powerpipe workspace working directory.  If not specified, the workspace directory will be set to the current working directory.  See <a href="/docs/reference/env-vars/powerpipe_mod_location">FLOWPIPE_MOD_LOCATION</a> for details. </td>
+    <td> Sets the Powerpipe workspace working directory.  If not specified, the workspace directory will be set to the current working directory.  See <a href="/docs/reference/env-vars/powerpipe_mod_location">POWERPIPE_MOD_LOCATION</a> for details. </td>
   </tr>
 
    <tr> 
@@ -76,7 +76,7 @@ sidebar_label: Powerpipe CLI
 
   <tr> 
     <td nowrap="true"> <inlineCode>--workspace	</inlineCode>  </td> 
-    <td>  Sets the Powerpipe workspace profile. If not specified, the default workspace will be used if it exists. See <a href="/docs/reference/env-vars/powerpipe_workspace">FLOWPIPE_WORKSPACE</a> for details. </td> 
+    <td>  Sets the Powerpipe workspace profile. If not specified, the default workspace will be used if it exists. See <a href="/docs/reference/env-vars/powerpipe_workspace">POWERPIPE_WORKSPACE</a> for details. </td> 
   </tr>
 
 

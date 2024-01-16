@@ -1,9 +1,9 @@
 ---
-title: FLOWPIPE_LISTEN
-sidebar_label: FLOWPIPE_LISTEN
+title: POWERPIPE_LISTEN
+sidebar_label: POWERPIPE_LISTEN
 ---
 
-# FLOWPIPE_LISTEN
+# POWERPIPE_LISTEN
 Specifies the IP addresses on which `powerpipe server` will listen for connections from clients. Currently supported values are `local` (localhost only) or `network` (all IP addresses). The default is `network`.  This value can only be set when the server is started.
 
 ## Usage 
@@ -11,13 +11,13 @@ Specifies the IP addresses on which `powerpipe server` will listen for connectio
 When `powerpipe server` runs, listen only on localhost:
 
 ```bash
-export FLOWPIPE_LISTEN=local
+export POWERPIPE_LISTEN=local
 ```
 
 When `powerpipe server` runs, listen on all IP addresses:
 
 ```bash
-export FLOWPIPE_LISTEN=local
+export POWERPIPE_LISTEN=local
 # or
-unset FLOWPIPE_LISTEN
+unset POWERPIPE_LISTEN
 ```

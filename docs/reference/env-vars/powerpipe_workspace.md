@@ -1,10 +1,10 @@
 ---
-title: FLOWPIPE_WORKSPACE
-sidebar_label: FLOWPIPE_WORKSPACE
+title: POWERPIPE_WORKSPACE
+sidebar_label: POWERPIPE_WORKSPACE
 ---
 
 
-# FLOWPIPE_WORKSPACE
+# POWERPIPE_WORKSPACE
 
 Sets the Powerpipe [workspace](/docs/reference/config-files/workspace). 
 
@@ -17,13 +17,13 @@ To learn more, see **[Managing Workspaces →](/docs/run/workspaces)**
 ## Usage 
 Use the `my_workspace` workspace:
 ```bash
-export FLOWPIPE_WORKSPACE=my_workspace
+export POWERPIPE_WORKSPACE=my_workspace
 ```
 
 <!--
 FUTURE:  
 Use the `acme/prod` Turbot Pipes workspace:
 ```bash
-export FLOWPIPE_WORKSPACE=acme/prod
+export POWERPIPE_WORKSPACE=acme/prod
 ```
 -->

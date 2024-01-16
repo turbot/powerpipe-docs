@@ -1,9 +1,9 @@
 ---
-title: FLOWPIPE_PORT
-sidebar_label: FLOWPIPE_PORT
+title: POWERPIPE_PORT
+sidebar_label: POWERPIPE_PORT
 ---
 
-# FLOWPIPE_PORT
+# POWERPIPE_PORT
 Specifies the TCP port on which `powerpipe server` will listen for connections from clients. The default is `7103`.  This value can only be set when the server is started.
 
 ## Usage 
@@ -11,5 +11,5 @@ Specifies the TCP port on which `powerpipe server` will listen for connections f
 When `powerpipe server` runs, listen on port 7777:
 
 ```bash
-export FLOWPIPE_PORT=7777
+export POWERPIPE_PORT=7777
 ```

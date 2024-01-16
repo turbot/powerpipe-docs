@@ -17,7 +17,7 @@ workspace "my_server" {
 }
 ```
 
-Powerpipe workspaces allow you to define multiple named configurations and easily switch between them using the `--workspace` argument or `FLOWPIPE_WORKSPACE` 
+Powerpipe workspaces allow you to define multiple named configurations and easily switch between them using the `--workspace` argument or `POWERPIPE_WORKSPACE` 
 environment variable. 
 
 ```bash
@@ -36,7 +36,7 @@ To learn more, see **[Managing Workspaces →](/docs/run/workspaces)**
 | `input`             | `true`                       | Enable/Disable interactive prompts for missing variables.  To disable prompts and fail on missing variables, set it to `false`. This is useful when running from scripts.   <br /> <br /> CLI: `--input`
 | `listen`            | `network`                    | Specifies the IP addresses on which `powerpipe server` will listen for connections from clients. Currently supported values are `local` (localhost only) or `network` (all IP addresses).
 | `log_level`         | off                          | Set the logging output level
-| `memory_max_mb`     | `1024`                       | Set a memory soft limit for the powerpipe process. Set to 0 to disable the memory limit. This can also be set via the FLOWPIPE_MEMORY_MAX_MB environment variable.
+| `memory_max_mb`     | `1024`                       | Set a memory soft limit for the powerpipe process. Set to 0 to disable the memory limit. This can also be set via the POWERPIPE_MEMORY_MAX_MB environment variable.
 | `output`            | `pretty`                     | Set the console output format: `pretty`, `plain`, `yaml` or `json`.
 | `port`              | `7103`                       | Specifies the TCP port on which `powerpipe server` will listen for connections from clients. 
 | `telemetry`         | `info`                       | Set the telemetry level in Powerpipe: `info` or `none` 
@@ -60,7 +60,7 @@ To learn more, see **[Managing Workspaces →](/docs/run/workspaces)**
 
 
 
-| `max_parallel` | `10` | an integer| Set the maximum number of parallel executions. When running pipelines, Powerpipe will attempt to run up to this many steps in parallel. This can also be set via the  `FLOWPIPE_MAX_PARALLEL` environment variable.
+| `max_parallel` | `10` | an integer| Set the maximum number of parallel executions. When running pipelines, Powerpipe will attempt to run up to this many steps in parallel. This can also be set via the  `POWERPIPE_MAX_PARALLEL` environment variable.
 
 | `query_timeout`     | `240` for controls, unlimited otherwise       | The maximum time (in seconds) a query is allowed to run before it times out.
 
@@ -86,37 +86,37 @@ except using underscore in place of dash:
 
 | Workspace Argument | Environment Variable    | Argument             
 |--------------------|-------------------------|----------------------
-| `host`             | `FLOWPIPE_HOST`         | `--host`
+| `host`             | `POWERPIPE_HOST`         | `--host`
 | `input`            |                         | `--input` 
-| `listen`           | `FLOWPIPE_LISTEN`       | `--listen` 
-| `log_level`        | `FLOWPIPE_LOG_LEVEL`    |
-| `memory_max_mb`    | `FLOWPIPE_MEMORY_MAX_MB`|
+| `listen`           | `POWERPIPE_LISTEN`       | `--listen` 
+| `log_level`        | `POWERPIPE_LOG_LEVEL`    |
+| `memory_max_mb`    | `POWERPIPE_MEMORY_MAX_MB`|
 | `output`           |                         | `--output`
-| `port`             | `FLOWPIPE_PORT`         | `--port`
-| `telemetry`        | `FLOWPIPE_TELEMETRY`    |
-| `update_check`     | `FLOWPIPE_UPDATE_CHECK` | 
+| `port`             | `POWERPIPE_PORT`         | `--port`
+| `telemetry`        | `POWERPIPE_TELEMETRY`    |
+| `update_check`     | `POWERPIPE_UPDATE_CHECK` | 
 | `watch`            |                         | `--watch`
 
 
 
 <!--
-| `insecure`         | `FLOWPIPE_INSECURE`     | `--insecure` 
+| `insecure`         | `POWERPIPE_INSECURE`     | `--insecure` 
 | `event_store`      |                         | `--event-store`
 
-| `mod_location`     | `FLOWPIPE_MOD_LOCATION` | `--mod-location`
+| `mod_location`     | `POWERPIPE_MOD_LOCATION` | `--mod-location`
 
 
-| `cloud_host`                  | `FLOWPIPE_CLOUD_HOST`         | `--cloud-host`       |
-| `cloud_token`                 | `FLOWPIPE_CLOUD_TOKEN`        | `--cloud-token`      |
+| `cloud_host`                  | `POWERPIPE_CLOUD_HOST`         | `--cloud-host`       |
+| `cloud_token`                 | `POWERPIPE_CLOUD_TOKEN`        | `--cloud-token`      |
 
-| `query_timeout`               | `FLOWPIPE_QUERY_TIMEOUT`      | `--query_timeout`     |
-| `workspace_database`          | `FLOWPIPE_WORKSPACE_DATABASE` | `--workspace-database`|
+| `query_timeout`               | `POWERPIPE_QUERY_TIMEOUT`      | `--query_timeout`     |
+| `workspace_database`          | `POWERPIPE_WORKSPACE_DATABASE` | `--workspace-database`|
 
 
 | `search_path`                 | none                           | `--search-path`       |
 | `search_path_prefix`          | none                           | `--search-path-prefix`|
 
-| `max_parallel`                | `FLOWPIPE_MAX_PARALLEL`       | `--max-parallel`      |
+| `max_parallel`                | `POWERPIPE_MAX_PARALLEL`       | `--max-parallel`      |
 
 
 -->
