@@ -1,9 +1,9 @@
 ---
-title: FLOWPIPE_TELEMETRY
-sidebar_label: FLOWPIPE_TELEMETRY
+title: POWERPIPE_TELEMETRY
+sidebar_label: POWERPIPE_TELEMETRY
 ---
 
-# FLOWPIPE_TELEMETRY
+# POWERPIPE_TELEMETRY
 
 By default, Powerpipe collects usage information to help assess features, usage patterns, and bugs.  This information helps us improve and optimize the Powerpipe experience.  We do not collect any sensitive information such as secrets, environment variables, or file contents.  We do not share your data with anyone.  Current options are:
 - `none`: do not collect or send any telemetry data.
@@ -14,11 +14,11 @@ By default, Powerpipe collects usage information to help assess features, usage 
 Disable telemetry data:
 
 ```bash
-export FLOWPIPE_TELEMETRY=none
+export POWERPIPE_TELEMETRY=none
 ```
 
 Enable telemetry data at `info` level (this is the default)
 
 ```bash
-export FLOWPIPE_TELEMETRY=info
+export POWERPIPE_TELEMETRY=info
 ```

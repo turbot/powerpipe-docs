@@ -107,20 +107,20 @@ dashboard "compose_other" {
 ## Argument Reference
 | Argument | Type | Optional? | Description
 |-|-|-|-
-| `benchmark`    | Block	| Optional | [benchmark](/docs/reference/mod-resources/benchmark) blocks to embed benchmarks in the dashboard.
-| `chart`        | Block	| Optional | [chart](/docs/reference/mod-resources/chart)  blocks to visualize SQL data in a number of ways e.g. `bar`, `column`, `line`, `pie`.
-| `container` |  Block	| Optional |  [container](/docs/reference/mod-resources/container) blocks to lay out related components together in a dashboard. 
+| `benchmark`    | Block	| Optional | [benchmark](/docs/powerpipe-hcl/benchmark) blocks to embed benchmarks in the dashboard.
+| `chart`        | Block	| Optional | [chart](/docs/powerpipe-hcl/chart)  blocks to visualize SQL data in a number of ways e.g. `bar`, `column`, `line`, `pie`.
+| `container` |  Block	| Optional |  [container](/docs/powerpipe-hcl/container) blocks to lay out related components together in a dashboard. 
 | `description` | String |  Optional| A description of the dashboard
 | `documentation` | String (Markdown)| Optional | A markdown string containing a long form description, used as documentation for the dashboard on hub.powerpipe.io. 
-| `flow` | Block	| Optional |  [flow](/docs/reference/mod-resources/flow)  blocks to visualize flows using types such as `sankey`. 
-| `hierarchy` | Block	| Optional |  [hierarchy](/docs/reference/mod-resources/hierarchy)  blocks to visualize hierarchical data using types such as `tree`. 
-| `image`     | Block	| Optional | [image](/docs/reference/mod-resources/image)    blocks to embed images in dashboards. Supports static URLs, or can be derived from SQL.
-| `input`     | Block	| Optional | [input](/docs/reference/mod-resources/input) blocks to make dynamic dashboards based on user-provided input.     
-| `table`      | Block	| Optional | [table](/docs/reference/mod-resources/table)   blocks to show tabular data in a dashboard.
+| `flow` | Block	| Optional |  [flow](/docs/powerpipe-hcl/flow)  blocks to visualize flows using types such as `sankey`. 
+| `hierarchy` | Block	| Optional |  [hierarchy](/docs/powerpipe-hcl/hierarchy)  blocks to visualize hierarchical data using types such as `tree`. 
+| `image`     | Block	| Optional | [image](/docs/powerpipe-hcl/image)    blocks to embed images in dashboards. Supports static URLs, or can be derived from SQL.
+| `input`     | Block	| Optional | [input](/docs/powerpipe-hcl/input) blocks to make dynamic dashboards based on user-provided input.     
+| `table`      | Block	| Optional | [table](/docs/powerpipe-hcl/table)   blocks to show tabular data in a dashboard.
 | `tags` | Map | Optional | A map of key:value metadata for the dashboard, used to categorize, search, and filter.  The structure is up to the mod author. 
-| `text`       | Block	| Optional | [text](/docs/reference/mod-resources/text) blocks to add GitHub-flavoured markdown to a dashboard.      
-| `title` |  String	| Optional | Plain text [title](/docs/reference/mod-resources/dashboard#title) used to display in lists, page title etc. When viewing the dashboard in a browser, will be rendered as a `h1`.
-| `with` | Block | Optional| [with](/docs/reference/mod-resources/with) blocks that define prerequisite queries to run.
+| `text`       | Block	| Optional | [text](/docs/powerpipe-hcl/text) blocks to add GitHub-flavoured markdown to a dashboard.      
+| `title` |  String	| Optional | Plain text [title](/docs/powerpipe-hcl/dashboard#title) used to display in lists, page title etc. When viewing the dashboard in a browser, will be rendered as a `h1`.
+| `with` | Block | Optional| [with](/docs/powerpipe-hcl/with) blocks that define prerequisite queries to run.
 
 
 ## Common Properties

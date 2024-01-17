@@ -5,7 +5,7 @@ sidebar_label: Writing Controls
 
 # Custom Controls
 
-Powerpipe makes it easy to create your own [controls](/docs/reference/mod-resources/control) and [benchmarks](/docs/reference/mod-resources/benchmark).  This allows you to define the controls that are important to *you* and *your organization*, and organize them in a way that reflects your organization's standards and practices.  (Of course there are controls and benchmarks already available in [mods on the Powerpipe Hub](https://hub.powerpipe.io/mods) as well if you don't want to write your own).
+Powerpipe makes it easy to create your own [controls](/docs/powerpipe-hcl/control) and [benchmarks](/docs/powerpipe-hcl/benchmark).  This allows you to define the controls that are important to *you* and *your organization*, and organize them in a way that reflects your organization's standards and practices.  (Of course there are controls and benchmarks already available in [mods on the Powerpipe Hub](https://hub.powerpipe.io/mods) as well if you don't want to write your own).
 
 ## Tutorial
 For this tutorial we'll be using the Powerpipe [AWS plugin](https://hub.powerpipe.io/plugins/turbot/aws).  If you have not already, download and install the latest AWS plugin:
@@ -58,7 +58,7 @@ control "s3_untagged" {
 }
 ```
 
-This snippet defines a control named `s3_untagged`, including a sql query to find untagged S3 buckets.  Note that the query returns the [required control columns](/docs/reference/mod-resources/control#required-control-columns) (`resource`, `status`, and `reason`), as well as additional columns, or [dimensions](/docs/reference/mod-resources/control#additional-control-columns--dimensions), to provide context that is specific to AWS (`region`, `account_id`).
+This snippet defines a control named `s3_untagged`, including a sql query to find untagged S3 buckets.  Note that the query returns the [required control columns](/docs/powerpipe-hcl/control#required-control-columns) (`resource`, `status`, and `reason`), as well as additional columns, or [dimensions](/docs/powerpipe-hcl/control#additional-control-columns--dimensions), to provide context that is specific to AWS (`region`, `account_id`).
 
 Now lets run our control:
 ```bash

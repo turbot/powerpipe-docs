@@ -46,14 +46,14 @@ container {
 | Argument | Type | Optional? | Description
 |-|-|-|-
 | `base` |  Dashboard or Container Reference		| Optional | A reference to a named `dashboard` or `container` that this `container` should source its definition from. `title` and `width` can be overridden after sourcing via `base`.
-| `benchmark`    | Block	| Optional | [benchmark](/docs/reference/mod-resources/benchmark) blocks to embed benchmarks in the dashboard.
-| `chart`        | Block	| Optional | [chart](/docs/reference/mod-resources/chart)  blocks to visualize SQL data in a number of ways e.g. `bar`, `column`, `line`, `pie` 
-| `container` |  Block	| Optional |  [container](/docs/reference/mod-resources/container) blocks to lay out related components together in a dashboard. 
-| `flow` | Block	| Optional |  [flow](/docs/reference/mod-resources/flow)  blocks to visualize flows using types such as `sankey`. 
-| `hierarchy` | Block	| Optional |  [hierarchy](/docs/reference/mod-resources/hierarchy)  blocks to visualize hierarchical data using types such as `tree`. 
-| `image`     | Block	| Optional | [image](/docs/reference/mod-resources/image)    blocks to embed images in dashboards. Supports static URLs, or can be derived from SQL.                                                                               
-| `input`     | Block	| Optional | [input](/docs/reference/mod-resources/input) blocks to make dynamic dashboards based on user-provided input.     
-| `table`      | Block	| Optional | [table](/docs/reference/mod-resources/table)   blocks to show tabular data in a dashboard.
-| `text`       | Block	| Optional | [text](/docs/reference/mod-resources/text) blocks to add GitHub-flavoured markdown to a dashboard.      
-| `title` |  String	| Optional | A plain text [title](/docs/reference/mod-resources/dashboard#title) to display for this container.
-| `width` |  Number	| Optional | The [width](/docs/reference/mod-resources/dashboard#width) as a number of grid units that this item should consume from its parent.
+| `benchmark`    | Block	| Optional | [benchmark](/docs/powerpipe-hcl/benchmark) blocks to embed benchmarks in the dashboard.
+| `chart`        | Block	| Optional | [chart](/docs/powerpipe-hcl/chart)  blocks to visualize SQL data in a number of ways e.g. `bar`, `column`, `line`, `pie` 
+| `container` |  Block	| Optional |  [container](/docs/powerpipe-hcl/container) blocks to lay out related components together in a dashboard. 
+| `flow` | Block	| Optional |  [flow](/docs/powerpipe-hcl/flow)  blocks to visualize flows using types such as `sankey`. 
+| `hierarchy` | Block	| Optional |  [hierarchy](/docs/powerpipe-hcl/hierarchy)  blocks to visualize hierarchical data using types such as `tree`. 
+| `image`     | Block	| Optional | [image](/docs/powerpipe-hcl/image)    blocks to embed images in dashboards. Supports static URLs, or can be derived from SQL.                                                                               
+| `input`     | Block	| Optional | [input](/docs/powerpipe-hcl/input) blocks to make dynamic dashboards based on user-provided input.     
+| `table`      | Block	| Optional | [table](/docs/powerpipe-hcl/table)   blocks to show tabular data in a dashboard.
+| `text`       | Block	| Optional | [text](/docs/powerpipe-hcl/text) blocks to add GitHub-flavoured markdown to a dashboard.      
+| `title` |  String	| Optional | A plain text [title](/docs/powerpipe-hcl/dashboard#title) to display for this container.
+| `width` |  Number	| Optional | The [width](/docs/powerpipe-hcl/dashboard#width) as a number of grid units that this item should consume from its parent.

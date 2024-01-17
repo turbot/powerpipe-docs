@@ -47,9 +47,9 @@ input "vpc_id" {
 | `param` | Block | Optional| A [param](reference/mod-resources/query#param) block that defines the parameters that can be passed in to the query.  `param` blocks may only be specified for inputs that specify the `sql` argument. 
 | `query` | Query Reference | Optional | A reference to a [query](reference/mod-resources/query) resource that defines the query to run.  An `input` may either specify the `query` argument or the `sql` argument, but not both.
 | `sql` |  String	| Optional |  An SQL string to provide data for the `input`.  An `input` may either specify the `query` argument or the `sql` argument, but not both.
-| `title`       | String	 | Optional  | A plain text [title](/docs/reference/mod-resources/dashboard#title) to display for this input.                                                                                          |
+| `title`       | String	 | Optional  | A plain text [title](/docs/powerpipe-hcl/dashboard#title) to display for this input.                                                                                          |
 | `type`        | String	 | Optional  | The [type of the input](#input-types). Can be `text`, `combo`, `multicombo`, `select` or `multiselect`.                                                                                                              |
-| `width`       | Number	 | Optional  | The [width](/docs/reference/mod-resources/dashboard#width) as a number of grid units that this item should consume from its parent.                                                     |
+| `width`       | Number	 | Optional  | The [width](/docs/powerpipe-hcl/dashboard#width) as a number of grid units that this item should consume from its parent.                                                     |
 
 
 ## Input Types

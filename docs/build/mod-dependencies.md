@@ -14,7 +14,7 @@ cd my-mod
 powerpipe mod install github.com/turbot/powerpipe-mod-aws-compliance
 ```
 
-This will install the mod into the `.powerpipe` sub-directory, and will add the dependency to the [require block](/docs/reference/mod-resources/mod#require) of your `mod.sp` file:
+This will install the mod into the `.powerpipe` sub-directory, and will add the dependency to the [require block](/docs/powerpipe-hcl/mod#require) of your `mod.sp` file:
 ```hcl
 mod "local" {
   title = "my-mod"

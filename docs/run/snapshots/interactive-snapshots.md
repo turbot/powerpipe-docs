@@ -5,7 +5,7 @@ sidebar_label:  Interactive Snapshots
 
 # Interactive Snapshots
 
-You can take a snapshot from any dashboard using the Powerpipe Dashboard UI. Once the dashboard is loaded, click the `Snap` button at the top of the page.  The snapshot file will be downloaded by your browser.
+You can take a snapshot from any dashboard using the Powerpipe Dashboard UI when running [Powerpipe Server](/docs/run/server). Once the dashboard is loaded, click the `Snap` button at the top of the page.  The snapshot file will be downloaded by your browser.
 
 <img src="/images/docs/snapshots/snapshot-lambda-dash.png" width="100%" />
 

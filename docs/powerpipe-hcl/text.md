@@ -33,10 +33,10 @@ text {
 | Argument | Type | Optional? | Description
 |-|-|-|-
 | `base` |   Text Reference		| Optional | A reference to a named `text` resource that this `text` should source its definition from. `title` and `width` can be overridden after sourcing via `base`.
-| `title` |  String	| Optional | A plain text [title](/docs/reference/mod-resources/dashboard#title) to display for this text.
+| `title` |  String	| Optional | A plain text [title](/docs/powerpipe-hcl/dashboard#title) to display for this text.
 | `type` |  String	| Optional | `markdown` (default) or `raw`.
 | `value` |  String	| Optional | The `markdown` or `html` string to use. Can also be sourced using the HCL `file` function.
-| `width` |  Number	| Optional | The [width](/docs/reference/mod-resources/dashboard#width) as a number of grid units that this item should consume from its parent.
+| `width` |  Number	| Optional | The [width](/docs/powerpipe-hcl/dashboard#width) as a number of grid units that this item should consume from its parent.
 
 
 

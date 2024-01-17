@@ -44,9 +44,9 @@ table {
 | `param` | Block | Optional| A [param](reference/mod-resources/query#param) block that defines the parameters that can be passed in to the query.  `param` blocks may only be specified for tables that specify the `sql` argument. 
 | `query` | Query Reference | Optional | A reference to a [query](reference/mod-resources/query) resource that defines the query to run.  A `table`  may either specify the `query` argument or the `sql` argument, but not both.
 | `sql` |  String	| Optional |  An SQL string to provide data for the `table`.  A `table` may either specify the `query` argument or the `sql` argument, but not both.
-| `title`  | String	           | Optional  | A plain text [title](/docs/reference/mod-resources/dashboard#title) to display for this table.                                                                |
+| `title`  | String	           | Optional  | A plain text [title](/docs/powerpipe-hcl/dashboard#title) to display for this table.                                                                |
 | `type`   | String	           | Optional  | The type of the table. Can be `table` (default) or `line`. `line` view transposes each row into a key/value pair (column name/column value) item view         |
-| `width`  | Number 	          | Optional  | The [width](/docs/reference/mod-resources/dashboard#width) as a number of grid units that this item should consume from its parent.                           |
+| `width`  | Number 	          | Optional  | The [width](/docs/powerpipe-hcl/dashboard#width) as a number of grid units that this item should consume from its parent.                           |
 
 
 ## Table Properties
@@ -107,7 +107,7 @@ table {
 }
 ```
 
-Refer to [JQ Escaping & Interpolation ](/docs/reference/mod-resources/dashboard#jq-escaping--interpolation) for more advanced examples.
+Refer to [JQ Escaping & Interpolation ](/docs/powerpipe-hcl/dashboard#jq-escaping--interpolation) for more advanced examples.
 ## More Examples
 
 

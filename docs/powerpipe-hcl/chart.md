@@ -53,10 +53,10 @@ chart {
 | `query` | Query Reference | Optional | A reference to a [query](reference/mod-resources/query) resource that defines the query to run.  A chart may either specify the `query` argument or the `sql` argument, but not both.
 | `series` |  Block	| Optional | A named block matching the name of the series you wish to configure. See [series](#series).
 | `sql` |  String	| Optional |  An SQL string to provide data for the chart.  A chart may either specify the `query` argument or the `sql` argument, but not both.
-| `title` |  String	| Optional | A plain text [title](/docs/reference/mod-resources/dashboard#title) to display for this chart.
+| `title` |  String	| Optional | A plain text [title](/docs/powerpipe-hcl/dashboard#title) to display for this chart.
 | `transform` |  String	| Optional | See [transform](#transform). 
 | `type` |  String	| Optional | The type of the chart. Can be `bar`, `column`, `donut`, `line` or `pie`. You can also use `table` to review the raw data.
-| `width` |  Number	| Optional | The [width](/docs/reference/mod-resources/dashboard#width) as a number of grid units that this item should consume from its parent.
+| `width` |  Number	| Optional | The [width](/docs/powerpipe-hcl/dashboard#width) as a number of grid units that this item should consume from its parent.
 
 
 ## Data Format
