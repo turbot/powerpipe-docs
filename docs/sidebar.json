@@ -89,9 +89,10 @@
           "reference/cli/dashboard",
           "reference/cli/help",
           "reference/cli/login",
+          "reference/cli/mod",
           "reference/cli/query",
           "reference/cli/server",
-          "reference/cli/mod"
+          "reference/cli/variable"
         ]
       },
 
@@ -101,16 +102,24 @@
         "label": "Environment Variables",
         "link": "reference/env-vars",
         "items": [
+          "reference/env-vars/pipes_host",
+          "reference/env-vars/pipes_token",
+          "reference/env-vars/powerpipe_cloud_host",
+          "reference/env-vars/powerpipe_cloud_token",
           "reference/env-vars/powerpipe_config_path",
           "reference/env-vars/powerpipe_host",
           "reference/env-vars/powerpipe_install_dir",
           "reference/env-vars/powerpipe_listen",
           "reference/env-vars/powerpipe_log_level",
+          "reference/env-vars/powerpipe_max_parallel",
           "reference/env-vars/powerpipe_memory_max_mb",
           "reference/env-vars/powerpipe_mod_location",
           "reference/env-vars/powerpipe_port",
+          "reference/env-vars/powerpipe_query_timeout",
+          "reference/env-vars/powerpipe_snapshot_location",
           "reference/env-vars/powerpipe_telemetry",
           "reference/env-vars/powerpipe_update_check",
+          "reference/env-vars/powerpipe_workspace_database",
           "reference/env-vars/powerpipe_workspace"
         ]
       },

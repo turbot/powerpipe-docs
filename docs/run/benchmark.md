@@ -138,7 +138,7 @@ powerpipe benchmark run cis_v150 --search-path-prefix aws_connection_2
 By default, Powerpipe runs on the local host and starts a new process to run the benchmark or control.  If you are running [Powerpipe Server](/docs/run/server), you can ran a benchmark on that server:
 
 ```bash
-powerpipe benchmark run --host  https://powerpipe.my-org.com:7103
+powerpipe benchmark run --host  https://powerpipe.my-org.com:9194
 ```
 
 
@@ -164,7 +164,7 @@ powerpipe benchmark run --workspace my_workspace
 
 You can even change the default by setting it in your `default` workspace.
 
-If you use [Turbot Pipes](http://pipes.turbot.io), you can run un a benchmark against the pipes workspace by name (you will need to [login](/docs/reference/cli/login) first):
+If you use [Turbot Pipes](http://pipes.turbot.com), you can run un a benchmark against the pipes workspace by name (you will need to [login](/docs/reference/cli/login) first):
 ```bash
 powerpipe benchmark run --workspace acme/anvils
 ```

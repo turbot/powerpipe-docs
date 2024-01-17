@@ -7,11 +7,9 @@ sidebar_label: View Dashboards
 # Powerpipe Dashboards
 
 
-Powerpipe **dashboards** provide rich visualizations of Powerpipe data.  Dashboards are [written in simple HCL](/docs/powerpipe-hcl/dashboard), and packaged in [mods](/docs/mods/overview).  It is simple to [create your own](mods/writing-dashboards), but there are also hundreds of dashboards available on the [Powerpipe Hub](https://hub.powerpipe.io).  
+Powerpipe **dashboards** provide rich visualizations of Powerpipe data.  Dashboards are [written in simple HCL](/docs/powerpipe-hcl/dashboard), and packaged in [mods](/docs/build/).  It is simple to [create your own](/docs/build/writing-dashboards), but there are also hundreds of dashboards available on the [Powerpipe Hub](https://hub.powerpipe.io).  
 
-
-You can start the dashboard server and view dashboards with the [powerpipe server](/docs/reference/cli/server) command.  Dashboards must be packaged in a mod, and Powerpipe looks for dashboards in the current directory by default.  
-
+You can start the dashboard server and view dashboards with the [powerpipe server](/docs/reference/cli/server) command.  Dashboards must be packaged in a mod, and Powerpipe [looks for dashboards in the current directory](/docs/run/index#mod-location) by default.  
 
 To view the AWS Insights dashboards, for example, first clone the repo, then change to that directory, then run the `powerpipe server` command:
 
@@ -34,7 +32,6 @@ Click on the title of a report to view it.  For example, click the `AWS CloudTra
 <img src="/images/docs/cloudtrail_dash_ex.png" width="100%" />
 
 You can type in the search bar at the top of any page to navigate to another dashboard.  Alternately, you can click the Powerpipe logo in the top left to return to the home page.  When you are finished, you can return to the terminal console and type `Ctrl+c` to exit.
-
 
 
 ## Panel View

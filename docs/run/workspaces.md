@@ -19,13 +19,13 @@ workspace "default" {
 workspace "local_server" {
   host          = "local"
   listen        = "network"
-  port          = 7103
+  port          = 9194
   input         = false
   memory_max_mb = 2048
 }
 
 workspace "remote_server" {
-  host          = "https://powerpipe.mydomain.com:7103"
+  host          = "https://powerpipe.mydomain.com:9194"
 }
 ```
 
@@ -48,7 +48,7 @@ powerpipe query --workspace acme/dev "select * from aws_account"
 
 
 ## Defining Workspaces
-[Workspace](/docs/reference/config-files/workspace) configurations can be defined in any `.fpc` file in the [configuration file search path](/docs/reference/env-vars/powerpipe_config_path) but by convention they are defined in a file named `workspaces.fpc`.  This file may contain multiple `workspace` definitions that can then be referenced by name.
+[Workspace](/docs/reference/config-files/workspace) configurations can be defined in any `.ppc` file in the [configuration file search path](/docs/reference/env-vars/powerpipe_config_path) but by convention they are defined in a file named `workspaces.ppc`.  This file may contain multiple `workspace` definitions that can then be referenced by name.
 
 Any unset arguments will assume the default values - you don't need to set them all:
 
@@ -57,7 +57,7 @@ workspace "default" {
   output       = "pretty"
   update_check = true
   telemetry    = false
-  port         = 7103
+  port         = 9194
 }
 ```
 
@@ -86,7 +86,7 @@ The workspace named `default` is special; if a workspace named `default` exists,
 powerpipe pipeline run my_pipeline
 ```
 
-It is common to create the `default` workspace in `~/.powerpipe/config/workspaces.fpc`.  You can also create a "directory local" default for a specific directory.  Because the default [configuration file search path](/docs/reference/env-vars/powerpipe_config_path) includes the current directory / mod location at a higher precedence than `~/.powerpipe/config`, your "directory local" default will take precedence when you run Powerpipe from that directory.
+It is common to create the `default` workspace in `~/.powerpipe/config/workspaces.ppc`.  You can also create a "directory local" default for a specific directory.  Because the default [configuration file search path](/docs/reference/env-vars/powerpipe_config_path) includes the current directory / mod location at a higher precedence than `~/.powerpipe/config`, your "directory local" default will take precedence when you run Powerpipe from that directory.
 
 You can pass any workspace to `--workspace` to use its values:
 
@@ -124,14 +124,14 @@ powerpipe server
 If the default  workspace is *explicitly* passed to the `--workspace` argument, its values will override any individual environment variables:
 
 ```bash
-# will NOT use 7777 as port - will use ALL of the values from default workspace so the port is 7103
+# will NOT use 7777 as port - will use ALL of the values from default workspace so the port is 9194
 export POWERPIPE_PORT=7777 
 powerpipe server --workspace=default 
 ```
 
 The same is true of any named workspace:
 ```bash
-# will NOT use 7777 as port - will use ALL of the values from prod workspace so the port is 7103
+# will NOT use 7777 as port - will use ALL of the values from prod workspace so the port is 9194
 export POWERPIPE_PORT=7777 
 powerpipe server --workspace=prod 
 ```
@@ -143,7 +143,7 @@ Named workspaces follow normal standards for HCL identifiers, thus they cannot c
 the slash (`/`) character.  If you pass a value to `--workspace` or `POWERPIPE_WORKSPACE`
 in the form of `{identity_handle}/{workspace_handle}`, it will be interpreted as
 an **implicit workspace**.  Implicit workspaces, as the name suggests, do not
-need to be specified in the `workspaces.fpc` file.  Instead, they will be assumed
+need to be specified in the `workspaces.ppc` file.  Instead, they will be assumed
 to refer to a Powerpipe Cloud workspace, which will be used as both the database (`workspace_database`)
 and snapshot location (`snapshot_location`).
 

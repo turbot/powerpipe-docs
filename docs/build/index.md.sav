@@ -15,7 +15,7 @@ Powerpipe resources include:
 
 A Powerpipe **mod** is a portable, versioned collection of Powerpipe [pipelines](/docs/build/write-pipelines/index) and [triggers](/docs/build/triggers). Powerpipe mods and mod resources are defined in HCL, and distributed as simple text files.  Modules can be found on the [Powerpipe Hub](https://hub.powerpipe.io) and may be shared with others from any public git repository. 
 
-Powerpipe mods are written in HCL. When Powerpipe runs, it will load the mod from the working directory and will read all files with the .fp extension from the directory and its subdirectories recursively.  
+Powerpipe mods are written in HCL. When Powerpipe runs, it will load the mod from the working directory and will read all files with the .pp extension from the directory and its subdirectories recursively.  
 
 ## Initializing a Mod
 
@@ -31,7 +31,7 @@ cd my_mod
 powerpipe mod init
 ```
 
-The `powerpipe mod init` command will create a file called `mod.fp` that contains a `mod` resource for mod named `local`:
+The `powerpipe mod init` command will create a file called `mod.pp` that contains a `mod` resource for mod named `local`:
 ```hcl
 mod "local" {
   title = "my_mod"
