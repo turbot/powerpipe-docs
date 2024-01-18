@@ -9,10 +9,22 @@ sidebar_label: powerpipe dashboard
 List, view, and run Powerpipe dashboards in batch mode.  To run dashboards interactively, see [powerpipe server](/docs/reference/cli/server).
 
 ## Usage
+
 ```bash
 powerpipe dashboard list [args]
 powerpipe dashboard show dashboard_name [args]
 powerpipe dashboard run dashboard_name [args]
+
+powerpipe dashboard card list [args]
+powerpipe dashboard chart list [args]
+powerpipe dashboard container list [args]
+powerpipe dashboard flow list [args]
+powerpipe dashboard graph list [args]
+powerpipe dashboard hierarchy list [args]
+powerpipe dashboard image list [args]
+powerpipe dashboard input list [args]
+powerpipe dashboard table list [args]
+powerpipe dashboard text list [args]
 ```
 
 
@@ -23,6 +35,7 @@ powerpipe dashboard run dashboard_name [args]
 | [list](#powerpipe-dashboard-list) | List dashboards from the current mod and its direct dependents.
 | [run](#powerpipe-dashboard-run)  | Run a dashboard from the current mod or its direct dependents or from a Powerpipe server instance.
 | [show](#powerpipe-dashboard-show) | Show details of a dashboard from the current mod or its direct dependents or from a Powerpipe server instance.
+| [[resource type] list](#powerpipe-dashboard-resource-type-list) | List dashboard resources of a given type from the current mod and its direct dependents.
 
 
 
@@ -186,5 +199,80 @@ powerpipe dashboard run cis_v200_2_1_1 --workspace acme/anvils
 Run a dashboard against a specific database:
 ```bash
 powerpipe dashboard run cis_v200_2_1_1 --workspace-database  postgres://myusername:passworrd@mydbserver.mydomain.com:9193/steampipe
+```
+
+
+
+
+
+## powerpipe dashboard [resource type] list
+List dashboard resources of a given type from the current mod and its direct dependents.
+
+### Examples
+
+
+List dashboard [cards](/docs/powerpipe-hcl/card):
+```bash
+powerpipe dashboard card list
+```
+
+List dashboard [charts](/docs/powerpipe-hcl/chart):
+```bash
+powerpipe dashboard chart list
+```
+
+List dashboard [containers](/docs/powerpipe-hcl/container):
+```bash
+powerpipe dashboard container list
+```
+
+List dashboard [flows](/docs/powerpipe-hcl/flow):
+```bash
+powerpipe dashboard flow list
+```
+
+List dashboard [graphs](/docs/powerpipe-hcl/graph):
+```bash
+powerpipe dashboard graph list
+```
+
+List dashboard [hierarchies](/docs/powerpipe-hcl/hierarchy):
+```bash
+powerpipe dashboard hierarchy list
+```
+
+List dashboard [images](/docs/powerpipe-hcl/image):
+```bash
+powerpipe dashboard image list
+```
+
+List dashboard [inputs](/docs/powerpipe-hcl/input):
+```bash
+powerpipe dashboard input list
+```
+
+List dashboard [tables](/docs/powerpipe-hcl/table):
+```bash
+powerpipe dashboard table list
+```
+
+List dashboard [texts](/docs/powerpipe-hcl/text):
+```bash
+powerpipe dashboard text list
+```
+
+List dashboard cards in`JSON` format:
+```bash
+powerpipe dashboard card list --output json
+```
+
+List dashboard cards from a local server instance running on the default port on `localhost`:
+```bash
+powerpipe dashboard card list --host local
+```
+
+List dashboard cards on a remote Powerpipe server instance:
+```bash
+powerpipe dashboard card list --host  https://powerpipe.my-org.com:9194
 ```
 
