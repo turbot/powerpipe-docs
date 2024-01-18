@@ -8,12 +8,12 @@ sidebar_label: Run Powerpipe
 Powerpipe is simple to install and manage and does not require any special expertise to get started.  It's distributed as a single binary file - just [download and run it](/downloads)!
 
 ## Mod Location
-Powerpipe always runs in the context of a [mod](/docs/build/index), which is a collection of Powerpipe pipelines and triggers.  You can [import and use resources from other mods](/docs/build/mod-dependencies) so you can get started without even writing any code! You can explore the available mods on the [Powerpipe Hub](https://hub.powerpipe.io/).
+Powerpipe always runs in the context of a [mod](/docs/build), which is a collection of Powerpipe pipelines and triggers.  You can [import and use resources from other mods](/docs/build/mod-dependencies) so you can get started without even writing any code! You can explore the available mods on the [Powerpipe Hub](https://hub.powerpipe.io/).
 
-Powerpipe loads the mod from the current directory by default, but you can pass the [--mod-location](/docs/reference/cli/index) flag or set the [POWERPIPE_MOD_LOCATION](/docs/reference/env-vars/powerpipe_mod_location) to set it to a different path.  
+Powerpipe loads the mod from the current directory by default, but you can pass the [--mod-location](/docs/reference/cli#global-flags) flag or set the [POWERPIPE_MOD_LOCATION](/docs/reference/env-vars/powerpipe_mod_location) to set it to a different path.  
 
 ## Configuration Files
-Powerpipe will load [configuration files](/docs/reference/config-files/index) (`*.ppc`) according to the configuration search path.  You can change this path with the `--config-path` argument or the [POWERPIPE_CONFIG_PATH](/docs/reference/env-vars/powerpipe_config_path) environment variable, but it defaults to `.:$POWERPIPE_INSTALL_DIR/config` (`.:~/.powerpipe/config`).  This allows you to manage your [workspaces](/docs/run/workspaces) and [credentials](/docs/run/credentials) centrally in the `~/.powerpipe/config` directory, but override them in the working directory / mod location if desired.
+Powerpipe will load [configuration files](/docs/reference/config-files) (`*.ppc`) according to the configuration search path.  You can change this path with the `--config-path` argument or the [POWERPIPE_CONFIG_PATH](/docs/reference/env-vars/powerpipe_config_path) environment variable, but it defaults to `.:$POWERPIPE_INSTALL_DIR/config` (`.:~/.powerpipe/config`).  This allows you to manage your [workspaces](/docs/run/workspaces) centrally in the `~/.powerpipe/config` directory, but override them in the working directory / mod location if desired.
 
 
 ## Operating Modes
@@ -22,4 +22,4 @@ Powerpipe can operate in 2 modes.
 
 By default, Powerpipe runs in **Client-only Mode**.  Powerpipe loads the mod, runs the command, and exits.  [Interactive dashboards](/docs/run/dashboard) are not enabled in Client-Only Mode.
 
-If you run Powerpipe in **Server Mode** mode, Powerpipe will run an API server (on port `9194` by default).  In [this mode](/docs/run/server), you can browse [Interactive dashboards](/docs/run/dashboard) by navigating to `http://localhost:9194/` in your web browser.  After you start the Powerpipe server, you can run Powerpipe commands against it by specifying the [--host](/docs/reference/cli/index) argument.
+If you run Powerpipe in **Server Mode** mode, Powerpipe will run an API server (on port `9194` by default).  In [this mode](/docs/run/server), you can browse [Interactive dashboards](/docs/run/dashboard) by navigating to `http://localhost:9194/` in your web browser.  After you start the Powerpipe server, you can run Powerpipe commands against it by specifying the [--host](/docs/reference/cli#global-flags) argument.
