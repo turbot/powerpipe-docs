@@ -99,7 +99,15 @@ If your dashboard has [inputs](/docs/powerpipe-hcl/input), you may specify them 
 ```bash
 powerpipe dashboard run aws_insights.dashboard.aws_vpc_detail\
   --snapshot \
-  --arg vpc_id=vpc-9d7ae1e7  
+  --arg vpc_id=vpc-9d7ae1e7
+```
+
+Likewise, if you want to run a query that defines params, you can pass `--arg` to them as well:
+```bash
+powerpipe query run list_vpcs \
+  --snapshot \
+  --arg region='["us-east-1","us-east-2"]' \
+  --arg account_id='["123412341234", "111111111111"]'
 ```
 
 ## Tagging Snapshots

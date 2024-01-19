@@ -7,7 +7,7 @@ sidebar_label: View Dashboards
 # Powerpipe Dashboards
 
 
-Powerpipe **dashboards** provide rich visualizations of Powerpipe data.  Dashboards are [written in simple HCL](/docs/powerpipe-hcl/dashboard), and packaged in [mods](/docs/build/).  It is simple to [create your own](/docs/build/writing-dashboards), but there are also hundreds of dashboards available on the [Powerpipe Hub](https://hub.powerpipe.io).  
+Powerpipe **dashboards** provide rich visualizations of data.  Dashboards are [written in simple HCL](/docs/powerpipe-hcl/dashboard), and packaged in [mods](/docs/build/).  It is simple to [create your own](/docs/build/writing-dashboards), but there are also hundreds of dashboards available on the [Powerpipe Hub](https://hub.powerpipe.io).  
 
 You can start the dashboard server and view dashboards with the [powerpipe server](/docs/reference/cli/server) command.  Dashboards must be packaged in a mod, and Powerpipe [looks for dashboards in the current directory](/docs/run/index#mod-location) by default.  
 
@@ -19,9 +19,8 @@ cd powerpipe-mod-aws-insights
 powerpipe server
 ```
 
-Powerpipe will start the dashboard server and will open http://localhost:9194/ in your web browser to view the dashboards in the mod. 
+Powerpipe will start the dashboard server.  Open http://localhost:9194/ in your web browser to view the dashboards in the mod. 
 <img src="/images/docs/dashboard_home.png" width="100%" />
-
 
 
 The home page lists the available dashboards, and is searchable by title or tags.  By default, the dashboards are grouped by Category, but you may select another grouping if you prefer.

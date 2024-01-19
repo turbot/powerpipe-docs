@@ -27,12 +27,12 @@ export POWERPIPE_WORKSPACE_DATABASE='mysql://root:my_pass@tcp(myhost.com)/mydb'
 
 Use a SQLite database via connection string:
 ```bash
-export POWERPIPE_WORKSPACE_DATABASE='sqlite://./my_sqlite_db.db'
+export POWERPIPE_WORKSPACE_DATABASE='sqlite:./my_sqlite_db.db'
 ```
 
 Use a DuckDB database via connection string:
 ```bash
-export POWERPIPE_WORKSPACE_DATABASE='duckdb://./my_ducks.db'
+export POWERPIPE_WORKSPACE_DATABASE='duckdb:./my_ducks.db'
 ```
 
 
