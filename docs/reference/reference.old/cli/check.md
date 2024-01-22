@@ -173,8 +173,8 @@ powerpipe check list
   </tr>
 
   <tr> 
-    <td nowrap="true"> <inlineCode>--workspace-database</inlineCode>  </td> 
-    <td>  Sets the database that Powerpipe will connect to. This can be <inlineCode>local</inlineCode> (the default) or a remote Turbot Pipes database.  See <a href="/docs/reference/env-vars/powerpipe_workspace_database">STEAMPIPE_WORKSPACE_DATABASE</a> for details. </td>
+    <td nowrap="true"> <inlineCode>--database</inlineCode>  </td> 
+    <td>  Sets the database that Powerpipe will connect to. This can be <inlineCode>local</inlineCode> (the default) or a remote Turbot Pipes database.  See <a href="/docs/reference/env-vars/powerpipe_database">POWERPIPE_DATABASE</a> for details. </td>
   </tr>
 </table>
 

@@ -129,7 +129,7 @@ Run a query from the current mod or its direct dependents or from a Powerpipe se
 |  `--timing`                     | Turn on the query timer.
 | `--var string=string`           | Specify the value of a variable.  Multiple `--var` arguments may be passed. 
 | `--var-file strings`            | Specify a `.ppvar` file containing variable values.
-|  `--workspace-database`         |  Sets the database that Powerpipe will connect to. This can be local (the default) or a remote Turbot Pipes database. See [POWERPIPE_WORKSPACE_DATABASE](/docs/reference/env-vars/powerpipe_workspace_database) for details.
+|  `--database`         |  Sets the database that Powerpipe will connect to. This can be local (the default) or a remote Turbot Pipes database. See [POWERPIPE_DATABASE](/docs/reference/env-vars/powerpipe_database) for details.
 
 
 
@@ -197,7 +197,7 @@ powerpipe query run ec2_instance_in_vpc --workspace acme/anvils
 
 Run a query against a specific database:
 ```bash
-powerpipe query run "select * from aws_account" --workspace-database  postgres://myusername:passworrd@mydbserver.mydomain.com:9193/steampipe
+powerpipe query run "select * from aws_account" --database  postgres://myusername:passworrd@mydbserver.mydomain.com:9193/steampipe
 ```
 
 Run a query and upload a snapshot with `workspace` visibility in your user workspace.

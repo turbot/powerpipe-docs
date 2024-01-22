@@ -74,7 +74,7 @@ Note that the previous command ran the benchmark against the *local* database, b
 powerpipe benchmark run benchmark.cis_v140  \
   --snapshot \
   --snapshot-location vandelay-industries/latex \
-  --workspace-database vandelay-industries/latex
+  --database vandelay-industries/latex
 ```
 
 Powerpipe provides a shortcut for this though.  The `--workspace` flag supports [passing the cloud workspace](/docs/run/workspaces#implicit-workspaces):
@@ -88,7 +88,7 @@ While not a common case, you can even run a benchmark against a Turbot Pipes wor
 ```bash
 powerpipe benchmark run benchmark.cis_v140  
   --snapshot \
-  --workspace-database vandelay-industries/latex-dev \
+  --database vandelay-industries/latex-dev \
   --snapshot-location  vandelay-industries/latex-prod 
 ```
 
@@ -99,7 +99,15 @@ If your dashboard has [inputs](/docs/powerpipe-hcl/input), you may specify them 
 ```bash
 powerpipe dashboard run aws_insights.dashboard.aws_vpc_detail\
   --snapshot \
-  --arg vpc_id=vpc-9d7ae1e7  
+  --arg vpc_id=vpc-9d7ae1e7
+```
+
+Likewise, if you want to run a query that defines params, you can pass `--arg` to them as well:
+```bash
+powerpipe query run list_vpcs \
+  --snapshot \
+  --arg region='["us-east-1","us-east-2"]' \
+  --arg account_id='["123412341234", "111111111111"]'
 ```
 
 ## Tagging Snapshots

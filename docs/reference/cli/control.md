@@ -129,7 +129,7 @@ Run a control from the current mod or its direct dependents or from a Powerpipe 
 |  `--timing`                     | Turn on the query timer.
 | `--var string=string`           | Specify the value of a variable.  Multiple `--var` arguments may be passed. 
 | `--var-file strings`            | Specify a `.ppvar` file containing variable values.
-|  `--workspace-database`         |  Sets the database that Powerpipe will connect to. This can be local (the default) or a remote Turbot Pipes database. See [POWERPIPE_WORKSPACE_DATABASE](/docs/reference/env-vars/powerpipe_workspace_database) for details.
+|  `--database`         |  Sets the database that Powerpipe will connect to. This can be local (the default) or a remote Turbot Pipes database. See [POWERPIPE_DATABASE](/docs/reference/env-vars/powerpipe_database) for details.
 
 
 
@@ -174,7 +174,7 @@ powerpipe control run cis_v200_2_1_1 --workspace acme/anvils
 
 Run a control against a specific database:
 ```bash
-powerpipe control run cis_v200_2_1_1 --workspace-database  postgres://myusername:passworrd@mydbserver.mydomain.com:9193/steampipe
+powerpipe control run cis_v200_2_1_1 --database  postgres://myusername:passworrd@mydbserver.mydomain.com:9193/steampipe
 ```
 
 

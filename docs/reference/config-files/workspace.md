@@ -41,6 +41,7 @@ To learn more, see **[Managing Workspaces →](/docs/run/workspaces)**
 | `base`              | none                         | A reference to a named workspace resource that this workspace should source its definition from. Any argument can be overridden after sourcing via base.
 | `cloud_host`        | `pipes.turbot.com`          | Set the Turbot Pipes host for connecting to Turbot Pipes workspace.
 | `cloud_token`       | Token from`powerpipe login` | Set the Turbot Pipes authentication token for connecting to a Turbot Pipes workspace.  This may be a token obtained by `powerpipe login` or a user-generated [token](https://turbot.com/pipes/docs/da-settings#tokens).
+| `database`          | `postgres://steampipe@` <br /> `127.0.0.1:9193/steampipe`| A database connection string or [Turbot Pipes workspace](https://pipes.turbot.com) to use as the default database.  The default is a local [Steampipe](https://steampipe.io) instance.
 | `header`            | `true`                       | Enable or disable column headers.
 | `host`              | none                         | Set the remote Powerpipe API host to connect to.  This allows you to run Powerpipe commands against a powerpipe host instead of the current working directory.
 | `input`             | `true`                       | Enable/Disable interactive prompts for missing variables.  To disable prompts and fail on missing variables, set it to `false`. This is useful when running from scripts.
@@ -60,7 +61,6 @@ To learn more, see **[Managing Workspaces →](/docs/run/workspaces)**
 | `timing`            | `false`                      | Enable or disable query execution timing.
 | `update_check`      | `true`                       | Enable or disable automatic update checking.
 | `watch`             | `true`                       | Watch .mod files for changes when running `powerpipe server`.
-| `workspace_database`| `postgres://steampipe@` <br /> `127.0.0.1:9193/steampipe`| A database connection string or [Turbot Pipes workspace](https://pipes.turbot.com) to use as the default database.  The default is a local [Steampipe](https://steampipe.io) instance.
 
 
 Workspaces are defined using the `workspace` block in one or more Powerpipe config files.  Powerpipe will load ALL configuration files (`*.ppc`) from every directory in the [configuration search path](/docs/reference/env-vars/powerpipe_config_path), with decreasing precedence. The set of workspaces is the union of all workspaces defined in these directories.  
@@ -75,6 +75,7 @@ except using underscore in place of dash:
 |--------------------|-------------------------|----------------------
 | `cloud_host`       | [POWERPIPE_CLOUD_HOST](/docs/reference/env-vars/powerpipe_cloud_host), [PIPES_HOST](/docs/reference/env-vars/pipes_host) | `--cloud-host`
 | `cloud_token`      | [POWERPIPE_CLOUD_TOKEN](/docs/reference/env-vars/powerpipe_cloud_token), [PIPES_TOKEN](/docs/reference/env-vars/pipes_token) | `--cloud-token`
+| `database`         | [POWERPIPE_DATABASE](/docs/reference/env-vars/powerpipe_database) | `--database`
 | `header`           |                         | `--header`
 | `host`             | [POWERPIPE_HOST](/docs/reference/env-vars/powerpipe_host)        | `--host`
 | `input`            |                         | `--input` 
@@ -94,7 +95,6 @@ except using underscore in place of dash:
 | `timing`           |                          | `--timing`
 | `update_check`     | [POWERPIPE_UPDATE_CHECK](/docs/reference/env-vars/powerpipe_update_check) |
 | `watch`            |                          | `--watch`
-| `workspace_database` | [POWERPIPE_WORKSPACE_DATABASE](/docs/reference/env-vars/powerpipe_workspace_database) | `--workspace-database`
 
 
 
@@ -128,9 +128,9 @@ workspace "dev_server" {
 }
 
 workspace "pipes" {
-  cloud_host          = "vandelay.pipes.turbot.com"
-  snapshot_location   = "vandelay/latex"
-  workspace_database  = "vandelay/latex"
+  cloud_host        = "vandelay.pipes.turbot.com"
+  snapshot_location = "vandelay/latex"
+  database          = "vandelay/latex"
 }
 
 
@@ -155,7 +155,7 @@ workspace "all_options" {
   snapshot_location   = "acme/dev"
 
   # DB Settings
-  workspace_database  = "postgres://steampipe@127.0.0.1:9193/steampipe"
+  database            = "postgres://steampipe@127.0.0.1:9193/steampipe"
   query_timeout       = 300
   max_parallel        = 5
 
@@ -171,6 +171,3 @@ workspace "all_options" {
   timing              = true
 }
 ```
-
-
-

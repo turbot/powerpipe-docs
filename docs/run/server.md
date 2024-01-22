@@ -14,7 +14,7 @@ But Powerpipe also allows you to browse and view interactive [dashboards](/docs/
 powerpipe server
 ```
 
-Once it is running you can view the the dashboards un your web browser by navigating to `http://locahost:9194`.
+Once it is running you can view the the dashboards in your web browser by navigating to `http://locahost:9194`.
 
 
 You can also connect to the server and run commands with the `--host` argument:

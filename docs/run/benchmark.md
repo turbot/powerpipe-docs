@@ -58,8 +58,7 @@ You can also [create your own controls and benchmarks](/docs/mods/writing-contro
 
 ## Running specific controls
 
-
-While you will most commonly wany to run cis_v150 the controls in a benchmark, there are times when you want to only run single control, or filter the controls to run in a benchmark.
+While you will most commonly want to run all the controls in a benchmark, there are times when you want to only run single control, or filter the controls to run in a benchmark.
 
 You can list the controls:
 ```bash
@@ -138,35 +137,35 @@ powerpipe benchmark run cis_v150 --search-path-prefix aws_connection_2
 By default, Powerpipe runs on the local host and starts a new process to run the benchmark or control.  If you are running [Powerpipe Server](/docs/run/server), you can ran a benchmark on that server:
 
 ```bash
-powerpipe benchmark run --host  https://powerpipe.my-org.com:9194
+powerpipe benchmark run cis_v120 --host  https://powerpipe.my-org.com:9194
 ```
 
 
 ## Selecting a database
 By default, Powerpipe will run against a local Steampipe instance.  This is because the default workspace database is set to `postgres://steampipe@localhost:9193/steampipe`.  
 
-You man instead run a benchmark or control against a specific database by passing the `--workspace-database` argument:
+You may instead run a benchmark or control against a specific database by passing the `--database` argument:
 ```bash
-powerpipe benchmark run --workspace-database  postgres://myusername:passworrd@mydbserver.mydomain.com:9193/steampipe
+powerpipe benchmark run cis_v120 --database  postgres://myusername:passworrd@mydbserver.mydomain.com:9193/steampipe
 ```
 
-Or setting the POWERPIPE_WORKSPACE_DATABASE environment variable:
+Or setting the POWERPIPE_DATABASE environment variable:
 
 ```bash
-export POWERPIPE_WORKSPACE_DATABASE=postgres://myusername:passworrd@mydbserver.mydomain.com:9193/steampipe
-powerpipe benchmark run
+export POWERPIPE_DATABASE=postgres://myusername:passworrd@mydbserver.mydomain.com:9193/steampipe
+powerpipe benchmark run cis_v120
 ```
 
 You can also set it in a [workspace](/docs/run/workspaces) and then pass the workspace name to the command:
 ```bash
-powerpipe benchmark run --workspace my_workspace
+powerpipe benchmark run cis_v120 --workspace my_workspace
 ```
 
 You can even change the default by setting it in your `default` workspace.
 
-If you use [Turbot Pipes](http://pipes.turbot.com), you can run un a benchmark against the pipes workspace by name (you will need to [login](/docs/reference/cli/login) first):
+If you use [Turbot Pipes](http://pipes.turbot.com), you can run a benchmark against the pipes workspace by name (you will need to [login](/docs/reference/cli/login) first):
 ```bash
-powerpipe benchmark run --workspace acme/anvils
+powerpipe benchmark run cis_v120 --workspace acme/anvils
 ```
 
 
@@ -175,24 +174,24 @@ powerpipe benchmark run --workspace acme/anvils
 Powerpipe allows you 
 Run a benchmark and upload a snapshot with `workspace` visibility in your user workspace.
 ```bash
-powerpipe benchmark run --snapshot cis_v120 
+powerpipe benchmark run cis_v120 --snapshot 
 ```
 
 
 Run a benchmark and upload a snapshot with `anyone_with_link` visibility in your user workspace.
 ```bash
-powerpipe benchmark run --share cis_v120 
+powerpipe benchmark run cis_v120 --share 
 ```
 
 
 Run a benchmark and upload a snapshot with `anyone_with_link` visibility to specific workspace.
 ```bash
-powerpipe benchmark run --share  --snapshot-location vandelay-industries/latex cis_v120
+powerpipe benchmark run cis_v120 --share --snapshot-location vandelay-industries/latex
 ```
 
 Run a benchmark, upload a snapshot with `workspace` visibility in your user workspace, and tag the snapshot:
 ```bash
-powerpipe benchmark run --snapshot --snapshot-tag env=local cis_v120 
+powerpipe benchmark run cis_v120 --snapshot --snapshot-tag env=local 
 ```
 
 
@@ -259,8 +258,6 @@ powerpipe benchmark run cis_v150 --progress=false --output=json | jq
 
 ***[TODO:  where to put this page....]***
 Powerpipe even allows you to [write your own control output templates!](develop/writing-control-output-templates).
-
-
 
 
 

@@ -51,6 +51,7 @@ powerpipe check aws.benchmark.cisv130_2_1
 | Argument | Type | Optional? | Description
 |-|-|-|-
 | `args` | Map | Optional| A map of arguments to pass to the query. The `args` argument may only be specified for controls that specify the `query` argument. 
+| `connection_string` | String |  Optional| A [database connection string](/docs/powerpipe-hcl/query#connection-strings) for the database you wish to query.  If not specified, the [active database](/docs/run#selecting-a-database ) will be used.
 | `description` | String| Optional| A description of the control.
 | `documentation` | String (Markdown)| Optional | A markdown string containing a long form description, used as documentation for the mod on hub.powerpipe.io. 
 | `param` | Block | Optional| A [param](reference/mod-resources/query#param) block that defines the parameters that can be passed in to the control's query.  `param` blocks may only be specified for controls that specify the `sql` argument. 
