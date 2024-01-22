@@ -60,7 +60,7 @@ To learn more, see **[Managing Workspaces →](/docs/run/workspaces)**
 | `timing`            | `false`                      | Enable or disable query execution timing.
 | `update_check`      | `true`                       | Enable or disable automatic update checking.
 | `watch`             | `true`                       | Watch .mod files for changes when running `powerpipe server`.
-| `workspace_database`| `postgres://steampipe@` <br /> `127.0.0.1:9193/steampipe`| A database connection string or [Turbot Pipes workspace](https://pipes.turbot.com) to use as the default database.  The default is a local [Steampipe](https://steampipe.io) instance.
+| `database`          | `postgres://steampipe@` <br /> `127.0.0.1:9193/steampipe`| A database connection string or [Turbot Pipes workspace](https://pipes.turbot.com) to use as the default database.  The default is a local [Steampipe](https://steampipe.io) instance.
 
 
 Workspaces are defined using the `workspace` block in one or more Powerpipe config files.  Powerpipe will load ALL configuration files (`*.ppc`) from every directory in the [configuration search path](/docs/reference/env-vars/powerpipe_config_path), with decreasing precedence. The set of workspaces is the union of all workspaces defined in these directories.  
@@ -94,7 +94,7 @@ except using underscore in place of dash:
 | `timing`           |                          | `--timing`
 | `update_check`     | [POWERPIPE_UPDATE_CHECK](/docs/reference/env-vars/powerpipe_update_check) |
 | `watch`            |                          | `--watch`
-| `workspace_database` | [POWERPIPE_WORKSPACE_DATABASE](/docs/reference/env-vars/powerpipe_workspace_database) | `--workspace-database`
+| `database`         | [POWERPIPE_WORKSPACE_DATABASE](/docs/reference/env-vars/powerpipe_database) | `--database`
 
 
 
@@ -128,9 +128,9 @@ workspace "dev_server" {
 }
 
 workspace "pipes" {
-  cloud_host          = "vandelay.pipes.turbot.com"
-  snapshot_location   = "vandelay/latex"
-  workspace_database  = "vandelay/latex"
+  cloud_host        = "vandelay.pipes.turbot.com"
+  snapshot_location = "vandelay/latex"
+  database          = "vandelay/latex"
 }
 
 
@@ -155,7 +155,7 @@ workspace "all_options" {
   snapshot_location   = "acme/dev"
 
   # DB Settings
-  workspace_database  = "postgres://steampipe@127.0.0.1:9193/steampipe"
+  database            = "postgres://steampipe@127.0.0.1:9193/steampipe"
   query_timeout       = 300
   max_parallel        = 5
 
@@ -171,6 +171,3 @@ workspace "all_options" {
   timing              = true
 }
 ```
-
-
-

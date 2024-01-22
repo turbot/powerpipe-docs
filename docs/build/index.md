@@ -14,11 +14,11 @@ You can install a mod by cloning the repository:
 git clone https://github.com/turbot/powerpipe-mod-aws-compliance.git
 ```
 
-Unlike plugins which are installed to the `~/.powerpipe` directory, mods are installed into (and loaded from) the current working directory.  Alternatively, you may specify a path with the `--workspace--chdir` argument:
-
+Powerpipe always runs in the context of a mod.  Powerpipe loads the mod from the current directory by default, so lets change to that directory:
 ```bash
-powerpipe query --mod-location  powerpipe-mod-aws-compliance
+cd powerpipe-mod-aws-compliance
 ```
+
 
 Notice that when running `powerpipe query` from the workspace directory, the mod's queries and controls appear in the auto-complete, and you can run them by name:
 

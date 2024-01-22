@@ -28,5 +28,5 @@ Powerpipe supports environment variables to allow you to change its default beha
 | [STEAMPIPE_SNAPSHOT_LOCATION](/docs/reference/env-vars/powerpipe_snapshot_location) | The Turbot Pipes user's personal workspace | Set the Turbot Pipes workspace or filesystem path for writing snapshots.
 | [POWERPIPE_TELEMETRY](reference/env-vars/powerpipe_telemetry)  | `info` | Set the level of telemetry data to collect and send
 | [POWERPIPE_UPDATE_CHECK](reference/env-vars/powerpipe_update_check)| `true` | Enable/disable automatic update checking
-| [STEAMPIPE_WORKSPACE_DATABASE](reference/env-vars/powerpipe_workspace_database)  | `postgres://steampipe@` <br /> `127.0.0.1:9193/steampipe` | A database connection string or [Turbot Pipes workspace](https://pipes.turbot.com) to use as the default database.  The default is a local [Steampipe](https://steampipe.io) instance.
+| [POWERPIPE_DATABASE](reference/env-vars/powerpipe_database)  | `postgres://steampipe@` <br /> `127.0.0.1:9193/steampipe` | A database connection string or [Turbot Pipes workspace](https://pipes.turbot.com) to use as the default database.  The default is a local [Steampipe](https://steampipe.io) instance.
 | [POWERPIPE_WORKSPACE](reference/env-vars/powerpipe_workspace)  | `default` | Set the Powerpipe workspace .  This can be named workspace from `workspaces.ppc` or a remote Powerpipe Cloud workspace

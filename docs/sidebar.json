@@ -119,7 +119,7 @@
           "reference/env-vars/powerpipe_snapshot_location",
           "reference/env-vars/powerpipe_telemetry",
           "reference/env-vars/powerpipe_update_check",
-          "reference/env-vars/powerpipe_workspace_database",
+          "reference/env-vars/powerpipe_database",
           "reference/env-vars/powerpipe_workspace"
         ]
       },

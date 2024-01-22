@@ -138,7 +138,7 @@ Run a dashboard from the current mod or its direct dependents or from a Powerpip
 |  `--snapshot-title string=string` | The title to give a snapshot when uploading to Turbot Pipes.
 | `--var string=string`           | Specify the value of a variable.  Multiple `--var` arguments may be passed. 
 | `--var-file strings`            | Specify a `.ppvar` file containing variable values.
-|  `--workspace-database`         | Sets the database that Powerpipe will connect to. This can be local (the default) or a remote Turbot Pipes database. See [POWERPIPE_WORKSPACE_DATABASE](/docs/reference/env-vars/powerpipe_workspace_database) for details.
+|  `--database`         | Sets the database that Powerpipe will connect to. This can be local (the default) or a remote Turbot Pipes database. See [POWERPIPE_WORKSPACE_DATABASE](/docs/reference/env-vars/powerpipe_database) for details.
 
 
 
@@ -198,7 +198,7 @@ powerpipe dashboard run cis_v200_2_1_1 --workspace acme/anvils
 
 Run a dashboard against a specific database:
 ```bash
-powerpipe dashboard run cis_v200_2_1_1 --workspace-database  postgres://myusername:passworrd@mydbserver.mydomain.com:9193/steampipe
+powerpipe dashboard run cis_v200_2_1_1 --database  postgres://myusername:passworrd@mydbserver.mydomain.com:9193/steampipe
 ```
 
 

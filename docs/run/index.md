@@ -8,7 +8,7 @@ sidebar_label: Run Powerpipe
 Powerpipe is simple to install and manage and does not require any special expertise to get started.  It's distributed as a single binary file - just [download and run it](/downloads)!
 
 ## Mod Location
-Powerpipe always runs in the context of a [mod](/docs/build), which is a collection of Powerpipe pipelines and triggers.  You can [import and use resources from other mods](/docs/build/mod-dependencies) so you can get started without even writing any code! You can explore the available mods on the [Powerpipe Hub](https://hub.powerpipe.io/).
+Powerpipe always runs in the context of a [mod](/docs/build), which is a collection of Powerpipe benchmarks, controls, dashboards, and queries.  You can [import and use resources from other mods](/docs/build/mod-dependencies) so you can get started without even writing any code! You can explore the available mods on the [Powerpipe Hub](https://hub.powerpipe.io/).
 
 Powerpipe loads the mod from the current directory by default, but you can pass the [--mod-location](/docs/reference/cli#global-flags) flag or set the [POWERPIPE_MOD_LOCATION](/docs/reference/env-vars/powerpipe_mod_location) to set it to a different path.  
 
