@@ -47,6 +47,7 @@ chart {
 | `args` | Map | Optional| A map of arguments to pass to the query. 
 | `axes` |  Block	| Optional | See [axes](#axes).
 | `base` |  Chart Reference		| Optional | A reference to a named `chart` resource that this `chart` should source its definition from. `title` and `width` can be overridden after sourcing via `base`.
+| `connection_string` | String |  Optional| A [database connection string](/docs/powerpipe-hcl/query#connection-strings) for the database you wish to query.  If not specified, the [active database](/docs/run#selecting-a-database ) will be used.
 | `grouping` |  Block	| Optional | The layout for multi-series charts. Can be `stack` (the default) or `compare`.
 | `legend` |  Block	| Optional | See [legend](#legend).
 | `param` | Block | Optional| A [param](reference/mod-resources/query#param) block that defines the parameters that can be passed in to the query.  `param` blocks may only be specified for charts that specify the `sql` argument. 

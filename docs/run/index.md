@@ -16,6 +16,57 @@ Powerpipe loads the mod from the current directory by default, but you can pass 
 Powerpipe will load [configuration files](/docs/reference/config-files) (`*.ppc`) according to the configuration search path.  You can change this path with the `--config-path` argument or the [POWERPIPE_CONFIG_PATH](/docs/reference/env-vars/powerpipe_config_path) environment variable, but it defaults to `.:$POWERPIPE_INSTALL_DIR/config` (`.:~/.powerpipe/config`).  This allows you to manage your [workspaces](/docs/run/workspaces) centrally in the `~/.powerpipe/config` directory, but override them in the working directory / mod location if desired.
 
 
+## Selecting a database
+
+Most public mods are written without specifying a `connection_string` on each query.  As a result, all queries in the mod run against the 'active'' database. By default, the active database is `postgres://steampipe@localhost:9193/steampipe`, thus Powerpipe will run against a local Steampipe instance.  
+
+You may instead run a benchmark or control against a specific database by passing the `--database` argument:
+```bash
+powerpipe benchmark run cis_v120 --database  postgres://myusername:passworrd@mydbserver.mydomain.com:9193/steampipe
+```
+
+Or setting the [POWERPIPE_DATABASE] environment variable:
+
+```bash
+export POWERPIPE_DATABASE=postgres://myusername:passworrd@mydbserver.mydomain.com:9193/steampipe
+powerpipe benchmark run cis_v120
+```
+
+You can also set it in a [workspace](/docs/run/workspaces) and then pass the workspace name to the command:
+```bash
+powerpipe benchmark run cis_v120 --workspace my_workspace
+```
+
+You can even change the default by [setting it in your `default` workspace](/docs/run/workspaces#using-workspaces).
+
+If you use [Turbot Pipes](http://pipes.turbot.com), you can run un a benchmark against the pipes workspace by name (you will need to [login](/docs/reference/cli/login) first):
+```bash
+powerpipe benchmark run cis_v120 --workspace acme/anvils
+```
+
+While most Powerpipe mods are written for Steampipe databases, Powerpipe can also connect to other engines, including Postgres:
+
+```bash
+powerpipe dashboard --database 'postgresql://myusername:mypassword@acme-prod.apse1.db.cloud.turbot.io:9193/aaa000'
+```
+
+MySQL:
+
+```bash
+powerpipe dashboard --database 'mysql://root:my_pass@tcp(localhost)/mysql'
+```
+
+SQLite:
+```bash
+powerpipe dashboard --database 'sqlite:./my_sqlite_db.db'
+```
+
+and DuckDB :
+```bash
+powerpipe dashboard --database 'duckdb:./my_ducks.db'
+```
+
+
 ## Operating Modes
 
 Powerpipe can operate in 2 modes.

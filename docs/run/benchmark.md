@@ -144,15 +144,15 @@ powerpipe benchmark run cis_v120 --host  https://powerpipe.my-org.com:9194
 ## Selecting a database
 By default, Powerpipe will run against a local Steampipe instance.  This is because the default workspace database is set to `postgres://steampipe@localhost:9193/steampipe`.  
 
-You man instead run a benchmark or control against a specific database by passing the `--database` argument:
+You may instead run a benchmark or control against a specific database by passing the `--database` argument:
 ```bash
 powerpipe benchmark run cis_v120 --database  postgres://myusername:passworrd@mydbserver.mydomain.com:9193/steampipe
 ```
 
-Or setting the POWERPIPE_WORKSPACE_DATABASE environment variable:
+Or setting the POWERPIPE_DATABASE environment variable:
 
 ```bash
-export POWERPIPE_WORKSPACE_DATABASE=postgres://myusername:passworrd@mydbserver.mydomain.com:9193/steampipe
+export POWERPIPE_DATABASE=postgres://myusername:passworrd@mydbserver.mydomain.com:9193/steampipe
 powerpipe benchmark run cis_v120
 ```
 

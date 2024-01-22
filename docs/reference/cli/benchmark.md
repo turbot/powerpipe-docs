@@ -143,7 +143,7 @@ Run a benchmark from the current mod or its direct dependents or from a Powerpip
 | `--var string=string`           | Specify the value of a variable.  Multiple `--var` arguments may be passed. 
 | `--var-file strings`            | Specify a `.ppvar` file containing variable values.
 | `--where`	                      | Filter the list of controls to run, using a SQL `where` clause.
-|  `--database`         |  Sets the database that Powerpipe will connect to. This can be local (the default) or a remote Turbot Pipes database. See [POWERPIPE_WORKSPACE_DATABASE](/docs/reference/env-vars/powerpipe_database) for details.
+|  `--database`         |  Sets the database that Powerpipe will connect to. This can be local (the default) or a remote Turbot Pipes database. See [POWERPIPE_DATABASE](/docs/reference/env-vars/powerpipe_database) for details.
 
 
 
