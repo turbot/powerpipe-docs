@@ -9,73 +9,41 @@ A Powerpipe **mod** is a portable, versioned collection of related Powerpipe res
 
 Mods provide an easy way to share dashboards, benchmarks, and other resources.
 
-You can install a mod by cloning the repository:
+You can download and install mods from the [Powerpipe Hub](https://hub.powerpipe.io) and use them as-is; [view the dashboards](/docs/run/dashboard), [run benchmarks](/docs/run/benchmark), and [take snapshots](/docs/run/snapshots/) without writing code.
+
+Powerpipe also makes it simple to create dashboards and benchmarks and to share them in your own mod!
+
+## Creating a Mod
+
+
+Creating a mod is simple. First, create a directory for your mod.
 ```bash
-git clone https://github.com/turbot/powerpipe-mod-aws-compliance.git
-```
-
-Powerpipe always runs in the context of a mod.  Powerpipe loads the mod from the current directory by default, so lets change to that directory:
-```bash
-cd powerpipe-mod-aws-compliance
+mkdir my_mod
 ```
 
 
-Notice that when running `powerpipe query` from the workspace directory, the mod's queries and controls appear in the auto-complete, and you can run them by name:
-
-```
-> query.s3_bucket_versioning_enabled
-+--------------------------------------------------------------+--------+---------------------------------------------------------------------+----------------+--------------+
-| resource                                                     | status | reason                                                              | region         | account_id   |
-+--------------------------------------------------------------+--------+---------------------------------------------------------------------+----------------+--------------+
-| arn:aws:s3:::vandelay-industries-georges-bucket01            | ok     | vandelay-industries-georges-bucket01 versioning enabled.            | us-east-1      | 876515858155 |
-| arn:aws:s3:::aws-cloudtrail-logs-876515858155-8592de2c       | ok     | aws-cloudtrail-logs-876515858155-8592de2c versioning enabled.       | us-east-1      | 876515858155 |
-| arn:aws:s3:::vandelay-industries-cosmos-bucket               | ok     | vandelay-industries-cosmos-bucket versioning enabled.               | us-east-1      | 876515858155 |
-| arn:aws:s3:::vanedaly-replicated-bucket-01                   | ok     | vanedaly-replicated-bucket-01 versioning enabled.                   | us-east-1      | 876515858155 |
-| arn:aws:s3:::vandelay-industries-elaines-bucket              | ok     | vandelay-industries-elaines-bucket versioning enabled.              | us-east-1      | 876515858155 |
-| arn:aws:s3:::vandelay-industries-vandelay01                  | ok     | vandelay-industries-vandelay01 versioning enabled.                  | us-east-1      | 876515858155 |
-| arn:aws:s3:::vandelay-industries-darins-bucket               | ok     | vandelay-industries-darins-bucket versioning enabled.               | us-east-1      | 876515858155 |
-+--------------------------------------------------------------+--------+---------------------------------------------------------------------+----------------+--------------+
-```
-
-
-If your mod contains dashboards, you can view them with the `powerpipe dashboard` command. Simply change to the directory that contains the mod and run:
-```bash
-powerpipe dashboard
-```
-
-You can also run `powerpipe check` to run controls and benchmarks defined in the current directory:
+Change to your mod directory and run `powerpipe mod init` to initial your mod:
 
 ```bash
-powerpipe check all 
+cd my_mod
+powerpipe mod init
 ```
 
-When powerpipe runs, it loads all the resources defined in the mod and its dependencies and makes their resources available to `powerpipe query`, `powerpipe check`, and `powerpipe dashboard`.  Powerpipe can even create a set of introspection tables that allow you to query the mod resources in the workspace.  For performance reasons, introspection is disabled by default, however you can enable it by setting the [STEAMPIPE_INTROSPECTION](reference/env-vars/powerpipe_introspection) environment variable:
+The `powerpipe mod init` command will create a file called `mod.pp` that contains a mod resource for mod named `local`:
 
-```bash
-export STEAMPIPE_INTROSPECTION=info
+```hcl
+mod "local" {
+  title = "my_mod"
+}
 ```
 
-Once enabled, you can query the introspection tables.  For example, you can list all the benchmarks in the workspace:
+You can use a text editor to modify the mod definition in this file to give your mod a name, title, description, and other properties.
 
-```
-> select resource_name from powerpipe_benchmark order by resource_name
-+----------------------+
-| resource_name        |
-+----------------------+
-| cis_v130             |
-| cis_v130_1           |
-| cis_v130_2           |
-| cis_v130_2_1         |
-| cis_v130_2_2         |
-| cis_v130_3           |
-| cis_v130_4           |
-| cis_v130_5           |
-| pci_v321             |
-| pci_v321_autoscaling |
-| pci_v321_cloudtrail  |
-| pci_v321_kms         |
-+----------------------+
+```hcl
+mod "my_mod" {
+  title = "My First Powerpipe Mod"
+  description   = "Sample mod for Powerpipe documentation."
+}
 ```
 
-
-You can explore the available mods on the [Powerpipe Hub](https://hub.powerpipe.io/mods), and you can [create your own benchmarks](mods/writing-controls) and [dashboards](mods/writing-dashboards) with [SQL](sql/powerpipe-sql) and [HCL](reference/mod-resources/overview)! 
+Your mod is initialized! You can add [dashboards](/docs/powerpipe-hcl/dashboard), [benchmarks](/docs/powerpipe-hcl/benchmark) and other resources to your mod using [Powerpipe HCL](/docs/powerpipe-hcl/). You can even [use resources from other mods](/docs/build/mod-dependencies); explore the available mods on the [Powerpipe Hub](https://hub.powerpipe.io)!

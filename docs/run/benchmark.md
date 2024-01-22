@@ -163,7 +163,7 @@ powerpipe benchmark run cis_v120 --workspace my_workspace
 
 You can even change the default by setting it in your `default` workspace.
 
-If you use [Turbot Pipes](http://pipes.turbot.com), you can run un a benchmark against the pipes workspace by name (you will need to [login](/docs/reference/cli/login) first):
+If you use [Turbot Pipes](http://pipes.turbot.com), you can run a benchmark against the pipes workspace by name (you will need to [login](/docs/reference/cli/login) first):
 ```bash
 powerpipe benchmark run cis_v120 --workspace acme/anvils
 ```
