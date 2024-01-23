@@ -13,18 +13,13 @@ Note that a Powerpipe `query` is NOT a database resource. It does not create a v
 ```hcl
 query "plus_size_instances" {
   title = "EC2 Instances xlarge and bigger"
-  sql = "select * from aws_ec2_instance where instance_type like '%xlarge'"
+  sql   = "select * from aws_ec2_instance where instance_type like '%xlarge'"
 }
 ```
 
-You can run a query by its fully qualified name in the Powerpipe query shell:
-```sql
-> aws_ec2_reports.query.prohibited_instance_types 
-```
-
-Or in a non-interactive `powerpipe query` command:
+You can run a query by its name with the  `powerpipe query run` command:
 ```bash 
-$ powerpipe query "aws_ec2_reports.query.plus_size_instances"
+$ powerpipe query run plus_size_instances
 ```
 
 ## Argument Reference
@@ -38,13 +33,6 @@ $ powerpipe query "aws_ec2_reports.query.plus_size_instances"
 | `sql` | String | Required | SQL statement to define the query.
 | `tags` | Map | Optional | A map of key:value metadata for the query, used to categorize, search, and filter.  The structure is up to the mod author and varies by mod. 
 | `title` | String | Optional | A display title for the query.
-
-<!-- 
-// removed ?
-| `search_path` | String | Optional| A schema search path to use for this query.
-| `search_path_prefix` | String | Optional| A schema to prefer for this query.
-
--->
 
 
 
@@ -183,29 +171,6 @@ query "old_access_keys" {
     description = "The maximum allowed key age, in days."
   } 
 }
-```
-
-You can run a parameterized query for any named query from `powerpipe query`.  If the query provides defaults for all the parameters, you can run it without arguments in the same way you would run a query that takes no parameters, and it will run with the default values:
-
-```sql
-query.old_access_keys
-```
-
-If the query does not provide a default, or you wish to run the query with a different value, you can pass an argument to the query.
-
-You can pass them by name:
-```sql
-query.old_access_keys(max_days => 365)
-```
-
-Or by position:
-```sql
-query.old_access_keys(365)
-```
-
-If the parameter takes an array, you can pass an array literal:
-```sql
-query.bucket_count_for_regions(["us-east-2", "us-east-1"])
 ```
 
 
@@ -379,30 +344,4 @@ query "bucket_count_for_region" {
       region = $1
   EOQ
 }
-```
-
-
-## Running from the Powerpipe CLI
-
-You can run top-level, named query-based resources from `powerpipe query` by name, in the same way that you run named queries.
-
-```sql
-card.bucket_count_for_region
-```
-
-If the query does not provide a default, or you wish to run the query with a different value, you can pass an argument to the query.
-
-You can pass them by name:
-```sql
- card.bucket_count_for_region(region => "us-east-2")
-```
-
-Or by position:
-```sql
-card.bucket_count_for_region("us-east-2")
-```
-
-If the parameter takes an array, you can pass an array literal:
-```sql
-card.bucket_count_for_regions(["us-east-2", "us-east-1"])
 ```

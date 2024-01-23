@@ -21,7 +21,7 @@ edge "plugin_to_version" {
       name as from_id,
       digest as to_id
     from
-      powerpipe_registry_plugin_version
+      steampipe_registry_plugin_version
     where
       name = $1
   EOQ
@@ -76,7 +76,7 @@ dashboard "edge_ex_1" {
           name as from_id,
           digest as to_id
         from
-          powerpipe_registry_plugin_version
+          steampipe_registry_plugin_version
         where
           name = 'turbot/ldap'
       EOQ
@@ -108,7 +108,7 @@ edge "plugin_to_version" {
       name as from_id,
       digest as to_id
     from
-      powerpipe_registry_plugin_version
+      steampipe_registry_plugin_version
   EOQ
 }
 
@@ -139,12 +139,11 @@ edge "plugin_to_version" {
       name as from_id,
       digest as to_id
     from
-      powerpipe_registry_plugin_version
+      steampipe_registry_plugin_version
     where
       name = $1
   EOQ
 
   param "plugin_name" {}
 }
-
 ```

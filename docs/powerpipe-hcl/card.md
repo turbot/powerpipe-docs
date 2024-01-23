@@ -80,7 +80,7 @@ Formal data structure:
 #### JQ Templates
 The `href` argument allows you to specify a [jq](https://stedolan.github.io/jq/) template to dynamically generate a hyperlink from the data in the row. To use a jq template, enclose the jq in double curly braces (`{{ }}`).  
 
-Powerpipe will pass the first row of data to jq in the same format that is returned by [powerpipe query json mode output](reference/dot-commands/output), where the keys are the column names and the values are the data for that row. 
+Powerpipe will pass the first row of data to jq in the same format that is returned by [powerpipe query json mode output](/docs/reference/cli/query#powerpipe-query-run), where the keys are the column names and the values are the data for that row. 
 
 For example, this query:
 ```sql
@@ -137,7 +137,6 @@ Refer to [JQ Escaping & Interpolation ](/docs/powerpipe-hcl/dashboard#jq-escapin
 
 
 ## More Examples
-
 
 
 ### Alert Card

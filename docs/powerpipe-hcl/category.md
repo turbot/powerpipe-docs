@@ -132,7 +132,6 @@ category "iam_policy" {
 ```
 
 
-
 ## Argument Reference
 | Argument | Type | Optional? | Description
 |-|-|-|-
@@ -202,4 +201,5 @@ category "aws_vpc_subnet" {
     icon  = "more-horiz"
     threshold = 2
   }
+}
 ```

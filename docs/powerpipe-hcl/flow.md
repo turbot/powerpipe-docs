@@ -160,8 +160,6 @@ Significant columns  are:
 | `to_id`    | The `id` of the destination side of an edge.
 
 
-
-
 Generally speaking, there are 2 data formats commonly used for flows.  If the data is hierarchical, it is often simpler to specify results where each row species a node (with an `id`, and optionally `title`, `category`, and/or `depth`) and an edge, by specifying a `from_id`:  
 
 | from_id | id               | title            | category         |

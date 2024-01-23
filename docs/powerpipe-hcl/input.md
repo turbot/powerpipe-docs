@@ -34,8 +34,6 @@ input "vpc_id" {
 ```
 
 
-
-
 ## Argument Reference
 
 | Argument      | Type    | Optional? | Description                                                                                                                                                                             |
@@ -269,36 +267,6 @@ input "cost_centers" {
   EOQ
 }
 ```
-
-
-
-
-
-
-
-
-
-<!--   To DO - not yet in as of alpha 10
-
-
-### Select with static options
-```hcl
-input {
-  type = "select"
-  options = [
-    {
-      label = "default"
-      value = "vpc-05657e5bef9676266"
-    }
-    {
-      label = "acme @ 10.84.0.0/16"
-      value = "vpc-03656e5eef967f366"
-    }
-  ]
-}
-```
-
--->
 
 
 ### Example dashboard using an input

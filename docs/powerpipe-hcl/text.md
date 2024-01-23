@@ -10,20 +10,17 @@ Display either rendered `markdown` ([GitHub Flavored Markdown](https://github.gi
 Text blocks can be declared as named resources at the top level of a mod, or be declared as anonymous blocks inside a `dashboard` or `container`, or be re-used inside a `dashboard` or `container` by using a `text` with `base = <mod>.text.<text_resource_name>`.
 
 
-
 ## Example Usage
 
 <img src="/images/reference_examples/text_ex_1.png" width="200pt" />
 
 ```hcl
-
 text {
   width = 2
   value = <<-EOM
     # I am some markdown text.
 
     *I* respect ***markdown***.
-  
   EOM
 }
 ```

@@ -101,7 +101,6 @@ dashboard "tree_ex_nodeonly" {
 
 
 
-
 ## Common Hierarchy Properties
 
 ### category
@@ -127,8 +126,6 @@ Significant columns  are:
 | `category` | A display category name. Both nodes and edges may specify a `category` to dictate how the item is displayed.  By default, items of the same category are displayed with the same appearance (color), distinct from other categories.  You can specify display options with a [category](#category) block.
 | `from_id`  | The `id` of the source side of an edge.
 | `to_id`    | The `id` of the destination side of an edge.
-
-
 
 
 Generally speaking, there are 2 data formats commonly used for hierarchies.  It is usually simplest to specify results where each row species a node (with an `id`, and optionally `title`, `category`, and/or `depth`) and an edge, by specifying a `from_id`:  

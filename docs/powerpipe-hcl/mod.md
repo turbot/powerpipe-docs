@@ -80,6 +80,8 @@ The `opengraph` block is an optional block of metadata for use in social media a
 #### require
 A mod may contain a `require` block to specify version dependencies for the Powerpipe CLI, plugins, and mods.  While it is possible to edit this section manually, Powerpipe will also modify it (including reordering and removing comments) when you run a `powerpipe mod` command to install, update, or uninstall a mod.
 
+
+##### powerpipe
 A mod may specify a dependency on the Powerpipe CLI.  Powerpipe will evaluate the dependency when the mod is loaded, and will error if the constraint is not met, but it will not install or upgrade the CLI.  A `powerpipe` constraint specifies a *minimum version*, and does not support semver syntax:
 ```hcl
 require {
@@ -89,7 +91,8 @@ require {
 }
 ```
 
-A mod may specify a dependency on one or more plugins.  Powerpipe will evaluate the dependency when the mod is loaded, and will error if the constraint is not met, but it will not install or upgrade the plugin. A `plugin` constraint specifies a *minimum version*, and does not support semver syntax:
+##### plugin
+A mod may specify a dependency on one or more Steampipe plugins.  Powerpipe will evaluate the dependency when the mod is loaded, and will error if the constraint is not met, but it will not install or upgrade the plugin. A `plugin` constraint specifies a *minimum version*, and does not support semver syntax:
 ```hcl
 require {
   plugin "aws" {
@@ -98,6 +101,7 @@ require {
 }
 ```
 
+##### mod
 A mod may specify dependencies on other mods.  While you can manually edit the `mod` dependencies in the `mod.pp`, they are more commonly managed by Powerpipe when you install, update, or uninstall mods via the [powerpipe mod commands](/docs/reference/cli/mod).  The `version` can be an exact version<!-- ,a tag name, a branch name, a local file --> or a [semver](https://semver.org/) string:
 
 ```hcl
@@ -142,4 +146,39 @@ mod "aws_well_architected" {
   }
 }
 
+```
+
+
+You may also override the [default database](/docs/run#selecting-a-database) and [search_path / search_path_prefix](/docs/run/benchmark#targeting-specific-connections-postgres-only) for the dependent mod if you want:
+
+```hcl
+variable "duckdb_connection_string" {
+  default = "duckdb:/home/ducks/mallard.db"
+}
+
+variable "flowpipe_connection_string" {
+  default = "sqlite:/./my_mod/flowpipe.db"
+}
+
+mod "local" {
+  require {
+    mod "github.com/turbot/my-duckdb-mod" {
+      version     = ">=0.1.0"
+      database    = var.duckdb_connection_string
+      args = {
+        foo = "bar"
+      }
+    }
+
+    mod "github.com/turbot/my-flowpipe-mod" {
+      version   = ">=0.1.0"
+      database  = var.flowpipe_connection_string,
+    }
+
+    mod "github.com/turbot/powerpipe-mod-aws-compliance" {
+      version            = ">=0.66.0"
+      search_path_prefix = "aws_01"
+    }
+  }
+}
 ```

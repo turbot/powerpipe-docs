@@ -33,18 +33,17 @@ control "cisv130_2_1_2" {
 
 ``` 
 
-You may run all controls in a group:
+
+You may run a control from the command line:
 
 ```bash
-# run all the cis controls
-powerpipe check aws.benchmark.cisv130
+powerpipe control run cisv130_2_1_2
+```
 
-# run all cis section 2 controls
-powerpipe check aws.benchmark.cisv130_2
+Controls can be organized into benchmarks.  You can run all controls for a benchmark:
 
-# run all cis section 2.1 controls
-powerpipe check aws.benchmark.cisv130_2_1
-
+```bash
+powerpipe benchmark run cisv130
 ```
 
 ## Argument Reference
@@ -89,4 +88,3 @@ ALL controls must specify queries that return rows that contain the following st
 
 #### Additional Control Columns & Dimensions
 A control's query MUST return the required columns, but it may also return additional columns.  These additional columns are referred to as `dimensions`, and can be used to specify additional provider-specific columns that are included in control reports and outputs to provide additional context.  For example, a benchmark that runs controls against AWS resources may specify dimensions for `account_id` and `region` to help locate the evaluated resource.  The `account_id` and `region` columns will be added as dimensions to the control output for any control whose query returns those columns.
-

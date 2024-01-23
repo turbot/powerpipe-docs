@@ -16,7 +16,7 @@ Image blocks can be declared as named resources at the top level of a mod, or be
 
 ```hcl
 image {
-  src = "https://powerpipe.io/images/powerpipe_logo_wordmark_color.svg"
+  src = "https://steampipe.io/images/steampipe_logo_wordmark_color.svg"
   alt = "Powerpipe Logo"
   width = 2
 }

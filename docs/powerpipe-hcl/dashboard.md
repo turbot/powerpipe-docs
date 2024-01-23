@@ -7,10 +7,11 @@ sidebar_label: dashboard
 
 A dashboard is designed to be used by consumers of your mod to answer specific questions, such as "How many public AWS buckets do I have?" or "Show me the number of aging Zendesk tickets by owner".
 
+You can browse and view dashboards from the Powerpipe server dashboard UI; run `powerpipe server` and open http://localhost:9194 in your web browser.
+
 Dashboards can be declared as named resources at the top-level of a mod, or be nested inside another `dashboard` or `container` by using a named `dashboard` with `base = <mod>.dashboard.<dashboard_resource_name>`.
 
 For layout, a dashboard consists of 12 grid units, where items inside it will consume the full 12 grid units, unless they specify an explicit [width](#width).
-
 
 
 ## Example Usage
@@ -91,8 +92,6 @@ dashboard "my_s3_dashboard" {
 }
 ```
 
-
-
 ### Existing dashboard re-used with `base`
 ```hcl
 dashboard "compose_other" {
@@ -101,8 +100,6 @@ dashboard "compose_other" {
   }
 }
 ```
-
-
 
 ## Argument Reference
 | Argument | Type | Optional? | Description
@@ -314,7 +311,7 @@ Many dashboard elements contain an `icon` argument.  The icon arguments support 
 ### jq Templates
 Some elements ( `card`, `column` in a `table`) allow you to specify a [jq](https://stedolan.github.io/jq/) template in the `href` argument to dynamically generate a hyperlink from the data in the row. To use a jq template, enclose the jq in double curly braces (`{{ }}`).  
 
-Powerpipe will pass each row of data to jq in the same format that is returned by [powerpipe query json mode output](reference/dot-commands/output), where the keys are the column names and the values are the data for that row. 
+Powerpipe will pass each row of data to jq in the same format that is returned by [powerpipe query json mode output](/docs/reference/cli/query#powerpipe-query-run), where the keys are the column names and the values are the data for that row. 
 
 For example, this query:
 ```sql
@@ -495,7 +492,7 @@ Foo's thing and Bar's thing
 
 ##### Escaping Double Curly Braces
 
-Another rare but interesting case is when a raw {{ is required. The {{ is significant since it starts an interpolated sequence. If you want to include a {{ as a raw string then you need to use this trick:
+Another rare but interesting case is when a raw `{{` is required. The `{{` is significant since it starts an interpolated sequence. If you want to include a `{{` as a raw string then you need to use this trick:
 
 ```
 Inject a {{ '{{' }} into my {{ .region }}

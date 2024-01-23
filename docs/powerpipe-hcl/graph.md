@@ -190,7 +190,7 @@ dashboard "plugin_versions" {
             'updated', update_time
           ) as properties
         from
-          powerpipe_registry_plugin
+          steampipe_registry_plugin
        where
           name = 'turbot/ldap'
       EOQ
@@ -209,7 +209,7 @@ dashboard "plugin_versions" {
             'updated', update_time
           ) as properties
         from
-          powerpipe_registry_plugin_version
+          steampipe_registry_plugin_version
        where
           name = 'turbot/ldap'
       EOQ
@@ -223,7 +223,7 @@ dashboard "plugin_versions" {
           concat(digest,':',tag) as id,
           tag as title
         from
-          powerpipe_registry_plugin_version,
+          steampipe_registry_plugin_version,
           jsonb_array_elements(tags) as tag
        where
           name = 'turbot/ldap'
@@ -238,7 +238,7 @@ dashboard "plugin_versions" {
           name as from_id,
           digest as to_id
         from
-          powerpipe_registry_plugin_version
+          steampipe_registry_plugin_version
         where
           name = 'turbot/ldap'
       EOQ
@@ -253,7 +253,7 @@ dashboard "plugin_versions" {
           digest as from_id,
           concat(digest,':',tag) as to_id
         from
-          powerpipe_registry_plugin_version,
+          steampipe_registry_plugin_version,
           jsonb_array_elements(tags) as tag
        where
           name = 'turbot/ldap'
@@ -341,7 +341,7 @@ query "plugin_input" {
       name as value,
       name as label
     from
-      powerpipe_registry_plugin
+      steampipe_registry_plugin
   EOQ
 }
 
@@ -358,7 +358,7 @@ node "plugin"{
         'updated', update_time
       ) as properties
     from
-      powerpipe_registry_plugin
+      steampipe_registry_plugin
     where
       name = $1
   EOQ
@@ -379,7 +379,7 @@ node "plugin_version" {
         'updated', update_time
       ) as properties
     from
-      powerpipe_registry_plugin_version
+      steampipe_registry_plugin_version
     where
       name = $1
   EOQ
@@ -395,7 +395,7 @@ node "plugin_tag" {
       concat(digest,':',tag) as id,
       tag as title
     from
-      powerpipe_registry_plugin_version,
+      steampipe_registry_plugin_version,
       jsonb_array_elements(tags) as tag
     where
       name = $1
@@ -412,7 +412,7 @@ edge "plugin_to_version" {
       name as from_id,
       digest as to_id
     from
-      powerpipe_registry_plugin_version
+      steampipe_registry_plugin_version
     where
       name = $1
   EOQ
@@ -429,7 +429,7 @@ edge "version_to_tag" {
       digest as from_id,
       concat(digest,':',tag) as to_id
     from
-      powerpipe_registry_plugin_version,
+      steampipe_registry_plugin_version,
       jsonb_array_elements(tags) as tag
     where
       name = $1
@@ -546,7 +546,7 @@ dashboard "plugin_versions_mono" {
           'updated', update_time
         ) as properties
       from
-        powerpipe_registry_plugin
+        steampipe_registry_plugin
       where
         name = 'turbot/ldap'
 
@@ -564,7 +564,7 @@ dashboard "plugin_versions_mono" {
           'updated', update_time
         ) as properties
       from
-        powerpipe_registry_plugin_version
+        steampipe_registry_plugin_version
       where
         name = 'turbot/ldap'
 
@@ -578,7 +578,7 @@ dashboard "plugin_versions_mono" {
         'plugin_tag' as category,
         null as properties
       from
-        powerpipe_registry_plugin_version,
+        steampipe_registry_plugin_version,
         jsonb_array_elements_text(tags) as tag
       where
         name = 'turbot/ldap'
@@ -593,7 +593,7 @@ dashboard "plugin_versions_mono" {
         null as category,
         null as properties
       from
-        powerpipe_registry_plugin_version
+        steampipe_registry_plugin_version
       where
         name = 'turbot/ldap'
 
@@ -607,7 +607,7 @@ dashboard "plugin_versions_mono" {
         null as category,
         null as properties
       from
-        powerpipe_registry_plugin_version,
+        steampipe_registry_plugin_version,
         jsonb_array_elements_text(tags) as tag
       where
         name = 'turbot/ldap'

@@ -5,12 +5,11 @@ sidebar_label: chart
 
 # chart
 
-A chart enables visualisation of queries in a variety of charting types such as `bar`, `column`, `donut`, `line` or `pie`.  
+A chart enables visualization of queries in a variety of charting types such as `bar`, `column`, `donut`, `line` or `pie`.  
 
 The chart types share key properties such as shape of the data and  configuration. So, for example, if you change the type of chart from `bar` to `line` it just works. 
 
 Chart blocks can be declared as named resources at the top level of a mod, or be declared as anonymous blocks inside a `dashboard` or `container`, or be re-used inside a `dashboard` or `container` by using a `chart` with `base = <mod>.chart.<chart_resource_name>`.
-
 
 
 ## Example Usage
@@ -19,7 +18,6 @@ Chart blocks can be declared as named resources at the top level of a mod, or be
 
 
 ```hcl
-
 chart {
   type  = "bar"
   title = "AWS S3 Buckets by Region"
@@ -36,7 +34,6 @@ chart {
         Total desc
   EOQ
 }
-
 ```
 
 
@@ -342,8 +339,8 @@ chart "db_base" {
     point "SQLite" {
       color = "purple"
     }
-
   }
+}
 ```
 
 ### Line Chart

@@ -26,7 +26,7 @@ node {
         'updated', update_time
       ) as properties
     from
-      powerpipe_registry_plugin_version
+      steampipe_registry_plugin_version
     where
       name = 'turbot/ldap'
   EOQ
@@ -85,7 +85,7 @@ dashboard "node_ex_1" {
             'updated', update_time
           ) as properties
         from
-          powerpipe_registry_plugin_version
+          steampipe_registry_plugin_version
         where
           name = 'turbot/ldap'
       EOQ
@@ -122,7 +122,7 @@ node "plugin"{
         'updated', update_time
       ) as properties
     from
-      powerpipe_registry_plugin
+      steampipe_registry_plugin
   EOQ
 }
 ```
@@ -157,7 +157,7 @@ node "plugin"{
         'updated', update_time
       ) as properties
     from
-      powerpipe_registry_plugin
+      steampipe_registry_plugin
     where
       name = $1
   EOQ
