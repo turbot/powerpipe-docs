@@ -174,9 +174,9 @@ powerpipe query run check_vpc --arg vpc_ids='["vpc-12345678","vpc-22222222"]' --
 
 Run an adhoc query and create a snapshot file:
 ```bash
-powerpipe query run "select * from aws_account" --export my_snap.sps
+powerpipe query run "select * from aws_account" --export my_snap.pps
 # or
-powerpipe query run "select * from aws_account" --output sps > my_snap.sps
+powerpipe query run "select * from aws_account" --output sps > my_snap.pps
 ```
 
 Run a named query on a remote powerpipe host

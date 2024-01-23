@@ -16,7 +16,7 @@ Image blocks can be declared as named resources at the top level of a mod, or be
 
 ```hcl
 image {
-  src = "https://powerpipe.io/images/powerpipe_logo_wordmark_color.svg"
+  src = "https://steampipe.io/images/steampipe_logo_wordmark_color.svg"
   alt = "Powerpipe Logo"
   width = 2
 }
@@ -30,8 +30,8 @@ image {
 | `args` | Map | Optional| A map of arguments to pass to the query.  
 | `base` |   Text Reference		| Optional | A reference to a named `text` resource that this `text` should source its definition from. `title` and `width` can be overridden after sourcing via `base`.
 | `connection_string` | String |  Optional| A [database connection string](/docs/powerpipe-hcl/query#connection-strings) for the database you wish to query.  If not specified, the [active database](/docs/run#selecting-a-database ) will be used.
-| `param` | Block | Optional| A [param](reference/mod-resources/query#param) block that defines the parameters that can be passed in to the query.  `param` blocks may only be specified for images that specify the `sql` argument. 
-| `query` | Query Reference | Optional | A reference to a [query](reference/mod-resources/query) resource that defines the query to run.  An `image`  may either specify the `query` argument or the `sql` argument, but not both.
+| `param` | Block | Optional| A [param](/docs/powerpipe-hcl/query#param) block that defines the parameters that can be passed in to the query.  `param` blocks may only be specified for images that specify the `sql` argument. 
+| `query` | Query Reference | Optional | A reference to a [query](/docs/powerpipe-hcl/query) resource that defines the query to run.  An `image`  may either specify the `query` argument or the `sql` argument, but not both.
 | `sql` |  String	| Optional |  An SQL string to provide data for the `image`.  An `image` may either specify the `query` argument or the `sql` argument, but not both.
 | `src` |  String	| Optional | Publicly-accessible URL for the image.
 | `title` |  String	| Optional | A plain text [title](/docs/powerpipe-hcl/dashboard#title) to display for this image.

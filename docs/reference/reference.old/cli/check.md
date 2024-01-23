@@ -162,7 +162,7 @@ powerpipe check list
 
   <tr> 
     <td nowrap="true"> <inlineCode>--var-file string</inlineCode>  </td> 
-    <td>  Specify an .spvars file containing mod variable values. 
+    <td>  Specify an .ppvars file containing mod variable values. 
     </td>
   </tr>
 
@@ -232,9 +232,9 @@ Run all controls and pass variable values on the command line:
 powerpipe check all --var='mandatory_tags=["Owner","Application","Environment"]' --var='sensitive_tags=["password","key"]'
 ```
 
-Run all controls and pass a .spvars file that contains variable values to use
+Run all controls and pass a .ppvars file that contains variable values to use
 ```bash
-powerpipe check all --var-file='tags.spvars'
+powerpipe check all --var-file='tags.ppvars'
 ```
 
 

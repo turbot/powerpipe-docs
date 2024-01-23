@@ -34,6 +34,7 @@
     "label": "Build Mods",
     "link": "build",
     "items": [
+      "build/create-mod",
       "build/writing-controls",
       "build/writing-dashboards",
       "build/param-query",

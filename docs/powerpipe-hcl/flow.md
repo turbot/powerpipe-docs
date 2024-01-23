@@ -122,8 +122,8 @@ dashboard "flow_ex_node_edge" {
 | `connection_string` | String |  Optional| A [database connection string](/docs/powerpipe-hcl/query#connection-strings) for the database you wish to query.  If not specified, the [active database](/docs/run#selecting-a-database ) will be used.
 | `edge` | Block | Optional| [edge](/docs/powerpipe-hcl/edge) blocks that define the edges in the flow.
 | `node` | Block | Optional| [node](/docs/powerpipe-hcl/node) blocks that define the nodes in the flow.
-| `param` | Block | Optional| [param](reference/mod-resources/query#param) blocks that defines the parameters that can be passed in to the query.  `param` blocks may only be specified for hierarchies that specify the `sql` argument. 
-| `query` | Query Reference | Optional | A reference to a [query](reference/mod-resources/query) resource that defines the query to run.  A `flow`  may either specify the `query` argument or the `sql` argument, but not both.
+| `param` | Block | Optional| [param](/docs/powerpipe-hcl/query#param) blocks that defines the parameters that can be passed in to the query.  `param` blocks may only be specified for hierarchies that specify the `sql` argument. 
+| `query` | Query Reference | Optional | A reference to a [query](/docs/powerpipe-hcl/query) resource that defines the query to run.  A `flow`  may either specify the `query` argument or the `sql` argument, but not both.
 | `sql` |  String	| Optional |  An SQL string to provide data for the `flow`.  A `flow` may either specify the `query` argument or the `sql` argument, but not both.
 | `title` |  String	| Optional | A plain text [title](/docs/powerpipe-hcl/dashboard#title) to display for this flow.
 | `type` |  String	| Optional | The type of the flow. Can be `sankey` or `table`.
@@ -139,7 +139,7 @@ dashboard "flow_ex_node_edge" {
 
 | Property | Type   | Default                                                              | Values                                                                                                                                  | Description |
 | -------- | ------ |----------------------------------------------------------------------| --------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `color`  | string | The matching color from the default theme for the data series index. | A [valid color value](reference/mod-resources/dashboard#color).  This may be a named color, RGB or RGBA string, or a control status color. |  The color to display for this category.           |
+| `color`  | string | The matching color from the default theme for the data series index. | A [valid color value](/docs/powerpipe-hcl/dashboard#color).  This may be a named color, RGB or RGBA string, or a control status color. |  The color to display for this category.           |
 
 
 
@@ -158,8 +158,6 @@ Significant columns  are:
 | `depth`    | An integer to set the position of the node. The layout of the nodes is inferred from the query, however you can force placement with the `depth` column if you need to override the default behavior.
 | `from_id`  | The `id` of the source side of an edge.
 | `to_id`    | The `id` of the destination side of an edge.
-
-
 
 
 Generally speaking, there are 2 data formats commonly used for flows.  If the data is hierarchical, it is often simpler to specify results where each row species a node (with an `id`, and optionally `title`, `category`, and/or `depth`) and an edge, by specifying a `from_id`:  

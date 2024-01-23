@@ -14,7 +14,7 @@ cd my-mod
 powerpipe mod install github.com/turbot/powerpipe-mod-aws-compliance
 ```
 
-This will install the mod into the `.powerpipe` sub-directory, and will add the dependency to the [require block](/docs/powerpipe-hcl/mod#require) of your `mod.sp` file:
+This will install the mod into the `.powerpipe` sub-directory, and will add the dependency to the [require block](/docs/powerpipe-hcl/mod#require) of your `mod.pp` file:
 ```hcl
 mod "local" {
   title = "my-mod"
@@ -27,7 +27,7 @@ mod "local" {
 ```
 
 
-You can then create new `.sp` files in your mod that reference the resources in the dependency mods.  You can create your own controls that use `query` resources from the dependency mod: 
+You can then create new `.pp` files in your mod that reference the resources in the dependency mods.  You can create your own controls that use `query` resources from the dependency mod: 
 
 ```hcl
 control "my_mod_public_ec2" {

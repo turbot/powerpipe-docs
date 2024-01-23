@@ -39,11 +39,11 @@ card {
 | `args` | Map | Optional| A map of arguments to pass to the query. 
 | `base` |  Card Reference		| Optional | A reference to a named `card` resource that this `card` should source its definition from. `label`, `title`, `value`, `type` and `width` can be overridden after sourcing via `base`.
 | `connection_string` | String |  Optional| A [database connection string](/docs/powerpipe-hcl/query#connection-strings) for the database you wish to query.  If not specified, the [active database](/docs/run#selecting-a-database ) will be used.
-| `icon` |  String	| Optional | An [icon](reference/mod-resources/dashboard#icon) to use for the elements with this category. 
+| `icon` |  String	| Optional | An [icon](/docs/powerpipe-hcl/dashboard#icon) to use for the elements with this category. 
 | `href`    | String |Optional | A url that the card should link to.  The `href` may use a [jq template](#jq-templates) to dynamically generate the link the card.  |
 | `label` |  String	| Optional | Inferred from the first column name in simple data format. Else can be set explicitly in HCL, or returned by the query in the `label` column in the formal data format.
-| `param` | Block | Optional| A [param](reference/mod-resources/query#param) block that defines the parameters that can be passed in to the query.  `param` blocks may only be specified for cards that specify the `sql` argument. 
-| `query` | Query Reference | Optional | A reference to a [query](reference/mod-resources/query) resource that defines the query to run.  A card may either specify the `query` argument or the `sql` argument, but not both.
+| `param` | Block | Optional| A [param](/docs/powerpipe-hcl/query#param) block that defines the parameters that can be passed in to the query.  `param` blocks may only be specified for cards that specify the `sql` argument. 
+| `query` | Query Reference | Optional | A reference to a [query](/docs/powerpipe-hcl/query) resource that defines the query to run.  A card may either specify the `query` argument or the `sql` argument, but not both.
 | `sql` |  String	| Optional |  An SQL string to provide data for the card.  A card may either specify the `query` argument or the `sql` argument, but not both.
 | `title` |  String	| Optional | A plain text [title](/docs/powerpipe-hcl/dashboard#title) to display for this card.
 | `type` |  String	| Optional | `plain` (default), `alert`, `info` or `ok`. You can also use `table` to review the raw data.
@@ -80,7 +80,7 @@ Formal data structure:
 #### JQ Templates
 The `href` argument allows you to specify a [jq](https://stedolan.github.io/jq/) template to dynamically generate a hyperlink from the data in the row. To use a jq template, enclose the jq in double curly braces (`{{ }}`).  
 
-Powerpipe will pass the first row of data to jq in the same format that is returned by [powerpipe query json mode output](reference/dot-commands/output), where the keys are the column names and the values are the data for that row. 
+Powerpipe will pass the first row of data to jq in the same format that is returned by [powerpipe query json mode output](/docs/reference/cli/query#powerpipe-query-run), where the keys are the column names and the values are the data for that row. 
 
 For example, this query:
 ```sql
@@ -137,7 +137,6 @@ Refer to [JQ Escaping & Interpolation ](/docs/powerpipe-hcl/dashboard#jq-escapin
 
 
 ## More Examples
-
 
 
 ### Alert Card

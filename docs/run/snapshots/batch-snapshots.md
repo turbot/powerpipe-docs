@@ -142,7 +142,7 @@ powerpipe benchmark run benchmark.cis_v150 --snapshot --snapshot-location .
 You can also set `snapshot_location` in a [workspace](/docs/run/workspaces) if you wish to make it the default location.
 
 
-Alternatively, you can use the `--export` argument to export a query, control, dashboard, or benchmark in the Powerpipe snapshot format.  This will create a file with a `.sps` extension in the current directory:
+Alternatively, you can use the `--export` argument to export a query, control, dashboard, or benchmark in the Powerpipe snapshot format.  This will create a file with a `.pps` extension in the current directory:
 
 ```bash
 powerpipe dashboard run dashboard.aws_account_report --export sps
@@ -154,20 +154,20 @@ The `snapshot` export/output type is an alias for `sps`:
 powerpipe dashboard run dashboard.aws_account_report --export snapshot
 ```
 
-To give the file a name, simply use `{filename}.sps`, for example:
+To give the file a name, simply use `{filename}.pps`, for example:
 
 ```bash
-powerpipe dashboard run dashboard.aws_account_report --export account_report.sps
+powerpipe dashboard run dashboard.aws_account_report --export account_report.pps
 ```
 
 Alternatively, you can write the powerpipe snapshot to stdout with `--output sps`
 ```bash
-powerpipe query run "select * from aws_account" --output sps > mysnap.sps
+powerpipe query run "select * from aws_account" --output sps > mysnap.pps
 ```
 
 or `--output snapshot`
 ```bash
-powerpipe query run  "select * from aws_account" --output snapshot  > mysnap.sps
+powerpipe query run  "select * from aws_account" --output snapshot  > mysnap.pps
 ```
 
 

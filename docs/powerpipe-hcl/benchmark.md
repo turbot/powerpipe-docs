@@ -13,9 +13,10 @@ A `benchmark` may specify `control` or `benchmark` resources as children, enabli
 You can run benchmarks or refer to them with hcl syntax as `{mod}.benchmark.{name}`.  The name must be unique in the namespace (mod). Typically, controls and benchmarks in a given benchmark should be named in a way that mimics the hierarchy in order to provide an easy to follow structure.  This is a convention that should be followed, but not a strict requirement.  
 
 
-You can [run controls and benchmarks](check/overview) with the [powerpipe check](reference/cli/check) command.
+You can [run controls and benchmarks](/docs/run/benchmark) with the [powerpipe benchmark run](/docs/reference/cli/benchmark#powerpipe-benchmark-run) and [powerpipe control run](/docs/reference/cli/control#powerpipe-control-run) commands.
 
-You can also [view benchmarks as dashboards](dashboard/overview) with the [powerpipe dashboard](reference/cli/dashboard) command.
+You can also [view benchmarks as dashboards](/docs/run/dashboard) with the [powerpipe server](/docs/reference/cli/server) command.
+
 ## Example Usage
 
 ```hcl
@@ -89,7 +90,7 @@ control "cisv130_1_4" {
 | `documentation` | String (Markdown)| Optional | A markdown string containing a long form description, used as documentation for the mod on hub.powerpipe.io. 
 | `tags` | Map | Optional | A map of key:value metadata for the benchmark, used to categorize, search, and filter.  The structure is up to the mod author and varies by benchmark and provider. 
 | `title` | String | Optional | A display title for the benchmark
-| `type` |  String	| Optional | When running in `powerpipe dashboard`, the type of the benchmark view.  Can be `benchmark` (the default) or `table`.
+| `type` |  String	| Optional | When running in the `powerpipe server` dashboard UI, the type of the benchmark view.  Can be `benchmark` (the default) or `table`.
 
 
 ## More Examples

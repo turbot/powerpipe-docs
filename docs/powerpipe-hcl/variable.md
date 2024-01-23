@@ -6,7 +6,7 @@ sidebar_label: variable
 
 # variable
 
-[Variables](mods/mod-variables#input-variables), are module-level objects that essentially act as parameters for the module.  When running `powerpipe check`, you can pass values on the command line, from a `.spvars` file, or from environment variables, and you will be prompted for any variables that have no values.
+[Variables](mods/mod-variables#input-variables), are module-level objects that essentially act as parameters for the module.  When running `powerpipe check`, you can pass values on the command line, from a `.ppvars` file, or from environment variables, and you will be prompted for any variables that have no values.
 
 You can reference variable values as `var.<NAME>`
 
@@ -21,6 +21,7 @@ variable "instance_state" {
 
 query "instances_in_state" {
   sql = "select instance_id, instance_state from aws_ec2_instance where instance_state = $1;" 
+
   param "find_state" {
     default = var.instance_state
   } 
@@ -35,10 +36,6 @@ query "instances_in_state" {
 | `type` | String | Optional | The [variable type](#variable-types).  This may be a simple type or a collection.
 
 
-<!--
-- `validation` - A block to define custom validation rules.
-- `sensitive` - Allows you to suppress showing the variable's value in output.
--->
 ## Variable Types
 Variables may be simple types:
 - `string`
@@ -52,4 +49,4 @@ Variables may also be collection types:
 - `object({<ATTR NAME> = <TYPE>, ... })`
 - `tuple([<TYPE>, ...])`
 
-The keyword `any` may be used to indicate that any type is acceptable 
+The keyword `any` may be used to indicate that any type is acceptable.

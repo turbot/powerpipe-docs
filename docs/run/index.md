@@ -25,7 +25,7 @@ You may instead run a benchmark or control against a specific database by passin
 powerpipe benchmark run cis_v120 --database  postgres://myusername:passworrd@mydbserver.mydomain.com:9193/steampipe
 ```
 
-Or setting the [POWERPIPE_DATABASE] environment variable:
+Or setting the [POWERPIPE_DATABASE](/docs/reference/env-vars/powerpipe_database) environment variable:
 
 ```bash
 export POWERPIPE_DATABASE=postgres://myusername:passworrd@mydbserver.mydomain.com:9193/steampipe

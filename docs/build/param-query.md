@@ -5,19 +5,22 @@ sidebar_label: Passing Parameters
 
 # Passing Parameters to Queries & Controls
 
-A query may optionally define **parameters**.  When executing the query, either from an interactive query session or from a control, you can specify values for the parameters to be used for the query execution.
+A query may optionally define **parameters**.  When executing the query, you can specify values for the parameters to be used for the query execution.
 
 
 ## Using Parameters in Queries
 Variable usage and interpolation in Powerpipe is based on and conforms to Terraform.  Special consideration must be made for passing variables into queries, however, as both the HCL parser AND the SQL parser must account for the variables.
 
+<!--  ARE PARAMS ONLY OK IN POSTGRES??)
 Internally, the Powerpipe execution layer uses [Postgres SQL Prepared Statements](https://www.postgresql.org/docs/14/sql-prepare.html) to define queries that accept parameters, and the [execute](https://www.postgresql.org/docs/14/sql-execute.html) command to run them.  Note that when using SQL prepared statements, passed parameters are treated as values and SQL-injection is not possible (as long as you don't call unsafe functions from the body and pass parameters).
+-->
 
 When defining a query, you may use positional parameters (`$1`, `$2`, `$3`, ...) in the query definition.  For each of these positional parameters, you should define a `param` block that names and describes the parameter. Note that Powerpipe will assign the parameters in the order that the `param` blocks are defined - the first `param` block describes `$1`, the second describes `$2`, etc:
 
 ```hcl
 query "instances_in_state" {
   sql = "select instance_id, instance_state from aws_ec2_instance where instance_state = $1;" 
+
   param "state" {
     default = "stopped"
   } 
@@ -27,9 +30,9 @@ query "instances_in_state" {
 You can also pass list values as parameters, and they will converted to postgres arrays in the query:
 
 ```hcl
-
 query "instances_in_states" {
   sql = "select instance_id, instance_state from aws_ec2_instance where instance_state = any($1);" 
+
   param "states" {
     default = ["stopped", "running"]
   } 
@@ -38,25 +41,25 @@ query "instances_in_states" {
 
 ## Passing Arguments
 
-You can run a query or control by name from `powerpipe query`.  If the query provides defaults for all the parameters, you can run it without arguments in the same way you would run a query or control that takes no parameters, and it will run with the default values:
+You can run a query or control by name from  the command line.  If the query provides defaults for all the parameters, you can run it without arguments in the same way you would run a query or control that takes no parameters, and it will run with the default values:
 
-```sql
-query.instances_in_state
+```bash
+powerpipe query run instances_in_state
 ```
 
-If the query does not provide a default, or you wish to run the query with a different value, you can pass an argument to the query.
+If the query does not provide a default, or you wish to run the query with a different value, you can pass an argument to the query with one or mor `--arg` arguments.
 
 You can pass them by name:
-```sql
-query.instances_in_state(state => "running")
+```bash
+powerpipe query run instances_in_state --arg state='running'
 ```
 
-Or by position:
-```sql
-query.instances_in_state("running")
+Or by position, using the parameter index:
+```bash
+powerpipe query run instances_in_state --arg 0='running'
 ```
 
-Likewise, when specifying arguments in HCL, you can pass them by name:
+Likewise, when specifying arguments in HCL, you can pass them by name (as a map):
 ```hcl
 control "running_instances" {
   title       = "EC2 instances that are running"
@@ -64,15 +67,16 @@ control "running_instances" {
   args        = {
     "state"   = "running"
   }
+}
 ```
 
-Or by position:
+Or by position (as a list):
 ```hcl
-control "running_instances" {
+control "running_instances_list" {
   title       = "EC2 instances that are running"
   query       = query.instances_in_state
   args        = ["running"]
-  }
+}
 ```
 
 ## Using Parameters in Controls, Charts, and other resources
@@ -133,7 +137,7 @@ control "stopped_instances_inline" {
 }
 ```
 
-Note that you may *either* reference a query object with the `query` argument *or* use inline sql with the `sql` argument from your control, but not both, and the behavior is subtly different, as can be seen in the examples above:
+Note that you may *either* reference a query object with the `query` argument *or* use inline sql with the `sql` argument from your control, *but not both*, and the behavior is subtly different, as can be seen in the examples above:
 - The `query` argument is a reference to a `query` resource. You cannot define parameters (`param` blocks) for the control, but you can pass them as arguments (`args`) *to* the query, if *the query* has parameters defined.
 - The `sql` argument is a string.  When the control specifies a sql string, it essentially behaves like a query, and thus you can define the parameters that it accepts (in `param` blocks) in the same manner as a `query` resource.  
 
@@ -149,7 +153,7 @@ variable "bad_states" {
 }
 
 
-control "stopped_instances" {
+control "instances_in_bad_states" {
     title       = "EC2 instances that are stopped"
     query       = query.instances_invalid_state
     args        = {
@@ -162,7 +166,7 @@ control "stopped_instances" {
 
 ## Using Parameters with Inputs
 
-It is common for arguments to refer to dashboard [input](reference/mod-resources/input) elements, allowing you to create rich, dynamic, interactive reports:
+It is common for arguments to refer to dashboard [input](/docs/powerpipe-hcl/input) elements, allowing you to create rich, dynamic, interactive reports:
 
 ```hcl
 dashboard "inputs_param_example_dashboard" {

@@ -5,12 +5,11 @@ sidebar_label: chart
 
 # chart
 
-A chart enables visualisation of queries in a variety of charting types such as `bar`, `column`, `donut`, `line` or `pie`.  
+A chart enables visualization of queries in a variety of charting types such as `bar`, `column`, `donut`, `line` or `pie`.  
 
 The chart types share key properties such as shape of the data and  configuration. So, for example, if you change the type of chart from `bar` to `line` it just works. 
 
 Chart blocks can be declared as named resources at the top level of a mod, or be declared as anonymous blocks inside a `dashboard` or `container`, or be re-used inside a `dashboard` or `container` by using a `chart` with `base = <mod>.chart.<chart_resource_name>`.
-
 
 
 ## Example Usage
@@ -19,7 +18,6 @@ Chart blocks can be declared as named resources at the top level of a mod, or be
 
 
 ```hcl
-
 chart {
   type  = "bar"
   title = "AWS S3 Buckets by Region"
@@ -36,7 +34,6 @@ chart {
         Total desc
   EOQ
 }
-
 ```
 
 
@@ -50,8 +47,8 @@ chart {
 | `connection_string` | String |  Optional| A [database connection string](/docs/powerpipe-hcl/query#connection-strings) for the database you wish to query.  If not specified, the [active database](/docs/run#selecting-a-database ) will be used.
 | `grouping` |  Block	| Optional | The layout for multi-series charts. Can be `stack` (the default) or `compare`.
 | `legend` |  Block	| Optional | See [legend](#legend).
-| `param` | Block | Optional| A [param](reference/mod-resources/query#param) block that defines the parameters that can be passed in to the query.  `param` blocks may only be specified for charts that specify the `sql` argument. 
-| `query` | Query Reference | Optional | A reference to a [query](reference/mod-resources/query) resource that defines the query to run.  A chart may either specify the `query` argument or the `sql` argument, but not both.
+| `param` | Block | Optional| A [param](/docs/powerpipe-hcl/query#param) block that defines the parameters that can be passed in to the query.  `param` blocks may only be specified for charts that specify the `sql` argument. 
+| `query` | Query Reference | Optional | A reference to a [query](/docs/powerpipe-hcl/query) resource that defines the query to run.  A chart may either specify the `query` argument or the `sql` argument, but not both.
 | `series` |  Block	| Optional | A named block matching the name of the series you wish to configure. See [series](#series).
 | `sql` |  String	| Optional |  An SQL string to provide data for the chart.  A chart may either specify the `query` argument or the `sql` argument, but not both.
 | `title` |  String	| Optional | A plain text [title](/docs/powerpipe-hcl/dashboard#title) to display for this chart.
@@ -146,14 +143,14 @@ Alternative values are `none`, which applies no data transforms, or `crosstab` w
 | Property | Type   | Default                                                              | Values                                                                                                                                  | Description |
 | -------- | ------ | -------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
 | `title`  | string | The column name that the series data resides in.                     | Max 50 characters                                                                                                                       |             |
-| `color`  | string | The matching color from the default theme for the data series index. |A [valid color value](reference/mod-resources/dashboard#color).  This may be a named color, RGB or RGBA string, or a control status color. |             |
-| `point`  | string | An element of a series. |A [point](reference/mod-resources/chart#point). |             |
+| `color`  | string | The matching color from the default theme for the data series index. |A [valid color value](/docs/powerpipe-hcl/dashboard#color).  This may be a named color, RGB or RGBA string, or a control status color. |             |
+| `point`  | string | An element of a series. |A [point](/docs/powerpipe-hcl/chart#point). |             |
 
 ### point
 
 | Property | Type   | Default                                                              | Values                                                                                                                                  | Description |
 | -------- | ------ | -------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `color`  | string | The matching color from the default theme for the data series index. |A [valid color value](reference/mod-resources/dashboard#color).  This may be a named color, RGB or RGBA string, or a control status color. |             |
+| `color`  | string | The matching color from the default theme for the data series index. |A [valid color value](/docs/powerpipe-hcl/dashboard#color).  This may be a named color, RGB or RGBA string, or a control status color. |             |
 
 
 ## More Examples
@@ -342,8 +339,8 @@ chart "db_base" {
     point "SQLite" {
       color = "purple"
     }
-
   }
+}
 ```
 
 ### Line Chart

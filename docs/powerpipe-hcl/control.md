@@ -33,18 +33,17 @@ control "cisv130_2_1_2" {
 
 ``` 
 
-You may run all controls in a group:
+
+You may run a control from the command line:
 
 ```bash
-# run all the cis controls
-powerpipe check aws.benchmark.cisv130
+powerpipe control run cisv130_2_1_2
+```
 
-# run all cis section 2 controls
-powerpipe check aws.benchmark.cisv130_2
+Controls can be organized into benchmarks.  You can run all controls for a benchmark:
 
-# run all cis section 2.1 controls
-powerpipe check aws.benchmark.cisv130_2_1
-
+```bash
+powerpipe benchmark run cisv130
 ```
 
 ## Argument Reference
@@ -54,8 +53,8 @@ powerpipe check aws.benchmark.cisv130_2_1
 | `connection_string` | String |  Optional| A [database connection string](/docs/powerpipe-hcl/query#connection-strings) for the database you wish to query.  If not specified, the [active database](/docs/run#selecting-a-database ) will be used.
 | `description` | String| Optional| A description of the control.
 | `documentation` | String (Markdown)| Optional | A markdown string containing a long form description, used as documentation for the mod on hub.powerpipe.io. 
-| `param` | Block | Optional| A [param](reference/mod-resources/query#param) block that defines the parameters that can be passed in to the control's query.  `param` blocks may only be specified for controls that specify the `sql` argument. 
-| `query` | Query Reference | Optional | A reference to a [query](reference/mod-resources/query) resource that defines the control query to run.  The referenced query must conform to the control interface - it must return the [required control columns](#required-control-columns).  A control must either specify the `query` argument or the `sql` argument, but not both.
+| `param` | Block | Optional| A [param](/docs/powerpipe-hcl/query#param) block that defines the parameters that can be passed in to the control's query.  `param` blocks may only be specified for controls that specify the `sql` argument. 
+| `query` | Query Reference | Optional | A reference to a [query](/docs/powerpipe-hcl/query) resource that defines the control query to run.  The referenced query must conform to the control interface - it must return the [required control columns](#required-control-columns).  A control must either specify the `query` argument or the `sql` argument, but not both.
 | `severity`| String | Optional | The potential impact of given control.  Allowed values are `none`,`low`,`medium`,`high`,`critical`. The severity names are taken from the [Common Vulnerability Scoring System version 3.1: Specification Document](https://www.first.org/cvss/specification-document).  This document may be used as guidance for classifying your controls.
 | `sql` | String | Required | An SQL string that returns rows that conform to the control interface - it must return the [required control columns](#required-control-columns).  A control must either specify the `query` argument or the `sql` argument, but not both.
 | `tags` | Map | Optional | A map of key:value metadata for the benchmark, used to categorize, search, and filter.  The structure is up to the mod author and varies by benchmark and provider. 
@@ -89,4 +88,3 @@ ALL controls must specify queries that return rows that contain the following st
 
 #### Additional Control Columns & Dimensions
 A control's query MUST return the required columns, but it may also return additional columns.  These additional columns are referred to as `dimensions`, and can be used to specify additional provider-specific columns that are included in control reports and outputs to provide additional context.  For example, a benchmark that runs controls against AWS resources may specify dimensions for `account_id` and `region` to help locate the evaluated resource.  The `account_id` and `region` columns will be added as dimensions to the control output for any control whose query returns those columns.
-

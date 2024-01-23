@@ -154,7 +154,7 @@ powerpipe dashboard list
 
   <tr> 
     <td nowrap="true"> <inlineCode>--var-file string</inlineCode>  </td> 
-    <td>  Specify an .spvars file containing mod variable values. 
+    <td>  Specify an .ppvars file containing mod variable values. 
     </td>
   </tr>
 
