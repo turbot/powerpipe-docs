@@ -151,9 +151,9 @@ powerpipe dashboard run cis_v200_2_1_1
 
 Run a dashboard and output the snapshot data to a file:
 ```bash
-powerpipe dashboard run cis_v200_2_1_1 > mysnap.sps
+powerpipe dashboard run cis_v200_2_1_1 > mysnap.pps
 # or
-powerpipe dashboard run cis_v200_2_1_1 --export mysnap.sps
+powerpipe dashboard run cis_v200_2_1_1 --export mysnap.pps
 ```
 
 

@@ -136,9 +136,9 @@ category "iam_policy" {
 ## Argument Reference
 | Argument | Type | Optional? | Description
 |-|-|-|-
-| `color`  | String | The matching color from the default theme for the data series index. | A [valid color value](reference/mod-resources/dashboard#color).  This may be a named color, RGB or RGBA string, or a control status color. |  The color to display for this category.           |
-| `href`    | String | Optional | A url that the item should link to.  The `href` may use a [jq template](reference/mod-resources/dashboard#jq-templates) to dynamically generate the link.  |
-| `icon` |  String	| Optional | An [icon]((reference/mod-resources/dashboard#icon)) to use for the elements with this category. 
+| `color`  | String | The matching color from the default theme for the data series index. | A [valid color value](/docs/powerpipe-hcl/dashboard#color).  This may be a named color, RGB or RGBA string, or a control status color. |  The color to display for this category.           |
+| `href`    | String | Optional | A url that the item should link to.  The `href` may use a [jq template](/docs/powerpipe-hcl/dashboard#jq-templates) to dynamically generate the link.  |
+| `icon` |  String	| Optional | An [icon]((/docs/powerpipe-hcl/dashboard#icon)) to use for the elements with this category. 
 | `title` |  String	| Optional | A plain text [title](/docs/powerpipe-hcl/dashboard#title) to display for this category.
 | `fold` |  Block	| Optional | A `fold` block for this category.
 
@@ -152,7 +152,7 @@ By default, folding is enabled with a threshold of `3`.  This means that if ther
 
 | Argument | Type | Optional? | Description
 |-|-|-|-
-| `icon` |  String	| Optional | An [icon]((reference/mod-resources/dashboard#icon)) to use when this category is folded.  If not specified, the `category` icon will be used. 
+| `icon` |  String	| Optional | An [icon]((/docs/powerpipe-hcl/dashboard#icon)) to use when this category is folded.  If not specified, the `category` icon will be used. 
 | `title` |  String	| Optional | A plain text [title](/docs/powerpipe-hcl/dashboard#title) to display for this category. If not specified, the `category` title will be used.
 | `threshold` |  Number	| Optional | The number of items that should be displayed before folding.  The default is `3`.
 

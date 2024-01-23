@@ -122,8 +122,8 @@ category "table" {
 | `direction` | String | Optional | The direction of the graph layout. Valid options are `left_right` and `top_down`.  The default is  `top_down`.
 | `edge` | Block | Optional| [edge](/docs/powerpipe-hcl/edge) blocks that define the edges in the graph.
 | `node` | Block | Optional| [node](/docs/powerpipe-hcl/node) blocks that define the nodes in the graph.
-| `param` | Block | Optional| A [param](reference/mod-resources/query#param) block that defines the parameters that can be passed in to the graph. You can only specify `param` blocks when the graph is defined as a top-level, named resource.
-| `query` | Query Reference | Optional | A reference to a [query](reference/mod-resources/query) resource that defines the query to run.  A graph may either specify the `query` argument or the `sql` argument, but not both.
+| `param` | Block | Optional| A [param](/docs/powerpipe-hcl/query#param) block that defines the parameters that can be passed in to the graph. You can only specify `param` blocks when the graph is defined as a top-level, named resource.
+| `query` | Query Reference | Optional | A reference to a [query](/docs/powerpipe-hcl/query) resource that defines the query to run.  A graph may either specify the `query` argument or the `sql` argument, but not both.
 | `sql` |  String	| Optional |  A SQL string to provide data for the graph.  A graph may either specify the `query` argument or the `sql` argument, but not both.
 | `title`     | String | Optional | The title to display above the graph.
 | `type`      | String | Optional | The type of graph to display. Currently, only `graph` is supported. The default is `graph`.

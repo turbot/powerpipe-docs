@@ -39,8 +39,8 @@ edge "plugin_to_version" {
 | `base` |  flow Reference		| Optional | A reference to a named `edge` resource that this `edge` should source its definition from. 
 | `category` | Block | Optional| [category](/docs/powerpipe-hcl/category) blocks that specify display options for edges with that category.
 | `connection_string` | String |  Optional| A [database connection string](/docs/powerpipe-hcl/query#connection-strings) for the database you wish to query.  If not specified, the [active database](/docs/run#selecting-a-database ) will be used.
-| `param` | Block | Optional| [param](reference/mod-resources/query#param) blocks that defines the parameters that can be passed in to the `sql`.  `param` blocks may only be specified when the edge is defined as a top-level (mod level), named resource. 
-| `query` | Query Reference | Optional | A reference to a [query](reference/mod-resources/query) resource that defines the query to run.  You must either specify the `query` argument or the `sql` argument, but not both.
+| `param` | Block | Optional| [param](/docs/powerpipe-hcl/query#param) blocks that defines the parameters that can be passed in to the `sql`.  `param` blocks may only be specified when the edge is defined as a top-level (mod level), named resource. 
+| `query` | Query Reference | Optional | A reference to a [query](/docs/powerpipe-hcl/query) resource that defines the query to run.  You must either specify the `query` argument or the `sql` argument, but not both.
 | `sql` |  String	| Optional |  A SQL string to provide data for the `edge`.  You must either specify the `query` argument or the `sql` argument, but not both.
 | `title` |  String	| Optional | A plain text [title](/docs/powerpipe-hcl/dashboard#title) to display for this edge.
 

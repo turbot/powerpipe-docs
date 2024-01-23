@@ -5,9 +5,9 @@ sidebar_label: mod
 
 
 # mod
-Every mod must contain a `mod.sp` file with a single `mod` block.
+Every mod must contain a `mod.pp` file with a single `mod` block.
 
-The `mod` block contains metadata for the mod (including metadata used in the hub site and social media), as well as dependency data.  A mod author may edit the mod block directly, but Powerpipe will **also** edit the file, adding, removing and modifying dependencies in the file when users add and remove mods via the [`powerpipe mod` commands](/docs/reference/cli/mod).  For this reason, it is recommended that the `mod.sp` *only* contain a `mod` block; do not add other mod resources (`query`, `control`, `dashboard`, etc) to this file.
+The `mod` block contains metadata for the mod (including metadata used in the hub site and social media), as well as dependency data.  A mod author may edit the mod block directly, but Powerpipe will **also** edit the file, adding, removing and modifying dependencies in the file when users add and remove mods via the [`powerpipe mod` commands](/docs/reference/cli/mod).  For this reason, it is recommended that the `mod.pp` *only* contain a `mod` block; do not add other mod resources (`query`, `control`, `dashboard`, etc) to this file.
 
 The block name (`aws_cis` in the example) is the mod name.  Mod names use lower_snake_case. They may contain lowercase chars, numbers or underscores, and must start with a letter.
 
@@ -98,7 +98,7 @@ require {
 }
 ```
 
-A mod may specify dependencies on other mods.  While you can manually edit the `mod` dependencies in the `mod.sp`, they are more commonly managed by Powerpipe when you install, update, or uninstall mods via the [powerpipe mod commands](/docs/reference/cli/mod).  The `version` can be an exact version<!-- ,a tag name, a branch name, a local file --> or a [semver](https://semver.org/) string:
+A mod may specify dependencies on other mods.  While you can manually edit the `mod` dependencies in the `mod.pp`, they are more commonly managed by Powerpipe when you install, update, or uninstall mods via the [powerpipe mod commands](/docs/reference/cli/mod).  The `version` can be an exact version<!-- ,a tag name, a branch name, a local file --> or a [semver](https://semver.org/) string:
 
 ```hcl
 require {
