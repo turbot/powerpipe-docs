@@ -18,6 +18,7 @@ powerpipe server
 
 | Flag | Description
 |-|-
+| `--mod-location`    | Sets the workspace working directory. If not specified, the workspace directory will be set to the current working directory.
 | `--listen string`   | Accept connections from `local` (localhost only) or `network` (all interfaces / IP addresses) (default `network`).
 | `--port int`        | Web server port (default `9194`).
 | `--var string=string` | Specify the value of a variable.  Multiple `--var` arguments may be passed. 
