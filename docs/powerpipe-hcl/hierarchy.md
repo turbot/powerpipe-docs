@@ -88,7 +88,7 @@ dashboard "tree_ex_nodeonly" {
 | `args` | Map | Optional| A map of arguments to pass to the query. 
 | `base` |  Hierarchy Reference		| Optional | A reference to a named `hierarchy` resource that this `hierarchy` should source its definition from. `title` and `width` can be overridden after sourcing via `base`.
 | `category` | Block | Optional| [category](#category) blocks that specify display options for nodes with that category.
-| `connection_string` | String |  Optional| A [database connection string](/docs/powerpipe-hcl/query#connection-strings) for the database you wish to query.  If not specified, the [active database](/docs/run#selecting-a-database ) will be used.
+| `database` | String |  Optional| A [database connection string](/docs/powerpipe-hcl/query#connection-strings) for the database you wish to query.  If not specified, the [active database](/docs/run#selecting-a-database ) will be used.
 | `edge` | Block | Optional| [edge](/docs/powerpipe-hcl/edge) blocks that define the edges in the hierarchy.
 | `node` | Block | Optional| [node](/docs/powerpipe-hcl/node) blocks that define the nodes in the hierarchy.
 | `param` | Block | Optional| [param](/docs/powerpipe-hcl/query#param) blocks that defines the parameters that can be passed in to the query.  `param` blocks may only be specified for hierarchies that specify the `sql` argument. 

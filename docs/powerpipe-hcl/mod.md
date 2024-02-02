@@ -152,11 +152,11 @@ mod "aws_well_architected" {
 You may also override the [default database](/docs/run#selecting-a-database) and [search_path / search_path_prefix](/docs/run/benchmark#targeting-specific-connections-postgres-only) for the dependent mod if you want:
 
 ```hcl
-variable "duckdb_connection_string" {
+variable "duckdb_database" {
   default = "duckdb:/home/ducks/mallard.db"
 }
 
-variable "flowpipe_connection_string" {
+variable "flowpipe_database" {
   default = "sqlite:/./my_mod/flowpipe.db"
 }
 
@@ -164,7 +164,7 @@ mod "local" {
   require {
     mod "github.com/turbot/my-duckdb-mod" {
       version     = ">=0.1.0"
-      database    = var.duckdb_connection_string
+      database    = var.duckdb_database
       args = {
         foo = "bar"
       }
@@ -172,7 +172,7 @@ mod "local" {
 
     mod "github.com/turbot/my-flowpipe-mod" {
       version   = ">=0.1.0"
-      database  = var.flowpipe_connection_string,
+      database  = var.flowpipe_database,
     }
 
     mod "github.com/turbot/powerpipe-mod-aws-compliance" {
