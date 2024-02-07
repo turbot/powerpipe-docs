@@ -40,11 +40,13 @@ input "vpc_id" {
 |---------------|---------|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `args` | Map | Optional| A map of arguments to pass to the query. 
 | `base`        | String	 | Optional  | A reference to a named `input` resource that this `input` should source its definition from. `title`, `sql`, `type`, `options` and `width` can be overridden after sourcing via `base`. |
-| `connection_string` | String |  Optional| A [database connection string](/docs/powerpipe-hcl/query#connection-strings) for the database you wish to query.  If not specified, the [active database](/docs/run#selecting-a-database ) will be used.
+| `database` | String |  Optional| A [database connection string](/docs/powerpipe-hcl/query#connection-strings) for the database you wish to query.  If not specified, the [active database](/docs/run#selecting-a-database ) will be used.
 | `option`     | Block	 | Optional  | [option](#option) block to add static values to the input                            |
 | `placeholder` | String	 | Optional  | Placeholder text to display.  If a `placeholder` is set for a `combo`, `multicombo`, `select` or `multiselect`, then dependent resources will not run until a selection is made.  If no `placeholder` is set, the first item in the list will be selected by default.
 | `param` | Block | Optional| A [param](/docs/powerpipe-hcl/query#param) block that defines the parameters that can be passed in to the query.  `param` blocks may only be specified for inputs that specify the `sql` argument. 
 | `query` | Query Reference | Optional | A reference to a [query](/docs/powerpipe-hcl/query) resource that defines the query to run.  An `input` may either specify the `query` argument or the `sql` argument, but not both.
+| `--search-path` | String |  Optional| Set a comma-separated list of connections to use as a custom search path for the query
+| `--search-path-prefix` | String |  Optional| Set a comma-separated list of connections to use as a prefix to the current search path for the query.
 | `sql` |  String	| Optional |  An SQL string to provide data for the `input`.  An `input` may either specify the `query` argument or the `sql` argument, but not both.
 | `title`       | String	 | Optional  | A plain text [title](/docs/powerpipe-hcl/dashboard#title) to display for this input.                                                                                          |
 | `type`        | String	 | Optional  | The [type of the input](#input-types). Can be `text`, `combo`, `multicombo`, `select` or `multiselect`.                                                                                                              |

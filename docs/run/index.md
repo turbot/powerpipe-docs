@@ -18,7 +18,7 @@ Powerpipe will load [configuration files](/docs/reference/config-files) (`*.ppc`
 
 ## Selecting a database
 
-Most public mods are written without specifying a `connection_string` on each query.  As a result, all queries in the mod run against the 'active'' database. By default, the active database is `postgres://steampipe@localhost:9193/steampipe`, thus Powerpipe will run against a local Steampipe instance.  
+Most public mods are written without specifying a `database` on each query.  As a result, all queries in the mod run against the 'active'' database. By default, the active database is `postgres://steampipe@localhost:9193/steampipe`, thus Powerpipe will run against a local Steampipe instance.  
 
 You may instead run a benchmark or control against a specific database by passing the `--database` argument:
 ```bash

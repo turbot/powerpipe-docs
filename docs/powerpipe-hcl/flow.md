@@ -119,12 +119,14 @@ dashboard "flow_ex_node_edge" {
 | `args` | Map | Optional| A map of arguments to pass to the query. 
 | `base` |  flow Reference		| Optional | A reference to a named `flow` resource that this `flow` should source its definition from. `title` and `width` can be overridden after sourcing via `base`.
 | `category` | Block | Optional| [category](#category) blocks that specify display options for nodes with that category.
-| `connection_string` | String |  Optional| A [database connection string](/docs/powerpipe-hcl/query#connection-strings) for the database you wish to query.  If not specified, the [active database](/docs/run#selecting-a-database ) will be used.
+| `database` | String |  Optional| A [database connection string](/docs/powerpipe-hcl/query#connection-strings) for the database you wish to query.  If not specified, the [active database](/docs/run#selecting-a-database ) will be used.
 | `edge` | Block | Optional| [edge](/docs/powerpipe-hcl/edge) blocks that define the edges in the flow.
 | `node` | Block | Optional| [node](/docs/powerpipe-hcl/node) blocks that define the nodes in the flow.
 | `param` | Block | Optional| [param](/docs/powerpipe-hcl/query#param) blocks that defines the parameters that can be passed in to the query.  `param` blocks may only be specified for hierarchies that specify the `sql` argument. 
 | `query` | Query Reference | Optional | A reference to a [query](/docs/powerpipe-hcl/query) resource that defines the query to run.  A `flow`  may either specify the `query` argument or the `sql` argument, but not both.
 | `sql` |  String	| Optional |  An SQL string to provide data for the `flow`.  A `flow` may either specify the `query` argument or the `sql` argument, but not both.
+| `--search-path` | String |  Optional| Set a comma-separated list of connections to use as a custom search path for the query
+| `--search-path-prefix` | String |  Optional| Set a comma-separated list of connections to use as a prefix to the current search path for the query.
 | `title` |  String	| Optional | A plain text [title](/docs/powerpipe-hcl/dashboard#title) to display for this flow.
 | `type` |  String	| Optional | The type of the flow. Can be `sankey` or `table`.
 | `width` |  Number	| Optional | The [width](/docs/powerpipe-hcl/dashboard#width) as a number of grid units that this item should consume from its parent.

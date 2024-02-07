@@ -26,10 +26,12 @@ $ powerpipe query run plus_size_instances
 
 | Argument |Type | Required? | Description
 |-|-|-|-
-| `connection_string` | String |  Optional| A [database connection string](#connection-string) for the database you wish to query.  If not specified, the [active database](/docs/run#selecting-a-database ) will be used.
+| `database` | String |  Optional| A [database connection string](#connection-string) for the database you wish to query.  If not specified, the [active database](/docs/run#selecting-a-database ) will be used.
 | `description` | String |  Optional| A description of the query.
 | `documentation` | String (Markdown)| Optional | A markdown string containing a long form description, used as documentation for the mod on hub.powerpipe.io. 
 | `param` | Block | Optional| A [param](#param) block that defines the parameters that can be passed in to the query.  
+| `--search-path` | String |  Optional| Set a comma-separated list of connections to use as a custom search path for the query
+| `--search-path-prefix` | String |  Optional| Set a comma-separated list of connections to use as a prefix to the current search path for the query.
 | `sql` | String | Required | SQL statement to define the query.
 | `tags` | Map | Optional | A map of key:value metadata for the query, used to categorize, search, and filter.  The structure is up to the mod author and varies by mod. 
 | `title` | String | Optional | A display title for the query.
@@ -38,14 +40,14 @@ $ powerpipe query run plus_size_instances
 
 ### Connection Strings
 
-Mods are typically written for a specific database engine and schema.  Powerpipe allows you to set the database connection string at run time, using the [`--database` CLI argument](/docs/run#selecting-a-database), the [`database` workspace argument](/docs/reference/config-files/workspace#arguments), or the [POWERPIPE_DATABASE](/docs/reference/env-vars/powerpipe_database) environment variable.  Any `query`, `control`, `chart`, or other query-provider resource that does not specifically set the `connection_string` argument will use this connection string.  Because the majority of mods are currently written for [Steampipe](https://steampipe.io) databases, the default database is set to the local Steampipe instance (`postgres://steampipe@localhost:9193/steampipe`).
+Mods are typically written for a specific database engine and schema.  Powerpipe allows you to set the database connection string at run time, using the [`--database` CLI argument](/docs/run#selecting-a-database), the [`database` workspace argument](/docs/reference/config-files/workspace#arguments), or the [POWERPIPE_DATABASE](/docs/reference/env-vars/powerpipe_database) environment variable.  Any `query`, `control`, `chart`, or other query-provider resource that does not specifically set the `database` argument will use this connection string.  Because the majority of mods are currently written for [Steampipe](https://steampipe.io) databases, the default database is set to the local Steampipe instance (`postgres://steampipe@localhost:9193/steampipe`).
 
-As a result, it is generally advisable *not* to set the `connection_string` on the mod resources in the code, and instead allow the user to pass the value at run time.  
+As a result, it is generally advisable *not* to set the `database` on the mod resources in the code, and instead allow the user to pass the value at run time.  
 
-The connection string syntax is the same whether you set it in the `connection_string` or pass it in the `--database` argument.  
+The connection string syntax is the same whether you set it in the `database` or pass it in the `--database` argument.  
 
 #### Postgres
-Powerpipe can connect to any Postgres database.  The Postgres `connection_string` follows the standard URI syntax supported by `psql` and `pgcli`:
+Powerpipe can connect to any Postgres database.  The Postgres `database` follows the standard URI syntax supported by `psql` and `pgcli`:
 ```bash
 postgresql://[user[:password]@][host][:port][/dbname][?param1=value1&...]
 ```
@@ -58,7 +60,7 @@ powerpipe dashboard --database 'postgresql://myusername:mypassword@acme-prod.aps
 or
 ```hcl
 query "my_query" {
-  connection_string = "postgresql://myusername:mypassword@acme-prod.apse1.db.cloud.turbot.io:9193/aaa000"
+  database = "postgresql://myusername:mypassword@acme-prod.apse1.db.cloud.turbot.io:9193/aaa000"
   sql               = "select * from my_table;" 
 }
 ```
@@ -79,23 +81,23 @@ powerpipe dashboard --database 'mysql://root:my_pass@tcp(localhost)/mysql'
 or
 ```hcl
 query "my_query" {
-  connection_string = "mysql://root:my_pass@tcp(localhost)/mysql"
-  sql               = "select * from my_table;" 
+  database = "mysql://root:my_pass@tcp(localhost)/mysql"
+  sql      = "select * from my_table;" 
 }
 ```
 
 
 #### SQLite
-The SQLite `connection_string` is the path to a SQLite database file:
+The SQLite `database` connection string s the path to a SQLite database file:
 ```bash
 sqlite:path/to/file
 ```
 
 The path is relative to the [mod location](/docs/run#mod-location), and `//` is optional after the scheme, thus the following are equivalent:
 ```hcl
-connection_string = "sqlite:./my_sqlite_db.db"
-connection_string = "sqlite://./my_sqlite_db.db"
-connection_string = "sqlite://my_sqlite_db.db"
+database = "sqlite:./my_sqlite_db.db"
+database = "sqlite://./my_sqlite_db.db"
+database = "sqlite://my_sqlite_db.db"
 ```
 
 For example:
@@ -106,23 +108,23 @@ powerpipe dashboard --database 'sqlite:./my_sqlite_db.db'
 or
 ```hcl
 query "my_query" {
-  connection_string = "sqlite:./my_sqlite_db.db"
-  sql               = "select * from my_table;" 
+  database = "sqlite:./my_sqlite_db.db"
+  sql      = "select * from my_table;" 
 }
 ```
 
 #### DuckDB
 
-The DuckDB `connection_string` is the path to a DuckDB database file:
+The DuckDB connection string is the path to a DuckDB database file:
 ```bash
 duckdb:path/to/file
 ```
 
 The path is relative to the [mod location](/docs/run#mod-location), and `//` is optional after the scheme, thus the following are equivalent:
 ```hcl
-connection_string = "duckdb:./my_ducks.db"
-connection_string = "duckdb://./my_ducks.db"
-connection_string = "duckdb://my_ducks.db"
+database = "duckdb:./my_ducks.db"
+database = "duckdb://./my_ducks.db"
+database = "duckdb://my_ducks.db"
 ```
 
 
@@ -134,8 +136,8 @@ powerpipe dashboard --database 'duckdb:./my_ducks.db'
 or
 ```hcl
 query "my_query" {
-  connection_string = "duckdb:./my_ducks.db
-  sql               = "select * from my_table;" 
+  database = "duckdb:./my_ducks.db
+  sql      = "select * from my_table;" 
 }
 ```
 

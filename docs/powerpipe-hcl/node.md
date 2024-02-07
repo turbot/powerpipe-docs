@@ -40,11 +40,13 @@ node {
 |-|-|-|-
 | `args` | Map | Optional| A map of arguments to pass to the query. 
 | `base` |  flow Reference		| Optional | A reference to a named `node` resource that this `node` should source its definition from. 
-| `connection_string` | String |  Optional| A [database connection string](/docs/powerpipe-hcl/query#connection-strings) for the database you wish to query.  If not specified, the [active database](/docs/run#selecting-a-database ) will be used.
+| `database` | String |  Optional| A [database connection string](/docs/powerpipe-hcl/query#connection-strings) for the database you wish to query.  If not specified, the [active database](/docs/run#selecting-a-database ) will be used.
 | `category` | Block | Optional| [category](/docs/powerpipe-hcl/category) blocks that specify display options for nodes with that category.
 | `depth`  | Number	| Optional |  An integer to set the position of the node in a flow. The layout of the nodes is inferred from the query, however you can force placement with the `depth` argument if you need to override the default behavior. The `depth` argument is optional, and is only used by `flow` resources.
 | `param` | Block | Optional| [param](/docs/powerpipe-hcl/query#param) blocks that defines the parameters that can be passed in to the query.  `param` blocks may only be specified when the node is defined as a top-level (mod level), named resource. 
 | `query` | Query Reference | Optional | A reference to a [query](/docs/powerpipe-hcl/query) resource that defines the query to run.  You must either specify the `query` argument or the `sql` argument, but not both.
+| `--search-path` | String |  Optional| Set a comma-separated list of connections to use as a custom search path for the query
+| `--search-path-prefix` | String |  Optional| Set a comma-separated list of connections to use as a prefix to the current search path for the query.
 | `sql` |  String	| Optional |  An SQL string to provide data for the `node`.  You must either specify the `query` argument or the `sql` argument, but not both.
 | `title` |  String	| Optional | A plain text [title](/docs/powerpipe-hcl/dashboard#title) to display for this node.
 
