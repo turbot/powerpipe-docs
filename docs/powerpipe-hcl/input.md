@@ -45,6 +45,8 @@ input "vpc_id" {
 | `placeholder` | String	 | Optional  | Placeholder text to display.  If a `placeholder` is set for a `combo`, `multicombo`, `select` or `multiselect`, then dependent resources will not run until a selection is made.  If no `placeholder` is set, the first item in the list will be selected by default.
 | `param` | Block | Optional| A [param](/docs/powerpipe-hcl/query#param) block that defines the parameters that can be passed in to the query.  `param` blocks may only be specified for inputs that specify the `sql` argument. 
 | `query` | Query Reference | Optional | A reference to a [query](/docs/powerpipe-hcl/query) resource that defines the query to run.  An `input` may either specify the `query` argument or the `sql` argument, but not both.
+| `--search-path` | String |  Optional| Set a comma-separated list of connections to use as a custom search path for the query
+| `--search-path-prefix` | String |  Optional| Set a comma-separated list of connections to use as a prefix to the current search path for the query.
 | `sql` |  String	| Optional |  An SQL string to provide data for the `input`.  An `input` may either specify the `query` argument or the `sql` argument, but not both.
 | `title`       | String	 | Optional  | A plain text [title](/docs/powerpipe-hcl/dashboard#title) to display for this input.                                                                                          |
 | `type`        | String	 | Optional  | The [type of the input](#input-types). Can be `text`, `combo`, `multicombo`, `select` or `multiselect`.                                                                                                              |

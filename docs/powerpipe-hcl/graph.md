@@ -124,6 +124,8 @@ category "table" {
 | `node` | Block | Optional| [node](/docs/powerpipe-hcl/node) blocks that define the nodes in the graph.
 | `param` | Block | Optional| A [param](/docs/powerpipe-hcl/query#param) block that defines the parameters that can be passed in to the graph. You can only specify `param` blocks when the graph is defined as a top-level, named resource.
 | `query` | Query Reference | Optional | A reference to a [query](/docs/powerpipe-hcl/query) resource that defines the query to run.  A graph may either specify the `query` argument or the `sql` argument, but not both.
+| `--search-path` | String |  Optional| Set a comma-separated list of connections to use as a custom search path for the query
+| `--search-path-prefix` | String |  Optional| Set a comma-separated list of connections to use as a prefix to the current search path for the query.
 | `sql` |  String	| Optional |  A SQL string to provide data for the graph.  A graph may either specify the `query` argument or the `sql` argument, but not both.
 | `title`     | String | Optional | The title to display above the graph.
 | `type`      | String | Optional | The type of graph to display. Currently, only `graph` is supported. The default is `graph`.

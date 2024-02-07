@@ -30,6 +30,8 @@ $ powerpipe query run plus_size_instances
 | `description` | String |  Optional| A description of the query.
 | `documentation` | String (Markdown)| Optional | A markdown string containing a long form description, used as documentation for the mod on hub.powerpipe.io. 
 | `param` | Block | Optional| A [param](#param) block that defines the parameters that can be passed in to the query.  
+| `--search-path` | String |  Optional| Set a comma-separated list of connections to use as a custom search path for the query
+| `--search-path-prefix` | String |  Optional| Set a comma-separated list of connections to use as a prefix to the current search path for the query.
 | `sql` | String | Required | SQL statement to define the query.
 | `tags` | Map | Optional | A map of key:value metadata for the query, used to categorize, search, and filter.  The structure is up to the mod author and varies by mod. 
 | `title` | String | Optional | A display title for the query.

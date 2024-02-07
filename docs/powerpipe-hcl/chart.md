@@ -49,6 +49,8 @@ chart {
 | `legend` |  Block	| Optional | See [legend](#legend).
 | `param` | Block | Optional| A [param](/docs/powerpipe-hcl/query#param) block that defines the parameters that can be passed in to the query.  `param` blocks may only be specified for charts that specify the `sql` argument. 
 | `query` | Query Reference | Optional | A reference to a [query](/docs/powerpipe-hcl/query) resource that defines the query to run.  A chart may either specify the `query` argument or the `sql` argument, but not both.
+| `--search-path` | String |  Optional| Set a comma-separated list of connections to use as a custom search path for the query
+| `--search-path-prefix` | String |  Optional| Set a comma-separated list of connections to use as a prefix to the current search path for the query.
 | `series` |  Block	| Optional | A named block matching the name of the series you wish to configure. See [series](#series).
 | `sql` |  String	| Optional |  An SQL string to provide data for the chart.  A chart may either specify the `query` argument or the `sql` argument, but not both.
 | `title` |  String	| Optional | A plain text [title](/docs/powerpipe-hcl/dashboard#title) to display for this chart.

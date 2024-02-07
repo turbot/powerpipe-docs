@@ -93,6 +93,8 @@ dashboard "tree_ex_nodeonly" {
 | `node` | Block | Optional| [node](/docs/powerpipe-hcl/node) blocks that define the nodes in the hierarchy.
 | `param` | Block | Optional| [param](/docs/powerpipe-hcl/query#param) blocks that defines the parameters that can be passed in to the query.  `param` blocks may only be specified for hierarchies that specify the `sql` argument. 
 | `query` | Query Reference | Optional | A reference to a [query](/docs/powerpipe-hcl/query) resource that defines the query to run.  A `hierarchy`  may either specify the `query` argument or the `sql` argument, but not both.
+| `--search-path` | String |  Optional| Set a comma-separated list of connections to use as a custom search path for the query
+| `--search-path-prefix` | String |  Optional| Set a comma-separated list of connections to use as a prefix to the current search path for the query.
 | `sql` |  String	| Optional |  An SQL string to provide data for the `hierarchy`.  A `hierarchy` may either specify the `query` argument or the `sql` argument, but not both.
 | `title` |  String	| Optional | A plain text [title](/docs/powerpipe-hcl/dashboard#title) to display for this hierarchy.
 | `type` |  String	| Optional | The type of the hierarchy. Can be `tree` or `table`.
