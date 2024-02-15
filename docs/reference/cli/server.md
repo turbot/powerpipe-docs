@@ -23,6 +23,7 @@ powerpipe server
 | `--var string=string` | Specify the value of a variable.  Multiple `--var` arguments may be passed. 
 | `--var-file string`| Specify a `.ppvar` file containing variable values.
 | `--watch`             | Watch mod files for changes when running `powerpipe server` (default `true`).
+|  `--database`         |  Sets the database that Powerpipe will connect to. This can be local (the default) or a remote Turbot Pipes database. See [POWERPIPE_DATABASE](/docs/reference/env-vars/powerpipe_database) for details.
 
 ## Examples
 
