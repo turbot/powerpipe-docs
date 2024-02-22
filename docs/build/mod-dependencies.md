@@ -55,21 +55,14 @@ benchmark "my_mod_public_resources" {
 
 You can add, remove, and update your dependencies with the [powerpipe mod command](/docs/reference/cli/mod). 
 
-You can run all the benchmarks in your mod:
+You can run the benchmarks in your mod:
 ```bash
-powerpipe check all
+powerpipe benchmark run aws_compliance.benchmark.nist_csf_pr_ac_3
 ```
 
-When in a mod folder, `powerpipe check all` will only run benchmarks defined in the mod, however you can run the dependent controls and benchmarks by qualifying them with the mod name:
-```
-powerpipe check aws_compliance.benchmark.cis_v140 
-```
-
-Or you can run all benchmarks in a dependency mod by specifying only the mod name:
+When in a mod folder, you can run the dependent controls and benchmarks by qualifying them with the mod name:
 ```bash
-powerpipe check aws_compliance 
+powerpipe benchmark run aws_compliance.benchmark.cis_v140 
 ```
-
 
 When running `powerpipe dashboard` from a mod, all dashboards in your mod and its direct dependencies will be available to run.
-
