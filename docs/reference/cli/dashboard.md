@@ -63,7 +63,7 @@ powerpipe dashboard list --host local
 
 List dashboards on a remote Powerpipe server instance:
 ```bash
-powerpipe dashboard list --host  https://powerpipe.my-org.com:9194
+powerpipe dashboard list --host  https://powerpipe.my-org.com:9033
 ```
 
 
@@ -96,7 +96,7 @@ powerpipe dashboard show aws_compliance.dashboard.cis_v200_2_1_1
 
 Show details of a dashboard on a Powerpipe server instance:
 ```bash
-powerpipe dashboard show aws_compliance.dashboard.cis_v200_2_1_1 --host https://powerpipe.my-org.com:9194
+powerpipe dashboard show aws_compliance.dashboard.cis_v200_2_1_1 --host https://powerpipe.my-org.com:9033
 ```
 
 
@@ -188,7 +188,7 @@ powerpipe dashboard run cis_v200_2_1_1 --snapshot --snapshot-tag env=local
 
 Run a dashboard on a remote powerpipe host
 ```bash
-powerpipe dashboard run cis_v200_2_1_1 --host https://powerpipe.my-org.com:9194
+powerpipe dashboard run cis_v200_2_1_1 --host https://powerpipe.my-org.com:9033
 ```
 
 Run a dashboard against a pipes workspace:
@@ -273,6 +273,6 @@ powerpipe dashboard card list --host local
 
 List dashboard cards on a remote Powerpipe server instance:
 ```bash
-powerpipe dashboard card list --host  https://powerpipe.my-org.com:9194
+powerpipe dashboard card list --host  https://powerpipe.my-org.com:9033
 ```
 

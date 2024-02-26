@@ -4,7 +4,7 @@ sidebar_label: POWERPIPE_PORT
 ---
 
 # POWERPIPE_PORT
-Specifies the TCP port on which `powerpipe server` will listen for connections from clients. The default is `9194`.  This value can only be set when the server is started.
+Specifies the TCP port on which `powerpipe server` will listen for connections from clients. The default is `9033`.  This value can only be set when the server is started.
 
 ## Usage 
 

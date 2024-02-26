@@ -7,7 +7,7 @@ sidebar_label: dashboard
 
 A dashboard is designed to be used by consumers of your mod to answer specific questions, such as "How many public AWS buckets do I have?" or "Show me the number of aging Zendesk tickets by owner".
 
-You can browse and view dashboards from the Powerpipe server dashboard UI; run `powerpipe server` and open http://localhost:9194 in your web browser.
+You can browse and view dashboards from the Powerpipe server dashboard UI; run `powerpipe server` and open http://localhost:9033 in your web browser.
 
 Dashboards can be declared as named resources at the top-level of a mod, or be nested inside another `dashboard` or `container` by using a named `dashboard` with `base = <mod>.dashboard.<dashboard_resource_name>`.
 

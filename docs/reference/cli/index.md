@@ -51,7 +51,7 @@ sidebar_label: Powerpipe CLI
                   
   <tr> 
     <td nowrap="true"> <inlineCode>--host</inlineCode> </td> 
-    <td> Run the command against a local or remote server instance.  You may specify the full host and port (e.g. <inlineCode>--host https://powerpipe.my-org.com:9194</inlineCode>), or use the keyword <inlineCode>local</inlineCode> to connect to the local server instance as a shortcut for <inlineCode>https://localhost:9194</inlineCode> (e.g. <inlineCode>--host local</inlineCode>) </td> 
+    <td> Run the command against a local or remote server instance.  You may specify the full host and port (e.g. <inlineCode>--host https://powerpipe.my-org.com:9033</inlineCode>), or use the keyword <inlineCode>local</inlineCode> to connect to the local server instance as a shortcut for <inlineCode>https://localhost:9033</inlineCode> (e.g. <inlineCode>--host local</inlineCode>) </td> 
   </tr>
 
 

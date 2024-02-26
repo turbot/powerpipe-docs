@@ -18,7 +18,7 @@ workspace "default" {
 workspace "my_server" {
   host          = "local"
   listen        = "network"
-  port          = 9194
+  port          = 9033
   update_check  = false
   memory_max_mb = 2048
 }
@@ -50,7 +50,7 @@ To learn more, see **[Managing Workspaces →](/docs/run/workspaces)**
 | `max_parallel`      | `10`                         | Set the maximum number of parallel executions. This is essentially a connection pool size; Powerpipe will attempt to run up to this many queries in parallel.
 | `memory_max_mb`     | `1024`                       | Set a memory soft limit for the powerpipe process. Set to 0 to disable the memory limit.
 | `output`            | `pretty`                     | Set the console output format: `pretty`, `plain`, `yaml` or `json`.
-| `port`              | `9194`                       | Specifies the TCP port on which `powerpipe server` will listen for connections from clients. 
+| `port`              | `9033`                       | Specifies the TCP port on which `powerpipe server` will listen for connections from clients. 
 | `progress`          | `true`                       | Enable or disable progress information.
 | `query_timeout`     | `240`                        | The maximum time (in seconds) a query is allowed to run before it times out.
 | `search_path`       | `public`, then alphabetical  | A comma-separated list of connections to use as a custom search path for the control run. This setting only applies to Postgres databases (including Steampipe).
@@ -108,7 +108,7 @@ except using underscore in place of dash:
 workspace "server" {
   host          = "local"
   listen        = "network"
-  port          = 9194
+  port          = 9033
   update_check  = false
   memory_max_mb = 2048
   log_level     = "info"
@@ -139,7 +139,7 @@ workspace "all_options" {
   # Dashboard / API Server Options
   host                = "local"
   listen              = "network"
-  port                = 9194
+  port                = 9033
   watch               = true
 
   # General Options

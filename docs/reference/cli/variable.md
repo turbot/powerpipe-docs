@@ -48,7 +48,7 @@ powerpipe variable list --host local
 
 List variables on a remote Powerpipe server instance:
 ```bash
-powerpipe variable list --host  https://powerpipe.my-org.com:9194
+powerpipe variable list --host  https://powerpipe.my-org.com:9033
 ```
 
 
@@ -79,7 +79,7 @@ powerpipe variable show aws_tags.mandatory_tags
 
 Show details of a variable on a Powerpipe server instance:
 ```bash
-powerpipe variable show aws_tags.mandatory_tags --host https://powerpipe.my-org.com:9194
+powerpipe variable show aws_tags.mandatory_tags --host https://powerpipe.my-org.com:9033
 ```
 
 
