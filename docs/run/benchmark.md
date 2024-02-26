@@ -137,7 +137,7 @@ powerpipe benchmark run cis_v150 --search-path-prefix aws_connection_2
 By default, Powerpipe runs on the local host and starts a new process to run the benchmark or control.  If you are running [Powerpipe Server](/docs/run/server), you can ran a benchmark on that server:
 
 ```bash
-powerpipe benchmark run cis_v120 --host  https://powerpipe.my-org.com:9194
+powerpipe benchmark run cis_v120 --host  https://powerpipe.my-org.com:9033
 ```
 
 

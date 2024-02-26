@@ -63,7 +63,7 @@ powerpipe benchmark list --host local
 
 List benchmarks on a remote Powerpipe server instance:
 ```bash
-powerpipe benchmark list --host  https://powerpipe.my-org.com:9194
+powerpipe benchmark list --host  https://powerpipe.my-org.com:9033
 ```
 
 
@@ -96,7 +96,7 @@ powerpipe benchmark show aws_compliance.benchmark.cis_v120
 
 Show details of a benchmark on a Powerpipe server instance:
 ```bash
-powerpipe benchmark show aws_compliance.benchmark.cis_v120 --host https://powerpipe.my-org.com:9194
+powerpipe benchmark show aws_compliance.benchmark.cis_v120 --host https://powerpipe.my-org.com:9033
 ```
 
 
@@ -191,7 +191,7 @@ powerpipe benchmark run cis_v120  --tag cis_level=1 --tag cis=true
 
 Run a benchmark on a remote powerpipe host
 ```bash
-powerpipe benchmark run cis_v120 --host  https://powerpipe.my-org.com:9194
+powerpipe benchmark run cis_v120 --host  https://powerpipe.my-org.com:9033
 ```
 
 Run a benchmark against a pipes workspace:

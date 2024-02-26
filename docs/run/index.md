@@ -73,4 +73,4 @@ Powerpipe can operate in 2 modes.
 
 By default, Powerpipe runs in **Client-only Mode**.  Powerpipe loads the mod, runs the command, and exits.  [Interactive dashboards](/docs/run/dashboard) are not enabled in Client-Only Mode.
 
-If you run Powerpipe in **Server Mode** mode, Powerpipe will run an API server (on port `9194` by default).  In [this mode](/docs/run/server), you can browse [Interactive dashboards](/docs/run/dashboard) by navigating to `http://localhost:9194/` in your web browser.  After you start the Powerpipe server, you can run Powerpipe commands against it by specifying the [--host](/docs/reference/cli#global-flags) argument.
+If you run Powerpipe in **Server Mode** mode, Powerpipe will run an API server (on port `9033` by default).  In [this mode](/docs/run/server), you can browse [Interactive dashboards](/docs/run/dashboard) by navigating to `http://localhost:9033/` in your web browser.  After you start the Powerpipe server, you can run Powerpipe commands against it by specifying the [--host](/docs/reference/cli#global-flags) argument.

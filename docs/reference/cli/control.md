@@ -52,7 +52,7 @@ powerpipe control list --host local
 
 List controls on a remote Powerpipe server instance:
 ```bash
-powerpipe control list --host  https://powerpipe.my-org.com:9194
+powerpipe control list --host  https://powerpipe.my-org.com:9033
 ```
 
 
@@ -85,7 +85,7 @@ powerpipe control show aws_compliance.control.cis_v200_2_1_1
 
 Show details of a control on a Powerpipe server instance:
 ```bash
-powerpipe control show aws_compliance.control.cis_v200_2_1_1 --host https://powerpipe.my-org.com:9194
+powerpipe control show aws_compliance.control.cis_v200_2_1_1 --host https://powerpipe.my-org.com:9033
 ```
 
 
@@ -164,7 +164,7 @@ powerpipe control run cis_v200_2_1_1
 
 Run a control on a remote powerpipe host
 ```bash
-powerpipe control run cis_v200_2_1_1 --host  https://powerpipe.my-org.com:9194
+powerpipe control run cis_v200_2_1_1 --host  https://powerpipe.my-org.com:9033
 ```
 
 Run a control against a pipes workspace:

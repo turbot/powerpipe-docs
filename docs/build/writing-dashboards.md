@@ -34,7 +34,7 @@ If you have not done so already, `cd` into the `mod`  directory you created in t
 powerpipe server
 ```
 
-This will start a dashboard server for your mod.  Open a web browser and navigate to http://localhost:9194 to browse and view your dashboards and benchmarks.
+This will start a dashboard server for your mod.  Open a web browser and navigate to http://localhost:9033 to browse and view your dashboards and benchmarks.
 
 
 ### Create a dashboard

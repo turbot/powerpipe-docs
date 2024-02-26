@@ -52,7 +52,7 @@ powerpipe query list --host local
 
 List queries on a remote Powerpipe server instance:
 ```bash
-powerpipe query list --host  https://powerpipe.my-org.com:9194
+powerpipe query list --host  https://powerpipe.my-org.com:9033
 ```
 
 
@@ -85,7 +85,7 @@ powerpipe query show aws_compliance.query.ec2_instance_in_vpc
 
 Show details of a query on a Powerpipe server instance:
 ```bash
-powerpipe query show aws_compliance.query.ec2_instance_in_vpc --host https://powerpipe.my-org.com:9194
+powerpipe query show aws_compliance.query.ec2_instance_in_vpc --host https://powerpipe.my-org.com:9033
 ```
 
 
@@ -181,12 +181,12 @@ powerpipe query run "select * from aws_account" --output sps > my_snap.pps
 
 Run a named query on a remote powerpipe host
 ```bash
-powerpipe query run ec2_instance_in_vpc --host  https://powerpipe.my-org.com:9194
+powerpipe query run ec2_instance_in_vpc --host  https://powerpipe.my-org.com:9033
 ```
 
 Run an adhoc query on a remote powerpipe host
 ```bash
-powerpipe query run "select * from aws_account" --host  https://powerpipe.my-org.com:9194
+powerpipe query run "select * from aws_account" --host  https://powerpipe.my-org.com:9033
 ```
 
 

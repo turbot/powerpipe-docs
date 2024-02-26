@@ -124,7 +124,7 @@ powerpipe mod list --host local
 
 List mods on a remote Powerpipe server instance:
 ```bash
-powerpipe mod list --host  https://powerpipe.my-org.com:9194
+powerpipe mod list --host  https://powerpipe.my-org.com:9033
 ```
 
 
@@ -150,7 +150,7 @@ powerpipe mod show aws_compliance
 
 Show details of a mod on a Powerpipe server instance:
 ```bash
-powerpipe mod show aws_compliance --host https://powerpipe.my-org.com:9194
+powerpipe mod show aws_compliance --host https://powerpipe.my-org.com:9033
 ```
 
 

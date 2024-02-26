@@ -14,7 +14,7 @@ But Powerpipe also allows you to browse and view interactive [dashboards](/docs/
 powerpipe server
 ```
 
-Once it is running you can view the the dashboards in your web browser by navigating to `http://locahost:9194`.
+Once it is running you can view the the dashboards in your web browser by navigating to `http://locahost:9033`.
 
 
 You can also connect to the server and run commands with the `--host` argument:
@@ -36,10 +36,10 @@ By default, Powerpipe will listen on all network interfaces, but you can pass `-
 powerpipe server --listen local
 ```
 
-Powerpipe listens on port 9194 by default, but you can use the `--port` argument to use a different one:
+Powerpipe listens on port 9033 by default, but you can use the `--port` argument to use a different one:
 
 ```bash
-powerpipe server --port 9194
+powerpipe server --port 9033
 ```
 
 While the server is running, Powerpipe will watch your mod files for changes and automatically update the server.  You can disable this with the `--watch` argument if you prefer not to update the server instance as the files change:

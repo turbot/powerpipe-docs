@@ -19,13 +19,13 @@ workspace "default" {
 workspace "local_server" {
   host          = "local"
   listen        = "network"
-  port          = 9194
+  port          = 9033
   input         = false
   memory_max_mb = 2048
 }
 
 workspace "remote_server" {
-  host          = "https://powerpipe.mydomain.com:9194"
+  host          = "https://powerpipe.mydomain.com:9033"
 }
 ```
 
@@ -72,7 +72,7 @@ workspace "default" {
   output       = "pretty"
   update_check = true
   telemetry    = false
-  port         = 9194
+  port         = 9033
 }
 ```
 
@@ -196,14 +196,14 @@ powerpipe server
 If the default  workspace is *explicitly* passed to the `--workspace` argument, its values will override any individual environment variables:
 
 ```bash
-# will NOT use 7777 as port - will use ALL of the values from default workspace so the port is 9194
+# will NOT use 7777 as port - will use ALL of the values from default workspace so the port is 9033
 export POWERPIPE_PORT=7777 
 powerpipe server --workspace=default 
 ```
 
 The same is true of any named workspace:
 ```bash
-# will NOT use 7777 as port - will use ALL of the values from prod workspace so the port is 9194
+# will NOT use 7777 as port - will use ALL of the values from prod workspace so the port is 9033
 export POWERPIPE_PORT=7777 
 powerpipe server --workspace=prod 
 ```

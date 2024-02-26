@@ -19,7 +19,7 @@ cd powerpipe-mod-aws-insights
 powerpipe server
 ```
 
-Powerpipe will start the dashboard server.  Open http://localhost:9194/ in your web browser to view the dashboards in the mod. 
+Powerpipe will start the dashboard server.  Open http://localhost:9033/ in your web browser to view the dashboards in the mod. 
 <img src="/images/docs/dashboard_home.png" width="100%" />
 
 
