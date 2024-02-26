@@ -194,7 +194,6 @@ powerpipe benchmark run cis_v140 --snapshot --export cis.csv --export cis.json
 
 In fact, all the usual arguments will work with snapshots:
 ```bash
-powerpipe check --snapshot all 
 powerpipe control run aws_compliance.control.cis_v140_1_1 --snapshot  
 powerpipe benchmark run aws_compliance.benchmark.cis_v140_ --snapshot --where "severity in ('critical', 'high')" all
 ```
