@@ -76,25 +76,25 @@ except using underscore in place of dash:
 | `cloud_host`       | [POWERPIPE_CLOUD_HOST](/docs/reference/env-vars/powerpipe_cloud_host), [PIPES_HOST](/docs/reference/env-vars/pipes_host) | `--cloud-host`
 | `cloud_token`      | [POWERPIPE_CLOUD_TOKEN](/docs/reference/env-vars/powerpipe_cloud_token), [PIPES_TOKEN](/docs/reference/env-vars/pipes_token) | `--cloud-token`
 | `database`         | [POWERPIPE_DATABASE](/docs/reference/env-vars/powerpipe_database) | `--database`
-| `header`           |                         | `--header`
+| `header`           | none                        | `--header`
 | `host`             | [POWERPIPE_HOST](/docs/reference/env-vars/powerpipe_host)        | `--host`
-| `input`            |                         | `--input` 
+| `input`            |  none                      | `--input` 
 | `listen`           | [POWERPIPE_LISTEN](/docs/reference/env-vars/powerpipe_listen)  | `--listen` 
 | `log_level`        | [POWERPIPE_LOG_LEVEL](/docs/reference/env-vars/powerpipe_log_level)   |
 | `max_parallel`     | [POWERPIPE_MAX_PARALLEL](/docs/reference/env-vars/powerpipe_max_parallel) | `--max-parallel`
 | `memory_max_mb`    | [POWERPIPE_MEMORY_MAX_MB](/docs/reference/env-vars/powerpipe_memory_max_mb) |
-| `output`           |                         | `--output`
+| `output`           |  none                     | `--output`
 | `port`             | [POWERPIPE_PORT](/docs/reference/env-vars/powerpipe_port)         | `--port`
-| `progress`         |                          | `--progress`
-| `query_timeout`    | [POWERPIPE_QUERY_TIMEOUT](/docs/reference/env-vars/powerpipe_query_timeout)v| `--query_timeout`
+| `progress`         |  none                        | `--progress`
+| `query_timeout`    | [POWERPIPE_QUERY_TIMEOUT](/docs/reference/env-vars/powerpipe_query_timeout)| `--query_timeout`
 | `search_path`      | none                     | `--search-path`
 | `search_path_prefix` | none                   | `--search-path-prefix`
-| `separator`        |                          | `--separator`
+| `separator`        |   none                       | `--separator`
 | `snapshot_location` | [POWERPIPE_SNAPSHOT_LOCATION](/docs/reference/env-vars/powerpipe_snapshot_location) | `--snapshot-location`
 | `telemetry`        | [POWERPIPE_TELEMETRY](/docs/reference/env-vars/powerpipe_telemetry)   |
-| `timing`           |                          | `--timing`
+| `timing`           |  none                       | `--timing`
 | `update_check`     | [POWERPIPE_UPDATE_CHECK](/docs/reference/env-vars/powerpipe_update_check) |
-| `watch`            |                          | `--watch`
+| `watch`            |  none                        | `--watch`
 
 
 
