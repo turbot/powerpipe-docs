@@ -108,8 +108,8 @@ Run a control from the current mod or its direct dependents or from a Powerpipe 
 
 | Flag | Description
 |-|-
-|  `--cloud-host`                 | Sets the Turbot Pipes host used when connecting to Turbot Pipes workspaces. See `POWERPIPE_CLOUD_HOST` for details.
-|  `--cloud-token`                | Sets the Turbot Pipes authentication token used when connecting to Turbot Pipes workspaces. See `POWERPIPE_CLOUD_TOKEN` for details.
+|  `--pipes-host`                 | Sets the Turbot Pipes host used when connecting to Turbot Pipes workspaces. See  [PIPES_HOST](/docs/reference/env-vars/pipes_host) for details.
+|  `--pipes-token`                | Sets the Turbot Pipes authentication token used when connecting to Turbot Pipes workspaces. See  [PIPES_TOKEN](/docs/reference/env-vars/pipes_token) for details.
 |  `--export string`              | Export control output to a file. You may export multiple output formats for a single control run by entering multiple `--export` arguments. If a file path is specified as an argument, its type will be inferred by the suffix. Supported export formats are `asff`, `csv`, `html`, `json`, `md`,`nunit3`, `sps` (snapshot)
 |  `--header string`              | Specify whether to include column headers in csv output/export (default `true`).
 |  `--input`                      | Enable/Disable interactive prompts for missing variables. To disable prompts and fail on missing variables, use  `--input=false`. This is useful when running from scripts. (default `true`)

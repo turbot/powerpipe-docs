@@ -139,7 +139,7 @@ category "table" {
 
 ## Node/Edge Visualizations
 
-Some powerpipe dashboard elements can include `node` and `edge` blocks.  These elements are sometimes referred to as **node/edge visualizations** and include `graph`, `flow`, and `hierarchy`. These resources essentially implement the same interface:
+Some Powerpipe dashboard elements can include `node` and `edge` blocks.  These elements are sometimes referred to as **node/edge visualizations** and include `graph`, `flow`, and `hierarchy`. These resources essentially implement the same interface:
   - They support `node` and `edge` blocks as children
   - They are also [query-based resources](/docs/powerpipe-hcl/query#query-based-resources), and support using the `sql` and `query` arguments instead of `node` and `edge` blocks
   - They must appear in a dashboard to be displayed, but may be defined as top level resources and referenced with `base`

@@ -11,7 +11,7 @@ Sets the database that Powerpipe will connect to. By default, Powerpipe will use
 ## Usage 
 Use a Powerpipe cloud remote database:
 ```bash
-export POWERPIPE_CLOUD_TOKEN=tpt_c6f5tmpe4mv9appio5rg_3jz0a8fakekeyf8ng72qr646
+export PIPES_TOKEN=tpt_c6f5tmpe4mv9appio5rg_3jz0a8fakekeyf8ng72qr646
 export POWERPIPE_DATABASE=acme/prod
 ```
 

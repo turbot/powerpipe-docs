@@ -39,8 +39,6 @@ To learn more, see **[Managing Workspaces →](/docs/run/workspaces)**
 | Argument            |    Default                   | Description &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
 |---------------------|------------------------------|-----------------------------------------
 | `base`              | none                         | A reference to a named workspace resource that this workspace should source its definition from. Any argument can be overridden after sourcing via base.
-| `cloud_host`        | `pipes.turbot.com`          | Set the Turbot Pipes host for connecting to Turbot Pipes workspace.
-| `cloud_token`       | Token from`powerpipe login` | Set the Turbot Pipes authentication token for connecting to a Turbot Pipes workspace.  This may be a token obtained by `powerpipe login` or a user-generated [token](https://turbot.com/pipes/docs/da-settings#tokens).
 | `database`          | `postgres://steampipe@` <br /> `127.0.0.1:9193/steampipe`| A database connection string or [Turbot Pipes workspace](https://pipes.turbot.com) to use as the default database.  The default is a local [Steampipe](https://steampipe.io) instance.
 | `header`            | `true`                       | Enable or disable column headers.
 | `host`              | none                         | Set the remote Powerpipe API host to connect to.  This allows you to run Powerpipe commands against a powerpipe host instead of the current working directory.
@@ -50,6 +48,8 @@ To learn more, see **[Managing Workspaces →](/docs/run/workspaces)**
 | `max_parallel`      | `10`                         | Set the maximum number of parallel executions. This is essentially a connection pool size; Powerpipe will attempt to run up to this many queries in parallel.
 | `memory_max_mb`     | `1024`                       | Set a memory soft limit for the powerpipe process. Set to 0 to disable the memory limit.
 | `output`            | `pretty`                     | Set the console output format: `pretty`, `plain`, `yaml` or `json`.
+| `pipes_host`        | `pipes.turbot.com`          | Set the Turbot Pipes host for connecting to Turbot Pipes workspace.
+| `pipes_token`       | Token from`powerpipe login` | Set the Turbot Pipes authentication token for connecting to a Turbot Pipes workspace.  This may be a token obtained by `powerpipe login` or a user-generated [token](https://turbot.com/pipes/docs/da-settings#tokens).
 | `port`              | `9033`                       | Specifies the TCP port on which `powerpipe server` will listen for connections from clients. 
 | `progress`          | `true`                       | Enable or disable progress information.
 | `query_timeout`     | `240`                        | The maximum time (in seconds) a query is allowed to run before it times out.
@@ -69,12 +69,10 @@ The workspace named `default` is special; If a workspace named `default` exists,
 
 
 Note that the HCL argument names are the same as the equivalent CLI argument names,
-except using underscore in place of dash:
+except using an underscore in place of a dash:
 
 | Workspace Argument | Environment Variable    | Argument             
 |--------------------|-------------------------|----------------------
-| `cloud_host`       | [POWERPIPE_CLOUD_HOST](/docs/reference/env-vars/powerpipe_cloud_host), [PIPES_HOST](/docs/reference/env-vars/pipes_host) | `--cloud-host`
-| `cloud_token`      | [POWERPIPE_CLOUD_TOKEN](/docs/reference/env-vars/powerpipe_cloud_token), [PIPES_TOKEN](/docs/reference/env-vars/pipes_token) | `--cloud-token`
 | `database`         | [POWERPIPE_DATABASE](/docs/reference/env-vars/powerpipe_database) | `--database`
 | `header`           | none                        | `--header`
 | `host`             | [POWERPIPE_HOST](/docs/reference/env-vars/powerpipe_host)        | `--host`
@@ -84,6 +82,8 @@ except using underscore in place of dash:
 | `max_parallel`     | [POWERPIPE_MAX_PARALLEL](/docs/reference/env-vars/powerpipe_max_parallel) | `--max-parallel`
 | `memory_max_mb`    | [POWERPIPE_MEMORY_MAX_MB](/docs/reference/env-vars/powerpipe_memory_max_mb) |
 | `output`           |  none                     | `--output`
+| `pipes_host`       | [PIPES_HOST](/docs/reference/env-vars/pipes_host) | `--pipes-host`
+| `pipes_token`      | [PIPES_TOKEN](/docs/reference/env-vars/pipes_token) | `--pipes-token`
 | `port`             | [POWERPIPE_PORT](/docs/reference/env-vars/powerpipe_port)         | `--port`
 | `progress`         |  none                        | `--progress`
 | `query_timeout`    | [POWERPIPE_QUERY_TIMEOUT](/docs/reference/env-vars/powerpipe_query_timeout)| `--query_timeout`
@@ -128,7 +128,7 @@ workspace "dev_server" {
 }
 
 workspace "pipes" {
-  cloud_host        = "vandelay.pipes.turbot.com"
+  pipes_host        = "vandelay.pipes.turbot.com"
   snapshot_location = "vandelay/latex"
   database          = "vandelay/latex"
 }
@@ -150,8 +150,8 @@ workspace "all_options" {
   input               = true
 
   # Pipes Integration Options
-  cloud_host          = "pipes.turbot.com"
-  cloud_token         = "tpt_999faketoken99999999_111faketoken1111111111111"
+  pipes_host          = "pipes.turbot.com"
+  pipes_token         = "tpt_999faketoken99999999_111faketoken1111111111111"
   snapshot_location   = "acme/dev"
 
   # DB Settings

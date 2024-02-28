@@ -47,23 +47,23 @@ powerpipe benchmark run cis_v120 --workspace acme/anvils
 While most Powerpipe mods are written for Steampipe databases, Powerpipe can also connect to other engines, including Postgres:
 
 ```bash
-powerpipe dashboard --database 'postgresql://myusername:mypassword@acme-prod.apse1.db.cloud.turbot.io:9193/aaa000'
+powerpipe server --database 'postgresql://myusername:mypassword@acme-prod.apse1.db.cloud.turbot.io:9193/aaa000'
 ```
 
 MySQL:
 
 ```bash
-powerpipe dashboard --database 'mysql://root:my_pass@tcp(localhost)/mysql'
+powerpipe server --database 'mysql://root:my_pass@tcp(localhost)/mysql'
 ```
 
 SQLite:
 ```bash
-powerpipe dashboard --database 'sqlite:./my_sqlite_db.db'
+powerpipe server --database 'sqlite:./my_sqlite_db.db'
 ```
 
 and DuckDB :
 ```bash
-powerpipe dashboard --database 'duckdb:./my_ducks.db'
+powerpipe server --database 'duckdb:./my_ducks.db'
 ```
 
 

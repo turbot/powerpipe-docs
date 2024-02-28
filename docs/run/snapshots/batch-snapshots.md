@@ -5,7 +5,7 @@ sidebar_label: Batch Snapshots
 
 # Taking Snapshots from the Command Line
 
-*To upload snapshots to Turbot Pipes, you must either [log in via the `powerpipe login` command](/docs/reference/cli/login) or create an [API token](https://turbot.com/pipes/docs/da-settings#tokens) and pass it via the [`--cloud-token`](/docs/reference/cli/overview#global-flags) flag or [`POWERPIPE_CLOUD_TOKEN`](/docs/reference/env-vars/powerpipe_cloud_token) environment variable.*
+*To upload snapshots to Turbot Pipes, you must either [log in via the `powerpipe login` command](/docs/reference/cli/login) or create an [API token](https://turbot.com/pipes/docs/da-settings#tokens) and pass it via the [`--pipes-token`](/docs/reference/cli/overview#global-flags) argument or [`PIPES_TOKEN`](/docs/reference/env-vars/pipes_token) environment variable.*
 
 To take a snapshot and save it to [Turbot Pipes](https://turbot.com/pipes/docs), simply add the `--snapshot` flag to your `run` command.  
 

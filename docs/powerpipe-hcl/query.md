@@ -54,7 +54,7 @@ postgresql://[user[:password]@][host][:port][/dbname][?param1=value1&...]
 
 For example:
 ```bash
-powerpipe dashboard --database 'postgresql://myusername:mypassword@acme-prod.apse1.db.cloud.turbot.io:9193/aaa000'
+powerpipe server --database 'postgresql://myusername:mypassword@acme-prod.apse1.db.cloud.turbot.io:9193/aaa000'
 ```
 
 or
@@ -75,7 +75,7 @@ mysql://[user[:password]@]network-location[:port][/dbname][?param1=value1&...]
 
 For example:
 ```bash
-powerpipe dashboard --database 'mysql://root:my_pass@tcp(localhost)/mysql'
+powerpipe server --database 'mysql://root:my_pass@tcp(localhost)/mysql'
 ```
 
 or
@@ -102,7 +102,7 @@ database = "sqlite://my_sqlite_db.db"
 
 For example:
 ```bash
-powerpipe dashboard --database 'sqlite:./my_sqlite_db.db'
+powerpipe server --database 'sqlite:./my_sqlite_db.db'
 ```
 
 or
@@ -130,7 +130,7 @@ database = "duckdb://my_ducks.db"
 
 For example:
 ```bash
-powerpipe dashboard --database 'duckdb:./my_ducks.db'
+powerpipe server --database 'duckdb:./my_ducks.db'
 ```
 
 or

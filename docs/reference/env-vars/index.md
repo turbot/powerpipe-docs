@@ -12,9 +12,8 @@ Powerpipe supports environment variables to allow you to change its default beha
 | Command | Default | Description
 |-|-|-
 | [PIPES_HOST](reference/env-vars/pipes_host)  | `pipes.turbot.com` | Set the Turbot Pipes host, for connecting to Turbot Pipes workspace.
+| [PIPES_INSTALL_DIR](/docs/reference/env-vars/flowpipe_base_url)  | `~/.pipes` | Set the installation directory for files used with [Turbot Pipes](https://turbot.com/pipes/docs), such as login tokens.
 | [PIPES_TOKEN](reference/env-vars/pipes_token)  |  | Set the Turbot Pipes authentication token for connecting to Turbot Pipes workspace.
-| [POWERPIPE_CLOUD_HOST](reference/env-vars/powerpipe_cloud_host)  | `pipes.turbot.com` | Set the Turbot Pipes host, for connecting to Turbot Pipes workspace.
-| [POWERPIPE_CLOUD_TOKEN](reference/env-vars/powerpipe_cloud_token)  |  | Set the Turbot Pipes authentication token for connecting to Turbot Pipes workspace.
 | [POWERPIPE_CONFIG_PATH](reference/env-vars/powerpipe_config_path)  | `.:$POWERPIPE_INSTALL_DIR/config` | Sets the search path for [configuration files](/docs/reference/config-files).  `POWERPIPE_CONFIG_PATH` accepts a colon-separated list of directories.  
 | [POWERPIPE_HOST](reference/env-vars/powerpipe_host)  | none | Set the remote Powerpipe API host to connect to.  This allows you to run Powerpipe commands against a powerpipe host instead of the current working directory / mod location.
 | [POWERPIPE_INSTALL_DIR](reference/env-vars/powerpipe_install_dir)  | `~/.powerpipe` | Set the installation directory for powerpipe. Internal powerpipe files will be written to this path.
