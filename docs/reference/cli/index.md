@@ -82,23 +82,6 @@ sidebar_label: Powerpipe CLI
 
 <!--
 
-  <tr> 
-    <td nowrap="true"> <inlineCode>--cloud-host</inlineCode>  </td> 
-    <td>  Sets the Powerpipe Cloud host used when connecting to Powerpipe Cloud workspaces.  See <a href="/docs/reference/env-vars/powerpipe_cloud_host">STEAMPIPE_CLOUD_HOST</a> for details. </td>
-  </tr>
-
-  <tr> 
-    <td nowrap="true"> <inlineCode>--cloud-token</inlineCode>  </td> 
-    <td>  Sets the Powerpipe Cloud authentication token used when connecting to Powerpipe Cloud workspaces.  See <a href="/docs/reference/env-vars/powerpipe_cloud_token">STEAMPIPE_CLOUD_TOKEN</a> for details. </td>
-  </tr>
-
-
-
-  <tr> 
-    <td nowrap="true"> <inlineCode>--workspace</inlineCode>  </td> 
-    <td>  Sets the Powerpipe <a href="/docs/run/workspaces"> workspace profile</a>.  If not specified, the <inlineCode>default</inlineCode> workspace will be used if it exists.  See <a href="/docs/reference/env-vars/powerpipe_workspace">STEAMPIPE_WORKSPACE</a> for details.</td>
-  </tr>
-
 
   <tr> 
     <td nowrap="true"> <inlineCode>--database</inlineCode>  </td> 

@@ -65,4 +65,4 @@ When in a mod folder, you can run the dependent controls and benchmarks by quali
 powerpipe benchmark run aws_compliance.benchmark.cis_v140 
 ```
 
-When running `powerpipe dashboard` from a mod, all dashboards in your mod and its direct dependencies will be available to run.
+When running `powerpipe server` from a mod, all dashboards in your mod and its direct dependencies will be available to run.

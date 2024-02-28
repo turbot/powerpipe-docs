@@ -11,4 +11,4 @@ Mods provide an easy way to share dashboards, benchmarks, and other resources.
 
 As you've seen, you can download and install mods from the [Powerpipe Hub](https://hub.powerpipe.io) and use them as-is; [view the dashboards](/docs/run/dashboard), [run benchmarks](/docs/run/benchmark), and [take snapshots](/docs/run/snapshots/) without writing code.
 
-But Powerpipe also makes it simple to [create your own mod](/docs/build/create-mod), [write controls and benchmarks](/docs/build/writing-controls), and [build dashboards](/docs/build/writing-dashboards) to analyze your data or and share with others!
+But Powerpipe also makes it simple to [create your own mod](/docs/build/create-mod), [write controls and benchmarks](/docs/build/writing-controls), and [build dashboards](/docs/build/writing-dashboards) to analyze your data and share with others!
