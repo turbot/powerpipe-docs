@@ -38,7 +38,13 @@ You can run benchmarks in any direct mod dependency, but you have to fully quali
 powerpipe benchmark run my_other_mod.benchmark.my_benchmark
 ```
 
-The console will show progress as its runs, and will print the results to the screen when it is complete:
+You can even run all benchmarks in the mod and its direct dependencies with the keyword `all`:
+```bash
+powerpipe benchmark run all
+```
+
+
+The console will show progress as it runs, and will print the results to the screen when it is complete:
 
 <img src="/images/powerpipe-check-output-sample-1.png" width="100%" />
 
@@ -62,7 +68,7 @@ And run them by name, similar to benchmarks:
 powerpipe control run my_control
 ```
 
-Unlike benchmarks, some controls may define parameters.  You can pass values for them using one or more `--arg` argument:
+Unlike benchmarks, some controls may define parameters.  You can pass values for them using one or more `--arg` arguments:
 ```bash
 powerpipe control run my_control_with_params --arg my_simple_arg='this is a string' --arg my_list_arg='["item 1","item 2"]'
 ```
@@ -75,28 +81,21 @@ powerpipe control run my_control_with_params --arg 1='this is a string' --arg 2=
 
 ## Filtering Benchmarks
 
-You can pre-filter a benchmark to run a subset of the controls. Most benchmarks are arranged hierarchically.  If you want to view all of the benchmarks, including the nested ones,  pass `--all` to the `powerpipe benchmark list` command:
 
-```bash
-powerpipe benchmark list --all
-```
-
-You can run any of these nested benchmarks:
-```bash
-powerpipe benchmark run my_benchmark_section_1
-```
-
-You can also filter the benchmark to only run controls with specific tags.  For example, to run the controls that have tags `cis_level=1` and `benchmark=cis`:
+You can filter controls by the control tags.  For example, to run the controls in the `cis_v150` benchmark that have tags `cis_level=1` and `benchmark=cis`:
 ```bash
 powerpipe benchmark run cis_v150 --tag cis_level=1 --tag cis=true
 ```
 
-
-***[TODO show how to inspect what fields are availble with powerpipe control show controlname --output json]***
-
-You can also filter the controls to run using a where clause on the properties of the benchmark.  
+This filter works with `all` as well:
 ```bash
-powerpipe benchmark run cis_v150 --where "severity in ('critical', 'high')"
+powerpipe benchmark run all --tag cis_level=1 --tag cis=true
+```
+
+You can also filter the controls to run using a `where` clause on the properties of the benchmark. 
+
+```bash
+powerpipe benchmark run all --where "severity in ('critical', 'high')"
 ```
 
 

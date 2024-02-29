@@ -141,6 +141,10 @@ Run a benchmark
 powerpipe benchmark run cis_v120
 ```
 
+Run all benchmarks in the mod and its direct dependencies:
+```bash
+powerpipe benchmark run all
+```
 
 Run a benchmark, only including controls with specific property values:
 ```bash
