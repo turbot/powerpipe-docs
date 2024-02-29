@@ -18,12 +18,13 @@ powerpipe server
 
 | Flag | Description
 |-|-
+|  `--database`         |  Sets the [database that Powerpipe will connect to](/docs/run#selecting-a-database). This defaults to the local Steampipe database, but can be any PostgreSQL, MySQL, DuckDB, or SQLite database. See [POWERPIPE_DATABASE](/docs/reference/env-vars/powerpipe_database) for details.
 | `--listen string`   | Accept connections from `local` (localhost only) or `network` (all interfaces / IP addresses) (default `network`).
 | `--port int`        | Web server port (default `9033`).
 | `--var string=string` | Specify the value of a variable.  Multiple `--var` arguments may be passed. 
 | `--var-file string`| Specify a `.ppvar` file containing variable values.
 | `--watch`             | Watch mod files for changes when running `powerpipe server` (default `true`).
-|  `--database`         |  Sets the database that Powerpipe will connect to. This can be local (the default) or a remote Turbot Pipes database. See [POWERPIPE_DATABASE](/docs/reference/env-vars/powerpipe_database) for details.
+
 
 ## Examples
 

@@ -21,8 +21,8 @@ powerpipe control run control_name [args]
 | Command | Description
 |-|-
 | [list](#powerpipe-control-list) | List controls from the current mod and its direct dependents.
-| [run](#powerpipe-control-run)  | Run a control from the current mod or its direct dependents or from a Powerpipe server instance.
-| [show](#powerpipe-control-show) | Show details of a control from the current mod or its direct dependents or from a Powerpipe server instance.
+| [run](#powerpipe-control-run)  | Run a control from the current mod or its direct dependents.
+| [show](#powerpipe-control-show) | Show details of a control from the current mod or its direct dependents.
 
 
 
@@ -44,18 +44,6 @@ List all controls in `JSON` format:
 powerpipe control list --output json
 ```
 
-List controls from a local server instance running on the default port on `localhost`:
-```bash
-powerpipe control list --host local
-```
-
-
-List controls on a remote Powerpipe server instance:
-```bash
-powerpipe control list --host  https://powerpipe.my-org.com:9033
-```
-
-
 List controls using settings from a workspace:
 ```bash
 powerpipe control list --workspace my_workspace
@@ -65,7 +53,7 @@ powerpipe control list --workspace my_workspace
 ---
 
 ## powerpipe control show
-Show details of a control from the current mod or its direct dependents or from a Powerpipe server instance.
+Show details of a control from the current mod or its direct dependents.
 
 
 ### Examples
@@ -83,12 +71,6 @@ Show details of a single control in a direct dependency mod:
 powerpipe control show aws_compliance.control.cis_v200_2_1_1
 ```
 
-Show details of a control on a Powerpipe server instance:
-```bash
-powerpipe control show aws_compliance.control.cis_v200_2_1_1 --host https://powerpipe.my-org.com:9033
-```
-
-
 Show details of a control in `JSON` format:
 ```bash
 powerpipe control show cis_v200_2_1_1 --output json
@@ -102,19 +84,20 @@ powerpipe control show cis_v200_2_1_1 -workspace my_workspace
 ---
 
 ## powerpipe control run
-Run a control from the current mod or its direct dependents or from a Powerpipe server instance.
+Run a control from the current mod or its direct dependents.
 
 ### Arguments
 
 | Flag | Description
 |-|-
-|  `--pipes-host`                 | Sets the Turbot Pipes host used when connecting to Turbot Pipes workspaces. See  [PIPES_HOST](/docs/reference/env-vars/pipes_host) for details.
-|  `--pipes-token`                | Sets the Turbot Pipes authentication token used when connecting to Turbot Pipes workspaces. See  [PIPES_TOKEN](/docs/reference/env-vars/pipes_token) for details.
+|  `--database`         |  Sets the [database that Powerpipe will connect to](/docs/run#selecting-a-database). This defaults to the local Steampipe database, but can be any PostgreSQL, MySQL, DuckDB, or SQLite database. See [POWERPIPE_DATABASE](/docs/reference/env-vars/powerpipe_database) for details.
 |  `--export string`              | Export control output to a file. You may export multiple output formats for a single control run by entering multiple `--export` arguments. If a file path is specified as an argument, its type will be inferred by the suffix. Supported export formats are `asff`, `csv`, `html`, `json`, `md`,`nunit3`, `sps` (snapshot)
 |  `--header string`              | Specify whether to include column headers in csv output/export (default `true`).
 |  `--input`                      | Enable/Disable interactive prompts for missing variables. To disable prompts and fail on missing variables, use  `--input=false`. This is useful when running from scripts. (default `true`)
 |  `--mod-install`                | Specify whether to install mod dependencies before running the control (default `true`)
 |  `--output string`              | Select the console output format. Defaults to text. Possible values are `brief`, `csv`, `html`, `json`, `md`, `sps` (snapshot), `pretty`, `plain`, `none`
+|  `--pipes-host`                 | Sets the Turbot Pipes host used when connecting to Turbot Pipes workspaces. See  [PIPES_HOST](/docs/reference/env-vars/pipes_host) for details.
+|  `--pipes-token`                | Sets the Turbot Pipes authentication token used when connecting to Turbot Pipes workspaces. See  [PIPES_TOKEN](/docs/reference/env-vars/pipes_token) for details.
 |  `--progress`                   | Enable or disable progress information. By default, progress information is shown - set  `--progress=false` to hide the progress bar.
 |  `--query-timeout int`          | The query timeout, in seconds. The default is `240`.
 |  `--search-path strings`        | Set a comma-separated list of connections to use as a custom search path for the control run.
@@ -129,25 +112,7 @@ Run a control from the current mod or its direct dependents or from a Powerpipe 
 |  `--timing`                     | Turn on the query timer.
 | `--var string=string`           | Specify the value of a variable.  Multiple `--var` arguments may be passed. 
 | `--var-file strings`            | Specify a `.ppvar` file containing variable values.
-|  `--database`         |  Sets the database that Powerpipe will connect to. This can be local (the default) or a remote Turbot Pipes database. See [POWERPIPE_DATABASE](/docs/reference/env-vars/powerpipe_database) for details.
 
-
-
-<!--
-# these dont make sense unless we allow more than 1 control to be run at a time..
-
-|  `--dry-run`                    | If specified, prints the controls that would be run by the command, but does not execute them.
-|  `--max-parallel int`           | Set the maximum number of database connections to open. When running controls, Powerpipe will attempt to run up to this many controls in parallel. See the `POWERPIPE_MAX_PARALLEL` environment variable documentation for details. (default `10`)
-
-| `--where`	                      | Filter the list of controls to run, using a SQL `where` clause.
-
-
--->
-
-<!--
-| `--detach`   | Start the control and return immediately.  By default, `powerpipe control run` will run the control and wait for the results. You may only use `--detach` when running a control from a server instance (by specifying `--host`, for example).
-
--->
 
 ### Output Formats
 
@@ -160,11 +125,6 @@ Run a control from the current mod or its direct dependents or from a Powerpipe 
 Run a control 
 ```bash
 powerpipe control run cis_v200_2_1_1
-```
-
-Run a control on a remote powerpipe host
-```bash
-powerpipe control run cis_v200_2_1_1 --host  https://powerpipe.my-org.com:9033
 ```
 
 Run a control against a pipes workspace:

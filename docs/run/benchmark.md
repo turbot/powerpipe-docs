@@ -11,15 +11,11 @@ There are many control frameworks in existence today, and though they are all im
 
 Powerpipe benchmarks automatically appear as [dashboards](/docs/run/dashboard) when you run `powerpipe server` in the mod.  From the dashboard home, you can select any benchmark to run it and view it in an interactive HTML format.  You can even export the benchmark results as a CSV from the [panel view](/docs/run/dashboard#panel-viewpanel).
 
-
-***[TODO: screenshot]***
-
 <img src="/images/reference_examples/benchmark_dashboard_view.png" />
 
 <br />
 
-You can also run controls and benchmarks in batch mode with the [powerpipe benchmark run](/docs/reference/cli/benchmark#powerpipe-benchmark-run) and [powerpipe control run](/docs/reference/cli/control#powerpipe-control-run)commands.  These commands provide options for selecting the controls to run, the ouput format, and other options you may need when using `powerpipe` in your scripts, pipelines, and other automation scenarios.  
-
+You can also run controls and benchmarks in batch mode with the [powerpipe benchmark run](/docs/reference/cli/benchmark#powerpipe-benchmark-run) and [powerpipe control run](/docs/reference/cli/control#powerpipe-control-run)commands.  These commands provide options for selecting the controls to run, the output format, and other options you may need when using `powerpipe` in your scripts, pipelines, and other automation scenarios.  
 
 Powerpipe commands must be run in the contest of a mod, and are relative to the current directory.  You can pass the mod directory with the `--mod-location` argument, but its usually easier just to change to the mod directory:
 
@@ -44,11 +40,7 @@ powerpipe benchmark run my_other_mod.benchmark.my_benchmark
 
 The console will show progress as its runs, and will print the results to the screen when it is complete:
 
-***[TODO: screenshot]***
-
 <img src="/images/powerpipe-check-output-sample-1.png" width="100%" />
-
-
 
 You can find controls and benchmarks in the  [Powerpipe Hub](https://hub.powerpipe.io), or by searching [Github](https://github.com/topics/powerpipe-mod) directly.  
 
@@ -131,14 +123,6 @@ powerpipe benchmark run cis_v150 --search-path-prefix aws_connection_2
 ```
 
 [Steampipe](https://steampipe.io) creates a schema for each connection and aggregator, and understanding how the search path works is important when using Steampipe and Powerpipe. See the [Using search_path to target connections and aggregators](https://steampipe.io/docs/guides/search-path) guide for more information.
-
-## Powerpipe Server instances
-
-By default, Powerpipe runs on the local host and starts a new process to run the benchmark or control.  If you are running [Powerpipe Server](/docs/run/server), you can ran a benchmark on that server:
-
-```bash
-powerpipe benchmark run cis_v120 --host  https://powerpipe.my-org.com:9033
-```
 
 
 ## Selecting a database

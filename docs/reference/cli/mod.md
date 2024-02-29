@@ -29,7 +29,7 @@ powerpipe mod update [mod_path] [args]
 | [init](#powerpipe-mod-init)       | Initialize the current directory with a `mod.pp` file 
 | [install](#powerpipe-mod-install) | Install one or more mods and their dependencies
 | [list](#powerpipe-mod-list)       | List mods from the current mod and its direct dependents.
-| [show](#powerpipe-mod-show)       | Show details of a mod from the current mod or its direct dependents or from a Powerpipe server instance.
+| [show](#powerpipe-mod-show)       | Show details of a mod from the current mod or its direct dependents.
 | [uninstall](#powerpipe-mod-uninstall) | Uninstall a mod and its dependencies
 | [update](#powerpipe-mod-update)   | Update one or more mods and their dependencies
 
@@ -60,7 +60,7 @@ Install one or more mods and their dependencies.
 
 ### Git URLs & Private Repos
 
-Powerpipe uses `git` to install and update mods. When you run `powerpipe mod install` or `powerpipe mod update`, Powerpipe will first try using `https` and if that does not work it will try `ssh`.  If your ssh keys are configured properly for `git`, you should be able to pull from private repos that you have access to, as well as public ones.
+Powerpipe uses `git` to install and update mods. When you run `powerpipe mod install` or `powerpipe mod update`, Powerpipe will first try using `https` and if that does not work it will try `ssh`.  If your SSH keys are configured properly for `git`, you should be able to pull from private repos that you have access to, as well as public ones.
 
 When publishing mods, you should usually only depend on public mods (hosted in public repos) so that users of your mod don't encounter permissions issues.
 
@@ -116,18 +116,6 @@ List all mods in `JSON` format:
 powerpipe mod list --output json
 ```
 
-List mods from a local server instance running on the default port on `localhost`:
-```bash
-powerpipe mod list --host local
-```
-
-
-List mods on a remote Powerpipe server instance:
-```bash
-powerpipe mod list --host  https://powerpipe.my-org.com:9033
-```
-
-
 List mods using settings from a workspace:
 ```bash
 powerpipe mod list --workspace my_workspace
@@ -137,7 +125,7 @@ powerpipe mod list --workspace my_workspace
 ---
 
 ## powerpipe mod show
-Show details of a mod from the current mod or its direct dependents or from a Powerpipe server instance.
+Show details of a mod from the current mod or its direct dependents.
 
 
 ### Examples
@@ -146,13 +134,6 @@ Show details of a single mod in the current mod:
 ```bash
 powerpipe mod show aws_compliance
 ```
-
-
-Show details of a mod on a Powerpipe server instance:
-```bash
-powerpipe mod show aws_compliance --host https://powerpipe.my-org.com:9033
-```
-
 
 Show details of a mod in `JSON` format:
 ```bash

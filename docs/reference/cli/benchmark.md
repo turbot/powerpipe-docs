@@ -21,62 +21,37 @@ powerpipe benchmark run benchmark_name [args]
 | Command | Description
 |-|-
 | [list](#powerpipe-benchmark-list) | List benchmarks from the current mod and its direct dependents.
-| [run](#powerpipe-benchmark-run)  | Run a benchmark from the current mod or its direct dependents or from a Powerpipe server instance.
-| [show](#powerpipe-benchmark-show) | Show details of a benchmark from the current mod or its direct dependents or from a Powerpipe server instance.
-
+| [run](#powerpipe-benchmark-run)  | Run a benchmark from the current mod or its direct dependents.
+| [show](#powerpipe-benchmark-show) | Show details of a benchmark from the current mod or its direct dependents.
 
 
 ----
 ## powerpipe benchmark list
 List benchmarks from the current mod and its direct dependents.
 
-### Arguments
-
-| Flag | Description
-|-|-
-| `--all`  |  By default only top-level dashboards are shown. Pass `--all` to show all benchmarks, including nested benchmarks.   
-
 ### Examples
 
+List benchmarks.  Only top-level dashboards are shown for `pretty` and `plain` output formats:
 
-List benchmarks.  By default only top-level dashboards are shown:
 ```bash
 powerpipe benchmark list
 ```
 
-List All benchmarks, including sub-benchmarks:
-```bash
-powerpipe benchmark list --all
-```
+List all benchmarks in `JSON` format. All benchmarks (including sub-benchmarks) will be included for `json` and `yaml` output types: 
 
-List all benchmarks in `JSON` format:
 ```bash
 powerpipe benchmark list --all --output json
 ```
-
-
-List benchmarks from a local server instance running on the default port on `localhost`:
-```bash
-powerpipe benchmark list --host local
-```
-
-
-List benchmarks on a remote Powerpipe server instance:
-```bash
-powerpipe benchmark list --host  https://powerpipe.my-org.com:9033
-```
-
 
 List benchmarks using settings from a workspace:
 ```bash
 powerpipe benchmark list --workspace my_workspace
 ```
 
-
 ---
 
 ## powerpipe benchmark show
-Show details of a benchmark from the current mod or its direct dependents or from a Powerpipe server instance.
+Show details of a benchmark from the current mod or its direct dependents.
 
 
 ### Examples
@@ -94,12 +69,6 @@ Show details of a single benchmark in a direct dependency mod:
 powerpipe benchmark show aws_compliance.benchmark.cis_v120
 ```
 
-Show details of a benchmark on a Powerpipe server instance:
-```bash
-powerpipe benchmark show aws_compliance.benchmark.cis_v120 --host https://powerpipe.my-org.com:9033
-```
-
-
 Show details of a benchmark in `JSON` format:
 ```bash
 powerpipe benchmark show cis_v120 --output json
@@ -113,14 +82,13 @@ powerpipe benchmark show cis_v120 -workspace my_workspace
 ---
 
 ## powerpipe benchmark run
-Run a benchmark from the current mod or its direct dependents or from a Powerpipe server instance.
+Run a benchmark from the current mod or its direct dependents.
 
 ### Arguments
 
 | Flag | Description
 |-|-
-|  `--pipes-host`                 | Sets the Turbot Pipes host used when connecting to Turbot Pipes workspaces. See  [PIPES_HOST](/docs/reference/env-vars/pipes_host) for details.
-|  `--pipes-token`                | Sets the Turbot Pipes authentication token used when connecting to Turbot Pipes workspaces. See  [PIPES_TOKEN](/docs/reference/env-vars/pipes_token) for details.
+|  `--database`                   |  Sets the [database that Powerpipe will connect to](/docs/run#selecting-a-database). This defaults to the local Steampipe database, but can be any PostgreSQL, MySQL, DuckDB, or SQLite database. See [POWERPIPE_DATABASE](/docs/reference/env-vars/powerpipe_database) for details.
 |  `--dry-run`                    | If specified, prints the controls that would be run by the command, but does not execute them.
 |  `--export string`              | Export control output to a file. You may export multiple output formats for a single control run by entering multiple `--export` arguments. If a file path is specified as an argument, its type will be inferred by the suffix. Supported export formats are `asff`, `csv`, `html`, `json`, `md`,`nunit3`, `sps` (snapshot)
 |  `--header string`              | Specify whether to include column headers in csv output/export (default `true`).
@@ -128,6 +96,8 @@ Run a benchmark from the current mod or its direct dependents or from a Powerpip
 |  `--max-parallel int`           | Set the maximum number of database connections to open. When running benchmarks, Powerpipe will attempt to run up to this many controls in parallel. See the `POWERPIPE_MAX_PARALLEL` environment variable documentation for details. (default `10`)
 |  `--mod-install`                | Specify whether to install mod dependencies before running the benchmark (default `true`)
 |  `--output string`              | Select the console output format. Defaults to text. Possible values are `brief`, `csv`, `html`, `json`, `md`, `sps` (snapshot), `pretty`, `plain`, `none`
+|  `--pipes-host`                 | Sets the Turbot Pipes host used when connecting to Turbot Pipes workspaces. See  [PIPES_HOST](/docs/reference/env-vars/pipes_host) for details.
+|  `--pipes-token`                | Sets the Turbot Pipes authentication token used when connecting to Turbot Pipes workspaces. See  [PIPES_TOKEN](/docs/reference/env-vars/pipes_token) for details.
 |  `--progress`                   | Enable or disable progress information. By default, progress information is shown - set  `--progress=false` to hide the progress bar.
 |  `--query-timeout int`          | The query timeout, in seconds. The default is `240`.
 |  `--search-path strings`        | Set a comma-separated list of connections to use as a custom search path for the control run.
@@ -143,17 +113,10 @@ Run a benchmark from the current mod or its direct dependents or from a Powerpip
 | `--var string=string`           | Specify the value of a variable.  Multiple `--var` arguments may be passed. 
 | `--var-file strings`            | Specify a `.ppvar` file containing variable values.
 | `--where`	                      | Filter the list of controls to run, using a SQL `where` clause.
-|  `--database`         |  Sets the database that Powerpipe will connect to. This can be local (the default) or a remote Turbot Pipes database. See [POWERPIPE_DATABASE](/docs/reference/env-vars/powerpipe_database) for details.
 
-
-
-
-<!--
-| `--detach`   | Start the benchmark and return immediately.  By default, `powerpipe benchmark run` will run the benchmark and wait for the results. You may only use `--detach` when running a benchmark from a server instance (by specifying `--host`, for example).
-
--->
 
 ### Output Formats
+
 | Format | Description 
 |-|-
 | `asff` | [Findings](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings.html) in [asff](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-syntax.html) json format. Only used with AWS controls.
@@ -187,11 +150,6 @@ powerpipe benchmark run cis_v120 --where "severity in ('critical', 'high')"
 Run a benchmark, only including controls with specific tags:
 ```bash
 powerpipe benchmark run cis_v120  --tag cis_level=1 --tag cis=true
-```
-
-Run a benchmark on a remote powerpipe host
-```bash
-powerpipe benchmark run cis_v120 --host  https://powerpipe.my-org.com:9033
 ```
 
 Run a benchmark against a pipes workspace:

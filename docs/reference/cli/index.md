@@ -48,13 +48,12 @@ sidebar_label: Powerpipe CLI
     <td nowrap="true"> <inlineCode>-h</inlineCode>, <inlineCode>--help</inlineCode> </td> 
     <td>  Help for Powerpipe. </td> 
   </tr>
-                  
+
   <tr> 
-    <td nowrap="true"> <inlineCode>--host</inlineCode> </td> 
-    <td> Run the command against a local or remote server instance.  You may specify the full host and port (e.g. <inlineCode>--host https://powerpipe.my-org.com:9033</inlineCode>), or use the keyword <inlineCode>local</inlineCode> to connect to the local server instance as a shortcut for <inlineCode>https://localhost:9033</inlineCode> (e.g. <inlineCode>--host local</inlineCode>) </td> 
+    <td nowrap="true"> <inlineCode>--install-dir</inlineCode>  </td> 
+    <td> Set the installation directory for Powerpipe. Internal Powerpipe files will be written to and read from this path. The default is <inlineCode>~/.powerpipe</inlineCode>. By default, the <a href="/docs/run#configuration-files">configuration search path </a> is also relative to this installation directory.  See <a href="/docs/reference/env-vars/powerpipe_install_dir">POWERPIPE_INSTALL_DIR</a> for details.
+    </td>
   </tr>
-
-
 
   <tr> 
     <td nowrap="true"> <inlineCode>--mod-location</inlineCode>  </td> 

@@ -107,7 +107,6 @@
           "reference/env-vars/pipes_install_dir",
           "reference/env-vars/pipes_token",
           "reference/env-vars/powerpipe_config_path",
-          "reference/env-vars/powerpipe_host",
           "reference/env-vars/powerpipe_install_dir",
           "reference/env-vars/powerpipe_listen",
           "reference/env-vars/powerpipe_log_level",

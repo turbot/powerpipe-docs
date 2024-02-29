@@ -33,8 +33,8 @@ powerpipe dashboard text list [args]
 | Command | Description
 |-|-
 | [list](#powerpipe-dashboard-list) | List dashboards from the current mod and its direct dependents.
-| [run](#powerpipe-dashboard-run)  | Run a dashboard from the current mod or its direct dependents or from a Powerpipe server instance.
-| [show](#powerpipe-dashboard-show) | Show details of a dashboard from the current mod or its direct dependents or from a Powerpipe server instance.
+| [run](#powerpipe-dashboard-run)  | Run a dashboard from the current mod or its direct dependents.
+| [show](#powerpipe-dashboard-show) | Show details of a dashboard from the current mod or its direct dependents.
 | [[resource type] list](#powerpipe-dashboard-resource-type-list) | List dashboard resources of a given type from the current mod and its direct dependents.
 
 
@@ -56,17 +56,6 @@ List all dashboards in `JSON` format:
 powerpipe dashboard list --output json
 ```
 
-List dashboards from a local server instance running on the default port on `localhost`:
-```bash
-powerpipe dashboard list --host local
-```
-
-List dashboards on a remote Powerpipe server instance:
-```bash
-powerpipe dashboard list --host  https://powerpipe.my-org.com:9033
-```
-
-
 List dashboards using settings from a workspace:
 ```bash
 powerpipe dashboard list --workspace my_workspace
@@ -76,7 +65,7 @@ powerpipe dashboard list --workspace my_workspace
 ---
 
 ## powerpipe dashboard show
-Show details of a dashboard from the current mod or its direct dependents or from a Powerpipe server instance.
+Show details of a dashboard from the current mod or its direct dependents.
 
 
 ### Examples
@@ -88,17 +77,10 @@ powerpipe dashboard show cis_v200_2_1_1
 powerpipe dashboard show dashboard.cis_v200_2_1_1
 ```
 
-
 Show details of a single dashboard in a direct dependency mod:
 ```bash
 powerpipe dashboard show aws_compliance.dashboard.cis_v200_2_1_1
 ```
-
-Show details of a dashboard on a Powerpipe server instance:
-```bash
-powerpipe dashboard show aws_compliance.dashboard.cis_v200_2_1_1 --host https://powerpipe.my-org.com:9033
-```
-
 
 Show details of a dashboard in `JSON` format:
 ```bash
@@ -113,20 +95,21 @@ powerpipe dashboard show cis_v200_2_1_1 -workspace my_workspace
 ---
 
 ## powerpipe dashboard run
-Run a dashboard from the current mod or its direct dependents or from a Powerpipe server instance.
+Run a dashboard from the current mod or its direct dependents.
 
 ### Arguments
 
 | Flag | Description
 |-|-
 | `--arg string=string`           | Specify the value for a dashboard input. Multiple `--arg` arguments may be passed. 
-|  `--pipes-host`                 | Sets the Turbot Pipes host used when connecting to Turbot Pipes workspaces. See  [PIPES_HOST](/docs/reference/env-vars/pipes_host) for details.
-|  `--pipes-token`                | Sets the Turbot Pipes authentication token used when connecting to Turbot Pipes workspaces. See  [PIPES_TOKEN](/docs/reference/env-vars/pipes_token) for details.
+|  `--database`         | Sets the [database that Powerpipe will connect to](/docs/run#selecting-a-database). This defaults to the local Steampipe database, but can be any PostgreSQL, MySQL, DuckDB, or SQLite database. See [POWERPIPE_DATABASE](/docs/reference/env-vars/powerpipe_database) for details.
 |  `--export string`              | Export dashboard output to a file. You may export multiple output formats for a single dashboard run by entering multiple `--export` arguments. If a file path is specified as an argument, its type will be inferred by the suffix. Supported export formats are `none`, `sps` (`snapshot`)
 |  `--input`                      | Enable/Disable interactive prompts for missing variables. To disable prompts and fail on missing variables, use  `--input=false`. This is useful when running from scripts. (default `true`)
 |  `--max-parallel int`           | Set the maximum number of database connections to open. When running dashboards, Powerpipe will attempt to run up to this many dashboards in parallel. See the `POWERPIPE_MAX_PARALLEL` environment variable documentation for details. (default `10`)
 |  `--mod-install`                | Specify whether to install mod dependencies before running the dashboard (default `true`)
 |  `--output string`              | Select the console output format. Defaults to text. Possible values are `none`, `sps` (`snapshot`)
+|  `--pipes-host`                 | Sets the Turbot Pipes host used when connecting to Turbot Pipes workspaces. See  [PIPES_HOST](/docs/reference/env-vars/pipes_host) for details.
+|  `--pipes-token`                | Sets the Turbot Pipes authentication token used when connecting to Turbot Pipes workspaces. See  [PIPES_TOKEN](/docs/reference/env-vars/pipes_token) for details.
 |  `--progress`                   | Enable or disable progress information. By default, progress information is shown - set  `--progress=false` to hide the progress bar.
 |  `--query-timeout int`          | The query timeout, in seconds. The default is `240`.
 |  `--search-path strings`        | Set a comma-separated list of connections to use as a custom search path for the dashboard run.
@@ -138,7 +121,6 @@ Run a dashboard from the current mod or its direct dependents or from a Powerpip
 |  `--snapshot-title string=string` | The title to give a snapshot when uploading to Turbot Pipes.
 | `--var string=string`           | Specify the value of a variable.  Multiple `--var` arguments may be passed. 
 | `--var-file strings`            | Specify a `.ppvar` file containing variable values.
-|  `--database`         | Sets the database that Powerpipe will connect to. This can be local (the default) or a remote Turbot Pipes database. See [POWERPIPE_DATABASE](/docs/reference/env-vars/powerpipe_database) for details.
 
 
 
@@ -184,11 +166,6 @@ powerpipe dashboard run cis_v200_2_1_1 --share  --snapshot-location vandelay-ind
 Run a dashboard, upload a snapshot with `workspace` visibility in your user workspace, and tag the snapshot:
 ```bash
 powerpipe dashboard run cis_v200_2_1_1 --snapshot --snapshot-tag env=local 
-```
-
-Run a dashboard on a remote powerpipe host
-```bash
-powerpipe dashboard run cis_v200_2_1_1 --host https://powerpipe.my-org.com:9033
 ```
 
 Run a dashboard against a pipes workspace:
@@ -264,15 +241,5 @@ powerpipe dashboard text list
 List dashboard cards in`JSON` format:
 ```bash
 powerpipe dashboard card list --output json
-```
-
-List dashboard cards from a local server instance running on the default port on `localhost`:
-```bash
-powerpipe dashboard card list --host local
-```
-
-List dashboard cards on a remote Powerpipe server instance:
-```bash
-powerpipe dashboard card list --host  https://powerpipe.my-org.com:9033
 ```
 

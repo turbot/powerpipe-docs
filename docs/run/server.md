@@ -17,13 +17,6 @@ powerpipe server
 Once it is running you can view the the dashboards in your web browser by navigating to `http://locahost:9033`.
 
 
-You can also connect to the server and run commands with the `--host` argument:
-```bash
-powerpipe benchmark list --host local
-powerpipe benchmark run my_benchmark --host local
-powerpipe control list --host local
-```
-
 Like all Powerpipe commands, `powerpipe server` will load the mod from the current directory by default, but you can specify a different directory with `--mod-location`:
 
 ```bash
@@ -54,7 +47,6 @@ Often it is simpler to manage all of these settings with a [workspace](/docs/run
 workspace "my_server" {
   listen = "local"
   port   = 9195
-  host   = "http://localhost:9195"
   watch  = false
 }
 ```
