@@ -16,7 +16,6 @@ workspace "default" {
 }
 
 workspace "my_server" {
-  host          = "local"
   listen        = "network"
   port          = 9033
   update_check  = false
@@ -41,7 +40,6 @@ To learn more, see **[Managing Workspaces →](/docs/run/workspaces)**
 | `base`              | none                         | A reference to a named workspace resource that this workspace should source its definition from. Any argument can be overridden after sourcing via base.
 | `database`          | `postgres://steampipe@` <br /> `127.0.0.1:9193/steampipe`| A database connection string or [Turbot Pipes workspace](https://pipes.turbot.com) to use as the default database.  The default is a local [Steampipe](https://steampipe.io) instance.
 | `header`            | `true`                       | Enable or disable column headers.
-| `host`              | none                         | Set the remote Powerpipe API host to connect to.  This allows you to run Powerpipe commands against a powerpipe host instead of the current working directory.
 | `input`             | `true`                       | Enable/Disable interactive prompts for missing variables.  To disable prompts and fail on missing variables, set it to `false`. This is useful when running from scripts.
 | `listen`            | `network`                    | Specifies the IP addresses on which `powerpipe server` will listen for connections from clients. Currently supported values are `local` (localhost only) or `network` (all IP addresses).
 | `log_level`         | off                          | Set the logging output level
@@ -75,7 +73,6 @@ except using an underscore in place of a dash:
 |--------------------|-------------------------|----------------------
 | `database`         | [POWERPIPE_DATABASE](/docs/reference/env-vars/powerpipe_database) | `--database`
 | `header`           | none                        | `--header`
-| `host`             | [POWERPIPE_HOST](/docs/reference/env-vars/powerpipe_host)        | `--host`
 | `input`            |  none                      | `--input` 
 | `listen`           | [POWERPIPE_LISTEN](/docs/reference/env-vars/powerpipe_listen)  | `--listen` 
 | `log_level`        | [POWERPIPE_LOG_LEVEL](/docs/reference/env-vars/powerpipe_log_level)   |
@@ -106,7 +103,6 @@ except using an underscore in place of a dash:
 ```hcl
 
 workspace "server" {
-  host          = "local"
   listen        = "network"
   port          = 9033
   update_check  = false
@@ -137,7 +133,6 @@ workspace "pipes" {
 workspace "all_options" {
 
   # Dashboard / API Server Options
-  host                = "local"
   listen              = "network"
   port                = 9033
   watch               = true

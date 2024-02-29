@@ -18,7 +18,7 @@ Powerpipe will load [configuration files](/docs/reference/config-files) (`*.ppc`
 
 ## Selecting a database
 
-Most public mods are written without specifying a `database` on each query.  As a result, all queries in the mod run against the 'active'' database. By default, the active database is `postgres://steampipe@localhost:9193/steampipe`, thus Powerpipe will run against a local Steampipe instance.  
+Most public mods are written without specifying a `database` on each query.  As a result, all queries in the mod run against the 'active' database. By default, the active database is `postgres://steampipe@localhost:9193/steampipe`, thus Powerpipe will run against a local Steampipe instance.  
 
 You may instead run a benchmark or control against a specific database by passing the `--database` argument:
 ```bash
@@ -73,4 +73,4 @@ Powerpipe can operate in 2 modes.
 
 By default, Powerpipe runs in **Client-only Mode**.  Powerpipe loads the mod, runs the command, and exits.  [Interactive dashboards](/docs/run/dashboard) are not enabled in Client-Only Mode.
 
-If you run Powerpipe in **Server Mode** mode, Powerpipe will run an API server (on port `9033` by default).  In [this mode](/docs/run/server), you can browse [Interactive dashboards](/docs/run/dashboard) by navigating to `http://localhost:9033/` in your web browser.  After you start the Powerpipe server, you can run Powerpipe commands against it by specifying the [--host](/docs/reference/cli#global-flags) argument.
+If you run Powerpipe in **Server Mode** mode, Powerpipe will run a dashboard server (on port `9033` by default).  In [this mode](/docs/run/server), you can browse [Interactive dashboards](/docs/run/dashboard) by navigating to `http://localhost:9033/` in your web browser.

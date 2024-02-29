@@ -15,7 +15,6 @@ Powerpipe supports environment variables to allow you to change its default beha
 | [PIPES_INSTALL_DIR](/docs/reference/env-vars/flowpipe_base_url)  | `~/.pipes` | Set the installation directory for files used with [Turbot Pipes](https://turbot.com/pipes/docs), such as login tokens.
 | [PIPES_TOKEN](reference/env-vars/pipes_token)  |  | Set the Turbot Pipes authentication token for connecting to Turbot Pipes workspace.
 | [POWERPIPE_CONFIG_PATH](reference/env-vars/powerpipe_config_path)  | `.:$POWERPIPE_INSTALL_DIR/config` | Sets the search path for [configuration files](/docs/reference/config-files).  `POWERPIPE_CONFIG_PATH` accepts a colon-separated list of directories.  
-| [POWERPIPE_HOST](reference/env-vars/powerpipe_host)  | none | Set the remote Powerpipe API host to connect to.  This allows you to run Powerpipe commands against a powerpipe host instead of the current working directory / mod location.
 | [POWERPIPE_INSTALL_DIR](reference/env-vars/powerpipe_install_dir)  | `~/.powerpipe` | Set the installation directory for powerpipe. Internal powerpipe files will be written to this path.
 | [POWERPIPE_LISTEN](reference/env-vars/powerpipe_listen)  | `network` | Specifies the IP addresses on which `powerpipe server` will listen for connections from clients. Currently supported values are `local` (localhost only) or `network` (all IP addresses).
 | [POWERPIPE_LOG_LEVEL](reference/env-vars/powerpipe_log_level)  | off | Set the logging output level

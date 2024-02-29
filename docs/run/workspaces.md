@@ -17,16 +17,12 @@ workspace "default" {
 }
 
 workspace "local_server" {
-  host          = "local"
   listen        = "network"
   port          = 9033
   input         = false
   memory_max_mb = 2048
 }
 
-workspace "remote_server" {
-  host          = "https://powerpipe.mydomain.com:9033"
-}
 ```
 
 and [easily switch between them](#using-workspaces) using the `--workspace` argument 
@@ -88,7 +84,6 @@ workspace "prod" {
   log_level    = "info"
   input        = false
   update_check = false
-  host         = local
 }
 ```
 
@@ -182,8 +177,8 @@ powerpipe benchmark run my_benchmark --workspace=prod
 If you specify the `--workspace` argument and more specific arguments, any more specific arguments will override the workspace values:
 
 ```bash
-# will use "local" as the host, but dev workspace for any OTHER options
-powerpipe benchmark run my_benchmark --workspace=dev --host=local
+# will use "debug" as the log level, but dev workspace for any OTHER options
+powerpipe benchmark run my_benchmark --workspace=dev --log-level=debug
 ```
 
 Environment variable values override `default` workspace settings when the `default` workspace is *implicitly used*:

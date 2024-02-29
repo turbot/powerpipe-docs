@@ -22,8 +22,8 @@ powerpipe query run "select * from my_table" [args]
 | Command | Description
 |-|-
 | [list](#powerpipe-query-list) | List queries from the current mod and its direct dependents.
-| [run](#powerpipe-query-run)  | Run a query from the current mod or its direct dependents or from a Powerpipe server instance.
-| [show](#powerpipe-query-show) | Show details of a query from the current mod or its direct dependents or from a Powerpipe server instance.
+| [run](#powerpipe-query-run)  | Run a query from the current mod or its direct dependents.
+| [show](#powerpipe-query-show) | Show details of a query from the current mod or its direct dependents.
 
 
 
@@ -44,28 +44,15 @@ List all queries in `JSON` format:
 powerpipe query list --output json
 ```
 
-List queries from a local server instance running on the default port on `localhost`:
-```bash
-powerpipe query list --host local
-```
-
-
-List queries on a remote Powerpipe server instance:
-```bash
-powerpipe query list --host  https://powerpipe.my-org.com:9033
-```
-
-
 List queries using settings from a workspace:
 ```bash
 powerpipe query list --workspace my_workspace
 ```
 
-
 ---
 
 ## powerpipe query show
-Show details of a query from the current mod or its direct dependents or from a Powerpipe server instance.
+Show details of a query from the current mod or its direct dependents.
 
 
 ### Examples
@@ -83,12 +70,6 @@ Show details of a single query in a direct dependency mod:
 powerpipe query show aws_compliance.query.ec2_instance_in_vpc
 ```
 
-Show details of a query on a Powerpipe server instance:
-```bash
-powerpipe query show aws_compliance.query.ec2_instance_in_vpc --host https://powerpipe.my-org.com:9033
-```
-
-
 Show details of a query in `JSON` format:
 ```bash
 powerpipe query show ec2_instance_in_vpc --output json
@@ -102,20 +83,21 @@ powerpipe query show ec2_instance_in_vpc -workspace my_workspace
 ---
 
 ## powerpipe query run
-Run a query from the current mod or its direct dependents or from a Powerpipe server instance.
+Run a query from the current mod or its direct dependents.
 
 ### Arguments
 
 | Flag | Description
 |-|-
 | `--arg string=string`           | Specify the value for a query param. Multiple `--arg` arguments may be passed. 
-|  `--pipes-host`                 | Sets the Turbot Pipes host used when connecting to Turbot Pipes workspaces. See  [PIPES_HOST](/docs/reference/env-vars/pipes_host) for details.
-|  `--pipes-token`                | Sets the Turbot Pipes authentication token used when connecting to Turbot Pipes workspaces. See  [PIPES_TOKEN](/docs/reference/env-vars/pipes_token) for details.
+|  `--database`                   |  Sets the [database that Powerpipe will connect to](/docs/run#selecting-a-database). This defaults to the local Steampipe database, but can be any PostgreSQL, MySQL, DuckDB, or SQLite database. See [POWERPIPE_DATABASE](/docs/reference/env-vars/powerpipe_database) for details.
 |  `--export string`              | Export query output to a file. You may export multiple output formats for a single query run by entering multiple `--export` arguments. If a file path is specified as an argument, its type will be inferred by the suffix. Supported export formats are  `csv`, `line`, `json`,`sps` (snapshot), `pretty`, `plain`.
 |  `--header string`              | Specify whether to include column headers in csv output/export (default `true`).
 |  `--input`                      | Enable/Disable interactive prompts for missing variables. To disable prompts and fail on missing variables, use  `--input=false`. This is useful when running from scripts. (default `true`)
 |  `--mod-install`                | Specify whether to install mod dependencies before running the query (default `true`)
 |  `--output string`              | Select the console output format. Defaults to text. Possible values are `csv`, `line`, `json`,`sps` (snapshot), `pretty`, `plain`.
+|  `--pipes-host`                 | Sets the Turbot Pipes host used when connecting to Turbot Pipes workspaces. See  [PIPES_HOST](/docs/reference/env-vars/pipes_host) for details.
+|  `--pipes-token`                | Sets the Turbot Pipes authentication token used when connecting to Turbot Pipes workspaces. See  [PIPES_TOKEN](/docs/reference/env-vars/pipes_token) for details.
 |  `--progress`                   | Enable or disable progress information. By default, progress information is shown - set  `--progress=false` to hide the progress bar.
 |  `--query-timeout int`          | The query timeout, in seconds. The default is `240`.
 |  `--search-path strings`        | Set a comma-separated list of connections to use as a custom search path for the query run.
@@ -129,7 +111,6 @@ Run a query from the current mod or its direct dependents or from a Powerpipe se
 |  `--timing`                     | Turn on the query timer.
 | `--var string=string`           | Specify the value of a variable.  Multiple `--var` arguments may be passed. 
 | `--var-file strings`            | Specify a `.ppvar` file containing variable values.
-|  `--database`         |  Sets the database that Powerpipe will connect to. This can be local (the default) or a remote Turbot Pipes database. See [POWERPIPE_DATABASE](/docs/reference/env-vars/powerpipe_database) for details.
 
 
 
@@ -178,17 +159,6 @@ powerpipe query run "select * from aws_account" --export my_snap.pps
 # or
 powerpipe query run "select * from aws_account" --output sps > my_snap.pps
 ```
-
-Run a named query on a remote powerpipe host
-```bash
-powerpipe query run ec2_instance_in_vpc --host  https://powerpipe.my-org.com:9033
-```
-
-Run an adhoc query on a remote powerpipe host
-```bash
-powerpipe query run "select * from aws_account" --host  https://powerpipe.my-org.com:9033
-```
-
 
 Run a query against a pipes workspace:
 ```bash
