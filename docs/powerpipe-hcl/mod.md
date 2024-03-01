@@ -149,7 +149,7 @@ mod "aws_well_architected" {
 ```
 
 
-You may also override the [default database](/docs/run#selecting-a-database) and [search_path / search_path_prefix](/docs/run/benchmark#targeting-specific-connections-postgres-only) for the dependent mod if you want:
+You may also override the [default database](/docs/run#selecting-a-database) and [search_path / search_path_prefix](/docs/run/benchmark#targeting-specific-connections-postgres-only) for the dependency mod if you want.  Note that if you override the `database` in the mod `require` block, the setting will take precedence; the `STEAMPIPE_DATABASE` variable, `database` workspace argument and `--database` command line argument will be ignored for resources in the dependency mod. Likewise, overriding the `database`, `search_path` or `search_path_prefix` will cause the `search_path` and `search_path_prefix`	workspaces arguments and `--search-path` and `--search-path-prefix` CLI arguments to be ignored for the dependency mod.
 
 ```hcl
 variable "duckdb_database" {
