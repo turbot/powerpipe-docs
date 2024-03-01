@@ -99,7 +99,7 @@ Run a benchmark from the current mod or its direct dependents.
 |  `--pipes-host`                 | Sets the Turbot Pipes host used when connecting to Turbot Pipes workspaces. See  [PIPES_HOST](/docs/reference/env-vars/pipes_host) for details.
 |  `--pipes-token`                | Sets the Turbot Pipes authentication token used when connecting to Turbot Pipes workspaces. See  [PIPES_TOKEN](/docs/reference/env-vars/pipes_token) for details.
 |  `--progress`                   | Enable or disable progress information. By default, progress information is shown - set  `--progress=false` to hide the progress bar.
-|  `--query-timeout int`          | The query timeout, in seconds. The default is `240`.
+|  `--query-timeout int`          | The query timeout, in seconds. The default is `300`.
 |  `--search-path strings`        | Set a comma-separated list of connections to use as a custom search path for the control run.
 |  `--search-path-prefix strings` | Set a comma-separated list of connections to use as a prefix to the current search path for the control run.
 |  `--separator string`           | A single character to use as a separator string for csv output (defaults to `,`)
@@ -141,7 +141,7 @@ Run a benchmark
 powerpipe benchmark run cis_v120
 ```
 
-Run all benchmarks in the mod and its direct dependencies:
+Run all benchmarks defined in the mod. Note that `powerpipe benchmark run all` will not run benchmarks in the dependencies:
 ```bash
 powerpipe benchmark run all
 ```

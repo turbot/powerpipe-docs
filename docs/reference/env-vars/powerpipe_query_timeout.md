@@ -6,7 +6,7 @@ sidebar_label: POWERPIPE_QUERY_TIMEOUT
 # POWERPIPE_QUERY_TIMEOUT
 The amount of time to wait for a query to complete before timing out, in seconds. 
 
-Set to `0` to disable the query timeout.  The default is `240`.
+Set to `0` to disable the query timeout.  The default is `300`.
 
 
 ## Usage 

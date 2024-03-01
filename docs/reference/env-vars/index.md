@@ -12,7 +12,7 @@ Powerpipe supports environment variables to allow you to change its default beha
 | Command | Default | Description
 |-|-|-
 | [PIPES_HOST](reference/env-vars/pipes_host)  | `pipes.turbot.com` | Set the Turbot Pipes host, for connecting to Turbot Pipes workspace.
-| [PIPES_INSTALL_DIR](/docs/reference/env-vars/flowpipe_base_url)  | `~/.pipes` | Set the installation directory for files used with [Turbot Pipes](https://turbot.com/pipes/docs), such as login tokens.
+| [PIPES_INSTALL_DIR](` reference/env-vars/pipes_install_dir)  | `~/.pipes` | Set the installation directory for files used with [Turbot Pipes](https://turbot.com/pipes/docs), such as login tokens.
 | [PIPES_TOKEN](reference/env-vars/pipes_token)  |  | Set the Turbot Pipes authentication token for connecting to Turbot Pipes workspace.
 | [POWERPIPE_CONFIG_PATH](reference/env-vars/powerpipe_config_path)  | `.:$POWERPIPE_INSTALL_DIR/config` | Sets the search path for [configuration files](/docs/reference/config-files).  `POWERPIPE_CONFIG_PATH` accepts a colon-separated list of directories.  
 | [POWERPIPE_INSTALL_DIR](reference/env-vars/powerpipe_install_dir)  | `~/.powerpipe` | Set the installation directory for powerpipe. Internal powerpipe files will be written to this path.
@@ -22,7 +22,7 @@ Powerpipe supports environment variables to allow you to change its default beha
 | [POWERPIPE_MEMORY_MAX_MB](reference/env-vars/powerpipe_memory_max_mb)  | `1024` | Set a soft memory limit for the `powerpipe` process. 
 | [POWERPIPE_MOD_LOCATION](reference/env-vars/powerpipe_mod_location)  | current working directory | Set the workspace working directory
 | [POWERPIPE_PORT](reference/env-vars/powerpipe_port)  | `9033` | Specifies the TCP port on which `powerpipe server` will listen for connections from clients. 
-| [POWERPIPE_QUERY_TIMEOUT](reference/env-vars/powerpipe_query_timeout)  |  `240` | Set the amount of time to wait for a query to complete before timing out, in seconds.
+| [POWERPIPE_QUERY_TIMEOUT](reference/env-vars/powerpipe_query_timeout)  |  `300` | Set the amount of time to wait for a query to complete before timing out, in seconds.
 | [POWERPIPE_SNAPSHOT_LOCATION](/docs/reference/env-vars/powerpipe_snapshot_location) | The Turbot Pipes user's personal workspace | Set the Turbot Pipes workspace or filesystem path for writing snapshots.
 | [POWERPIPE_TELEMETRY](reference/env-vars/powerpipe_telemetry)  | `info` | Set the level of telemetry data to collect and send
 | [POWERPIPE_UPDATE_CHECK](reference/env-vars/powerpipe_update_check)| `true` | Enable/disable automatic update checking

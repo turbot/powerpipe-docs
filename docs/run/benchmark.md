@@ -38,7 +38,7 @@ You can run benchmarks in any direct mod dependency, but you have to fully quali
 powerpipe benchmark run my_other_mod.benchmark.my_benchmark
 ```
 
-You can even run all benchmarks in the mod and its direct dependencies with the keyword `all`:
+You can even run all benchmarks in the mod with the keyword `all`.  Note that `powerpipe benchmark run all` will not run benchmarks in the dependencies:
 ```bash
 powerpipe benchmark run all
 ```
