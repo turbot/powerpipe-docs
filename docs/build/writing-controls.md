@@ -18,7 +18,7 @@ For this tutorial we'll be using [Steampipe](https://steampipe.io) with the [AWS
 1. [Download and install Powerpipe](https://powerpipe.io/downloads) for your platform.
 2. [Download and install Steampipe](https://steampipe.io/downloads) for your platform.
 3. [Install and configure the the latest AWS plugin](https://hub.steampipe.io/plugins/turbot/aws).
- 
+4. [Start the Steampipe database service](https://steampipe.io/docs/managing/service#starting-the-database-in-service-mode) (`steampipe service start`)
 
 
 ### Create a mod

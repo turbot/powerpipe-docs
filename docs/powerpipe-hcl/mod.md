@@ -42,10 +42,10 @@ mod "aws_cis" {
       min_version = "0.29.0"
     }
 
-    mod "github.com/turbot/powerpipe-mod-aws-compliance" {
+    mod "github.com/turbot/steampipe-mod-aws-compliance" {
       version = "^0.10"
     }
-    mod "github.com/turbot/powerpipe-mod-gcp-compliance" {
+    mod "github.com/turbot/steampipe-mod-gcp-compliance" {
       version = "*"
     }
   }
@@ -106,13 +106,13 @@ A mod may specify dependencies on other mods.  While you can manually edit the `
 
 ```hcl
 require {
-  mod "github.com/turbot/powerpipe-mod-aws-compliance" {
+  mod "github.com/turbot/steampipe-mod-aws-compliance" {
     version = "^0.10"
   }
-  mod "github.com/turbot/powerpipe-mod-aws-insights" {
+  mod "github.com/turbot/steampipe-mod-aws-insights" {
     version = "2.0"
   }
-  mod "github.com/turbot/powerpipe-mod-gcp-compliance" {
+  mod "github.com/turbot/steampipe-mod-gcp-compliance" {
     version = "*"
   }
 }
@@ -136,7 +136,7 @@ variable "tag_dimensions" {
 
 mod "aws_well_architected" {
   require {
-    mod "github.com/turbot/powerpipe-mod-aws-compliance" {
+    mod "github.com/turbot/steampipe-mod-aws-compliance" {
       version = "^0.63.0"
       args = {
         common_dimensions = var.common_dimensions,
@@ -149,7 +149,7 @@ mod "aws_well_architected" {
 ```
 
 
-You may also override the [default database](/docs/run#selecting-a-database) and [search_path / search_path_prefix](/docs/run/benchmark#targeting-specific-connections-postgres-only) for the dependent mod if you want:
+You may also override the [default database](/docs/run#selecting-a-database) and [search_path / search_path_prefix](/docs/run/benchmark#targeting-specific-connections-postgres-only) for the dependency mod if you want.  Note that if you override the `database` in the mod `require` block, the setting will take precedence; the `STEAMPIPE_DATABASE` variable, `database` workspace argument and `--database` command line argument will be ignored for resources in the dependency mod. Likewise, overriding the `database`, `search_path` or `search_path_prefix` will cause the `search_path` and `search_path_prefix`	workspaces arguments and `--search-path` and `--search-path-prefix` CLI arguments to be ignored for the dependency mod.
 
 ```hcl
 variable "duckdb_database" {
@@ -175,7 +175,7 @@ mod "local" {
       database  = var.flowpipe_database,
     }
 
-    mod "github.com/turbot/powerpipe-mod-aws-compliance" {
+    mod "github.com/turbot/steampipe-mod-aws-compliance" {
       version            = ">=0.66.0"
       search_path_prefix = "aws_01"
     }
