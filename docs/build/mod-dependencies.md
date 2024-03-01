@@ -11,7 +11,7 @@ To add a dependency, run `powerpipe mod install` from the root directory of your
 
 ```bash
 cd my-mod
-powerpipe mod install github.com/turbot/powerpipe-mod-aws-compliance
+powerpipe mod install github.com/turbot/steampipe-mod-aws-compliance
 ```
 
 This will install the mod into the `.powerpipe` sub-directory, and will add the dependency to the [require block](/docs/powerpipe-hcl/mod#require) of your `mod.pp` file:
@@ -19,7 +19,7 @@ This will install the mod into the `.powerpipe` sub-directory, and will add the 
 mod "local" {
   title = "my-mod"
   require {
-    mod "github.com/turbot/powerpipe-mod-aws-compliance" {
+    mod "github.com/turbot/steampipe-mod-aws-compliance" {
       version = "latest"
     }
   }

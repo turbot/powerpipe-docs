@@ -75,17 +75,17 @@ When publishing mods, you should usually only depend on public mods (hosted in p
 
 Install a mod and add the `require` statement to your `mod.pp`:
 ```bash
-powerpipe mod install github.com/turbot/powerpipe-mod-aws
+powerpipe mod install github.com/turbot/steampipe-mod-aws-insights
 ```
 
 Install an exact version of a mod and update the `require` statement to your `mod.pp`.  This may upgrade or downgrade the mod if it is already installed:
 ```bash
-powerpipe mod install github.com/turbot/powerpipe-mod-aws@0.1.0
+powerpipe mod install github.com/turbot/steampipe-mod-aws-insights@0.1.0
 ```
 
 Install a version of a mod using a semver constraint and update the `require` statement to your `mod.pp`.  This may upgrade or downgrade the mod if it is already installed:
 ```bash
-powerpipe mod install github.com/turbot/powerpipe-mod-aws@'^1'
+powerpipe mod install github.com/turbot/steampipe-mod-aws-insights@'^1'
 ```
 
 Install all mods specified in the `mod.pp` and their dependencies:
@@ -161,12 +161,12 @@ Uninstall a mod and its dependencies.
 
 Uninstall a mod:
 ```bash
-powerpipe mod uninstall github.com/turbot/powerpipe-mod-azure
+powerpipe mod uninstall github.com/turbot/steampipe-mod-azure-insights
 ```
 
 Preview uninstalling a mod, but don't uninstall it:
 ```bash
-powerpipe mod uninstall github.com/turbot/powerpipe-mod-gcp --dry-run
+powerpipe mod uninstall github.com/turbot/steampipe-mod-gcp-insights --dry-run
 ```
 
 
@@ -189,7 +189,7 @@ Update one or more mods and their dependencies.
 
 Update a mod to the latest version allowed by its current constraint:
 ```bash
-powerpipe mod update github.com/turbot/powerpipe-mod-aws
+powerpipe mod update github.com/turbot/steampipe-mod-aws-insights
 ```
 
 Update all mods specified in the `mod.pp` and their dependencies to the latest versions that meet their constraints, and install any that are missing:

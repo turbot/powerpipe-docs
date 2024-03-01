@@ -14,8 +14,8 @@ You can start the dashboard server and view dashboards with the [powerpipe serve
 To view the AWS Insights dashboards, for example, first clone the repo, then change to that directory, then run the `powerpipe server` command:
 
 ```bash
-git clone https://github.com/turbot/powerpipe-mod-aws-insights.git
-cd powerpipe-mod-aws-insights
+git clone https://github.com/turbot/steampipe-mod-aws-insights.git
+cd steampipe-mod-aws-insights
 powerpipe server
 ```
 

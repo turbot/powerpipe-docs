@@ -42,10 +42,10 @@ mod "aws_cis" {
       min_version = "0.29.0"
     }
 
-    mod "github.com/turbot/powerpipe-mod-aws-compliance" {
+    mod "github.com/turbot/steampipe-mod-aws-compliance" {
       version = "^0.10"
     }
-    mod "github.com/turbot/powerpipe-mod-gcp-compliance" {
+    mod "github.com/turbot/steampipe-mod-gcp-compliance" {
       version = "*"
     }
   }
@@ -106,13 +106,13 @@ A mod may specify dependencies on other mods.  While you can manually edit the `
 
 ```hcl
 require {
-  mod "github.com/turbot/powerpipe-mod-aws-compliance" {
+  mod "github.com/turbot/steampipe-mod-aws-compliance" {
     version = "^0.10"
   }
-  mod "github.com/turbot/powerpipe-mod-aws-insights" {
+  mod "github.com/turbot/steampipe-mod-aws-insights" {
     version = "2.0"
   }
-  mod "github.com/turbot/powerpipe-mod-gcp-compliance" {
+  mod "github.com/turbot/steampipe-mod-gcp-compliance" {
     version = "*"
   }
 }
@@ -136,7 +136,7 @@ variable "tag_dimensions" {
 
 mod "aws_well_architected" {
   require {
-    mod "github.com/turbot/powerpipe-mod-aws-compliance" {
+    mod "github.com/turbot/steampipe-mod-aws-compliance" {
       version = "^0.63.0"
       args = {
         common_dimensions = var.common_dimensions,
@@ -175,7 +175,7 @@ mod "local" {
       database  = var.flowpipe_database,
     }
 
-    mod "github.com/turbot/powerpipe-mod-aws-compliance" {
+    mod "github.com/turbot/steampipe-mod-aws-compliance" {
       version            = ">=0.66.0"
       search_path_prefix = "aws_01"
     }
