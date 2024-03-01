@@ -90,12 +90,12 @@ Run a benchmark from the current mod or its direct dependents.
 |-|-
 |  `--database`                   |  Sets the [database that Powerpipe will connect to](/docs/run#selecting-a-database). This defaults to the local Steampipe database, but can be any PostgreSQL, MySQL, DuckDB, or SQLite database. See [POWERPIPE_DATABASE](/docs/reference/env-vars/powerpipe_database) for details.
 |  `--dry-run`                    | If specified, prints the controls that would be run by the command, but does not execute them.
-|  `--export string`              | Export control output to a file. You may export multiple output formats for a single control run by entering multiple `--export` arguments. If a file path is specified as an argument, its type will be inferred by the suffix. Supported export formats are `asff`, `csv`, `html`, `json`, `md`,`nunit3`, `sps` (snapshot)
+|  `--export string`              | Export control output to a file. You may export multiple output formats for a single control run by entering multiple `--export` arguments. If a file path is specified as an argument, its type will be inferred by the suffix. Supported export formats are `asff`, `csv`, `html`, `json`, `md`,`nunit3`, `pps` (snapshot)
 |  `--header string`              | Specify whether to include column headers in csv output/export (default `true`).
 |  `--input`                      | Enable/Disable interactive prompts for missing variables. To disable prompts and fail on missing variables, use  `--input=false`. This is useful when running from scripts. (default `true`)
 |  `--max-parallel int`           | Set the maximum number of database connections to open. When running benchmarks, Powerpipe will attempt to run up to this many controls in parallel. See the `POWERPIPE_MAX_PARALLEL` environment variable documentation for details. (default `10`)
 |  `--mod-install`                | Specify whether to install mod dependencies before running the benchmark (default `true`)
-|  `--output string`              | Select the console output format. Defaults to text. Possible values are `brief`, `csv`, `html`, `json`, `md`, `sps` (snapshot), `pretty`, `plain`, `none`
+|  `--output string`              | Select the console output format. Defaults to text. Possible values are `brief`, `csv`, `html`, `json`, `md`, `pps` (snapshot), `pretty`, `plain`, `none`
 |  `--pipes-host`                 | Sets the Turbot Pipes host used when connecting to Turbot Pipes workspaces. See  [PIPES_HOST](/docs/reference/env-vars/pipes_host) for details.
 |  `--pipes-token`                | Sets the Turbot Pipes authentication token used when connecting to Turbot Pipes workspaces. See  [PIPES_TOKEN](/docs/reference/env-vars/pipes_token) for details.
 |  `--progress`                   | Enable or disable progress information. By default, progress information is shown - set  `--progress=false` to hide the progress bar.
@@ -127,8 +127,8 @@ Run a benchmark from the current mod or its direct dependents.
 | `md` | Single-page markdown output with full control details and group summaries.
 | `none` | Don't send any output to stdout.
 | `nunit3` | Results in [nunit3](https://docs.nunit.org/articles/nunit/technical-notes/usage/Test-Result-XML-Format.html) xml format.
-| `snapshot` | Steampipe snapshot json (alias for `sps`)
-| `sps` | Steampipe snapshot json.
+| `snapshot` | Steampipe snapshot json (alias for `pps`)
+| `pps` | Steampipe snapshot json.
 | `pretty` | Full text based output with details and summary.  This is the default console output format.
 | `plain` | Full text based output with details and summary, without color.
 

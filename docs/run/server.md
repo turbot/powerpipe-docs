@@ -32,7 +32,7 @@ powerpipe server --listen local
 Powerpipe listens on port 9033 by default, but you can use the `--port` argument to use a different one:
 
 ```bash
-powerpipe server --port 9033
+powerpipe server --port 9034
 ```
 
 While the server is running, Powerpipe will watch your mod files for changes and automatically update the server.  You can disable this with the `--watch` argument if you prefer not to update the server instance as the files change:
@@ -41,22 +41,12 @@ While the server is running, Powerpipe will watch your mod files for changes and
 powerpipe server --watch=false
 ```
 
-Often it is simpler to manage all of these settings with a [workspace](/docs/run/workspaces) instead. For example, you can add a `workspace` to your workspaces file (`~/.powerpipe/config/workspaces.ppc`):
+Often it is simpler to manage all of these settings with a [workspace](/docs/run/workspaces) instead. For example, you can change the default values by editing your [default workspace](/docs/run/workspaces#using-workspaces):
 
 ```hcl
-workspace "my_server" {
+workspace "default" {
   listen = "local"
-  port   = 9195
+  port   = 9034
   watch  = false
 }
-```
-
-And then use the `--workspace` flag when you start the server:
-```bash
-powerpipe server --workspace my_server
-```
-
-and when you run other Powerpipe commands against that server:
-```bash
-powerpipe benchmark list --workspace my_server
 ```

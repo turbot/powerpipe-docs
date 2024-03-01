@@ -20,28 +20,42 @@ Powerpipe will load [configuration files](/docs/reference/config-files) (`*.ppc`
 
 Most public mods are written without specifying a `database` on each query.  As a result, all queries in the mod run against the 'active' database. By default, the active database is `postgres://steampipe@localhost:9193/steampipe`, thus Powerpipe will run against a local Steampipe instance.  
 
-You may instead run a benchmark or control against a specific database by passing the `--database` argument:
+You may instead run Powerpipe against a specific database by passing the `--database` argument.  This works with batch commands:
+
 ```bash
 powerpipe benchmark run cis_v120 --database  postgres://myusername:passworrd@mydbserver.mydomain.com:9193/steampipe
 ```
 
-Or setting the [POWERPIPE_DATABASE](/docs/reference/env-vars/powerpipe_database) environment variable:
+and with the dashboard server:
+
+```bash
+powerpipe server --database  postgres://myusername:passworrd@mydbserver.mydomain.com:9193/steampipe
+```
+
+You may instead set the database with the [POWERPIPE_DATABASE](/docs/reference/env-vars/powerpipe_database) environment variable:
 
 ```bash
 export POWERPIPE_DATABASE=postgres://myusername:passworrd@mydbserver.mydomain.com:9193/steampipe
 powerpipe benchmark run cis_v120
+powerpipe server
+
 ```
 
-You can also set it in a [workspace](/docs/run/workspaces) and then pass the workspace name to the command:
+Or you can set it in a [workspace](/docs/run/workspaces) and then pass the workspace name to the command:
 ```bash
 powerpipe benchmark run cis_v120 --workspace my_workspace
+powerpipe server --workspace my_workspace
+
 ```
 
 You can even change the default by [setting it in your `default` workspace](/docs/run/workspaces#using-workspaces).
 
-If you use [Turbot Pipes](http://pipes.turbot.com), you can run a benchmark against the pipes workspace by name (you will need to [login](/docs/reference/cli/login) first):
+
+If you use [Turbot Pipes](http://pipes.turbot.com), you can run Powerpipe against the Pipes workspace databse (you will need to [login](/docs/reference/cli/login) first):
 ```bash
 powerpipe benchmark run cis_v120 --workspace acme/anvils
+powerpipe server --workspace acme/anvils
+
 ```
 
 While most Powerpipe mods are written for Steampipe databases, Powerpipe can also connect to other engines, including Postgres:
@@ -65,6 +79,24 @@ and DuckDB :
 ```bash
 powerpipe server --database 'duckdb:./my_ducks.db'
 ```
+
+## Targeting specific schemas / connections (Postgres/Steampipe)
+
+A PostgreSQL database contains one or more [schemas](https://www.postgresql.org/docs/current/ddl-schemas.html). A schema is a namespaced collection of named objects, like tables, functions, and views.   When writing a query, you may qualify the table name with the schema name (e.g. `select * from schema_name.table_name`) or use an unqualified name (`select * from table_name`).  When using unqualified names, the system determines which table is meant by following a [search path](https://www.postgresql.org/docs/current/ddl-schemas.html#DDL-SCHEMAS-PATH); the first matching table in the search path is taken to be the one wanted. 
+
+Usually, Powerpipe mods use unqualified queries to "target" whichever connection is first in the [search path](https://steampipe.io/docs/guides/search-path), but you can specify a different path if you want:
+
+```bash
+powerpipe benchmark run cis_v150 --search-path aws_connection_2,github,slack
+```
+
+The `--search-path` argument will replace the entire search path.  Often you just want to move a single connection to the front of the path:
+
+```bash
+powerpipe benchmark run cis_v150 --search-path-prefix aws_connection_2
+```
+
+[Steampipe](https://steampipe.io) creates a schema for each connection and aggregator, and understanding how the search path works is important when using Steampipe and Powerpipe. See the [Using search_path to target connections and aggregators](https://steampipe.io/docs/guides/search-path) guide for more information.
 
 
 ## Operating Modes
