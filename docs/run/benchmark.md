@@ -239,8 +239,11 @@ powerpipe benchmark run cis_v150 --progress=false --output=json | jq
 ```
 
 
+
+<!--
 ***[TODO:  where to put this page....]***
 Powerpipe even allows you to [write your own control output templates!](develop/writing-control-output-templates).
 
 
 
+-->

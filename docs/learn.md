@@ -24,8 +24,7 @@ Powerpipe [does not require Steampipe](/docs/run#selecting-a-database); it can w
 
 
 ### Install Powerpipe
-
-First, [install Powerpipe](https://powerpipe.io/downloads).  For MacOS, you can install it via [homebrew](https://brew.sh/):
+First, [install Powerpipe](https://powerpipe.io/downloads).  For MacOS, you can install it via [Homebrew](https://brew.sh/):
 
 ```bash
 brew install turbot/tap/powerpipe
@@ -37,11 +36,10 @@ Linux users (including Windows WSL 2.0 users) can run the `powerpipe.sh` install
 sudo /bin/sh -c "$(curl -fsSL https://powerpipe.io/install/powerpipe.sh)"
 ```
 
-
 ### Install & configure Steampipe
 
 
-Now [download and install Steampipe](https://steampipe.io/downloads).  For MacOS, you can install it via [homebrew](https://brew.sh/):
+Now [download and install Steampipe](https://steampipe.io/downloads).  For MacOS, you can install it via [Homebrew](https://brew.sh/):
 
 ```bash
 brew install turbot/tap/steampipe
@@ -73,13 +71,7 @@ The Steampipe database needs to be running in order for Powerpipe to connect to 
   steampipe service start
   ```
 
-At this point, Steampipe should be up and running.  You can confirm by running an ad-hoc query from Steampipe:
-
-```bash
-steampipe query "select title from aws_account"
-```
-
-or Powerpipe:
+At this point, Steampipe should be up and running.  You can confirm by running an ad-hoc query from Powerpipe:
 
 ```bash
 powerpipe query run "select title from aws_account"
@@ -90,7 +82,7 @@ powerpipe query run "select title from aws_account"
 
 Powerpipe [dashboards](/docs/run/dashboard) provide rich visualizations of data. Dashboards are written in simple HCL, and packaged in mods.  It is simple to create your own, but there are also hundreds of dashboards available on the [Powerpipe Hub](https://hub.powerpipe.io/). 
 
-Powerpipe always runs in the context of a [mod](/docs/build/).  A Powerpipe mod is a portable, versioned collection of related Powerpipe resources such as dashboards, benchmarks, queries, and controls defined in HCL, and distributed as simple text files.  Powerpipe loads the mod from the current directory by default, but you can pass the `--mod-location` flag or set the `POWERPIPE_MOD_LOCATION` to set it to a different path.
+Powerpipe always runs in the context of a [mod](/docs/build/).  A Powerpipe mod is a portable, versioned collection of related Powerpipe resources such as dashboards, benchmarks, queries, and controls defined in HCL, and distributed as simple text files.  Powerpipe loads the mod from the [mod location](/docs/run#mod-location) which defaults to the current directory.
 
 Let's create a new directory for our mod:
 
@@ -125,7 +117,7 @@ You can click on a dashboard to run it.  Let's view the **AWS VPC Detail**.  You
 ![](/images/docs/learn/vpc_detail.png)
 
 
-Dashboard provides a wealth of information about your resources using charts, graphs, and tables.  You can save [snapshots](/docs/run/snapshots/interactive-snapshots) of the dashboard, use the [panel view](/docs/run/dashboard#panel-view) to drill into more detail, and download the relevant data in CSV files. 
+Dashboards provide a wealth of information about your resources using charts, graphs, and tables.  You can [change the search path](/docs/run/dashboard/search-path), [take a snapshot](/docs/run/snapshots/interactive-snapshots) once the benchmark is complete, see details in the [panel view](/docs/run/dashboard#panel-view), and [download the results](/docs/run/dashboard/download) in a CSV file.
 
 You can type in the search bar at the top of any page to navigate to another dashboard. Alternatively, you can click the Powerpipe logo in the top left to return to the home page. When you are finished, you can return to the terminal console and type `Ctrl+c` to stop the server.
 
@@ -151,7 +143,7 @@ The benchmark will run, reporting progress as it executes.  When it is complete,
 
 
 
-The `powerpipe benchmark run` command provides a flexible interface for running benchmarks non-interactively, allowing you to [filter which controls to run]() and export the results in other formats (`csv`, `html`, `json`, `md`, `nunit3`, `sps` (snapshot), `asff`
+The `powerpipe benchmark run` command provides a flexible interface for running benchmarks non-interactively, allowing you to [filter which controls to run]() and export the results in other formats (`csv`, `html`, `json`, `md`, `nunit3`, `pps` (snapshot), `asff`
 ).  
 
 Benchmarks are also available as dashboards, allowing you to group and sort the results interactively.  Start the server (if it is not already running), and open the dashboard home in your browser (`http://localhost:9033`):
@@ -160,7 +152,7 @@ Benchmarks are also available as dashboards, allowing you to group and sort the 
 powerpipe server
 ```
 
-Notice that the benchmarks from the AWS Compliance now appear in the list.  You can use the **Group by** button at the top of the page to **Group by: Mod**  or **Group by: Typer** to find them more easily.
+Notice that the benchmarks from the AWS Compliance now appear in the list.  You can use the **Group by** button at the top of the page to **Group by: Mod**  or **Group by: Type** to find them more easily.
 
 Click on **CIS v3.0.0** to run the CIS 3.0.0 benchmark.  You will see the results update as it runs, but you can interact with it even while the benchmark is running.
 
@@ -169,15 +161,14 @@ Click on **CIS v3.0.0** to run the CIS 3.0.0 benchmark.  You will see the result
 
 Click a section to expand it, and click again to contract it.  You can drill all the way down to the individual control results!
 
-By default, the benchmark follows the grouping that is defined in the Benchmark HCL definition, but the dashboard display allows you to filter the results and customize the groupings if you prefer.  Hover over the benchmark and you will see action buttons appear at the top right of the page.  Click **Customize** to open the **Customize view** panel.  Change the grouping to group by ..... and click apply.
+By default, the benchmark follows the grouping that is defined in the Benchmark HCL definition, but the dashboard display allows you to filter the results and customize the groupings if you prefer.  Hover over the benchmark and you will see action buttons appear at the top right of the page.  Click **Filter & Group** to open the **Filter & Group** panel.  For instance, to group by Service and Region, change the **Group** to group by `Control Tag = service`, then `Dimension = region` and `Result`.  Click apply.
 
 ![](/images/docs/learn/benchmark_by_service_region.png)
 
-
-As with any dashboard, you can [take a snapshot](/docs/run/snapshots/interactive-snapshots) once the benchmark is complete, see details in the [panel view](/docs/run/dashboard#panel-view), and download the results in a CSV file.
-
+As with any dashboard, you can [change the search path](/docs/run/dashboard/search-path), [take a snapshot](/docs/run/snapshots/interactive-snapshots) once the benchmark is complete, see details in the [panel view](/docs/run/dashboard#panel-view), and [download the results](/docs/run/dashboard/download) in a CSV file.
 
 ## Create your own dashboards and benchmarks
+
 The [Powerpipe Hub](https://hub.powerpipe.io/) contains hundreds of ready-made dashboards and benchmarks that you can simply install and run. But Powerpipe also makes it simple to [write your controls and benchmarks](/docs/build/writing-controls), and [build dashboards](/docs/build/writing-dashboards) to analyze your data and share with others! 
 
 
@@ -244,10 +235,10 @@ If it is not already running, start the server and open the dashboard home in yo
 powerpipe server
 ```
 
-Now use the button at the top to **Group by: Mod** and scroll down to your custom mod.  Notice that the dashboard and benchmark that you just created now appear. You can click and run them like any other dashboard!
+Now use the button at the top to **Group by: Mod** and scroll down to your custom mod.  Notice that the dashboard and benchmark that you just created now appear. 
 
+![](/images/docs/learn/custom_dash_list.png)
 
-![](/images/docs/learn/custom_dash.png)
+You can click and run them like any other dashboard!
 
-
-
+![](/images/docs/learn/custom_dashboard.png)

@@ -13,20 +13,44 @@
     "label": "Run Powerpipe",
     "link": "run",
     "items": [
-      "run/dashboard",
-      "run/benchmark", 
-      "run/server", 
+
       {
         "type": "category",
-        "id": "snapshots",
+        "id": "run-dashboard",
+        "link": "run/dashboard",
+        "items": [
+          "run/dashboard/panel",
+          "run/dashboard/download",
+          "run/dashboard/search-path"
+
+        ]
+      },
+
+      {
+        "type": "category",
+        "id": "run-benchmark",
+        "link": "run/benchmark",
+        "items": [
+          "run/benchmark/filtering",
+          "run/benchmark/output-format",
+          "run/benchmark/benchmark-dashboard"
+
+        ]
+      },
+      {
+        "type": "category",
+        "id": "run-snapshots",
         "link": "run/snapshots",
         "items": [
           "run/snapshots/interactive-snapshots",
           "run/snapshots/batch-snapshots"
         ]
       },
+      "run/server",
       "run/workspaces"]
   },
+
+
 
   {
     "type": "category",

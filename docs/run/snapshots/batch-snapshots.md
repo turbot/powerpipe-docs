@@ -23,7 +23,7 @@ powerpipe benchmark run benchmark.cis_v140 --snapshot
 or a control:
 
 ```bash
-powerpipe benchmark run control.cis_v140_2_1_1 --snapshot 
+powerpipe control run cis_v140_2_1_1 --snapshot 
 ```
 
 
@@ -60,7 +60,7 @@ powerpipe query run "select name from aws_s3_bucket where bucket_policy_is_publi
 ```
 
 
-If you wish to save to the snapshot to a different workspace, such as an org workspace, you can use the `--snapshot-location` argument with `--share` or `--snapshot`:
+If you wish to save the snapshot to a different workspace, such as an org workspace, you can use the `--snapshot-location` argument with `--share` or `--snapshot`:
 
 ```bash
 powerpipe benchmark run benchmark.cis_v140 \
@@ -145,10 +145,10 @@ You can also set `snapshot_location` in a [workspace](/docs/run/workspaces) if y
 Alternatively, you can use the `--export` argument to export a query, control, dashboard, or benchmark in the Powerpipe snapshot format.  This will create a file with a `.pps` extension in the current directory:
 
 ```bash
-powerpipe dashboard run dashboard.aws_account_report --export sps
+powerpipe dashboard run dashboard.aws_account_report --export pps
 ```
 
-The `snapshot` export/output type is an alias for `sps`:
+The `snapshot` export/output type is an alias for `pps`:
 
 ```bash
 powerpipe dashboard run dashboard.aws_account_report --export snapshot
@@ -160,9 +160,9 @@ To give the file a name, simply use `{filename}.pps`, for example:
 powerpipe dashboard run dashboard.aws_account_report --export account_report.pps
 ```
 
-Alternatively, you can write the powerpipe snapshot to stdout with `--output sps`
+Alternatively, you can write the powerpipe snapshot to stdout with `--output pps`
 ```bash
-powerpipe query run "select * from aws_account" --output sps > mysnap.pps
+powerpipe query run "select * from aws_account" --output pps > mysnap.pps
 ```
 
 or `--output snapshot`
