@@ -50,7 +50,7 @@ To learn more, see **[Managing Workspaces →](/docs/run/workspaces)**
 | `pipes_token`       | Token from`powerpipe login` | Set the Turbot Pipes authentication token for connecting to a Turbot Pipes workspace.  This may be a token obtained by `powerpipe login` or a user-generated [token](https://turbot.com/pipes/docs/da-settings#tokens).
 | `port`              | `9033`                       | Specifies the TCP port on which `powerpipe server` will listen for connections from clients. 
 | `progress`          | `true`                       | Enable or disable progress information.
-| `query_timeout`     | `240`                        | The maximum time (in seconds) a query is allowed to run before it times out.
+| `query_timeout`     | `300`                        | The maximum time (in seconds) a query is allowed to run before it times out.
 | `search_path`       | `public`, then alphabetical  | A comma-separated list of connections to use as a custom search path for the control run. This setting only applies to Postgres databases (including Steampipe).
 | `search_path_prefix`| none                         | A comma-separated list of connections to use as a prefix to the current search path for the control run. This setting only applies to Postgres databases (including Steampipe).
 | `separator`         | `,`                          | Set csv output separator.

@@ -111,7 +111,7 @@ Run a dashboard from the current mod or its direct dependents.
 |  `--pipes-host`                 | Sets the Turbot Pipes host used when connecting to Turbot Pipes workspaces. See  [PIPES_HOST](/docs/reference/env-vars/pipes_host) for details.
 |  `--pipes-token`                | Sets the Turbot Pipes authentication token used when connecting to Turbot Pipes workspaces. See  [PIPES_TOKEN](/docs/reference/env-vars/pipes_token) for details.
 |  `--progress`                   | Enable or disable progress information. By default, progress information is shown - set  `--progress=false` to hide the progress bar.
-|  `--query-timeout int`          | The query timeout, in seconds. The default is `240`.
+|  `--query-timeout int`          | The query timeout, in seconds. The default is `300`.
 |  `--search-path strings`        | Set a comma-separated list of connections to use as a custom search path for the dashboard run.
 |  `--search-path-prefix strings` | Set a comma-separated list of connections to use as a prefix to the current search path for the dashboard run.
 |  `--share`                      | Create snapshot in Turbot Pipes with `anyone_with_link` visibility.
