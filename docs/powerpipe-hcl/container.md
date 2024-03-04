@@ -12,7 +12,7 @@ Containers can only be declared as anonymous blocks inside a `dashboard` or `con
 
 ## Example Usage
 
-<img src="/images/reference_examples/container_ex_1.png" width="100%" />
+<img src="/images/docs/reference_examples/container_ex_1.png" width="100%" />
 
 ```hcl
 

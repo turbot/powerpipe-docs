@@ -16,7 +16,7 @@ For layout, a dashboard consists of 12 grid units, where items inside it will co
 
 ## Example Usage
 
-<img src="/images/reference_examples/dashboard_ex_1.png" width="100%" />
+<img src="/images/docs/reference_examples/dashboard_ex_1.png" width="100%" />
 
 ```hcl
 

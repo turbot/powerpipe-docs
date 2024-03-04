@@ -11,7 +11,7 @@ There are many control frameworks in existence today, and though they are all im
 
 Powerpipe benchmarks automatically appear as [dashboards](/docs/run/dashboard) when you run `powerpipe server` in the mod.  From the dashboard home, you can select any benchmark to run it and view it in an interactive HTML format.  You can even export the benchmark results as a CSV from the [panel view](/docs/run/dashboard#panel-viewpanel).
 
-<img src="/images/reference_examples/benchmark_dashboard_view.png" />
+<img src="/images/docs/reference_examples/benchmark_dashboard_view.png" />
 
 <br />
 
