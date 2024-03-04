@@ -46,7 +46,6 @@ container {
 | Argument | Type | Optional? | Description
 |-|-|-|-
 | `base` |  Dashboard or Container Reference		| Optional | A reference to a named `dashboard` or `container` that this `container` should source its definition from. `title` and `width` can be overridden after sourcing via `base`.
-| `benchmark`    | Block	| Optional | [benchmark](/docs/powerpipe-hcl/benchmark) blocks to embed benchmarks in the dashboard.
 | `chart`        | Block	| Optional | [chart](/docs/powerpipe-hcl/chart)  blocks to visualize SQL data in a number of ways e.g. `bar`, `column`, `line`, `pie` 
 | `container` |  Block	| Optional |  [container](/docs/powerpipe-hcl/container) blocks to lay out related components together in a dashboard. 
 | `flow` | Block	| Optional |  [flow](/docs/powerpipe-hcl/flow)  blocks to visualize flows using types such as `sankey`. 

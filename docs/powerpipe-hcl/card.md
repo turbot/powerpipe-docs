@@ -5,9 +5,9 @@ sidebar_label: card
 
 # card
 
-A card is used to show a value to the user, or some change in value. A card can also present itself in different types e.g. show me a count of public S3 buckets and if the value is greater than 0 show as an `alert`, else as `ok`.
+A card is used to show a value to the user, or some change in value. A card can also present itself in different types.  You can even dynamically style the card.  For example, you may show the count of public S3 buckets and if the value is greater than 0, display an `alert` type card, otherwise show `ok` type card.
 
-Cards can be declared as named resources at the top level of a mod, or be declared as anonymous blocks inside a `dashboard` or `container`, or be re-used inside a `dashboard` or `container` by using a `card` with `base = <mod>.card.<card_resource_name>`.
+Cards can be declared as named resources at the top level of a mod, or they can be declared as anonymous blocks inside a `dashboard` or `container`, or be re-used inside a `dashboard` or `container` by using a `card` with `base = <mod>.card.<card_resource_name>`.
 
 
 

@@ -104,7 +104,6 @@ dashboard "compose_other" {
 ## Argument Reference
 | Argument | Type | Optional? | Description
 |-|-|-|-
-| `benchmark`    | Block	| Optional | [benchmark](/docs/powerpipe-hcl/benchmark) blocks to embed benchmarks in the dashboard.
 | `chart`        | Block	| Optional | [chart](/docs/powerpipe-hcl/chart)  blocks to visualize SQL data in a number of ways e.g. `bar`, `column`, `line`, `pie`.
 | `container` |  Block	| Optional |  [container](/docs/powerpipe-hcl/container) blocks to lay out related components together in a dashboard. 
 | `description` | String |  Optional| A description of the dashboard

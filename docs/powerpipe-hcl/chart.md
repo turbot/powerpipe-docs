@@ -21,6 +21,7 @@ Chart blocks can be declared as named resources at the top level of a mod, or be
 chart {
   type  = "bar"
   title = "AWS S3 Buckets by Region"
+  width = 4 
 
   sql = <<-EOQ
     select
@@ -245,6 +246,7 @@ chart {
 chart {
   type  = "bar"
   title = "AWS S3 Buckets by Region"
+  width = 4 
 
   sql = <<-EOQ
     select
@@ -268,6 +270,7 @@ chart {
 chart {
   type = "column"
   title = "AWS S3 Buckets by Region"
+  width = 4 
 
   sql = <<-EOQ
     select
@@ -291,6 +294,7 @@ chart {
 chart {
   type = "donut"
   title = "AWS S3 Buckets by Region"
+  width = 4 
 
   sql = <<-EOQ
     select
@@ -305,45 +309,7 @@ chart {
   EOQ
 }
 ```
-### Multiple donut charts 
 
-<img src="/images/docs/reference_examples/donut_chart_ex_2.png" width="100%" />
-
-<br/>
-
-```hcl
-chart "db_base" {
-  series "mentions" {
-    point "Citus" {
-      color = "green"
-    }
-    point "MongoDB" {
-      color = "gray"
-    }
-    point "MySQL|MariaDB" {
-      color = "orange"
-    }
-    point "Oracle" {
-      color = "red"
-    }
-    point "Postgres" {
-      color = "lightblue"
-    }
-    point "SQL Server" {
-      color = "blue"
-    }
-    point "Supabase" {
-      color = "yellow"
-    }
-    point "Redis" {
-       color = "#065E5B"
-    }
-    point "SQLite" {
-      color = "purple"
-    }
-  }
-}
-```
 
 ### Line Chart
 <img src="/images/docs/reference_examples/line_chart_ex_1.png" width="100%" />
@@ -352,6 +318,7 @@ chart "db_base" {
 chart {
   type = "line"
   title = "AWS S3 Buckets by Region"
+  width = 4 
 
   sql = <<-EOQ
     select
@@ -374,6 +341,7 @@ chart {
 chart {
   type = "pie"
   title = "AWS S3 Buckets by Region"
+  width = 4 
 
   sql = <<-EOQ
     select
