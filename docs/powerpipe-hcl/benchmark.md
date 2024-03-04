@@ -96,7 +96,7 @@ control "cisv130_1_4" {
 ## More Examples
 ### Embedding an existing benchmark in a dashboard
 
-<img src="/images/reference_examples/benchmark_dashboard_view_ex_closed.png" />
+<img src="/images/docs/reference_examples/benchmark_dashboard_view_ex_closed.png" />
 
 <br />
 
@@ -111,7 +111,7 @@ dashboard "my_dashboard" {
 
 ### Embedding a table view of a benchmark in a dashboard
 
-<img src="/images/reference_examples/benchmark_dashboard_table_view.png" />
+<img src="/images/docs/reference_examples/benchmark_dashboard_table_view.png" />
 
 <br />
 

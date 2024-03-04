@@ -13,7 +13,7 @@ Flow blocks can be declared as named resources at the top level of a mod, or can
 
 ## Example Usage
 
-<img src="/images/reference_examples/sankey_ex_1.png" width="100%" />
+<img src="/images/docs/reference_examples/sankey_ex_1.png" width="100%" />
 
 
 ```hcl
@@ -191,7 +191,7 @@ For flows that do not conform to a single-parent hierarchical structure, its usu
 
 ### Sankey with color by category
 
-<img src="/images/reference_examples/sankey_ex_category.png" width="100%" />
+<img src="/images/docs/reference_examples/sankey_ex_category.png" width="100%" />
 
 ```hcl
 dashboard "flow_ex_node_edge_category" {
@@ -308,7 +308,7 @@ category "aws_vpc_subnet" {
 
 ### sankey with monolithic query
 
-<img src="/images/reference_examples/sankey_ex_1.png" width="100%" />
+<img src="/images/docs/reference_examples/sankey_ex_1.png" width="100%" />
 
 ```hcl
 flow {
@@ -364,7 +364,7 @@ flow {
 
 ### Sankey with color by category (monolithic query)
 
-<img src="/images/reference_examples/sankey_ex_category.png" width="100%" />
+<img src="/images/docs/reference_examples/sankey_ex_category.png" width="100%" />
 
 ```hcl
 flow {
@@ -433,7 +433,7 @@ flow {
 
 ### Sankey with node / edge data format, color by category, depth
 
-<img src="/images/reference_examples/sankey_user_to_policies_ex.png" width="100%" />
+<img src="/images/docs/reference_examples/sankey_user_to_policies_ex.png" width="100%" />
 
 
 ```hcl

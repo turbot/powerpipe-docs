@@ -11,7 +11,7 @@ Graphs can be declared as a block inside a dashboard or container. The data to b
 
 ## Example Usage
 
-<img src="/images/reference_examples/graph_ex_1.png" width="100%" />
+<img src="/images/docs/reference_examples/graph_ex_1.png" width="100%" />
 
 ```hcl
 dashboard "tables" {
