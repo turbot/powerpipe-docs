@@ -7,7 +7,7 @@ sidebar_label: node
 
 The `node` block represents a vertex in a `graph`, `hierarchy` or `flow`.  
 
-Anonymous `node` blocks can be declared inside a `graph`, `hierarchy` or `flow`.  They may also may be declared as named resources at the top level of a mod and referenced via `base` from other nodes in a `graph`, `hierarchy` or `flow`.
+Anonymous `node` blocks can be declared inside a `graph`, `hierarchy` or `flow`.  They may also be declared as named resources at the top level of a mod and referenced via `base` from other nodes in a `graph`, `hierarchy` or `flow`.
 
 
 ## Example Usage

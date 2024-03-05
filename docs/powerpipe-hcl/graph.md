@@ -142,8 +142,8 @@ category "table" {
 Some Powerpipe dashboard elements can include `node` and `edge` blocks.  These elements are sometimes referred to as **node/edge visualizations** and include `graph`, `flow`, and `hierarchy`. These resources essentially implement the same interface:
   - They support `node` and `edge` blocks as children
   - They are also [query-based resources](/docs/powerpipe-hcl/query#query-based-resources), and support using the `sql` and `query` arguments instead of `node` and `edge` blocks
-  - They must appear in a dashboard to be displayed, but may be defined as top level resources and referenced with `base`
-  - They support `param` and `with` blocks, but only when in a top level resource
+  - They must appear in a dashboard to be displayed, but they may be defined as top-level resources and referenced with `base`
+  - They support `param` and `with` blocks, but only when in a top-level resource
   - They support `category` blocks
   - They have similar data formats
 
@@ -152,23 +152,23 @@ Some Powerpipe dashboard elements can include `node` and `edge` blocks.  These e
 
 Node/edge visualizations allow you to specify a monolithic query that returns a row for each node and edge, or you can specify `node` and `edge` blocks to define the nodes and edges separately.
 
-In either case, the concept of *nodes* and *edges* is the same.  *Nodes* and *edges* represent points and connections in a `graph`, `hierarchy` or `flow`.  A *node* is a vertex in the diagram, whereas as an *edge* is a relationship between 2 nodes (usually represented with a line connecting them).
+In either case, the concept of *nodes* and *edges* is the same.  *Nodes* and *edges* represent points and connections in a `graph`, `hierarchy` or `flow`.  A *node* is a vertex in the diagram, whereas an *edge* is a relationship between 2 nodes (usually represented by a line connecting them).
 
 Key differences between nodes and edges are:
 - A `node` MUST have an `id`.  An `edge` CANNOT have an `id`.
-- An `edge` must have a `from_id` and a `to_id`. A `node` CANNOT have a `to_id`.  Nodes USUALLY do not have a `from_id` either, however for simple single-parent hierarchies it is often simpler to create a simple edge by specifying `from_id` on the `node` instead of creating separate node and edge blocks / rows.
+- An `edge` must have a `from_id` and a `to_id`. A `node` CANNOT have a `to_id`.  Nodes USUALLY do not have a `from_id` either, but for simple single-parent hierarchies, it is often simpler to create a simple edge by specifying `from_id` on the `node` instead of creating separate node and edge blocks/rows.
 
 
 #### Node & Edge Blocks
 Typically, it is preferable to specify `node` and `edge` blocks than to use the monolithic query format:
-- Using `node` and `edge` results in simpler, more readable, maintainable configuration.
+- Using `node` and `edge` results in a simpler, more readable, maintainable configuration.
 - Developing large union queries is difficult. Errors are hard to find and fix.  The `node` and `edge` model provides smaller, simpler queries that can be run and tested independently.
 - You can reuse nodes and edges in multiple node/edge visualizations.
-- Powerpipe can run the node/edge queries in parallel, and can provide better status information while the visualization is loading.
+- Powerpipe can run the node/edge queries in parallel and can provide better status information while the visualization is loading.
 
-In the node / edge model, your `graph`, `flow`, or `hierarchy` block will not specify the `sql` or `query` argument, but instead will contain one or more `node` blocks and `edge` blocks.  The `node` and `edge` blocks will specify the `sql` or `query` argument to retrieve the data for the node or edge.
+In the node/edge model, your `graph`, `flow`, or `hierarchy` block will not specify the `sql` or `query` argument but instead will contain one or more `node` blocks and `edge` blocks.  The `node` and `edge` blocks will specify the `sql` or `query` argument to retrieve the data for the node or edge.
 
-The sql column names are identical to the monolithic query format.  Note that some fields (`category`, `title`) may be specified in HCL *or* in the query results.  When *both* are specified, the SQL value takes precedence.
+The SQL column names are identical to the monolithic query format.  Note that some fields (`category`, `title`) may be specified in HCL *or* in the query results.  When *both* are specified, the SQL value takes precedence.
 
 
 ##### Example: Graph with node/edge blocks
@@ -463,7 +463,7 @@ category "plugin_tag" {
 
 #### Monolithic query
 
-Node/edge visualizations are also query-based resources, and support using either the `sql` or `query` argument (but not both).  When using a monolithic query, the query must return a row for each node and edge.  Note that using a single query is an older format - generally it is simpler to use `node` and `edge` blocks instead.
+Node/edge visualizations are also query-based resources, and support using either the `sql` or `query` argument (but not both).  When using a monolithic query, the query must return a row for each node and edge.  Note that using a single query is an older format; it is usually simpler to use `node` and `edge` blocks instead.
 
 
 Significant columns are:
@@ -478,7 +478,7 @@ Significant columns are:
 | `properties`| node, edge (graph only) | A jsonb key/value map of properties to display for the node/edge when the user hovers over it.  The `properties` column is optional for nodes and edges.
 | `to_id`    | edge       | The `id` of the destination side of an edge. `to_id` is required for edges.
 
-Typically, the monolithic query will be a large `union` query. Note that both column *names* and their *relative position* are important! Powerpipe looks for columns *by name* in the result set, however Postgres union queries will *append the rows based on the column's position*, not the name of the column.  ***All the `union` queries must return the same columns, in the same order.***
+Typically, the monolithic query will be a large `union` query. Note that both column *names* and their *relative position* are important! Powerpipe looks for columns *by name* in the result set, but Postgres `union` queries will *append the rows based on the column's position*, not the name of the column.  ***All the `union` queries must return the same columns, in the same order.***
 
 
 Most commonly, you should specify nodes and edges as separate rows.  In this case, nodes will have an `id` and optionally `title`, `category`, and/or `depth`, but `to_id` and `from_id` will be null.  Edges will populate `to_id` and `from_id` and optionally `category`, and will have null `id`, `depth`, and `title`:
@@ -627,6 +627,6 @@ Categories may be defined either at the mod level or in a `graph`, `flow`, or `h
 
 ### With blocks
 
-Node/Edge visualizations support [`with` blocks](/docs/powerpipe-hcl/with). Similar to a `with` clause in a postgres CTE, the `with` block allows you to specify additional queries or SQL statements to run **first**, and then pass the query results as arguments to `sql`, `query`, and `node` & `edge` blocks.
+Node/Edge visualizations support [`with` blocks](/docs/powerpipe-hcl/with). Similar to a `with` clause in a PostgreSQL CTE, the `with` block allows you to specify additional queries or SQL statements to run **first**, and then pass the query results as arguments to `sql`, `query`, and `node` & `edge` blocks.
 
 You can only specify `with` blocks on **top-level named resources** in your mod. The results of the `with` query can be referenced only within the resource in which it is defined (including any sub-blocks).

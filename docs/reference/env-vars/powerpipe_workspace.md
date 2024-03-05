@@ -20,10 +20,7 @@ Use the `my_workspace` workspace:
 export POWERPIPE_WORKSPACE=my_workspace
 ```
 
-<!--
-FUTURE:  
 Use the `acme/prod` Turbot Pipes workspace:
 ```bash
 export POWERPIPE_WORKSPACE=acme/prod
 ```
--->

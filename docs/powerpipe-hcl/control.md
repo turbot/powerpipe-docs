@@ -5,9 +5,9 @@ sidebar_label: control
 
 # control
 
-**Controls** provide a defined structure and interface for queries that draw a specific conclusion (e.g. 'OK', 'Alarm') about each row (typically, each row represents a single evaluated 'block').  This pattern is common across multiple control benchmarks (CIS, etc) and  unit testing benchmarks (JUnit, NUnit, etc).
+**Controls** provide a defined structure and interface for queries that draw a specific conclusion (e.g. 'OK', 'Alarm') about each row (typically, each row represents a single evaluated 'block').  This pattern is common across multiple control benchmarks (CIS, etc) and unit testing benchmarks (JUnit, NUnit, etc).
 
-Controls use **queries** to gather data, but contain specific metadata and return specific columns with specified values in a specific format.  
+Controls use **queries** to gather data.  Controls contain specific metadata and return [specific columns with specified values in a specific format](#required-control-columns).  
 
 
 ## Example Usage
@@ -89,4 +89,4 @@ ALL controls must specify queries that return rows that contain the following st
 
 
 #### Additional Control Columns & Dimensions
-A control's query MUST return the required columns, but it may also return additional columns.  These additional columns are referred to as `dimensions`, and can be used to specify additional provider-specific columns that are included in control reports and outputs to provide additional context.  For example, a benchmark that runs controls against AWS resources may specify dimensions for `account_id` and `region` to help locate the evaluated resource.  The `account_id` and `region` columns will be added as dimensions to the control output for any control whose query returns those columns.
+A control's query MUST return the required columns, but it may also return additional columns.  These additional columns are referred to as `dimensions` and can be used to specify additional provider-specific columns that are included in control reports and outputs to provide additional context.  For example, a benchmark that runs controls against AWS resources may specify dimensions for `account_id` and `region` to help locate the evaluated resource.  The `account_id` and `region` columns will be added as dimensions to the control output for any control whose query returns those columns.

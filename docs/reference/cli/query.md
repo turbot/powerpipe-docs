@@ -123,7 +123,7 @@ powerpipe query run ec2_instance_in_vpc
 powerpipe query run query.ec2_instance_in_vpc
 ```
 
-Run an adhoc query:
+Run an ad-hoc query:
 ```bash
 powerpipe query run "select * from aws_account"
 ```
@@ -153,7 +153,7 @@ Run a named query and pass arguments:
 powerpipe query run check_vpc --arg vpc_ids='["vpc-12345678","vpc-22222222"]' --arg account_id='012345678901'
 ```
 
-Run an adhoc query and create a snapshot file:
+Run an ad-hoc query and create a snapshot file:
 ```bash
 powerpipe query run "select * from aws_account" --export my_snap.pps
 # or
@@ -181,7 +181,7 @@ Run a query and upload a snapshot with `anyone_with_link` visibility in your def
 powerpipe query run "select * from aws_account" --share 
 ```
 
-Run a query and upload a snapshot with `anyone_with_link` visibility to specific workspace.
+Run a query and upload a snapshot with `anyone_with_link` visibility to a specific workspace.
 ```bash
 powerpipe query run ec2_instance_in_vpc --share  --snapshot-location vandelay-industries/latex
 ```

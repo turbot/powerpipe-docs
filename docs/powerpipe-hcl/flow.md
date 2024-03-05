@@ -7,7 +7,7 @@ sidebar_label: flow
 
 A flow allows visualization of queries using types such as `sankey`.  Flows are [node/edge visualizations](/docs/powerpipe-hcl/graph#nodeedge-visualizations).  The data to be displayed is specified using a series of nodes and edges. The nodes define the vertices of the graph, and the edges define the connections between them.
 
-Flow blocks can be declared as named resources at the top level of a mod, or can be declared as anonymous blocks inside a `dashboard` or `container`, or be re-used inside a `dashboard` or `container` by using a `flow` with `base = <mod>.flow.<flow_resource_name>`.
+Flow blocks can be declared as named resources at the top level of a mod, or they can be declared as anonymous blocks inside a `dashboard` or `container`, or be re-used inside a `dashboard` or `container` by using a `flow` with `base = <mod>.flow.<flow_resource_name>`.
 
 
 
@@ -148,7 +148,7 @@ dashboard "flow_sankey_ex_1" {
 ## Data Format
 Flow data must be provided in a format where each row represents a *node* (vertex), an *edge* (connecting 2 vertices), or both. 
 
-Note that both column *names* and their *relative position* are important in flow queries; Powerpipe looks for columns *by name* in the result set, however Postgres union queries will *append the rows based on the column's position*, not the name of the column.  ***All the `union` queries must return the same columns, in the same order.***
+Note that both column *names* and their *relative position* are important in flow queries; Powerpipe looks for columns *by name* in the result set, but Postgres union queries will *append the rows based on the column's position*, not the name of the column.  ***All the `union` queries must return the same columns, in the same order.***
 
 Significant columns  are:
 
@@ -171,7 +171,7 @@ Generally speaking, there are 2 data formats commonly used for flows.  If the da
 | 1       | 3                | baz              | widget           |
 | 2       | 4                | foobar           | fidget           |
 
-For flows that do not conform to a single-parent hierarchical structure, its usually easier to specify nodes and edges as separate rows.  In this case, nodes will have an `id` and optionally `title`, `category`, and/or `depth`, but `to_id` and `from_id` will be null.  Edges will populate `to_id` and `from_id` and optionally `category`, and will have null `id`, `depth`, and `title`:
+For flows that do not conform to a single-parent hierarchical structure, it's' usually easier to specify nodes and edges as separate rows.  In this case, nodes will have an `id` and optionally `title`, `category`, and/or `depth`, but `to_id` and `from_id` will be null.  Edges will populate `to_id` and `from_id` and optionally `category`, and will have null `id`, `depth`, and `title`:
 
 
 | from_id | to_id     | id               | title            | category         |
@@ -193,7 +193,7 @@ For flows that do not conform to a single-parent hierarchical structure, its usu
 
 <!--
 
-TO DO  - update screenshot once bug is fixed
+TO DO  - update the screenshot once the bug is fixed
 
 <img src="/images/docs/reference_examples/flow_sankey_ex_category.png" width="100%" />
 
@@ -373,7 +373,7 @@ dashboard "flow_sankey_ex_1_mono" {
 ### Sankey with color by category (monolithic query)
 
 <!--   
-TO DO  - update screenshot once bug is fixed
+TO DO  - update the screenshot once the bug is fixed
 
   <img src="/images/docs/reference_examples/flow_sankey_ex_category_mono.png" width="100%" />
 
@@ -445,11 +445,11 @@ TO DO  - update screenshot once bug is fixed
 }
 ```
 
-### Sankey with node / edge data format, color by category, depth
+### Sankey with node/edge data format, color by category, depth
 
 
 <!--   
-TO DO  - update screenshot once bug is fixed
+TO DO  - update the screenshot once the bug is fixed
 
 <img src="/images/docs/reference_examples/flow_sankey_ex_2.png" width="100%" />
 

@@ -24,7 +24,7 @@ powerpipe login
   </tr>
   <tr> 
     <td nowrap="true"> <inlineCode>--pipes-host</inlineCode> </td> 
-    <td>  Sets the Turbot Pipes host used when connecting to Turbot Pipes workspaces. See <a href="reference/env-vars/powerpipe_cloud_host">STEAMPIPE_CLOUD_HOST</a> for details.</td> 
+    <td>  Sets the Turbot Pipes host used when connecting to Turbot Pipes workspaces. See <a href="reference/env-vars/pipes_host">PIPES_HOST</a> for details.</td> 
   </tr>
 
 </table>

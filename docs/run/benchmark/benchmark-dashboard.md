@@ -11,7 +11,7 @@ The `powerpipe benchmark run` command provides a flexible interface for running 
 
 Benchmarks are also available as [dashboards](/docs/run/dashboard), providing a richer interactive experience.  When running a benchmark from the [dashboard server](/docs/run/server), you can explore the results interactively, and even group and filter the results in different ways.  
 
-When you run Powerpipe server from a mod that includes benchmarks, they will appear in the list of dashboards.  Simply click to run them, like any other dashboard.  You will see the results update as the benchmark runs, but you can interact with it even while the benchmark is running.
+When you run `powerpipe server` from a mod that includes benchmarks, they will appear in the list of dashboards.  Simply click to run them, like any other dashboard.  You will see the results update as the benchmark runs, but you can interact with it even while the benchmark is running.
 
 ![](/images/docs/learn/benchmark_dashboard.png)
 

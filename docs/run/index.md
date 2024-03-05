@@ -13,7 +13,7 @@ Powerpipe always runs in the context of a [mod](/docs/build), which is a collect
 Powerpipe loads the mod from the current directory by default, but you can pass the [--mod-location](/docs/reference/cli#global-flags) flag or set the [POWERPIPE_MOD_LOCATION](/docs/reference/env-vars/powerpipe_mod_location) to set it to a different path.  
 
 ## Configuration Files
-Powerpipe will load [configuration files](/docs/reference/config-files) (`*.ppc`) according to the configuration search path.  You can change this path with the `--config-path` argument or the [POWERPIPE_CONFIG_PATH](/docs/reference/env-vars/powerpipe_config_path) environment variable, but it defaults to `.:$POWERPIPE_INSTALL_DIR/config` (`.:~/.powerpipe/config`).  This allows you to manage your [workspaces](/docs/run/workspaces) centrally in the `~/.powerpipe/config` directory, but override them in the working directory / mod location if desired.
+Powerpipe will load [configuration files](/docs/reference/config-files) (`*.ppc`) according to the configuration search path.  You can change this path with the `--config-path` argument or the [POWERPIPE_CONFIG_PATH](/docs/reference/env-vars/powerpipe_config_path) environment variable, but it defaults to `.:$POWERPIPE_INSTALL_DIR/config` (`.:~/.powerpipe/config`).  This allows you to manage your [workspaces](/docs/run/workspaces) centrally in the `~/.powerpipe/config` directory, but override them in the mod location if desired.
 
 
 ## Selecting a database
@@ -51,7 +51,7 @@ powerpipe server --workspace my_workspace
 You can even change the default by [setting it in your `default` workspace](/docs/run/workspaces#using-workspaces).
 
 
-If you use [Turbot Pipes](http://pipes.turbot.com), you can run Powerpipe against the Pipes workspace databse (you will need to [login](/docs/reference/cli/login) first):
+If you use [Turbot Pipes](http://pipes.turbot.com), you can run Powerpipe against the Pipes workspace database (you will need to [log in](/docs/reference/cli/login) first):
 ```bash
 powerpipe benchmark run cis_v120 --workspace acme/anvils
 powerpipe server --workspace acme/anvils
@@ -80,7 +80,7 @@ and DuckDB :
 powerpipe server --database 'duckdb:./my_ducks.db'
 ```
 
-## Targeting specific schemas / connections (Postgres/Steampipe)
+## Targeting specific schemas/connections (Postgres/Steampipe)
 
 A PostgreSQL database contains one or more [schemas](https://www.postgresql.org/docs/current/ddl-schemas.html). A schema is a namespaced collection of named objects, like tables, functions, and views.   When writing a query, you may qualify the table name with the schema name (e.g. `select * from schema_name.table_name`) or use an unqualified name (`select * from table_name`).  When using unqualified names, the system determines which table is meant by following a [search path](https://www.postgresql.org/docs/current/ddl-schemas.html#DDL-SCHEMAS-PATH); the first matching table in the search path is taken to be the one wanted. 
 

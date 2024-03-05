@@ -11,10 +11,6 @@ A query may optionally define **parameters**.  When executing the query, you can
 ## Using Parameters in Queries
 Variable usage and interpolation in Powerpipe is based on and conforms to Terraform.  Special consideration must be made for passing variables into queries, however, as both the HCL parser AND the SQL parser must account for the variables.
 
-<!--  ARE PARAMS ONLY OK IN POSTGRES??)
-Internally, the Powerpipe execution layer uses [Postgres SQL Prepared Statements](https://www.postgresql.org/docs/14/sql-prepare.html) to define queries that accept parameters, and the [execute](https://www.postgresql.org/docs/14/sql-execute.html) command to run them.  Note that when using SQL prepared statements, passed parameters are treated as values and SQL-injection is not possible (as long as you don't call unsafe functions from the body and pass parameters).
--->
-
 When defining a query, you may use positional parameters (`$1`, `$2`, `$3`, ...) in the query definition.  For each of these positional parameters, you should define a `param` block that names and describes the parameter. Note that Powerpipe will assign the parameters in the order that the `param` blocks are defined - the first `param` block describes `$1`, the second describes `$2`, etc:
 
 ```hcl
@@ -27,7 +23,7 @@ query "instances_in_state" {
 }
 ```
 
-You can also pass list values as parameters, and they will converted to postgres arrays in the query:
+You can also pass list values as parameters, and they will converted to PostgreSQL arrays in the query:
 
 ```hcl
 query "instances_in_states" {
@@ -41,22 +37,22 @@ query "instances_in_states" {
 
 ## Passing Arguments
 
-You can run a query or control by name from  the command line.  If the query provides defaults for all the parameters, you can run it without arguments in the same way you would run a query or control that takes no parameters, and it will run with the default values:
+You can run a query or control by name from the command line.  If the query provides defaults for all the parameters, you can run it without arguments in the same way you would run a query or control that takes no parameters, and it will run with the default values:
 
 ```bash
 powerpipe query run instances_in_state
 ```
 
-If the query does not provide a default, or you wish to run the query with a different value, you can pass an argument to the query with one or mor `--arg` arguments.
+If the query does not provide a default, or you wish to run the query with a different value, you can pass an argument to the query with one or more `--arg` arguments.
 
 You can pass them by name:
 ```bash
 powerpipe query run instances_in_state --arg state='running'
 ```
 
-Or by position, using the parameter index:
+Or by position. If no argument name is provided, the arguments will be passed to the query in the order they are passed to the command (the first `--arg` as `$1`, the second as `$2`, etc.):
 ```bash
-powerpipe query run instances_in_state --arg 0='running'
+powerpipe query run instances_in_state --arg 'running'
 ```
 
 Likewise, when specifying arguments in HCL, you can pass them by name (as a map):
@@ -137,9 +133,9 @@ control "stopped_instances_inline" {
 }
 ```
 
-Note that you may *either* reference a query object with the `query` argument *or* use inline sql with the `sql` argument from your control, *but not both*, and the behavior is subtly different, as can be seen in the examples above:
-- The `query` argument is a reference to a `query` resource. You cannot define parameters (`param` blocks) for the control, but you can pass them as arguments (`args`) *to* the query, if *the query* has parameters defined.
-- The `sql` argument is a string.  When the control specifies a sql string, it essentially behaves like a query, and thus you can define the parameters that it accepts (in `param` blocks) in the same manner as a `query` resource.  
+Note that you may *either* reference a query object with the `query` argument *or* use inline SQL with the `sql` argument from your control, *but not both*, and the behavior is subtly different, as can be seen in the examples above:
+- The `query` argument is a reference to a `query` resource. You cannot define parameters (`param` blocks) for the control, but you can pass them as arguments (`args`) *to* the query if *the query* has parameters defined.
+- The `sql` argument is a string.  When the control specifies a SQL string, it essentially behaves like a query, and thus you can define the parameters that it accepts (in `param` blocks) in the same manner as a `query` resource.  
 
 
 ## Using Parameters with Variables

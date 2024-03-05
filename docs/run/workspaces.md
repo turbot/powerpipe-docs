@@ -59,7 +59,7 @@ powerpipe query --workspace acme/dev "select * from aws_account"
 -->
 
 ## Defining Workspaces
-[Workspace](/docs/reference/config-files/workspace) configurations can be defined in any `.ppc` file in the [configuration file search path](/docs/reference/env-vars/powerpipe_config_path) but by convention they are defined in a file named `workspaces.ppc`.  This file may contain multiple `workspace` definitions that can then be referenced by name.
+[Workspace](/docs/reference/config-files/workspace) configurations can be defined in any `.ppc` file in the [configuration file search path](/docs/reference/env-vars/powerpipe_config_path) but by convention, they are defined in a file named `workspaces.ppc`.  This file may contain multiple `workspace` definitions that can then be referenced by name.
 
 Any unset arguments will assume the default values - you don't need to set them all:
 

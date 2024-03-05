@@ -7,7 +7,7 @@ sidebar_label: text
 
 Display either rendered `markdown` ([GitHub Flavored Markdown](https://github.github.com/gfm/)) or `raw` text with no interpretation of markup.
 
-Text blocks can be declared as named resources at the top level of a mod, or be declared as anonymous blocks inside a `dashboard` or `container`, or be re-used inside a `dashboard` or `container` by using a `text` with `base = <mod>.text.<text_resource_name>`.
+Text blocks can be declared as named resources at the top level of a mod, or they can be declared as anonymous blocks inside a `dashboard` or `container`, or be re-used inside a `dashboard` or `container` by using a `text` with `base = <mod>.text.<text_resource_name>`.
 
 
 ## Example Usage

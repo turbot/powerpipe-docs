@@ -7,9 +7,9 @@ sidebar_label: chart
 
 A chart enables visualization of queries in a variety of charting types such as `bar`, `column`, `donut`, `line` or `pie`.  
 
-The chart types share key properties such as shape of the data and  configuration. So, for example, if you change the type of chart from `bar` to `line` it just works. 
+The chart types share key properties such as the shape of the data and arguments. So, for example, if you change the type of chart from `bar` to `line` it just works. 
 
-Chart blocks can be declared as named resources at the top level of a mod, or be declared as anonymous blocks inside a `dashboard` or `container`, or be re-used inside a `dashboard` or `container` by using a `chart` with `base = <mod>.chart.<chart_resource_name>`.
+Chart blocks can be declared as named resources at the top level of a mod, or they can be declared as anonymous blocks inside a `dashboard` or `container`, or be re-used inside a `dashboard` or `container` by using a `chart` with `base = <mod>.chart.<chart_resource_name>`.
 
 
 ## Example Usage
@@ -121,7 +121,7 @@ Applicable to `bar`, `column`, `line` and `scatter`.
 
 ### transform
 
-What data transform to apply.
+Apply a data transformation.
 
 Defaults to `auto`, which will automatically crosstab row series data into column series data if it detects a 3-column dataset, with the first 2 columns non-numeric and the 3rd column numeric.
 

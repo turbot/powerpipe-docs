@@ -4,8 +4,7 @@ sidebar_label: Using Variables
 ---
 
 # Using Variables
-
-[Variables](/docs/powerpipe-hcl/variable) are module level objects that allow you to pass values to your module at runtime.  When running Powerpipe, you can pass values on the command line or from a `.ppvars` file, and you will be prompted for any variables that have no values.
+[Variables](/docs/powerpipe-hcl/variable) are module-level objects that allow you to pass values to your module at runtime.  When running Powerpipe, you can pass values on the command line or from a `.ppvars` file, and you will be prompted for any variables that have no values.
 
 [Locals](/docs/powerpipe-hcl/locals) are internal, private variables used only *within* your mod - you cannot pass values in at runtime.
 
@@ -64,7 +63,7 @@ query "instances_in_state" {
 ```
 
 ### Passing Input Variables
-When running Powerpipe, you can pass variables in several ways.  You can pass individual variables values on the command line with one or more `--var` arguments:
+When running Powerpipe, you can pass variables in several ways.  You can pass individual variable values on the command line with one or more `--var` arguments:
 
 ```bash
 powerpipe query --var=instance_state="running"
@@ -95,13 +94,13 @@ Powerpipe *automatically* reads in the file named `powerpipe.ppvars` as well as 
 powerpipe cbenchmark run aws_tags.benchmark.mandatory --var-file='tags.ppvars'
 ```
 
-You may also set variable values via environment variables.  Simply prefix the powerpipe variable name with `PP_VAR_`:
+You may also set variable values via environment variables.  Simply prefix the Powerpipe variable name with `PP_VAR_`:
 
 ```bash
 export PP_VAR_mandatory_tags='["Owner","Application", "Environment"]' 
 ```
 
-If you run Powerpipe from a mod that defines input variables, and they are not set anywhere (no default, not set in a `.ppvars` file, not set with `--var` argument, not set via environment variable) then Powerpipe will prompt you for them before running the control/benchmark.
+If you run Powerpipe from a mod that defines input variables, and they are not set anywhere (no default, not set in a `.ppvars` file, not set with `--var` argument, not set via an environment variable) then Powerpipe will prompt you for them before running the control/benchmark.
 
 Powerpipe loads variables in the following order, with later sources taking precedence over earlier ones:
 1. Environment variables
@@ -112,7 +111,7 @@ Powerpipe loads variables in the following order, with later sources taking prec
 
 ### Passing Variables for Dependency Mods
 
-A Powerpipe mod can depend on other mods, and those dependency mods may include variables that you would like to pass.  To set them, prefix the variable names with the mod alias and them set them like any other variable.
+A Powerpipe mod can depend on other mods, and those dependency mods may include variables that you would like to pass.  To set them, prefix the variable names with the mod alias and then set them like any other variable.
 
 You can set them in a `.ppvars` file:
 ```hcl

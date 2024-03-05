@@ -6,7 +6,7 @@ sidebar_label: powerpipe server
 
 # powerpipe server
 
-Run the Powerpipe server, including the dashbaord server and the API.  Powerpipe server runs in the foreground; Press `Ctrl-C` to exit.
+Run the Powerpipe server, including the dashboard server and the API.  Powerpipe server runs in the foreground; Press `Ctrl-C` to exit.
 
 
 ## Usage

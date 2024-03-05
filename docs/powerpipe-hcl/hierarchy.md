@@ -7,7 +7,7 @@ sidebar_label: hierarchy
 
 A hierarchy allows visualization of queries using types such as `tree`.    Hierarchies are [node/edge visualizations](/docs/powerpipe-hcl/graph#nodeedge-visualizations).  The data to be displayed is specified using a series of nodes and edges. The nodes define the vertices of the graph, and the edges define the connections between them.
 
-Hierarchy blocks can be declared as named resources at the top level of a mod, or be declared as anonymous blocks inside a `dashboard` or `container`, or be re-used inside a `dashboard` or `container` by using a `hierarchy` with `base = <mod>.hierarchy.<hierarchy_resource_name>`.
+Hierarchy blocks can be declared as named resources at the top level of a mod, or they can be declared as anonymous blocks inside a `dashboard` or `container`, or be re-used inside a `dashboard` or `container` by using a `hierarchy` with `base = <mod>.hierarchy.<hierarchy_resource_name>`.
 
 
 ## Example Usage
@@ -115,9 +115,9 @@ dashboard "tree_ex_nodeonly" {
 
 
 ## Data Format
-Hierarchy data must be provided in a format where each row represents a *node* (vertex), an *edge* (connecting 2 vertices), or both.  Hierarchy queries have the same basic structure as flow queries, but unlike flows hierarchies  are restricted to a strict single parent structure; a given node may have only a single `from_id`.
+Hierarchy data must be provided in a format where each row represents a *node* (vertex), an *edge* (connecting 2 vertices), or both.  Hierarchy queries have the same basic structure as flow queries, but unlike flows, hierarchies are restricted to a strict single-parent structure; a given node may have only a single `from_id`.
 
-Note that both column *names* and their *relative position* are important in hierarchy queries; Powerpipe looks for columns *by name* in the result set, however Postgres union queries will *append the rows based on the column's position*, not the name of the column.  ***All the `union` queries must return the same columns, in the same order.***
+Note that both column *names* and their *relative position* are important in hierarchy queries; Powerpipe looks for columns *by name* in the result set, but Postgres `union` queries will *append the rows based on the column's position*, not the name of the column.  ***All the `union` queries must return the same columns, in the same order.***
 
 Significant columns  are:
 
@@ -139,7 +139,7 @@ Generally speaking, there are 2 data formats commonly used for hierarchies.  It 
 | 1       | 3                | baz              | widget           |
 | 2       | 4                | foobar           | fidget           |
 
-Alternately, you may specify nodes and edges as separate rows.  In this case, nodes will have an `id` and optionally `title`, `category`, and/or `depth`, but `to_id` and `from_id` will be null.  Edges will populate `to_id` and `from_id` and optionally `category`, and will have null `id`, `depth`, and `title`:
+Alternatively, you may specify nodes and edges as separate rows.  In this case, nodes will have an `id` and optionally `title`, `category`, and/or `depth`, but `to_id` and `from_id` will be null.  Edges will populate `to_id` and `from_id` and optionally `category`, and will have null `id`, `depth`, and `title`:
 
 
 | from_id | to_id     | id               | title            | category         |
