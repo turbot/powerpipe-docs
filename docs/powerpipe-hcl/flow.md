@@ -191,13 +191,7 @@ For flows that do not conform to a single-parent hierarchical structure, it's' u
 
 ### Sankey with color by category
 
-<!--
-
-TO DO  - update the screenshot once the bug is fixed
-
 <img src="/images/docs/reference_examples/flow_sankey_ex_category.png" width="100%" />
-
--->
 
 ```hcl
 dashboard "flow_sankey_ex_category" {
@@ -372,14 +366,9 @@ dashboard "flow_sankey_ex_1_mono" {
 
 ### Sankey with color by category (monolithic query)
 
-<!--   
-TO DO  - update the screenshot once the bug is fixed
+<img src="/images/docs/reference_examples/flow_sankey_ex_category_mono.png" width="100%" />
 
-  <img src="/images/docs/reference_examples/flow_sankey_ex_category_mono.png" width="100%" />
-
--->
-
-  ```hcl
+```hcl
   dashboard "flow_sankey_ex_category_mono" {
 
   flow {
@@ -447,13 +436,7 @@ TO DO  - update the screenshot once the bug is fixed
 
 ### Sankey with node/edge data format, color by category, depth
 
-
-<!--   
-TO DO  - update the screenshot once the bug is fixed
-
 <img src="/images/docs/reference_examples/flow_sankey_ex_2.png" width="100%" />
-
--->
 
 ```hcl
 
