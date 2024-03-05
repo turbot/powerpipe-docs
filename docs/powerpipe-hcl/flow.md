@@ -13,11 +13,11 @@ Flow blocks can be declared as named resources at the top level of a mod, or can
 
 ## Example Usage
 
-<img src="/images/docs/reference_examples/sankey_ex_1.png" width="100%" />
+<img src="/images/docs/reference_examples/flow_sankey_ex_1.png" width="100%" />
 
 
 ```hcl
-dashboard "flow_ex_node_edge" {
+dashboard "flow_sankey_ex_1" {
 
   input "vpc_input" {
     width = 4
@@ -191,10 +191,10 @@ For flows that do not conform to a single-parent hierarchical structure, its usu
 
 ### Sankey with color by category
 
-<img src="/images/docs/reference_examples/sankey_ex_category.png" width="100%" />
+<img src="/images/docs/reference_examples/flow_sankey_ex_category.png" width="100%" />
 
 ```hcl
-dashboard "flow_ex_node_edge_category" {
+dashboard "flow_sankey_ex_category" {
 
   input "vpc_input" {
     width = 4
@@ -308,265 +308,269 @@ category "aws_vpc_subnet" {
 
 ### sankey with monolithic query
 
-<img src="/images/docs/reference_examples/sankey_ex_1.png" width="100%" />
+<img src="/images/docs/reference_examples/flow_sankey_ex_1_mono.png" width="100%" />
 
 ```hcl
-flow {
-  type  = "sankey"
-  title = "AWS VPC Subnets by AZ"
-  width = 6
+dashboard "flow_sankey_ex_1_mono" {
 
-  sql = <<-EOQ
+  flow {
+    type  = "sankey"
+    title = "AWS VPC Subnets by AZ"
 
-    with vpc as
-      (select 'vpc-9d7ae1e7' as vpc_id)
+    sql = <<-EOQ
 
-    select
-      null as from_id,
-      vpc_id as id,
-      vpc_id as title,
-      0 as depth,
-      'aws_vpc' as category
-    from
-      aws_vpc
-    where
-      vpc_id in (select vpc_id from vpc)
+      with vpc as
+        (select 'vpc-9d7ae1e7' as vpc_id)
 
-    union all
-    select
-      distinct on (availability_zone)
-      vpc_id as from_id,
-      availability_zone as id,
-      availability_zone as title,
-      1 as depth,
-      'aws_availability_zone' as category
-    from
-      aws_vpc_subnet
-    where
-      vpc_id in (select vpc_id from vpc)
+      select
+        null as from_id,
+        vpc_id as id,
+        vpc_id as title,
+        0 as depth,
+        'aws_vpc' as category
+      from
+        aws_vpc
+      where
+        vpc_id in (select vpc_id from vpc)
+
+      union all
+      select
+        distinct on (availability_zone)
+        vpc_id as from_id,
+        availability_zone as id,
+        availability_zone as title,
+        1 as depth,
+        'aws_availability_zone' as category
+      from
+        aws_vpc_subnet
+      where
+        vpc_id in (select vpc_id from vpc)
 
 
-    union all
-    select
-      availability_zone as from_id,
-      subnet_id as id,
-      subnet_id as title,
-      2 as depth,
-      'aws_vpc_subnet' as category
-    from
-      aws_vpc_subnet
-    where
-      vpc_id in (select vpc_id from vpc)
+      union all
+      select
+        availability_zone as from_id,
+        subnet_id as id,
+        subnet_id as title,
+        2 as depth,
+        'aws_vpc_subnet' as category
+      from
+        aws_vpc_subnet
+      where
+        vpc_id in (select vpc_id from vpc)
 
-  EOQ
+    EOQ
+  }
 }
 ```
 
 ### Sankey with color by category (monolithic query)
 
-<img src="/images/docs/reference_examples/sankey_ex_category.png" width="100%" />
+  <img src="/images/docs/reference_examples/flow_sankey_ex_category_mono.png" width="100%" />
 
-```hcl
-flow {
-  type  = "sankey"
-  title = "AWS VPC Subnets by AZ"
-  width = 6
+  ```hcl
+  dashboard "flow_sankey_ex_category_mono" {
 
-  category "aws_vpc" {
-    color = "orange"
+  flow {
+    type  = "sankey"
+    title = "AWS VPC Subnets by AZ"
+
+    category "aws_vpc" {
+      color = "orange"
+    }
+
+    category "aws_availability_zone" {
+      color = "tan"
+    }
+
+      category "aws_vpc_subnet" {
+      color = "green"
+    }
+
+    sql = <<-EOQ
+
+      with vpc as
+        (select 'vpc-9d7ae1e7' as vpc_id)
+
+      select
+        null as from_id,
+        vpc_id as id,
+        vpc_id as title,
+        0 as depth,
+        'aws_vpc' as category
+      from
+        aws_vpc
+      where
+        vpc_id in (select vpc_id from vpc)
+
+      union all
+      select
+        distinct on (availability_zone)
+        vpc_id as from_id,
+        availability_zone as id,
+        availability_zone as title,
+        1 as depth,
+        'aws_availability_zone' as category
+      from
+        aws_vpc_subnet
+      where
+        vpc_id in (select vpc_id from vpc)
+
+
+      union all
+      select
+        availability_zone as from_id,
+        subnet_id as id,
+        subnet_id as title,
+        2 as depth,
+        'aws_vpc_subnet' as category
+      from
+        aws_vpc_subnet
+      where
+        vpc_id in (select vpc_id from vpc)
+
+    EOQ
   }
-
-  category "aws_availability_zone" {
-    color = "tan"
-  }
-
-    category "aws_vpc_subnet" {
-    color = "green"
-  }
-
-  sql = <<-EOQ
-
-    with vpc as
-      (select 'vpc-9d7ae1e7' as vpc_id)
-
-    select
-      null as from_id,
-      vpc_id as id,
-      vpc_id as title,
-      0 as depth,
-      'aws_vpc' as category
-    from
-      aws_vpc
-    where
-      vpc_id in (select vpc_id from vpc)
-
-    union all
-    select
-      distinct on (availability_zone)
-      vpc_id as from_id,
-      availability_zone as id,
-      availability_zone as title,
-      1 as depth,
-      'aws_availability_zone' as category
-    from
-      aws_vpc_subnet
-    where
-      vpc_id in (select vpc_id from vpc)
-
-
-    union all
-    select
-      availability_zone as from_id,
-      subnet_id as id,
-      subnet_id as title,
-      2 as depth,
-      'aws_vpc_subnet' as category
-    from
-      aws_vpc_subnet
-    where
-      vpc_id in (select vpc_id from vpc)
-
-  EOQ
 }
-
 ```
 
 ### Sankey with node / edge data format, color by category, depth
 
-<img src="/images/docs/reference_examples/sankey_user_to_policies_ex.png" width="100%" />
+<img src="/images/docs/reference_examples/flow_sankey_ex_2.png" width="100%" />
 
 
 ```hcl
 
-flow {
-  type  = "sankey"
-  title = "AWS IAM Managed Policies for User"
-  width = 6
+dashboard "flow_sankey_ex_2" {
+  flow {
+    type  = "sankey"
+    title = "AWS IAM Managed Policies for User"
 
-  category "direct" {
-    color = "alert"
+    category "direct" {
+      color = "alert"
+    }
+
+    category "indirect" {
+      color = "ok"
+    }
+
+    sql = <<-EOQ
+      with user_list as
+        (select 'arn:aws:iam::111111111111:user/jsmyth' as arn)
+
+      -- User Nodes
+      select
+        arn as id,
+        name as title,
+        0 as depth,
+        'user' as category,
+        null as from_id,
+        null as to_id
+      from
+        aws_iam_user
+      where
+        arn in (select arn from user_list)
+
+      -- Group Nodes
+      union select
+        g ->> 'Arn' as id,
+        g ->> 'GroupName' as title,
+        1 as depth,
+        'group' as category,
+        null as from_id,
+        null as to_id
+      from
+        aws_iam_user,
+        jsonb_array_elements(groups) as g
+      where
+        arn in (select arn from user_list)
+
+
+      -- Policy Nodes (attached to groups)
+      union select
+        p.arn as id,
+        p.name as title,
+        2 as depth,
+        'policy' as category,
+        null as from_id,
+        null as to_id
+      from
+        aws_iam_user as u,
+        jsonb_array_elements(groups) as g,
+        aws_iam_group as grp,
+        jsonb_array_elements_text(grp.attached_policy_arns) as pol_arn,
+        aws_iam_policy as p
+      where
+        g ->> 'Arn' = grp.arn
+        and pol_arn = p.arn
+        and u.arn in (select arn from user_list)
+
+
+      -- Policy Nodes (attached to user)
+      union select
+        p.arn as id,
+        p.name as title,
+        2 as depth,
+        'policy' as category,
+        null as from_id,
+        null as to_id
+      from
+        aws_iam_user as u,
+        jsonb_array_elements_text(attached_policy_arns) as pol_arn,
+        aws_iam_policy as p
+      where
+        pol_arn = p.arn
+        and u.arn in (select arn from user_list)
+
+      -- User-> Group Edge
+      union select
+        null as id,
+        null as title,
+        null as depth,
+        'indirect' as category,
+        arn as from_id,
+        g ->> 'Arn' as to_id
+      from
+        aws_iam_user,
+        jsonb_array_elements(groups) as g
+      where
+        arn in (select arn from user_list)
+
+      -- User -> Policy Edge
+      union select
+        null as id,
+        null as title,
+        null as depth,
+        'direct' as category,
+        arn as from_id,
+        pol_arn
+      from
+        aws_iam_user,
+        jsonb_array_elements_text(attached_policy_arns) as pol_arn
+      where
+        arn in (select arn from user_list)
+
+
+    -- Group -> Policy Edge
+      union select
+        null as id,
+        null as title,
+        null as depth,
+        'indirect' as category,
+        grp.arn as from_id,
+        pol_arn
+      from
+        aws_iam_user as u,
+        jsonb_array_elements(groups) as g,
+        aws_iam_group as grp,
+        jsonb_array_elements_text(grp.attached_policy_arns) as pol_arn,
+        aws_iam_policy as p
+      where
+        g ->> 'Arn' = grp.arn
+        and pol_arn = p.arn
+        and u.arn in (select arn from user_list)
+
+    EOQ
   }
-
-  category "indirect" {
-    color = "ok"
-  }
-
-  sql = <<-EOQ
-    with user_list as
-      (select 'arn:aws:iam::111111111111:user/jsmyth' as arn)
-
-    -- User Nodes
-    select
-      arn as id,
-      name as title,
-      0 as depth,
-      'user' as category,
-      null as from_id,
-      null as to_id
-    from
-      aws_iam_user
-    where
-      arn in (select arn from user_list)
-
-    -- Group Nodes
-    union select
-      g ->> 'Arn' as id,
-      g ->> 'GroupName' as title,
-      1 as depth,
-      'group' as category,
-      null as from_id,
-      null as to_id
-    from
-      aws_iam_user,
-      jsonb_array_elements(groups) as g
-    where
-      arn in (select arn from user_list)
-
-
-    -- Policy Nodes (attached to groups)
-    union select
-      p.arn as id,
-      p.name as title,
-      2 as depth,
-      'policy' as category,
-      null as from_id,
-      null as to_id
-    from
-      aws_iam_user as u,
-      jsonb_array_elements(groups) as g,
-      aws_iam_group as grp,
-      jsonb_array_elements_text(grp.attached_policy_arns) as pol_arn,
-      aws_iam_policy as p
-    where
-      g ->> 'Arn' = grp.arn
-      and pol_arn = p.arn
-      and u.arn in (select arn from user_list)
-
-
-    -- Policy Nodes (attached to user)
-    union select
-      p.arn as id,
-      p.name as title,
-      2 as depth,
-      'policy' as category,
-      null as from_id,
-      null as to_id
-    from
-      aws_iam_user as u,
-      jsonb_array_elements_text(attached_policy_arns) as pol_arn,
-      aws_iam_policy as p
-    where
-      pol_arn = p.arn
-      and u.arn in (select arn from user_list)
-
-    -- User-> Group Edge
-    union select
-      null as id,
-      null as title,
-      null as depth,
-      'indirect' as category,
-      arn as from_id,
-      g ->> 'Arn' as to_id
-    from
-      aws_iam_user,
-      jsonb_array_elements(groups) as g
-    where
-      arn in (select arn from user_list)
-
-    -- User -> Policy Edge
-    union select
-      null as id,
-      null as title,
-      null as depth,
-      'direct' as category,
-      arn as from_id,
-      pol_arn
-    from
-      aws_iam_user,
-      jsonb_array_elements_text(attached_policy_arns) as pol_arn
-    where
-      arn in (select arn from user_list)
-
-
-  -- Group -> Policy Edge
-    union select
-      null as id,
-      null as title,
-      null as depth,
-      'indirect' as category,
-      grp.arn as from_id,
-      pol_arn
-    from
-      aws_iam_user as u,
-      jsonb_array_elements(groups) as g,
-      aws_iam_group as grp,
-      jsonb_array_elements_text(grp.attached_policy_arns) as pol_arn,
-      aws_iam_policy as p
-    where
-      g ->> 'Arn' = grp.arn
-      and pol_arn = p.arn
-      and u.arn in (select arn from user_list)
-
-  EOQ
 }
 ```

@@ -7,14 +7,14 @@ sidebar_label: graph
 
 A graph is a dashboard component that allows you to visualize the relationships between different resources and understand how they are connected.
 
-Graphs can be declared as a block inside a dashboard or container. The data to be displayed in the graph is specified using a series of nodes and edges. The nodes  define the vertices of the graph, and the edges define the connections between them.
+Graphs can be declared as a block inside a dashboard or container. The data to be displayed in the graph is specified using a series of nodes and edges. The nodes define the vertices of the graph, and the edges define the connections between them.
 
 ## Example Usage
 
-<img src="/images/docs/reference_examples/graph_ex_1.png" width="100%" />
+<img src="/images/docs/reference_examples/graph_ex1.png" width="100%" />
 
 ```hcl
-dashboard "tables" {
+dashboard "graph_ex1" {
 
   graph {
     title = "Schemas & Tables"
@@ -94,7 +94,7 @@ dashboard "tables" {
 
 category "catalog" {
   title = "catalog"
-  icon  = "library-books"
+  icon  = "library_books"
   color = "orange"
 }
 
