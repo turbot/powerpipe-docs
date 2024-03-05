@@ -10,14 +10,14 @@ sidebar_label: Powerpipe CLI
 | Command | Description
 |-|-
 | [powerpipe help](reference/cli/help)      | Help about any command.
-| [powerpipe login](reference/cli/login)    | Log in to Powerpipe CLoud
+| [powerpipe login](reference/cli/login)    | Log in to Turbot Pipes.
 | [powerpipe mod](reference/cli/mod)        | Powerpipe mod management.
 | [powerpipe benchmark](reference/cli/benchmark) | List, view, and run Powerpipe benchmarks.
 | [powerpipe control](reference/cli/control)| List and view Powerpipe controls.
 | [powerpipe dashboard](reference/cli/dashboard) | List and view Powerpipe dashboards.
 | [powerpipe query](reference/cli/query)    | List and view Powerpipe queries.
 | [powerpipe server](reference/cli/server)  | Run Powerpipe server, including triggers and integrations.
-| [powerpipe variable](reference/cli/variable)| Powerpipe variable management
+| [powerpipe variable](reference/cli/variable)| List and view Powerpipe variables.
 
 
 

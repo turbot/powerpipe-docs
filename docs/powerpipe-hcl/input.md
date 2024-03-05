@@ -67,11 +67,11 @@ input "vpc_id" {
 
 ### option
 
-Add static options to an input.  Applies to `select` and `multiselect`.  The block name is the value.  If a `label` is not specified, the value will be used as the label. 
+Add static options to a `select` or `multiselect` input.  The block name is the value.  If a `label` is not specified, the value will be used as the label. 
 
 | Property | Type     | Default |  Description |
 | -------- | ---------| ------- |  ----------- |
-| `label`  | String   |  If not specified, the value will be used as the label      |     the display label for this option         |
+| `label`  | String   |  If not specified, the value will be used as the label      |     The display label for this option         |
 
 
 

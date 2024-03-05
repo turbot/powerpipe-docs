@@ -7,7 +7,7 @@ sidebar_label: edge
 
 The `edge` block represents a connection between 2 nodes (vertices) in a `graph`, `hierarchy` or `flow`.  
 
-Anonymous `edge` blocks can be declared inside a `graph`, `hierarchy` or `flow`.  They may also may be declared as named resources at the top level of a mod and referenced via `base` from other edges in a `graph`, `hierarchy` or `flow`.
+Anonymous `edge` blocks can be declared inside a `graph`, `hierarchy` or `flow`.  They may also be declared as named resources at the top level of a mod and referenced via `base` from other edges in a `graph`, `hierarchy` or `flow`.
 
 
 ## Example Usage

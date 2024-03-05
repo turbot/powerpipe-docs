@@ -5,9 +5,9 @@ sidebar_label: image
 
 # image
 
-Display images in dashboard, either from a known publicly-accessible `src` URL, or from a `src` returned in a SQL query.
+Display images in a dashboard, either from a known, publicly accessible `src` URL or from a `src` returned in a SQL query.
 
-Image blocks can be declared as named resources at the top level of a mod, or be declared as anonymous blocks inside a `dashboard` or `container`, or be re-used inside a `dashboard` or `container` by using an `image` with `base = <mod>.image.<image_resource_name>`.
+Image blocks can be declared as named resources at the top level of a mod, or they can be declared as anonymous blocks inside a `dashboard` or `container`, or be re-used inside a `dashboard` or `container` by using an `image` with `base = <mod>.image.<image_resource_name>`.
 
 
 ## Example Usage

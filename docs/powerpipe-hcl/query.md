@@ -6,7 +6,7 @@ sidebar_label: query
 # query
 Queries define common SQL statements that may be used alone, or referenced in other blocks like controls and charts.
 
-Note that a Powerpipe `query` is NOT a database resource. It does not create a view, stored procedure, etc.  `query` blocks are interpreted by and executed by Powerpipe, and are only available from Powerpipe, not from 3rd party tools.
+Note that a Powerpipe `query` is NOT a database resource. It does not create a view, stored procedure, etc. `query` blocks are interpreted by and executed by Powerpipe, and are only available from Powerpipe, not from 3rd party tools.
 
 ## Example Usage
 
@@ -17,7 +17,7 @@ query "plus_size_instances" {
 }
 ```
 
-You can run a query by its name with the  `powerpipe query run` command:
+You can run a query by its name with the `powerpipe query run` command:
 ```bash 
 $ powerpipe query run plus_size_instances
 ```
@@ -88,7 +88,8 @@ query "my_query" {
 
 
 #### SQLite
-The SQLite `database` connection string s the path to a SQLite database file:
+The SQLite `database` connection string is the path to a SQLite database file:
+
 ```bash
 sqlite:path/to/file
 ```
@@ -180,8 +181,8 @@ query "old_access_keys" {
 
 # Query-based Resources
 
-There are many Powerpipe mod elements that execute a query, including `control` and most dashboard visualization elements (`card`,`chart`, `node`, `edge`, `graphs` etc). These resources essentially implement the same interface:
-  - They have a `sql` argument for specifying a SQL string to execute
+There are many Powerpipe mod elements that execute a query, including `control` and most dashboard visualization elements (`card`, `chart`, `node`, `edge`, `graphs` etc). These resources essentially implement the same interface:
+  - They have an `sql` argument for specifying an SQL string to execute
   - They have a `query` argument for referencing a `query` to execute
   - They require the user to set either `sql` or `query`, but both may not be specified.
   - They have an optional `param` argument to specify parameters that the `sql` accepts
@@ -256,7 +257,7 @@ card "bucket_count_for_region" {
 }
 ```
 
-***You can only specify `param` blocks for resources that are defined as top-level named resources in your mod.***  It would not make sense to specify a `param` block for an anonymous resource that is defined in dashboard, since you cannot reference it anyway.
+***You can only specify `param` blocks for resources that are defined as top-level named resources in your mod.***  It would not make sense to specify a `param` block for an anonymous resource that is defined in a dashboard since you cannot reference it anyway.
 
 The `args` argument is used to pass values to a query at run time.  If the `query` resource has parameters defined, then the `args` argument is used to pass values to the query:
 
@@ -324,7 +325,7 @@ card "bucket_count_for_region" {
 }
 ```
 
-While `param` blocks are ***recommended*** when SQL statements define parameters, they are not required -- you wont be able to pass arguments by name, but you can still pass them positionally using the array format of the `args` argument:
+While `param` blocks are ***recommended*** when SQL statements define parameters, they are not required -- you won't be able to pass arguments by name, but you can still pass them positionally using the array format of the `args` argument:
 
 ```hcl
 dashboard "s3_dashboard" {

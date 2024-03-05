@@ -82,7 +82,7 @@ A mod may contain a `require` block to specify version dependencies for the Powe
 
 
 ##### powerpipe
-A mod may specify a dependency on the Powerpipe CLI.  Powerpipe will evaluate the dependency when the mod is loaded, and will error if the constraint is not met, but it will not install or upgrade the CLI.  A `powerpipe` constraint specifies a *minimum version*, and does not support semver syntax:
+A mod may specify a dependency on the Powerpipe CLI.  Powerpipe will evaluate the dependency when the mod is loaded and will error if the constraint is not met, but it will not install or upgrade the CLI.  A `powerpipe` constraint specifies a *minimum version*, and does not support semver syntax:
 ```hcl
 require {
   powerpipe {
@@ -92,7 +92,7 @@ require {
 ```
 
 ##### plugin
-A mod may specify a dependency on one or more Steampipe plugins.  Powerpipe will evaluate the dependency when the mod is loaded, and will error if the constraint is not met, but it will not install or upgrade the plugin. A `plugin` constraint specifies a *minimum version*, and does not support semver syntax:
+A mod may specify a dependency on one or more Steampipe plugins.  Powerpipe will evaluate the dependency when the mod is loaded and will error if the constraint is not met, but it will not install or upgrade the plugin. A `plugin` constraint specifies a *minimum version*, and does not support semver syntax:
 ```hcl
 require {
   plugin "aws" {
@@ -118,7 +118,7 @@ require {
 }
 ```
 
-You may pass `args` to set variables defined in the dependency mods.  You can pass hard-coded values (literals), however it is more common to define variables in your mod that encapsulate the variables  and optionality of your dependencies:
+You may pass `args` to set variables defined in the dependency mods.  You can pass hard-coded values (literals), but it is more common to define variables in your mod that encapsulate the variables  and optionality of your dependencies:
 
 
 ```hcl

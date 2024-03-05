@@ -126,7 +126,7 @@ powerpipe benchmark run aws_compliance.benchmark.cis_v300
 
 The benchmark will run, reporting progress as it executes.  When it is complete, you will see the results printed to the console.  
 
-![](/images/docs/learn/benchmark_run.png)
+![](/images/docs/learn/benchmark_run.webp)
 
 
 

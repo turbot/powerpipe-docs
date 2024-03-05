@@ -9,9 +9,9 @@ A dashboard is designed to be used by consumers of your mod to answer specific q
 
 You can browse and view dashboards from the Powerpipe server dashboard UI; run `powerpipe server` and open http://localhost:9033 in your web browser.
 
-Dashboards can be declared as named resources at the top-level of a mod, or be nested inside another `dashboard` or `container` by using a named `dashboard` with `base = <mod>.dashboard.<dashboard_resource_name>`.
+Dashboards can be declared as named resources at the top level of a mod, or be nested inside another `dashboard` or `container` by using a named `dashboard` with `base = <mod>.dashboard.<dashboard_resource_name>`.
 
-For layout, a dashboard consists of 12 grid units, where items inside it will consume the full 12 grid units, unless they specify an explicit [width](#width).
+For layout, a dashboard consists of 12 grid units, where items inside it will consume the full 12 grid units unless they specify an explicit [width](#width).
 
 
 ## Example Usage
@@ -123,7 +123,7 @@ dashboard "compose_other" {
 
 ### title
 
-Optional `title` for an item. Provided as plain text, but will be rendered as `text` with a `type` of `markdown` using h1 (for `dashboard`), h2 (for `container`) or h3 (for any leaf nodes e.g. `chart`). This `text` block and the item it is titling will be wrapped by a `container`.
+Optional `title` for an item. Provided as plain text, but will be rendered as `text` with a `type` of `markdown` using h1 (for `dashboard`), h2 (for `container`) or h3 (for any leaf nodes e.g. `chart`). This `text` block and the item it is titling will be wrapped in a `container`.
 
 E.g. a `container` that defines a title:
 
@@ -237,7 +237,7 @@ dashboard "width_example" {
 }
 ```
 
-In this example we have a card with a width of 2. As specified in the table above, it will consume either 12, 3 or 2 grid units according to the viewport size:
+In this example, we have a card with a width of 2. As specified in the table above, it will consume either 12, 3 or 2 grid units according to the viewport size:
 
 ```hcl
 dashboard "width_example" {
@@ -252,7 +252,7 @@ As a dashboard component always consumes the grid units of its parent, consider 
 
 On mobiles each container will consume 12 grid units, with each card inside it also consuming 12 grid units of its parent (its respective parent container), meaning you effectively have 2 full-width cards, 1 below the other.
 
-On tablets and desktop each container will consume 6 grid units, with each card inside it also consuming 6 grid units of its parent (its respective parent container), meaning you have 4 cards side-by-side on the page.
+On tablets and desktops, each container will consume 6 grid units, with each card inside also consuming 6 grid units of its parent (its respective parent container), meaning you have 4 cards side-by-side on the page.
 
 ```hcl
 dashboard "width_example" {
@@ -301,10 +301,10 @@ Many dashboard elements contain a `color` argument.  The color arguments support
 ### icon
 
 Many dashboard elements contain an `icon` argument.  The icon arguments support a standard set of functionality and options, and may be:
-- A google [material symbols icon](https://fonts.google.com/icons).  If no prefix is specified, the icon will be chosen from google material symbols.  For example, `icon = "verified-user"` will use the `verified_user` icon from google material symbols.
+- A Google [material symbols icon](https://fonts.google.com/icons).  If no prefix is specified, the icon will be chosen from Google material symbols.  For example, `icon = "verified-user"` will use the `verified_user` icon from Google material symbols.
 - A [heroicons](https://heroicons.com/) icon. To use heroicons, prefix the icon name with `heroicons-outline:` or `heroicons-solid:`. For example, `icon = "heroicons-outline:shield-check"` will use the `shield-check` icon from heroicons outline. 
-- A custom icon.  To use a custom icon, specify the icon URL, for example `icon = "https://powerpipe.io/images/powerpipe-logo.png"`.
-- Text.  To use text as an icon, prefix the icon with `text:`, for example `icon = "text:OK"` will display the text "OK" in place of an icon.  Any unicode characters may appear, so you can even use `icon = "text:👍"`.
+- A custom icon.  To use a custom icon, specify the icon URL (for example `icon = "https://powerpipe.io/images/powerpipe-logo.png"`).
+- Text.  To use text as an icon, prefix the icon with `text`.  For example `icon = "text:OK"` will display the text "OK" in place of an icon.  Any Unicode characters may appear, so you can even use `icon = "text:👍"`.
 
 
 ### jq Templates
@@ -448,7 +448,7 @@ Will give:
 Raw string \u1F916 and JSON string 🤖
 ```
 
-Notice that the raw string is printed exactly as given, while the jq string gets interpreted as a JSON string, converting the `\u1F916` into its unicode character. The same effect will happen for newlines (`\n`) and any other JSON escape sequences.
+Notice that the raw string is printed exactly as given, while the jq string gets interpreted as a JSON string, converting the `\u1F916` into its Unicode character. The same effect will happen for newlines (`\n`) and any other JSON escape sequences.
 
 Of course, before we get lost in complex cases, if you want the actual robot face you can just use it directly at any point:
 
@@ -463,7 +463,7 @@ template = "Raw string \\u1F916 {{ 'and JSON string \\u1F916' }}"
 ```
 
 ##### Escaping Single Quotes
-Since Powerpipe converts single quotes in the interpolated section into double quotes, it's a little tricky to include a true single quote character in the interpolation. 
+Since Powerpipe converts single quotes in the interpolated section into double quotes, it's a little tricky to include a true single-quote character in the interpolation. 
 
 Consider this example:
 

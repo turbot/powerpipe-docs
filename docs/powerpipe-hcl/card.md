@@ -5,7 +5,7 @@ sidebar_label: card
 
 # card
 
-A card is used to show a value to the user, or some change in value. A card can also present itself in different types.  You can even dynamically style the card.  For example, you may show the count of public S3 buckets and if the value is greater than 0, display an `alert` type card, otherwise show `ok` type card.
+A card is used to show a value to the user, or some change in value. A card can also present itself in different types.  You can even dynamically style the card.  For example, you may show the count of public S3 buckets and if the value is greater than 0, display an `alert` type card, otherwise show an `ok` type card.
 
 Cards can be declared as named resources at the top level of a mod, or they can be declared as anonymous blocks inside a `dashboard` or `container`, or be re-used inside a `dashboard` or `container` by using a `card` with `base = <mod>.card.<card_resource_name>`.
 
@@ -57,7 +57,7 @@ card {
 A card supports 2 data structures.
 
 1. A simple structure where column 1's name is the card `label` and column 1's value is the card `value`.
-2. A formal data structure where the column names map to properties of the `card`.
+2. A formal data structure where the column names map to the properties of the `card`.
 
 Simple data structure:
 
@@ -82,7 +82,7 @@ Formal data structure:
 #### JQ Templates
 The `href` argument allows you to specify a [jq](https://stedolan.github.io/jq/) template to dynamically generate a hyperlink from the data in the row. To use a jq template, enclose the jq in double curly braces (`{{ }}`).  
 
-Powerpipe will pass the first row of data to jq in the same format that is returned by [powerpipe query json mode output](/docs/reference/cli/query#powerpipe-query-run), where the keys are the column names and the values are the data for that row. 
+Powerpipe will pass the first row of data to jq in the same format that is returned by [powerpipe query JSON mode output](/docs/reference/cli/query#powerpipe-query-run), where the keys are the column names and the values are the data for that row. 
 
 For example, this query:
 ```sql
@@ -132,10 +132,10 @@ card {
 }
 ```
 
-Note that for a `card`, we pass `label` , `value` , `type`  or `icon` HCL attributes in the JQ context, but the columns from the SQL query will overwrite any of the statically-defined HCL attributes.
+Note that for a `card`, we pass `label`, `value`, `type` or `icon` HCL attributes in the JQ context, but the columns from the SQL query will overwrite any of the statically-defined HCL attributes.
 
 
-Refer to [JQ Escaping & Interpolation ](/docs/powerpipe-hcl/dashboard#jq-escaping--interpolation) for more advanced examples.
+Refer to [JQ Escaping & Interpolation](/docs/powerpipe-hcl/dashboard#jq-escaping--interpolation) for more advanced examples.
 
 
 ## More Examples

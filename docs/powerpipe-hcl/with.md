@@ -9,7 +9,7 @@ Some resources may also include `with` blocks. Similar to a `with` clause in a P
 
 `with` is not a top-level named resource in its own right - it is ONLY a block within other resources.
 
-You can only specify `with` blocks on `dashboard`, `graph`, `hierarchy`, and `flow`, and only when the they are defined as **top-level named resources** in your mod. The results of the `with` query can be referenced only within the resource in which it is defined (including any sub-blocks).
+You can only specify `with` blocks on `dashboard`, `graph`, `hierarchy`, and `flow`, and only when they are defined as **top-level named resources** in your mod. The results of the `with` query can be referenced only within the resource in which it is defined (including any sub-blocks).
 
 ## Example Usage
 ```hcl
@@ -126,15 +126,15 @@ with "stuff1" {
 with.stuff1.rows[0].a
 ```
 
-If you [splat](https://developer.hashicorp.com/terraform/language/expressions/splat) the row, then you can get an array of a single column from all rows.  This would be passed to sql as an array:
+If you [splat](https://developer.hashicorp.com/terraform/language/expressions/splat) the row, then you can get an array of a single column from all rows.  This would be passed to SQL as an array:
 ```h
 with.stuff1.rows[*].a
 ```
 - if `a` is a scalar value, then `with.stuff1.rows[*].a` is an array of scalar values
-- if `a` is an array or jsonb array, then `with.stuff1.rows[*].a` is an array of arrays.  
+- if `a` is an array or JSONB array, then `with.stuff1.rows[*].a` is an array of arrays.  
 
 At this time, you cannot pass an entire set (`with.<name>.rows`) to a query - you may pass either a single value (`with.<name>.rows[0].column`) or an array from a single column (`with.<name>.rows[*].column`).
 <!--
-  - You can subsequently flatten it with the hcl `flatten` function if desired: `flatten(with.stuff1.rows[*].a)`
-  - duplicates values are not automatically removed from the array, but you can remove them with the hcl `distinct` function if desired:: `distinct(flatten(with.stuff1.rows[*].a))`
+  - You can subsequently flatten it with the HCL `flatten` function if desired: `flatten(with.stuff1.rows[*].a)`
+  - duplicates values are not automatically removed from the array, but you can remove them with the HCL `distinct` function if desired:: `distinct(flatten(with.stuff1.rows[*].a))`
 -->

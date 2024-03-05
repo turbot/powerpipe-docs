@@ -47,7 +47,7 @@ powerpipe benchmark run all
 
 The console will show progress as it runs, and will print the results to the screen when it is complete:
 
-![](/images/docs/learn/benchmark_run.png)
+![](/images/docs/learn/benchmark_run.webp)
 
 
 You can find controls and benchmarks in the  [Powerpipe Hub](https://hub.powerpipe.io), or by searching [Github](https://github.com/topics/powerpipe-mod) directly.  

@@ -7,7 +7,7 @@ sidebar_label: table
 
 A table displays query results in a dashboard.
 
-Table blocks can be declared as named resources at the top level of a mod, or be declared as anonymous blocks inside a `dashboard` or `container`, or be re-used inside a `dashboard` or `container` by using a `table` with `base = <mod>.table.<table_resource_name>`.
+Table blocks can be declared as named resources at the top level of a mod, or they can be declared as anonymous blocks inside a `dashboard` or `container`, or be re-used inside a `dashboard` or `container` by using a `table` with `base = <mod>.table.<table_resource_name>`.
 
 
 ## Example Usage
@@ -108,7 +108,7 @@ table {
 }
 ```
 
-Refer to [JQ Escaping & Interpolation ](/docs/powerpipe-hcl/dashboard#jq-escaping--interpolation) for more advanced examples.
+Refer to [JQ [Escaping & Interpolation](/docs/powerpipe-hcl/dashboard#jq-escaping--interpolation) for more advanced examples.
 ## More Examples
 
 
