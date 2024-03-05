@@ -23,53 +23,40 @@ To get started, you will need to install Powerpipe, Steampipe, and the AWS plugi
 Powerpipe [does not require Steampipe](/docs/run#selecting-a-database); it can work with any PostgreSQL, MySQL, SQLite, or DuckDB database. [Mods](/docs/build) are written for a specific SQL syntax and database schema, however, and the examples in this article require a Steampipe database with the AWS plugin.  
 
 
-### Install Powerpipe
-First, [install Powerpipe](https://powerpipe.io/downloads).  For MacOS, you can install it via [Homebrew](https://brew.sh/):
+First, install [Powerpipe](https://powerpipe.io/downloads).  
 
-```bash
+```bash+macos
 brew install turbot/tap/powerpipe
 ```
 
-Linux users (including Windows WSL 2.0 users) can run the `powerpipe.sh` installation script:
-
-```bash
+```bash+linux 
 sudo /bin/sh -c "$(curl -fsSL https://powerpipe.io/install/powerpipe.sh)"
 ```
 
-### Install & configure Steampipe
+Next, install [Steampipe](https://steampipe.io/downloads). 
 
-
-Now [download and install Steampipe](https://steampipe.io/downloads).  For MacOS, you can install it via [Homebrew](https://brew.sh/):
-
-```bash
+```bash+macos
 brew install turbot/tap/steampipe
 ```
 
-Linux users (including Windows WSL 2.0 users) can run the `steampipe.sh` installation script:
-
-```bash
+```bash+linux
 sudo /bin/sh -c "$(curl -fsSL https://steampipe.io/install/steampipe.sh)"
 ```
 
+Now that Steampipe is installed, install & configure the [AWS plugin for Steampipe](https://hub.steampipe.io/plugins/turbot/aws)
 
-### Install & configure the AWS plugin for Steampipe
+```bash
+steampipe plugin install aws
+```
 
-Now that Steampipe is installed, install the [AWS plugin for Steampipe](https://hub.steampipe.io/plugins/turbot/aws):
-
-  ```bash
-  steampipe plugin install aws
-  ```
-
-Out of the box, Steampipe will use the default AWS credentials from your credential file and/or environment variables, so you'll need to make sure those are set up as well. If you can run `aws ec2 describe-vpcs`, for example, then you should be able to run the examples. The AWS plugin documentation provides additional examples to [configure your credentials](https://hub.steampipe.io/plugins/turbot/aws#configuring-aws-credentials), and you can even configure Steampipe to query [multiple accounts](https://steampipe.io/docs#:~:text=steampipe%20to%20query-,multiple%20accounts,-and%20multiple%20regions) and [multiple regions](https://steampipe.io/docs#:~:text=multiple%20accounts%20and-,multiple%20regions).
+Out of the box, Steampipe will use the default AWS credentials from your credential file and/or environment variables; if you can run `aws ec2 describe-vpcs`, for example, then you should be able to run the examples. The AWS plugin documentation provides additional examples to [configure your credentials](https://hub.steampipe.io/plugins/turbot/aws#configuring-aws-credentials), and you can even configure Steampipe to query [multiple accounts](https://steampipe.io/docs#:~:text=steampipe%20to%20query-,multiple%20accounts,-and%20multiple%20regions) and [multiple regions](https://steampipe.io/docs#:~:text=multiple%20accounts%20and-,multiple%20regions).
 
 
-### Start the Steampipe service
+Start the [Steampipe service](https://steampipe.io/docs/managing/service).  The Steampipe database needs to be running for Powerpipe to connect to it:
 
-The Steampipe database needs to be running in order for Powerpipe to connect to it.  Start the Steampipe service: 
-
-  ```bash
-  steampipe service start
-  ```
+```bash
+steampipe service start
+```
 
 At this point, Steampipe should be up and running.  You can confirm by running an ad-hoc query from Powerpipe:
 
