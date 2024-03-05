@@ -40,20 +40,18 @@ powerpipe login
 
 The `powerpipe login` command will launch your web browser to continue the login process. Verify the request.
 
+![](/images/docs/powerpipe-login/powerpipe-login-1.png)
 
 
-<img src="/images/docs/powerpipe-login/powerpipe-login-1.png" width="100%" />
+After you have verified the request, the browser will display a verification code. 
 
-
-
-After you have verified the request, the browser will display a verification code.   
-<img src="/images/docs/powerpipe-login/powerpipe-login-2.png" width="100%" />
+![](/images/docs/powerpipe-login/powerpipe-login-2.png)
 
 Paste the code into the CLI and hit enter to complete the login process:
 
 ```bash
 $ powerpipe login
 Verify login at https://pipes.turbot.com/login/token?r=tpttr_cdckfake6ap10t9dak0g_3u2k9hfake46g4o4wym7h8hw
-Enter verification code: 745278
+Enter verification code: 745279
 Login successful for user johnsmyth
 ```
