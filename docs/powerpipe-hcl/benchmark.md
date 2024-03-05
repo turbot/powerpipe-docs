@@ -10,7 +10,7 @@ The benchmark block provides a mechanism for grouping controls into control benc
 
 A `benchmark` may specify `control` or `benchmark` resources as children, enabling you to create flexible hierarchies of any depth.  By default, controls will be grouped with aggregated totals at each benchmark. 
 
-You can run benchmarks or refer to them with hcl syntax as `{mod}.benchmark.{name}`.  The name must be unique in the namespace (mod). Typically, controls and benchmarks in a given benchmark should be named in a way that mimics the hierarchy in order to provide an easy to follow structure.  This is a convention that should be followed, but not a strict requirement.  
+You can run benchmarks or refer to them with HCL syntax as `{mod}.benchmark.{name}`.  The name must be unique in the namespace (mod). Typically, controls and benchmarks in a given benchmark should be named in a way that mimics the hierarchy in order to provide an easy-to-follow structure.  This is a convention that should be followed, but not a strict requirement.  
 
 
 You can [run controls and benchmarks](/docs/run/benchmark) with the [powerpipe benchmark run](/docs/reference/cli/benchmark#powerpipe-benchmark-run) and [powerpipe control run](/docs/reference/cli/control#powerpipe-control-run) commands.
@@ -84,42 +84,8 @@ control "cisv130_1_4" {
 ## Argument Reference
 | Argument |Type | Required? | Description
 |-|-|-|-
-| `base` |  Benchmark Reference		| Optional | A reference to a named `benchmark` that this `benchmark` should source its definition from. Typically, `base` is used  embed an existing benchmark in a dashboard.
 | `children` | List |  Optional| An ordered list of `control` and/or `benchmark` references that are members (direct descendants) of the benchmark.
 | `description` | String |  Optional| A description of the benchmark
 | `documentation` | String (Markdown)| Optional | A markdown string containing a long form description, used as documentation for the mod on hub.powerpipe.io. 
 | `tags` | Map | Optional | A map of key:value metadata for the benchmark, used to categorize, search, and filter.  The structure is up to the mod author and varies by benchmark and provider. 
 | `title` | String | Optional | A display title for the benchmark
-| `type` |  String	| Optional | When running in the `powerpipe server` dashboard UI, the type of the benchmark view.  Can be `benchmark` (the default) or `table`.
-
-
-## More Examples
-### Embedding an existing benchmark in a dashboard
-
-<img src="/images/docs/reference_examples/benchmark_dashboard_view_ex_closed.png" />
-
-<br />
-
-```hcl
-dashboard "my_dashboard" {
-  benchmark {
-    base = aws_compliance.benchmark.cis_v140_2_1
-  }
-}
-```
-
-
-### Embedding a table view of a benchmark in a dashboard
-
-<img src="/images/docs/reference_examples/benchmark_dashboard_table_view.png" />
-
-<br />
-
-```hcl
-dashboard "my_dashboard" {
-  benchmark {
-    base = aws_compliance.benchmark.cis_v140_2_1
-    type = "table"
-  }
-}
-```
