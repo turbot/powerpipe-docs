@@ -17,7 +17,7 @@ Click the expand button to enter the panel view.
 
 ## Preview
 
-The **Preview** pane displays the element in an enlarged view, allowing you to inspect detail that may be difficult to discern in the dashboard view.
+The **Preview** pane displays the element in an enlarged view, allowing you to inspect details that may be difficult to discern in the dashboard view.
 
 ![](/images/docs/cost_chart_preview.png)
 

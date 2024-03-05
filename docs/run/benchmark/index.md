@@ -16,7 +16,7 @@ Powerpipe benchmarks automatically appear as [dashboards](/docs/run/dashboard) w
 As with any dashboard, you can [change the search path](/docs/run/dashboard/search-path), [take a snapshot](/docs/run/snapshots/interactive-snapshots) once the benchmark is complete, see details in the [panel view](/docs/run/dashboard#panel-view), and [download the results](/docs/run/dashboard/download) in a CSV file!
 <br />
 
-You can also run controls and benchmarks in batch mode with the [powerpipe benchmark run](/docs/reference/cli/benchmark#powerpipe-benchmark-run) and [powerpipe control run](/docs/reference/cli/control#powerpipe-control-run)commands.  These commands provide options for selecting the controls to run, the output format, and other options you may need when using `powerpipe` in your scripts, pipelines, and other automation scenarios.  
+You can also run controls and benchmarks in batch mode with the [powerpipe benchmark run](/docs/reference/cli/benchmark#powerpipe-benchmark-run) and [powerpipe control run](/docs/reference/cli/control#powerpipe-control-run) commands.  These commands provide options for selecting the controls to run, the output format, and other options you may need when using `powerpipe` in your scripts, pipelines, and other automation scenarios.  
 
 Powerpipe commands must be run in the contest of a mod, and are relative to the current directory.  You can pass the mod directory with the `--mod-location` argument, but it's usually easier just to change to the mod directory:
 

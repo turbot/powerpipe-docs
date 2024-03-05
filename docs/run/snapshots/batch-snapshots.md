@@ -42,7 +42,7 @@ powerpipe query aws_compliance.query.vpc_network_acl_unused  --snapshot
 
 ## Sharing Snapshots
 
-The `--snapshot` flag will create a snapshot with `workspace` visibility in your user workspace. A snapshot with `workspace` visibility is visible only to users that have access to the workspace in which the snapshot resides -- A user must be authenticated to Turbot Pipes with permissions on the workspace.
+The `--snapshot` flag will create a snapshot with `workspace` visibility in your user workspace. A snapshot with `workspace` visibility is visible only to users who have access to the workspace in which the snapshot resides -- A user must be authenticated to Turbot Pipes with permissions on the workspace.
 
 If you want to create a snapshot that can be shared with *anyone*, use the `--share` flag instead. This will create the snapshot with `anyone_with_link` visibility:
 
@@ -131,7 +131,7 @@ powerpipe dashboard run aws_insights.dashboard.aws_account_report \
 
 ## Saving Snapshots to Local Files
 
-Turbot Pipes makes it easy to save and share your snapshots, however it is not strictly required;  You can save and view snapshots using only the CLI.  
+Turbot Pipes makes it easy to save and share your snapshots but it is not strictly required;  You can save and view snapshots using only the CLI.  
 
 You can specify a local path in the `--snapshot-location` argument or `POWERPIPE_SNAPSHOT_LOCATION` environment variable to save your snapshots to a directory in your filesystem:
 
@@ -160,7 +160,7 @@ To give the file a name, simply use `{filename}.pps`, for example:
 powerpipe dashboard run dashboard.aws_account_report --export account_report.pps
 ```
 
-Alternatively, you can write the powerpipe snapshot to stdout with `--output pps`
+Alternatively, you can write the Powerpipe snapshot to stdout with `--output pps`
 ```bash
 powerpipe query run "select * from aws_account" --output pps > mysnap.pps
 ```
@@ -186,7 +186,7 @@ powerpipe query run "select * from aws_account" \
   --progress=false  | jq
 ```
 
-You can use all the usual `--export` or `--output` formats with `--snapshot` and `--share`.  Neither the `--output` nor the `--export` flag affect the snapshot format though; the snapshot itself is always a json file that is saved to Turbot Pipes and viewable as html:
+You can use all the usual `--export` or `--output` formats with `--snapshot` and `--share`.  Neither the `--output` nor the `--`export` flag affects the snapshot format though; the snapshot itself is always a JSON file that is saved to Turbot Pipes and viewable as HTML:
 
 ```bash
 powerpipe benchmark run cis_v140 --snapshot --export cis.csv --export cis.json 
