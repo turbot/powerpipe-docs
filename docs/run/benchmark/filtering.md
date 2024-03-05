@@ -56,7 +56,7 @@ Unlike benchmarks, some controls may define parameters.  You can pass values for
 powerpipe control run my_control_with_params --arg my_simple_arg='this is a string' --arg my_list_arg='["item 1","item 2"]'
 ```
 
-If the parameters are unnamed, you can pass values for them by index:
+If the parameters are unnamed, you can pass values for them without specifying a name.  The args will be passed to the query in order - the first `--arg` as `$1`, the second as `$2`, etc.:
 ```bash
-powerpipe control run my_control_with_params --arg 1='this is a string' --arg 2='["item 1","item 2"]'
+powerpipe control run my_control_with_params --arg 'this is a string' --arg '["item 1","item 2"]'
 ```
