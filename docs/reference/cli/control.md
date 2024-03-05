@@ -116,7 +116,7 @@ Run a control from the current mod or its direct dependents.
 
 ### Output Formats
 
-`powerpipe control run` supports all of the [benchamrk output formats](/docs/reference/cli/benchmark#output-formats).
+`powerpipe control run` supports all of the [benchmark output formats](/docs/reference/cli/benchmark#output-formats).
 
 
 
@@ -127,7 +127,7 @@ Run a control
 powerpipe control run cis_v200_2_1_1
 ```
 
-Run a control against a pipes workspace:
+Run a control against a Turbot Pipes workspace:
 ```bash
 powerpipe control run cis_v200_2_1_1 --workspace acme/anvils
 ```
@@ -150,7 +150,7 @@ powerpipe control run cis_v200_2_1_1 --share
 ```
 
 
-Run a control and upload a snapshot with `anyone_with_link` visibility to specific workspace.
+Run a control and upload a snapshot with `anyone_with_link` visibility to a specific workspace.
 ```bash
 powerpipe control run cis_v200_2_1_1 --share  --snapshot-location vandelay-industries/latex
 ```

@@ -144,7 +144,7 @@ powerpipe dashboard run aws_insights.dashboard.aws_vpc_detail \
 ```
 
 
-Run a dashboard and upload a snapshot with `anyone_with_link` visibility to specific workspace.
+Run a dashboard and upload a snapshot with `anyone_with_link` visibility to a specific workspace.
 ```bash
 powerpipe dashboard run account_report --share  --snapshot-location vandelay-industries/latex 
 ```

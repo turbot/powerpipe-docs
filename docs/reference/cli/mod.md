@@ -47,7 +47,7 @@ Initialize a mod (create a `mod.pp`) in the current directory:
 powerpipe mod init
 ```
 
-Initialize a mod (create a `mod.pp`) in the another directory:
+Initialize a mod (create a `mod.pp`) in another directory:
 
 ```bash
 powerpipe mod init --mod-location ~/my_mod
@@ -60,7 +60,7 @@ Install one or more mods and their dependencies.
 
 ### Git URLs & Private Repos
 
-Powerpipe uses `git` to install and update mods. When you run `powerpipe mod install` or `powerpipe mod update`, Powerpipe will first try using `https` and if that does not work it will try `ssh`.  If your SSH keys are configured properly for `git`, you should be able to pull from private repos that you have access to, as well as public ones.
+Powerpipe uses `git` to install and update mods. When you run `powerpipe mod install` or `powerpipe mod update`, Powerpipe will first try using HTTPS and if that does not work it will try SSH.  If your SSH keys are configured properly for `git`, you should be able to pull from private repos that you have access to, as well as public ones.
 
 When publishing mods, you should usually only depend on public mods (hosted in public repos) so that users of your mod don't encounter permissions issues.
 

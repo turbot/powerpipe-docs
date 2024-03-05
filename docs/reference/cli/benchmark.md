@@ -179,7 +179,7 @@ powerpipe benchmark run cis_v120 --share
 ```
 
 
-Run a benchmark and upload a snapshot with `anyone_with_link` visibility to specific workspace.
+Run a benchmark and upload a snapshot with `anyone_with_link` visibility to a specific workspace.
 ```bash
 powerpipe benchmark run cis_v120 --share  --snapshot-location vandelay-industries/latex
 ```
