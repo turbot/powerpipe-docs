@@ -15,7 +15,7 @@ export PIPES_TOKEN=tpt_c6f5tmpe4mv9appio5rg_3jz0a8fakekeyf8ng72qr646
 export POWERPIPE_DATABASE=acme/prod
 ```
 
-Use a remote postgres database via connection string:
+Use a remote PostgreSQL database via connection string:
 ```bash
 export POWERPIPE_DATABASE='postgresql://myusername:mypassword@acme-prod.apse1.db.cloud.turbot.io:9193/aaa000'
 ```
