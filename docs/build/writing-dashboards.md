@@ -12,12 +12,11 @@ A Powerpipe [dashboard](/docs/powerpipe-hcl/dashboard) uses a combination of HCL
 Let's walk through building a simple dashboard that will introduce the key concepts as we go along.
 
 ### Prerequisites
-
-For this tutorial we'll be using [Steampipe](https://steampipe.io) with the [RSS plugin](https://hub.powerpipe.io/plugins/turbot/rss):
+For this tutorial, we'll be using [Steampipe](https://steampipe.io) with the [RSS plugin](https://hub.powerpipe.io/plugins/turbot/rss):
 
 1. [Download and install Powerpipe](https://powerpipe.io/downloads) for your platform.
 2. [Download and install Steampipe](https://steampipe.io/downloads) for your platform.
-3. [Install and configure the the latest RSS plugin](https://hub.steampipe.io/plugins/turbot/rss).
+3. [Install and configure the latest RSS plugin](https://hub.steampipe.io/plugins/turbot/rss).
 4. [Start the Steampipe database service](https://steampipe.io/docs/managing/service#starting-the-database-in-service-mode) (`steampipe service start`)
 
 
@@ -101,7 +100,7 @@ dashboard "dashboard_tutorial" {
 
 Notice that we didn't need to tell Powerpipe where to get the card `label` and `value` from. The above query uses a *simple* data format. It returns one row with one column. The column name is the `label`, its value is the card `value`.
 
-You can also define a *formal* data structure which tells Powerpipe where to get things by passing named columns.
+You can also define a *formal* data structure to tell Powerpipe where to get things by passing named columns.
 
 ```hcl
 query "rss_steampipe_io_blog_post_totals_ex2" {
@@ -160,7 +159,7 @@ dashboard "dashboard_tutorial" {
 }
 ```
 
-Notice that we didn't need to configure anything. Powerpipe infers the series from the shape of the data, and defaults to showing a `column` chart.
+Notice that we didn't need to configure anything. Powerpipe infers the series from the shape of the data and defaults to showing a `column` chart.
 
 What if we wanted a different chart type? How about a `line` chart?  Just set the `type` argument to `line`.
 
@@ -173,7 +172,7 @@ chart {
 ```
 
 ### Re-use a chart
-Defining charts inline is simple, but you'll likely have some charts you'll want to re-use. Let's try that. First add a named chart at the top level (not nested in the `dashboard`).
+Defining charts inline is simple, but you'll likely have some charts you'll want to reuse. Let's try that. First, add a named chart at the top level (not nested in the `dashboard`).
 
 
 ```hcl
@@ -184,7 +183,7 @@ chart "powerpipe_io_blog_posts_by_month_line_chart" {
 }
 ```
 
-Note that this `chart` block is named. Resource blocks *nested in a dashboard* are anonymous, but when *defined outside of a dashboard* they **must have a name** that is unique within the mod so that you can refer to them.  Note also that the chart that you just created cannot be viewed by itself. It must be used in a dashboard.  To use the chart we just created, we'll add a `chart` to the dashboard that refers to it with `base` keyword:
+Note that this `chart` block is named. Resource blocks *nested in a dashboard* are anonymous, but when *defined outside of a dashboard* they **must have a name** that is unique within the mod so that you can refer to them.  Note also that the chart that you just created cannot be viewed by itself. It must be used in a dashboard.  To use the chart we just created, we'll add a `chart` to the dashboard that refers to it with the `base` keyword:
 
 ```hcl
 chart {
@@ -236,7 +235,7 @@ dashboard "dashboard_tutorial" {
 }
 ```
 
-We've utilized the built-in grid system. A dashboard has 12 grid columns and by default a component will always consume the full width of its parent.
+We've utilized the built-in grid system. A dashboard has 12 grid columns and by default, a component will always consume the full width of its parent.
 
 If you make your browser narrower you'll notice that the two charts go full-width.
 
@@ -277,7 +276,7 @@ dashboard "dashboard_tutorial_containers" {
 }
 ```
 
-By wrapping the related components in a `container` we are able to show side-by-side sections, while keeping the title+chart together as the page resizes.
+By wrapping the related components in a `container` we are able to show side-by-side sections while keeping the title+chart together as the page resizes.
 
 ### Wrap-up
 
