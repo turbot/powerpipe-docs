@@ -31,9 +31,45 @@ docker run \
 
 ## Configurations for Enhanced Security and Functionality
 
+### Setting up Network Connectivity
+
+The Powerpipe container doesn't come with a preinstalled database and requires one for data sourcing.
+To establish connectivity, configuring network settings is necessary.
+This involves connecting the container to a network with a running database.
+
+In the following examples, we'll demonstrate how to connect the Powerpipe container to either the host machine network or to another container running a data source by creating a Docker network for communication.
+
+To connect Powerpipe to the host network, execute the following command:
+
+```bash
+docker run \
+    -it \
+    --rm \
+    --name powerpipe \
+    --network host \
+    ghcr.io/turbot/powerpipe:latest
+```
+
+Alternatively, you can create a Docker network and connect Powerpipe to it by executing the following steps:
+
+```bash
+# Create a Docker network
+docker network create powerpipe_network
+
+# Connect Powerpipe container to the created network
+docker run \
+    -it \
+    --rm \
+    --name powerpipe \
+    --network powerpipe_network \
+    ghcr.io/turbot/powerpipe:latest
+```
+
+By following these instructions, you can integrate Powerpipe with your database setup for data retrieval and processing.
+
 ### Setting Environment Variables for Linux User Permissions
 
-Deploying Flowpipe on a Linux system may require setting specific environment variables to manage file ownership. Adding `-e USER_UID=$(id -u)` and `-e USER_GID=$(id -g)` to your Docker run command aligns the container's file and process ownership with that of the host system. This adjustment ensures accurate file ownership in mounted volumes.
+Deploying Powerpipe on a Linux system may require setting specific environment variables to manage file ownership. Adding `-e USER_UID=$(id -u)` and `-e USER_GID=$(id -g)` to your Docker run command aligns the container's file and process ownership with that of the host system. This adjustment ensures accurate file ownership in mounted volumes.
 
 Example command incorporating these environment variables:
 
@@ -46,3 +82,116 @@ docker run \
     -e USER_GID=$(id -g) \
     ghcr.io/turbot/powerpipe:latest
 ```
+
+## Running Locally as an Alternative to Standard Installation
+
+To simplify the usage of Powerpipe as if it were locally installed, you can create a Docker alias.
+This alias enables running the Powerpipe container as a local command.
+It binds your active directories to the '/workspace' directory within the running container.
+
+### Preparation
+
+Before proceeding, create example directories for Powerpipe's configuration and workspace using the following commands:
+
+```bash
+mkdir -p $HOME/pp/config
+mkdir -p $HOME/pp/workspace
+```
+
+For simplicity, we will use Steampipe as the data source. If you haven't already, [install Steampipe](https://steampipe.io/downloads).
+By default, Steampipe will use the default AWS credentials from your credential file and/or environment variables.
+Once Steampipe is installed, install the [AWS plugin for Steampipe](https://hub.steampipe.io/plugins/turbot/aws).
+
+```bash
+steampipe plugin install aws
+```
+
+Start the [Steampipe service](https://steampipe.io/docs/managing/service). The Steampipe database needs to be running for Powerpipe to connect to it.
+
+```bash
+steampipe service start
+```
+
+Next, set up aliases for your operating system.
+
+### macOS Setup
+
+For macOS users, setting up the alias is straightforward.
+It involves mounting the drives we created earlier and sharing the host's network stack.
+To set up the alias, execute the following command:
+
+```bash
+alias pp="docker run \
+    -it \
+    --rm \
+    --name powerpipe \
+    --network host \
+    --mount type=bind,source=$HOME/pp/config,target=/home/powerpipe/.powerpipe/config \
+    --mount type=bind,source=$(pwd),target=/workspace \
+    ghcr.io/turbot/powerpipe"
+```
+
+### Linux Setup
+
+Linux users require a slightly different setup to ensure smooth operation of the mounted volumes by passing local user information to the container and sharing the host's network stack.
+
+To configure the alias for Linux users, execute the following command:
+
+```bash
+alias pp="docker run \
+  -it \
+  --rm \
+  --name powerpipe \
+  --mount type=bind,source=$HOME/pp/config,target=/home/powerpipe/.powerpipe/config \
+  --mount type=bind,source=$(pwd),target=/workspace \
+  --network host \
+  -e USER_UID=$(id -u) \
+  -e USER_GID=$(id -g) \
+  ghcr.io/turbot/powerpipe"
+```
+
+By utilizing this alias, Linux users ensure that Powerpipe operates with the necessary permissions and configurations, allowing for smooth interaction with mounted volumes and ensuring effective write capabilities within the container environment.
+
+### Using Powerpipe with Docker
+
+#### Running a query
+
+Once the alias is set up, you can start using Powerpipe commands as though the application were installed locally on your system.
+To confirm Powerpipe is running, run the following command.
+
+```bash
+pp query run "select title from aws_account"
+```
+
+#### Running a Query
+
+Once the alias is set up, you can start using Powerpipe commands as though the application were installed locally on your system.
+To confirm Powerpipe is running, execute the following command:
+
+```bash
+pp query run "select title from aws_account"
+```
+
+#### Running Dashboards
+
+Powerpipe runs in the context of a [mod](/docs/build/). Powerpipe loads the mod from the [mod location](/docs/run#mod-location), which defaults to the `/workspace` directory on the container.
+
+Initialize the Powerpipe mod:
+
+```bash
+pp mod init
+```
+
+Install the AWS Insights mod:
+
+```bash
+pp mod install github.com/turbot/steampipe-mod-aws-insights
+```
+
+Then, start the Powerpipe server on the container:
+
+```bash
+pp server
+```
+
+Once the server is running, use a web browser to navigate to `http://localhost:9033` to view the dashboards.
