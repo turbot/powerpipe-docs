@@ -50,7 +50,10 @@ docker run \
     ghcr.io/turbot/powerpipe:latest
 ```
 
-Alternatively, you can create a Docker network and connect Powerpipe to it by executing the following steps:
+Alternatively, if you're running a data source in a container, you can establish a Docker network and connect Powerpipe to it. 
+Ensure that the container running the database is also connected to this network. 
+
+Follow these steps:
 
 ```bash
 # Create a Docker network
@@ -195,3 +198,44 @@ pp server
 ```
 
 Once the server is running, use a web browser to navigate to `http://localhost:9033` to view the dashboards.
+
+## Running in read-only mode
+
+It is possible to run the powerpipe container with a read-only root filesystem, but note the following:
+
+- `/tmp` must be writable (mount with tmpfs)
+- config (`/home/powerpipe/.powerpipe/config`) must be writable
+- workspace working directory must be writable
+- you cannot use read-only containers if you passing across the environment variables `USER_UID` or `USER_GID`
+
+To run the container as a read only root system by passing the docker flag `--read-only`, you can create the alias for `fp` as follows:
+
+On macOS use:
+
+```bash
+alias fp="docker run \
+    -it \
+    --rm \
+    --read-only \
+    --name powerpipe \
+    --mount type=bind,source=$HOME/fp/config,target=/home/powerpipe/.powerpipe/config \
+    --mount type=bind,source=$(pwd),target=/workspace \
+    -v /var/run/docker.sock.raw:/var/run/docker.sock \
+    ghcr.io/turbot/powerpipe"
+```
+
+On Linux use:
+
+```bash
+alias fp="docker run \
+    -it \
+    --rm \
+    --read-only \
+    --name powerpipe \
+    --mount type=bind,source=$HOME/fp/config,target=/home/powerpipe/.powerpipe/config \
+    --mount type=bind,source=$(pwd),target=/workspace \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    ghcr.io/turbot/powerpipe"
+```
+
+Now you can call all available command for Powerpipe as previous examples.
