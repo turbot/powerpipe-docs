@@ -155,5 +155,12 @@
         "items": ["reference/config-files/workspace"]
       }
     ]
+  },
+
+  {
+    "type": "category",
+    "id": "faq",
+    "link": "faq",
+    "items": []
   }
 ]
