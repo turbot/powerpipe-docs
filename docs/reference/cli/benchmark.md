@@ -40,7 +40,7 @@ powerpipe benchmark list
 List all benchmarks in `JSON` format. All benchmarks (including sub-benchmarks) will be included for `json` and `yaml` output types: 
 
 ```bash
-powerpipe benchmark list --all --output json
+powerpipe benchmark list --output json
 ```
 
 List benchmarks using settings from a workspace:
