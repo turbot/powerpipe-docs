@@ -86,7 +86,7 @@ powerpipe mod init
 Powerpipe mods may depend on other mods.  When running Powerpipe from a mod, all dashboards in the mod and its direct dependencies will be available to run. Let's install the AWS Insights mod.  
 
 ```bash
-powerpipe mod install github.com/turbot/steampipe-mod-aws-insights
+powerpipe mod install github.com/turbot/powerpipe-mod-aws-insights
 ```
 
 Now start the Powerpipe server:
@@ -116,7 +116,7 @@ Powerpipe benchmarks provide a mechanism for defining and running control framew
 Let's install the AWS Compliance mod and run some benchmarks. The AWS Compliance mod contains benchmarks and controls to evaluate your AWS account against various compliance frameworks, such as the CIS Amazon Web Services Foundations Benchmark.
 
 ```bash
-powerpipe mod install github.com/turbot/steampipe-mod-aws-compliance
+powerpipe mod install github.com/turbot/powerpipe-mod-aws-compliance
 ```
 
 Let's run the CIS 3.0.0 benchmark:
