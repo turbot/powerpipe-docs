@@ -1,4 +1,4 @@
-![image](https://powerpipe.io/images/open_graph_preview.png)
+![image](https://powerpipe.io/images/powerpipe_wordmark.svg)
 
 <!-- # Powerpipe docs format & structure -->
 
