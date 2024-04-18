@@ -6,7 +6,7 @@ sidebar_label: locals
 
 
 # locals
-The `locals` block defines and sets one or more [local variables](mods/mod-variables#local-variables), using standard HCL assignment syntax.  The locals are scoped to the mod, and a mod may contain multiple `locals` blocks.  Locals may reference other values in the mod, including other local values.
+The `locals` block defines and sets one or more [local variables](build/mod-variables#local-variables), using standard HCL assignment syntax.  The locals are scoped to the mod, and a mod may contain multiple `locals` blocks.  Locals may reference other values in the mod, including other local values.
 
 You can reference local values as `local.<NAME>`
 

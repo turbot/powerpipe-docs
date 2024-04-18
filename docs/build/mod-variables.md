@@ -46,7 +46,7 @@ You can optionally define:
 
 
 ### Using Input Variables
-Variables may be referenced as `var.<NAME>`.  Variables are often used to pass [parameters](mods/param-query) to queries:
+Variables may be referenced as `var.<NAME>`.  Variables are often used to pass [parameters](/docs/build/param-query) to queries:
 
 ```hcl
 variable "instance_state" {

@@ -12,7 +12,7 @@ Powerpipe makes it easy to create your own [controls](/docs/powerpipe-hcl/contro
 Let's walk through building a simple benchmark that will introduce the key concepts as we go along.
 
 ### Prerequisites
-For this tutorial, we'll be using [Steampipe](https://steampipe.io) with the [AWS plugin](https://hub.powerpipe.io/plugins/turbot/aws):
+For this tutorial, we'll be using [Steampipe](https://steampipe.io) with the [AWS plugin](https://hub.steampipe.io/plugins/turbot/aws):
 
 1. [Download and install Powerpipe](https://powerpipe.io/downloads) for your platform.
 2. [Download and install Steampipe](https://steampipe.io/downloads) for your platform.

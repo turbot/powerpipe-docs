@@ -140,7 +140,7 @@ Note that you may *either* reference a query object with the `query` argument *o
 
 ## Using Parameters with Variables
 
-It is common for arguments and parameter defaults to refer to [input variables](mods/mod-variables), so that users of the mod can change the values without modifying the code:
+It is common for arguments and parameter defaults to refer to [input variables](/docs/build/mod-variables), so that users of the mod can change the values without modifying the code:
 
 ```hcl
 variable "bad_states" {
