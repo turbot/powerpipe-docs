@@ -54,9 +54,9 @@ Simple data structure:
 
 Formal data structure:
 
-| src                                  | alt            |
-| ------------------------------------ | -------------- |
-| https://powerpipe.io/images/logo.png | Powerpipe Logo |
+| src                                            | alt            |
+| ---------------------------------------------- | -------------- |
+| https://powerpipe.io/images/powerpipe-logo.png | Powerpipe Logo |
 
 
 ## More Examples

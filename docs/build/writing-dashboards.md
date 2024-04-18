@@ -12,7 +12,7 @@ A Powerpipe [dashboard](/docs/powerpipe-hcl/dashboard) uses a combination of HCL
 Let's walk through building a simple dashboard that will introduce the key concepts as we go along.
 
 ### Prerequisites
-For this tutorial, we'll be using [Steampipe](https://steampipe.io) with the [RSS plugin](https://hub.powerpipe.io/plugins/turbot/rss):
+For this tutorial, we'll be using [Steampipe](https://steampipe.io) with the [RSS plugin](https://hub.steampipe.io/plugins/turbot/rss):
 
 1. [Download and install Powerpipe](https://powerpipe.io/downloads) for your platform.
 2. [Download and install Steampipe](https://steampipe.io/downloads) for your platform.
@@ -280,4 +280,4 @@ By wrapping the related components in a `container` we are able to show side-by-
 
 ### Wrap-up
 
-We've only scratched the surface of what's possible here. For the full story on dashboard components and their options please check out the [reference docs](/docs/powerpipe-hcl/overview#dashboards).
+We've only scratched the surface of what's possible here. For the full story on dashboard components and their options please check out the [reference docs](/docs/powerpipe-hcl#dashboards).
