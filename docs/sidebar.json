@@ -159,8 +159,19 @@
 
   {
     "type": "category",
-    "id": "faq",
-    "link": "faq",
-    "items": []
+    "id": "compare",
+    "link": "compare",
+    "items": [
+      "compare/awssecurityhub",
+      "compare/cloudcustodian",
+      "compare/grafana",
+      "compare/metabase",
+      "compare/powerbi",
+      "compare/prismacloud",
+      "compare/prowler",
+      "compare/tableau",
+      "compare/wiz"
+      ]
   }
+
 ]
