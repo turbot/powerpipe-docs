@@ -165,6 +165,7 @@
       "compare/awssecurityhub",
       "compare/cloudcustodian",
       "compare/grafana",
+      "compare/looker",
       "compare/metabase",
       "compare/powerbi",
       "compare/prismacloud",

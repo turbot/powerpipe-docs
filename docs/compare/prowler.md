@@ -26,7 +26,7 @@ sidebar_label: Prowler
 | **Snapshots** | <a href="https://powerpipe.io/docs/run/snapshots/interactive-snapshots" target="_blank">Yes</a> | No |
 | **Relationship graphs** | <a href="https://powerpipe.io/docs/powerpipe-hcl/graph#graph" target="_blank">Yes</a> | No |
 | **Datasource-agnostic** | <a href="https://powerpipe.io/docs/run#selecting-a-database" target="_blank">Yes</a> | No |
-| **Terms** | Open source, always-free <a href="http://pipes.turbot.com" target="_blank">SaaS</a> developer tier, <a href="https://turbot.com/pipes/pricing" target="_blank">paid tiers</a> for teams | Open source, aSaaS free tier, pay per resource |
+| **Terms** | Open source, always-free <a href="http://pipes.turbot.com" target="_blank">SaaS</a> developer tier, <a href="https://turbot.com/pipes/pricing" target="_blank">paid tiers</a> for teams | Open source, SaaS free tier, pay per resource |
 
 *with Steampipe
 
