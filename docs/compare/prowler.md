@@ -32,7 +32,7 @@ sidebar_label: Prowler
 
 # When to choose Powerpipe over Prowler
 
-Prowler is used by security professionals to conduct in-depth security audits, identify misconfigurations, and generate detailed reports.
+Prowler is used by security professionals to conduct security audits, identify misconfigurations, and generate reports.
 
   
 Powerpipe is the preferred alternative for DevOps and security engineers who build dashboards that visualize cloud infrastructure or assess compliance.

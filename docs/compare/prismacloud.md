@@ -9,7 +9,7 @@ sidebar_label: Prisma Cloud
 **Powerpipe:** Visualize cloud configurations. Assess security posture against a broad and deep library of benchmarks. Build custom dashboards with code.
 
 
-**Prisma Cloud:** Centrally view and manage security alerts and compliance status for AWS.
+**Prisma Cloud:** Visibility and threat detection to mitigate risks and secure workloads.
 
 
 

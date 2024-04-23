@@ -32,7 +32,7 @@ sidebar_label: Wiz
 
 # When to choose Powerpipe over Wiz
 
-Wiz is a cloud security platform that helps organizations identify and prioritize vulnerabilities and compliance issues
+Wiz is a cloud security platform that helps organizations identify and prioritize vulnerabilities and compliance issues.
 
   
 Powerpipe is the preferred alternative for DevOps and security engineers who use and build dashboards that visualize cloud infrastructure and assess compliance.
