@@ -46,8 +46,6 @@ Powerpipe is the preferred alternative for DevOps engineers who use and build da
 
 **Run benchmarks**. <a href="https://hub.powerpipe.io" target="_blank">6,200+ open-source controls</a> from CIS, NIST, PCI, HIPAA, FedRamp and more
 
-. 
-
 **Explore relationship diagrams**. Visualize your cloud, <a href="https://powerpipe.io/docs#visualize-cloud-infrastructure" target="_blank">understand relationships</a>, drill down to the details.
 
 **Use code, not clicks**. Our dashboards are <a href="https://powerpipe.io/docs/build" target="_blank">HCL</a>: version-controlled, composable, shareable, easy to edit — designed for the way you work.
