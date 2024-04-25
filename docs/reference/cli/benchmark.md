@@ -88,6 +88,7 @@ Run a benchmark from the current mod or its direct dependents.
 
 | Flag | Description
 |-|-
+|  `--benchmark-timeout int`      |  Set the benchmark execution timeout.
 |  `--database`                   |  Sets the [database that Powerpipe will connect to](/docs/run#selecting-a-database). This defaults to the local Steampipe database, but can be any PostgreSQL, MySQL, DuckDB, or SQLite database. See [POWERPIPE_DATABASE](/docs/reference/env-vars/powerpipe_database) for details.
 |  `--dry-run`                    | If specified, prints the controls that would be run by the command, but does not execute them.
 |  `--export string`              | Export control output to a file. You may export multiple output formats for a single control run by entering multiple `--export` arguments. If a file path is specified as an argument, its type will be inferred by the suffix. Supported export formats are `asff`, `csv`, `html`, `json`, `md`,`nunit3`, `pps` (snapshot)

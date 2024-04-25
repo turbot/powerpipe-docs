@@ -18,6 +18,7 @@ powerpipe server
 
 | Flag | Description
 |-|-
+|  `--dashboard-timeout int` | Set a the dashboard execution timeout.
 |  `--database`         |  Sets the [database that Powerpipe will connect to](/docs/run#selecting-a-database). This defaults to the local Steampipe database, but can be any PostgreSQL, MySQL, DuckDB, or SQLite database. See [POWERPIPE_DATABASE](/docs/reference/env-vars/powerpipe_database) for details.
 | `--listen string`   | Accept connections from `local` (localhost only) or `network` (all interfaces / IP addresses) (default `network`).
 | `--port int`        | Web server port (default `9033`).
