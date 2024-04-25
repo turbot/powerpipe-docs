@@ -1,40 +1,41 @@
 ---
-title: Powerpipe versus Metabase
-sidebar_label: Metabase
+title: Prowler alternative for DevOps to assess cloud security posture
+sidebar_label: Prowler
 ---
 
-# Powerpipe versus Metabase
+# Powerpipe versus Prowler
 
 
-**Powerpipe:** Visualize DevOps data. Build custom dashboards with code.
+**Powerpipe:** Visualize cloud configurations. Assess security posture against a broad and deep library of benchmarks. Build custom dashboards with code.
 
 
-**Metabase:** No-code and low-code tools for self-serve data exploration.
+**Prowler:** An open cloud security platform.
 
 
 
- | | **Powerpipe** | **Metabase** | 
+ | | **Powerpipe** | **Prowler** | 
 | --- | --- | --- |
-| **Audience** | DevOps and security engineers who assess cloud security posture and build composable dashboard and benchmarks | Business users and analysts who need data visualization and lack coding skills |
-| **Deployment** | Single binary runs locally or elsewhere | Java JAR file runs locally or elsewhere, SaaS |
-| **Programming style** | Dashboards-as-code, <a href="https://steampipe.io/blog/remixing-dashboards" target="_blank">modular and composable</a> dashboards and benchmarks | Visual query builder and charting interface |
-| **Database-agnostic** | <a href="https://powerpipe.io/docs/run#selecting-a-database" target="_blank">Yes</a> | Yes |
-| **Pre-built dashboards*** | <a href="https://hub.powerpipe.io" target="_blank">Yes</a> | No |
-| **Pre-built benchmarks*** | <a href="https://hub.powerpipe.io" target="_blank">Yes</a> | No |
-| **CLI** | <a href="https://powerpipe.io/docs/reference/cli" target="_blank">Yes</a> | No |
+| **Audience** | DevOps and security engineers who assess cloud security posture and build composable dashboard and benchmarks | Cloud security professional who assess cloud security posture |
+| **Deployment** | Single binary runs locally or elsewhere | CLI runs locally |
+| **Programming style** | Dashboards-as-code, <a href="https://steampipe.io/blog/remixing-dashboards" target="_blank">modular and composable</a> dashboards and benchmarks | Python |
+| **Scopes** | AWS, Azure, GCP, Oracle, Kubernetes, GitHub, M365, Snowflake, and more | AWS, Azure, GCP, Kubernetes |
+| **Dashboards/benchmarks*** | <a href="https://hub.powerpipe.io" target="_blank">750+</a> | Yes |
+| **Controls*** | <a href="https://hub.powerpipe.io" target="_blank">6,200+</a> | Yes |
+| **Asset inventory*** | <a href="https://hub.powerpipe.io/?objectives=dashboard" target="_blank">Yes</a> | No |
+| **Shift-left scanning*** | <a href="https://hub.powerpipe.io/?categories=iac" target="_blank">Yes</a> | No |
 | **Snapshots** | <a href="https://powerpipe.io/docs/run/snapshots/interactive-snapshots" target="_blank">Yes</a> | No |
-| **Live rendering** | <a href="https://steampipe.io/blog/dashboards-as-code#dashboards-as-code" target="_blank">Yes</a> | No |
 | **Relationship graphs** | <a href="https://powerpipe.io/docs/powerpipe-hcl/graph#graph" target="_blank">Yes</a> | No |
-| **Terms** | Open source, always-free developer tier at <a href="http://pipes.turbot.com" target="_blank">pipes.turbot.com</a> | Open source, commercial versions available |
+| **Datasource-agnostic** | <a href="https://powerpipe.io/docs/run#selecting-a-database" target="_blank">Yes</a> | No |
+| **Terms** | Open source, always-free <a href="http://pipes.turbot.com" target="_blank">SaaS</a> developer tier, <a href="https://turbot.com/pipes/pricing" target="_blank">paid tiers</a> for teams | Open source, SaaS free tier, pay per resource |
 
 *with Steampipe
 
-# When to choose Powerpipe over Metabase
+# When to choose Powerpipe over Prowler
 
-Metabase is a good choice for business users who want to explore data, create dashboards, and share insights without writing code.
+Prowler is used by security professionals to conduct security audits, identify misconfigurations, and generate reports.
 
   
-Powerpipe is the preferred alternative for DevOps engineers who build dashboards that visualize cloud infrastructure or assess compliance.
+Powerpipe is the preferred alternative for DevOps and security engineers who build dashboards that visualize cloud infrastructure or assess compliance.
 
 # About Powerpipe
 

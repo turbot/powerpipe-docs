@@ -1,41 +1,40 @@
 ---
-title: Powerpipe versus Wiz
-sidebar_label: Wiz
+title: Grafana alternative for DevOps to build dashboards as code
+sidebar_label: Grafana
 ---
 
-# Powerpipe versus Wiz
+# Powerpipe versus Grafana
 
 
-**Powerpipe:** Visualize cloud configurations. Assess security posture against a broad and deep library of benchmarks. Build custom dashboards with code.
+**Powerpipe:** Visualize DevOps data. Build custom dashboards with code.
 
 
-**Wiz:** Identify and prioritize vulnerabilities and compliance issues.
+**Grafana:** An open observability platform: from dashboards to centralized observability.
 
 
 
- | | **Powerpipe** | **Wiz** | 
+ | | **Powerpipe** | **Grafana** | 
 | --- | --- | --- |
-| **Audience** | DevOps and security engineers who assess cloud security posture and build composable dashboard and benchmarks | Security teams, cloud architects, and IT management focused on cloud security and compliance. |
-| **Deployment** | Single binary runs locally or elsewhere | SaaS, Python package |
-| **Programming style** | Dashboards-as-code, <a href="https://steampipe.io/blog/remixing-dashboards" target="_blank">modular and composable</a> dashboards and benchmarks | Rego |
-| **Scopes** | AWS, Azure, GCP, Oracle, Kubernetes, GitHub, M365, Snowflake, and more | AWS, Azure, GCP |
-| **Dashboards/benchmarks*** | <a href="https://hub.powerpipe.io" target="_blank">750+</a> | Yes |
-| **Controls*** | <a href="https://hub.powerpipe.io" target="_blank">6,200+</a> | Yes |
-| **Asset inventory*** | <a href="https://hub.powerpipe.io/" target="_blank">Yes</a> | Yes |
-| **Shift-left scanning*** | <a href="https://hub.powerpipe.io/?categories=iac" target="_blank">Yes</a> | Yes |
+| **Audience** | DevOps engineers who build composable dashboards-as-code | Developers, SREs, and IT teams who need to visualize and monitor their systems |
+| **Deployment** | Single binary runs locally or elsewhere | Single binary runs locally or elsewhere |
+| **Programming style** | Dashboards-as-code, <a href="https://steampipe.io/blog/remixing-dashboards" target="_blank">modular and composable</a> dashboards and benchmarks | Visual query builder and dashboard editor, with optional scripting support |
+| **Database-agnostic** | <a href="https://powerpipe.io/docs/run#selecting-a-database" target="_blank">Yes</a> | Yes |
+| **Pre-built dashboards*** | <a href="https://hub.powerpipe.io" target="_blank">Yes</a> | Yes |
+| **Pre-built benchmarks*** | <a href="https://hub.powerpipe.io" target="_blank">Yes</a> | No |
+| **CLI** | <a href="https://powerpipe.io/docs/reference/cli" target="_blank">Yes</a> | Yes |
 | **Snapshots** | <a href="https://powerpipe.io/docs/run/snapshots/interactive-snapshots" target="_blank">Yes</a> | Yes |
+| **Live rendering** | <a href="https://steampipe.io/blog/dashboards-as-code#dashboards-as-code" target="_blank">Yes</a> | No |
 | **Relationship graphs** | <a href="https://powerpipe.io/docs/powerpipe-hcl/graph#graph" target="_blank">Yes</a> | Yes |
-| **Datasource-agnostic** | <a href="https://powerpipe.io/docs/run#selecting-a-database" target="_blank">Yes</a> | No |
-| **Terms** | Open source, always-free <a href="http://pipes.turbot.com" target="_blank">SaaS</a> developer tier, <a href="https://turbot.com/pipes/pricing" target="_blank">paid tiers</a> for teams | Proprietary, call for pricing |
+| **Terms** | Open source, always-free <a href="http://pipes.turbot.com" target="_blank">SaaS</a> developer tier, <a href="https://turbot.com/pipes/pricing" target="_blank">paid tiers</a> for teams | Open source, commercial versions available |
 
 *with Steampipe
 
-# When to choose Powerpipe over Wiz
+# When to choose Powerpipe over Grafana
 
-Wiz is a cloud security platform that helps organizations identify and prioritize vulnerabilities and compliance issues.
+Grafana is an open platform for monitoring and visualizing metrics, logs, and traces.
 
   
-Powerpipe is the preferred alternative for DevOps and security engineers who use and build dashboards that visualize cloud infrastructure and assess compliance.
+Powerpipe is the preferred alternative for DevOps engineers who build dashboards that visualize cloud infrastructure or assess compliance.
 
 # About Powerpipe
 

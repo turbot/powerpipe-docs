@@ -1,40 +1,40 @@
 ---
-title: Powerpipe versus Looker
-sidebar_label: Looker
+title: PowerBI alternative for DevOps to build dashboards as code
+sidebar_label: PowerBI
 ---
 
-# Powerpipe versus Looker
+# Powerpipe versus PowerBI
 
 
 **Powerpipe:** Visualize DevOps data. Build custom dashboards with code.
 
 
-**Looker:** Data modeling, business analytics, and visualization.
+**PowerBI:** Business analytics to make your data visual.
 
 
 
- | | **Powerpipe** | **Looker** | 
+ | | **Powerpipe** | **PowerBI** | 
 | --- | --- | --- |
-| **Audience** | DevOps and security engineers who assess cloud security posture and build composable dashboard and benchmarks | Business and analysts seeking data insights and visualization. |
-| **Deployment** | Single binary runs locally or elsewhere | SaaS or self-hosted |
-| **Programming style** | Dashboards-as-code, <a href="https://steampipe.io/blog/remixing-dashboards" target="_blank">modular and composable</a> dashboards and benchmarks | LookML-based modeling, SQL runner for ad-hoc queries |
+| **Audience** | DevOps engineers who build composable dashboards-as-code | Business users and analysts who need data visualization and lack coding skills |
+| **Deployment** | Single binary runs locally or elsewhere | Desktop app, cloud services, or on-premises server |
+| **Programming style** | Dashboards-as-code, <a href="https://steampipe.io/blog/remixing-dashboards" target="_blank">modular and composable</a> dashboards and benchmarks | Visual builder, optional scripting with DAX, M, R, Python |
 | **Database-agnostic** | <a href="https://powerpipe.io/docs/run#selecting-a-database" target="_blank">Yes</a> | Yes |
 | **Pre-built dashboards*** | <a href="https://hub.powerpipe.io" target="_blank">Yes</a> | Yes |
 | **Pre-built benchmarks*** | <a href="https://hub.powerpipe.io" target="_blank">Yes</a> | No |
-| **CLI** | <a href="https://powerpipe.io/docs/reference/cli" target="_blank">Yes</a> | No |
+| **CLI** | <a href="https://powerpipe.io/docs/reference/cli" target="_blank">Yes</a> | Yes |
 | **Snapshots** | <a href="https://powerpipe.io/docs/run/snapshots/interactive-snapshots" target="_blank">Yes</a> | Yes |
-| **Live rendering** | <a href="https://steampipe.io/blog/dashboards-as-code#dashboards-as-code" target="_blank">Yes</a> | Yes |
-| **Relationship graphs** | <a href="https://powerpipe.io/docs/powerpipe-hcl/graph#graph" target="_blank">Yes</a> | No |
-| **Terms** | Open source, always-free developer tier at <a href="http://pipes.turbot.com" target="_blank">pipes.turbot.com</a> | Free trial, commercial version with annual licensing |
+| **Live rendering** | <a href="https://steampipe.io/blog/dashboards-as-code#dashboards-as-code" target="_blank">Yes</a> | No |
+| **Relationship graphs** | <a href="https://powerpipe.io/docs/powerpipe-hcl/graph#graph" target="_blank">Yes</a> | Yes |
+| **Terms** | Open source, always-free <a href="http://pipes.turbot.com" target="_blank">SaaS</a> developer tier, <a href="https://turbot.com/pipes/pricing" target="_blank">paid tiers</a> for teams | Proprietary, desktop license, cloud subscription with free tier |
 
 *with Steampipe
 
-# When to choose Powerpipe over Looker
+# When to choose Powerpipe over PowerBI
 
-Looker is a good choice for organizations that need low-code analytics and data visualization. 
+PowerBI is a good choice for business users who want to explore data, create dashboards, and share insights without writing code.
 
   
-Powerpipe is the preferred alternative for DevOps engineers who use and build dashboards that visualize cloud infrastructure or assess compliance.
+Powerpipe is the preferred alternative for DevOps engineers who build dashboards that visualize cloud infrastructure or assess compliance.
 
 # About Powerpipe
 

@@ -1,35 +1,37 @@
 ---
-title: Powerpipe versus Grafana
-sidebar_label: Grafana
+title: Tableau alternative for DevOps to build dashboards as code
+sidebar_label: Tableau
 ---
 
-# Powerpipe versus Grafana
+# Powerpipe versus Tableau
 
 
 **Powerpipe:** Visualize DevOps data. Build custom dashboards with code.
 
 
-**Grafana:** An open observability platform: from dashboards to centralized observability.
+**Tableau:** Interactive visual analytics and business intelligence.
 
 
 
- | | **Powerpipe** | **Grafana** | 
+ | | **Powerpipe** | **Tableau** | 
 | --- | --- | --- |
-| **Audience** | DevOps engineers who build composable dashboards-as-code | Developers, SREs, and IT teams who need to visualize and monitor their systems |
-| **Deployment** | Single binary runs locally or elsewhere | Single binary runs locally or elsewhere |
-| **Programming style** | Dashboards-as-code, <a href="https://steampipe.io/blog/remixing-dashboards" target="_blank">modular and composable</a> dashboards and benchmarks | Visual query builder and dashboard editor, with optional scripting support |
+| **Audience** | DevOps engineers who build composable dashboards-as-code | Business analysts and data enthusiasts who create interactive visualizations |
+| **Deployment** | Single binary runs locally or elsewhere | Desktop app, server deployment, or cloud-based options |
+| **Programming style** | Dashboards-as-code, <a href="https://steampipe.io/blog/remixing-dashboards" target="_blank">modular and composable</a> dashboards and benchmarks | Visual builder with optional scripting. |
 | **Database-agnostic** | <a href="https://powerpipe.io/docs/run#selecting-a-database" target="_blank">Yes</a> | Yes |
-| **Pre-built dashboards** | <a href="https://hub.powerpipe.io" target="_blank">Yes</a> | <a href="https://grafana.com/grafana/plugins/" target="_blank">Yes</a> |
-| **Pre-built benchmarks** | <a href="https://hub.powerpipe.io" target="_blank">Yes</a> | No |
-| **CLI** | <a href="https://powerpipe.io/docs/reference/cli" target="_blank">Yes</a> | Yes |
+| **Pre-built dashboards*** | <a href="https://hub.powerpipe.io" target="_blank">Yes</a> | Yes |
+| **Pre-built benchmarks*** | <a href="https://hub.powerpipe.io" target="_blank">Yes</a> | No |
+| **CLI** | <a href="https://powerpipe.io/docs/reference/cli" target="_blank">Yes</a> | No |
 | **Snapshots** | <a href="https://powerpipe.io/docs/run/snapshots/interactive-snapshots" target="_blank">Yes</a> | Yes |
 | **Live rendering** | <a href="https://steampipe.io/blog/dashboards-as-code#dashboards-as-code" target="_blank">Yes</a> | No |
 | **Relationship graphs** | <a href="https://powerpipe.io/docs/powerpipe-hcl/graph#graph" target="_blank">Yes</a> | Yes |
-| **Terms** | Open source, always-free <a href="http://pipes.turbot.com" target="_blank">SaaS</a> developer tier, <a href="https://turbot.com/pipes/pricing" target="_blank">paid tiers</a> for teams | Open source, commercial versions available |
+| **Terms** | Open source, always-free <a href="http://pipes.turbot.com" target="_blank">SaaS</a> developer tier, <a href="https://turbot.com/pipes/pricing" target="_blank">paid tiers</a> for teams | Proprietary, paid desktop and server licenses, subscription plans for cloud |
 
-# When to choose Powerpipe over Grafana
+*with Steampipe
 
-Grafana is an open platform for monitoring and visualizing metrics, logs, and traces.
+# When to choose Powerpipe over Tableau
+
+Tableau is a good choice for business users who want to explore data, create dashboards, and share insights without writing code.
 
   
 Powerpipe is the preferred alternative for DevOps engineers who build dashboards that visualize cloud infrastructure or assess compliance.

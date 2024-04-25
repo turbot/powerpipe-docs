@@ -1,5 +1,5 @@
 ---
-title: Powerpipe versus Cloud Custodian
+title: Cloud Custodian alternative for DevOps to assess cloud security posture
 sidebar_label: Cloud Custodian
 ---
 
@@ -21,8 +21,7 @@ sidebar_label: Cloud Custodian
 | **Scopes** | AWS, Azure, GCP, Oracle, Kubernetes, GitHub, M365, Snowflake, and more | AWS, Azure, GCP |
 | **Dashboards/benchmarks*** | <a href="https://hub.powerpipe.io" target="_blank">750+</a> | Yes |
 | **Controls*** | <a href="https://hub.powerpipe.io" target="_blank">6,200+</a> | Yes |
-| **Datasource-agnostic*** | <a href="https://powerpipe.io/docs/run#selecting-a-database" target="_blank">Yes</a> | No |
-| **Asset inventory*** | <a href="https://hub.powerpipe.io/" target="_blank">Yes</a> | Yes |
+| **Asset inventory*** | <a href="https://hub.powerpipe.io/?objectives=dashboard" target="_blank">Yes</a> | Yes |
 | **Shift-left scanning*** | <a href="https://hub.powerpipe.io/?categories=iac" target="_blank">Yes</a> | Yes |
 | **Snapshots** | <a href="https://powerpipe.io/docs/run/snapshots/interactive-snapshots" target="_blank">Yes</a> | No |
 | **Relationship graphs** | <a href="https://powerpipe.io/docs/powerpipe-hcl/graph#graph" target="_blank">Yes</a> | No |

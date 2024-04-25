@@ -162,16 +162,16 @@
     "id": "compare",
     "link": "compare",
     "items": [
-      "compare/awssecurityhub",
-      "compare/cloudcustodian",
-      "compare/grafana",
-      "compare/looker",
-      "compare/metabase",
-      "compare/powerbi",
-      "compare/prismacloud",
-      "compare/prowler",
-      "compare/tableau",
-      "compare/wiz"
+      "compare/powerpipe-vs-aws-security-hub",
+      "compare/powerpipe-vs-cloud-custodian",
+      "compare/powerpipe-vs-grafana",
+      "compare/powerpipe-vs-looker",
+      "compare/powerpipe-vs-metabase",
+      "compare/powerpipe-vs-powerbi",
+      "compare/powerpipe-vs-prisma-cloud",
+      "compare/powerpipe-vs-prowler",
+      "compare/powerpipe-vs-tableau",
+      "compare/powerpipe-vs-wiz"
       ]
   }
 
