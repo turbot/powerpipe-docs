@@ -1,6 +1,7 @@
 ---
 title: Wiz alternative for DevOps to assess cloud security posture
 sidebar_label: Wiz
+description: Compare Powerpipe to Wiz as an alternative solution to visualize cloud configurations, assess security posture, and build custom dashboards with code.
 ---
 
 # Powerpipe versus Wiz
@@ -57,3 +58,16 @@ Powerpipe is the preferred alternative for DevOps and security engineers who use
 
 First <a href="https://powerpipe.io/downloads" target="_blank">download Powerpipe</a>, run through the <a href="https://powerpipe.io/docs/build" target="_blank">tutorial</a>, and check out the <a href="https://hub.powerpipe.io" target="_blank">libraries</a>. Then build some dashboards to visualize your DevOps data. For a team experience, try Powerpipe in <a href="https://turbot.com/pipes" target="_blank">Turbot Pipes</a>.
 
+
+<div className="flex justify-center">
+<iframe
+    class="youtube-video"
+    src="https://www.youtube-nocookie.com/embed/-h6RSpvR0FE"
+    frameBorder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowFullScreen
+    title="Human interaction with Flowpipe"
+>
+</iframe>
+</div>
+        
