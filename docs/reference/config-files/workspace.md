@@ -38,6 +38,8 @@ To learn more, see **[Managing Workspaces →](/docs/run/workspaces)**
 | Argument            |    Default                   | Description &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
 |---------------------|------------------------------|-----------------------------------------
 | `base`              | none                         | A reference to a named workspace resource that this workspace should source its definition from. Any argument can be overridden after sourcing via base.
+| `benchmark_timeout` | `0` (no timeout)             | Set the benchmark execution timeout, in seconds.
+| `dashboard_timeout` | `0` (no timeout)             | Set the dashboard execution timeout, in seconds.
 | `database`          | `postgres://steampipe@` <br /> `127.0.0.1:9193/steampipe`| A database connection string or [Turbot Pipes workspace](https://pipes.turbot.com) to use as the default database.  The default is a local [Steampipe](https://steampipe.io) instance.
 | `header`            | `true`                       | Enable or disable column headers.
 | `input`             | `true`                       | Enable/Disable interactive prompts for missing variables.  To disable prompts and fail on missing variables, set it to `false`. This is useful when running from scripts.
@@ -71,6 +73,8 @@ except using an underscore in place of a dash:
 
 | Workspace Argument | Environment Variable    | Argument             
 |--------------------|-------------------------|----------------------
+| `benchmark_timeout`| [POWERPIPE_BENCHMARK_TIMEOUT](/docs/reference/env-vars/powerpipe_benchmark_timeout) | `--benchmark-timeout`
+| `dashboard_timeout`| [POWERPIPE_DASHBOARD_TIMEOUT](/docs/reference/env-vars/powerpipe_dashboard_timeout) | `--dashboard-timeout`
 | `database`         | [POWERPIPE_DATABASE](/docs/reference/env-vars/powerpipe_database) | `--database`
 | `header`           | none                        | `--header`
 | `input`            |  none                      | `--input` 
@@ -153,6 +157,10 @@ workspace "all_options" {
   database            = "postgres://steampipe@127.0.0.1:9193/steampipe"
   query_timeout       = 300
   max_parallel        = 5
+
+  # Execution timeouts
+  dashboard_timeout   = 300
+  benchmark_timeout   = 1800
 
   # Search Path Settings (Postgres-specific) 
   search_path         = "aws,aws_1,aws_2,gcp,gcp_1,gcp_2,slack,github"
