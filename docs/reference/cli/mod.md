@@ -74,7 +74,7 @@ To install from a tagged commit, append the mod repo with `@` and the tag:
 ```bash
 powerpipe mod install github.com/turbot/steampipe-mod-aws-insights@mycustomtag
 ```
-Note that the syntax is the same as for semver constraints, and if the tag value is a valid semver string, Powerpipe will interpret it as a semver contstraint and not a literal tag name.
+Note that the syntax is the same as for semver constraints, and if the tag value is a valid semver string, Powerpipe will interpret it as a semver constraint and not a literal tag name.
 
 To install from a branch, append the mod repo with `#` and the branch name:
 ```bash
@@ -93,7 +93,7 @@ powerpipe  mod install ../steampipe-mod-aws-insights
 | `--dry-run` | Show which mods would be installed/updated/uninstalled without modifying them (default `false`).
 | `--force` | Install mods even if plugin/cli version requirements are not met (cannot be used with `--dry-run`).
 | `--prune` | Remove unused dependencies after installation is complete (default `true`).
-| `--pull string` | Specify an [update strategy](#update-strategy): `full`, `latest`, `development`, `minimal`, or `none` (default `minimal`)
+| `--pull string` | Specify an [update strategy](#update-strategy): `full`, `latest`, `development`, `minimal` (default `minimal`)
 
 
 #### Update Strategy
@@ -106,7 +106,6 @@ It is also possible to have more granular control of the update behavior - e.g. 
 | `latest` | Update everything to latest, but only branches (not tags) are commit checked
 | `development` | Update branches and broken constraints to latest, leave satisfied constraints unchanged
 | `minimal`| Only update broken constraints. Do not check branches for new commits
-| `none`   | No dependency updates
 
 
 ### Examples
@@ -243,7 +242,7 @@ Update one or more mods and their dependencies.
 |` --dry-run` | Show which mods would be updated without modifying them (default `false`).
 |` --force` | Update mods even if plugin/cli version requirements are not met (cannot be used with `--dry-run`).
 |` --prune` | Remove unused dependencies after update is complete (default `true`).
-| `--pull string` | Specify an [update strategy](#update-strategy): `full`, `latest`, `development`, `minimal`, or `none` (default `latest`)
+| `--pull string` | Specify an [update strategy](#update-strategy): `full`, `latest`, `development`, `minimal` (default `latest`)
 
 
 ### Examples

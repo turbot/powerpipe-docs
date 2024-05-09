@@ -119,7 +119,6 @@ It is also possible to have more granular control of the update behavior - e.g. 
 | `latest` | Update everything to latest, but only branches (not tags) are commit checked
 | `development` | Update branches and broken constraints to latest, leave satisfied constraints unchanged
 | `minimal`| Only update broken constraints. Do not check branches for new commits
-| `none`   | No dependency updates
 
 
 ### Publishing & Distributing mods
