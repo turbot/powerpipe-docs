@@ -72,12 +72,12 @@ When running `powerpipe server` from a mod, all dashboards in your mod and its d
 
 ### Git URLs & Private Repos
 
-Powerpipe uses `git` to install and update mods. When you run `powerpipe mod install` or `powerpipe mod update`, Powerpipe will first try using HTTPS and if that does not work it will try SSH.  If your SSH keys are configured properly for `git`, you should be able to pull from private repos that you have access to, as well as public ones.  Alternatively, you can authenticate with a GitHub personal access token or application token.  Set the `POWERPIPE_GIT_TOKEN` to your token and Powerpipe will use the token when installing and updating mods. 
+Powerpipe uses `git` to install and update mods. When you run `powerpipe mod install` or `powerpipe mod update`, Powerpipe will first try using HTTPS and if that does not work it will try SSH.  If your SSH keys are configured properly for `git`, you should be able to pull from private repos that you have access to, as well as public ones.  Alternatively, you can authenticate with a GitHub personal access token or application token.  Set the [POWERPIPE_GIT_TOKEN](/docs/reference/env-vars/powerpipe_git_token) environment variable to your token and Powerpipe will use the token when installing and updating mods.
 
 
 ### Mod Version Constraints
 
-When installing a mod, you may specify a [semver constraint](https://semver.org/).  The latest version that meets the constraint will be installed, and the constraint will be added to the `mod.sp` and honored by subsequent `steampipe mod update` operations.
+When installing a mod, you may specify a [semver constraint](https://semver.org/).  The latest version that meets the constraint will be installed, and the constraint will be added to the `mod.pp` and honored by subsequent `steampipe mod update` operations.
 
 When installing the mod, append the mod repo with `@` and any valid semver constraint:
 

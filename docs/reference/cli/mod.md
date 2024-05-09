@@ -56,16 +56,16 @@ powerpipe mod init --mod-location ~/my_mod
 ---
 
 ## powerpipe mod install
-Install one or more mods and their dependencies.  In addition to downloading the mod, Powerpipe will [add the mod dependency to the `mod.sp` file](/docs/powerpipe-hcl/mod#mod-1).
+Install one or more mods and their dependencies.  In addition to downloading the mod, Powerpipe will [add the mod dependency to the `mod.pp` file](/docs/powerpipe-hcl/mod#mod-1).
 
-Powerpipe uses `git` to install and update mods. When you run `powerpipe mod install` or `powerpipe mod update`, Powerpipe will first try using HTTPS and if that does not work it will try SSH.  If your SSH keys are configured properly for `git`, you should be able to pull from private repos that you have access to, as well as public ones.  Alternatively, you can authenticate with a GitHUb personal access token or application token.  Set the `POWERPIPE_GIT_TOKEN` to your token and Powerpipe will use the token when installing and updating mods. 
+Powerpipe uses `git` to install and update mods. When you run `powerpipe mod install` or `powerpipe mod update`, Powerpipe will first try using HTTPS and if that does not work it will try SSH.  If your SSH keys are configured properly for `git`, you should be able to pull from private repos that you have access to, as well as public ones.  Alternatively, you can authenticate with a GitHUb personal access token or application token.  Set the [POWERPIPE_GIT_TOKEN](/docs/reference/env-vars/powerpipe_git_token) environment variable to your token and Powerpipe will use the token when installing and updating mods.
 
 When you install a mod, the latest version is installed by default:
 ```bash
 powerpipe mod install github.com/turbot/steampipe-mod-aws-insights
 ```
 
-When installing a mod, you may specify a semver constraint.  The latest version that meets the constraint will be installed, and the constraint will be added to the `mod.sp` and honored by subsequent `steampipe mod update` operations.
+When installing a mod, you may specify a semver constraint.  The latest version that meets the constraint will be installed, and the constraint will be added to the `mod.pp` and honored by subsequent `steampipe mod update` operations.
 ```bash
 powerpipe mod install github.com/turbot/steampipe-mod-aws-insights@1.x.x
 ```

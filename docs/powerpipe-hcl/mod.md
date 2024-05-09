@@ -104,7 +104,7 @@ require {
 #### mod
 A mod may specify dependencies on other mods.  While you can manually edit the `mod` dependencies in the `mod.pp`, they are more commonly managed by Powerpipe when you install, update, or uninstall mods via the [powerpipe mod commands](/docs/reference/cli/mod).
 
-The mod dependency may specify a `version`.  This can be a [semver](https://semver.org/), an exact version, or a tag name:
+The mod dependency may specify a `version`.  This can be a [semver](https://semver.org/) or an exact version:
 
 ```hcl
 require {
@@ -117,13 +117,12 @@ require {
   mod "github.com/turbot/steampipe-mod-gcp-compliance" {
     version = "*"
   }
-  mod "github.com/turbot/steampipe-mod-azure-compliance" {
-    version = "my-tag"
-  }
 }
 ```
 
-While in development, it is often easier to use local dependencies or install a mod from a branch.  To install from a branch, specify a `branch` instead of a `version`:
+While in development, it is often easier to use local dependencies or install a mod from a branch or tagged commit.
+
+To install from a branch, specify a `branch`:
 
 ```hcl
 require {
@@ -133,7 +132,18 @@ require {
 }
 ```
 
-To install from a local directory, specify a `path`:
+To install from a tagged commit, specify a `tag`:
+
+```hcl
+require {
+  mod "github.com/turbot/steampipe-mod-aws-compliance" {
+    tag = "issue-779"
+  }
+}
+```
+
+
+To install from a local directory, specify a `path` instead of a `version`:
 
 ```hcl
 require {
@@ -142,6 +152,8 @@ require {
   }
 }
 ```
+
+Note that for a given dependency, you must specify *exactly one* constraint (`version`, `tag`, `branch` or `path`).
 
 
 You may pass `args` to set variables defined in the dependency mods.  You can pass hard-coded values (literals), but it is more common to define variables in your mod that encapsulate the variables  and optionality of your dependencies:
