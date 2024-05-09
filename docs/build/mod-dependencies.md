@@ -96,7 +96,7 @@ powerpipe mod install github.com/turbot/steampipe-mod-aws-insights@mycustomtag'
 ```
 Note that the syntax is the same as for [semver constraints](#mod-version-constraints), and if the tag value is a valid semver string, Powerpipe will interpret it as a semver constraint and not a literal tag name.
 
-To install from a branch, append the mod repo with `H` and the branch name:
+To install from a branch, append the mod repo with `#` and the branch name:
 ```bash
 powerpipe mod install github.com/turbot/steampipe-mod-aws-insights#main'
 ```

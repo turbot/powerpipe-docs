@@ -56,7 +56,36 @@ powerpipe mod init --mod-location ~/my_mod
 ---
 
 ## powerpipe mod install
-Install one or more mods and their dependencies.
+Install one or more mods and their dependencies.  In addition to downloading the mod, Powerpipe will [add the mod dependency to the `mod.sp` file](/docs/powerpipe-hcl/mod#mod-1).
+
+Powerpipe uses `git` to install and update mods. When you run `powerpipe mod install` or `powerpipe mod update`, Powerpipe will first try using HTTPS and if that does not work it will try SSH.  If your SSH keys are configured properly for `git`, you should be able to pull from private repos that you have access to, as well as public ones.  Alternatively, you can authenticate with a GitHUb personal access token or application token.  Set the `POWERPIPE_GIT_TOKEN` to your token and Powerpipe will use the token when installing and updating mods. 
+
+When you install a mod, the latest version is installed by default:
+```bash
+powerpipe mod install github.com/turbot/steampipe-mod-aws-insights
+```
+
+When installing a mod, you may specify a semver constraint.  The latest version that meets the constraint will be installed, and the constraint will be added to the `mod.sp` and honored by subsequent `steampipe mod update` operations.
+```bash
+powerpipe mod install github.com/turbot/steampipe-mod-aws-insights@1.x.x
+```
+
+To install from a tagged commit, append the mod repo with `@` and the tag:
+```bash
+powerpipe mod install github.com/turbot/steampipe-mod-aws-insights@mycustomtag
+```
+Note that the syntax is the same as for semver constraints, and if the tag value is a valid semver string, Powerpipe will interpret it as a semver contstraint and not a literal tag name.
+
+To install from a branch, append the mod repo with `#` and the branch name:
+```bash
+powerpipe mod install github.com/turbot/steampipe-mod-aws-insights#main
+```
+
+When developing mods, it can be useful to work from a local copy.  To install a mod from a local filesystem path, just pass the path to the install command:
+
+```bash
+powerpipe  mod install ../steampipe-mod-aws-insights
+```
 
 ### Arguments
 | Flag | Description
@@ -67,47 +96,7 @@ Install one or more mods and their dependencies.
 | `--pull string` | Specify an [update strategy](#update-strategy): `full`, `latest`, `development`, `minimal`, or `none` (default `minimal`)
 
 
-
-### Git URLs & Private Repos
-
-Powerpipe uses `git` to install and update mods. When you run `powerpipe mod install` or `powerpipe mod update`, Powerpipe will first try using HTTPS and if that does not work it will try SSH.  If your SSH keys are configured properly for `git`, you should be able to pull from private repos that you have access to, as well as public ones.  Alternatively, you can authenticate with a GitHUb personal access token or application token.  Set the `POWERPIPE_GIT_TOKEN` to your token and Powerpipe will use the token when installing and updating mods. 
-
-
-### Mod Version Constraints
-
-When installing a mod, you may specify a semver constraint.  The latest version that meets the constraint will be installed, and the constraint will be added to the `mod.sp` and honored by subsequent `steampipe mod update` operations.
-
-When installing the mod, append the mod repo with `@` and any valid semver constraint:
-
-```bash
-powerpipe mod install github.com/turbot/steampipe-mod-aws-insights@'^1'
-powerpipe mod install github.com/turbot/steampipe-mod-aws-insights@1
-powerpipe mod install github.com/turbot/steampipe-mod-aws-insights@1.x.x
-powerpipe mod install github.com/turbot/steampipe-mod-aws-insights@'>=0.20'
-```
-
-### Installing from Branches and Tags
-
-To install from a tagged commit, append the mod repo with `@` and the tag:
-```bash
-powerpipe mod install github.com/turbot/steampipe-mod-aws-insights@mycustomtag'
-```
-Note that the syntax is the same as for [semver constraints](#mod-version-constraints), and if the tag value is a valid semver string, Powerpipe will interpret it as a semver contstraint and not a literal tag name.
-
-To install from a branch, append the mod repo with `H` and the branch name:
-```bash
-powerpipe mod install github.com/turbot/steampipe-mod-aws-insights#main'
-```
-
-### Installing from the local filesystem
-When developing mods, it can be useful to work from a local copy.  To install a mod from a local filesystem path, just pass the path to the install command:
-
-```bash
-powerpipe  mod install ../steampipe-mod-aws-insights
-```
-
-
-### Update Strategy
+#### Update Strategy
 
 It is also possible to have more granular control of the update behavior - e.g. when to check for new commits. The -`-pull` argument can be used to specify the update strategy when running `powerpipe update` or `powerpipe install`:
 
@@ -120,26 +109,19 @@ It is also possible to have more granular control of the update behavior - e.g. 
 | `none`   | No dependency updates
 
 
-### Publishing & Distributing mods
-When publishing public mods, you should only depend on public mods (hosted in public repos) so that users of your mod don't encounter permissions issues - Avoid dependencies on local or private mods!
-
-When users install your mod using `powerpipe mod install`, your dependencies will get installed automatically.  As a result, it is recommended that you add the `.powerpipe` directory to your `.gitignore` file and do not check these files into git.
-
-
-
 ### Examples
 
-Install the latest version of a mod and add the `require` statement to your `mod.pp`:
+Install the latest version of a mod:
 ```bash
 powerpipe mod install github.com/turbot/steampipe-mod-aws-insights
 ```
 
-Install an exact version of a mod and update the `require` statement to your `mod.pp`.  This may upgrade or downgrade the mod if it is already installed:
+Install an exact version of a mod:
 ```bash
 powerpipe mod install github.com/turbot/steampipe-mod-aws-insights@0.1.0
 ```
 
-Install a version of a mod using a semver constraint and update the `require` statement to your `mod.pp`.  This may upgrade or downgrade the mod if it is already installed:
+Install a version of a mod using a semver constraint:
 ```bash
 powerpipe mod install github.com/turbot/steampipe-mod-aws-insights@'^1'
 powerpipe mod install github.com/turbot/steampipe-mod-aws-insights@1
@@ -176,7 +158,9 @@ Install all missing mods specified in the `mod.pp` and update all their dependen
 ```bash
 powerpipe mod install --pull full
 ```
+
 ---
+
 
 ## powerpipe mod list
 List mods from the current mod and its direct dependents.

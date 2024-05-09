@@ -67,7 +67,7 @@ mod "aws_cis" {
 | `title` | String | Optional | The display title of the mod.
 
 
-#### opengraph
+### opengraph
 The `opengraph` block is an optional block of metadata for use in social media applications that support [Opengraph](https://ogp.me/) metadata.
 
 | Name | Type| Description
@@ -77,11 +77,11 @@ The `opengraph` block is an optional block of metadata for use in social media a
 
  
 
-#### require
+### require
 A mod may contain a `require` block to specify version dependencies for the Powerpipe CLI, plugins, and mods.  While it is possible to edit this section manually, Powerpipe will also modify it (including reordering and removing comments) when you run a `powerpipe mod` command to install, update, or uninstall a mod.
 
 
-##### powerpipe
+#### powerpipe
 A mod may specify a dependency on the Powerpipe CLI.  Powerpipe will evaluate the dependency when the mod is loaded and will error if the constraint is not met, but it will not install or upgrade the CLI.  A `powerpipe` constraint specifies a *minimum version*, and does not support semver syntax:
 ```hcl
 require {
@@ -91,7 +91,7 @@ require {
 }
 ```
 
-##### plugin
+#### plugin
 A mod may specify a dependency on one or more Steampipe plugins.  Powerpipe will evaluate the dependency when the mod is loaded and will error if the constraint is not met, but it will not install or upgrade the plugin. A `plugin` constraint specifies a *minimum version*, and does not support semver syntax:
 ```hcl
 require {
@@ -101,22 +101,48 @@ require {
 }
 ```
 
-##### mod
-A mod may specify dependencies on other mods.  While you can manually edit the `mod` dependencies in the `mod.pp`, they are more commonly managed by Powerpipe when you install, update, or uninstall mods via the [powerpipe mod commands](/docs/reference/cli/mod).  The `version` can be an exact version<!-- ,a tag name, a branch name, a local file --> or a [semver](https://semver.org/) string:
+#### mod
+A mod may specify dependencies on other mods.  While you can manually edit the `mod` dependencies in the `mod.pp`, they are more commonly managed by Powerpipe when you install, update, or uninstall mods via the [powerpipe mod commands](/docs/reference/cli/mod).
+
+The mod dependency may specify a `version`.  This can be a [semver](https://semver.org/), an exact version, or a tag name:
 
 ```hcl
 require {
+  mod "github.com/turbot/steampipe-mod-aws-insights" {
+    version = "0.20.0"
+  }
   mod "github.com/turbot/steampipe-mod-aws-compliance" {
     version = "^0.10"
-  }
-  mod "github.com/turbot/steampipe-mod-aws-insights" {
-    version = "2.0"
   }
   mod "github.com/turbot/steampipe-mod-gcp-compliance" {
     version = "*"
   }
+  mod "github.com/turbot/steampipe-mod-azure-compliance" {
+    version = "my-tag"
+  }
 }
 ```
+
+While in development, it is often easier to use local dependencies or install a mod from a branch.  To install from a branch, specify a `branch` instead of a `version`:
+
+```hcl
+require {
+  mod "github.com/turbot/steampipe-mod-aws-compliance" {
+    branch = "issue-779"
+  }
+}
+```
+
+To install from a local directory, specify a `path`:
+
+```hcl
+require {
+  mod "/Users/jsmyth/src/steampipe-mod-aws-insights" {
+    path = "/Users/jsmyth/src/steampipe-mod-aws-insights"
+  }
+}
+```
+
 
 You may pass `args` to set variables defined in the dependency mods.  You can pass hard-coded values (literals), but it is more common to define variables in your mod that encapsulate the variables  and optionality of your dependencies:
 
