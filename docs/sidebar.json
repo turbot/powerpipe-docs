@@ -134,6 +134,7 @@
           "reference/env-vars/powerpipe_config_path",
           "reference/env-vars/powerpipe_dashboard_timeout",
           "reference/env-vars/powerpipe_database",
+          "reference/env-vars/powerpipe_git_token",
           "reference/env-vars/powerpipe_install_dir",
           "reference/env-vars/powerpipe_listen",
           "reference/env-vars/powerpipe_log_level",
