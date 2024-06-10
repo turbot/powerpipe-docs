@@ -93,7 +93,7 @@ powerpipe  mod install ../steampipe-mod-aws-insights
 | `--dry-run` | Show which mods would be installed/updated/uninstalled without modifying them (default `false`).
 | `--force` | Install mods even if plugin/cli version requirements are not met (cannot be used with `--dry-run`).
 | `--prune` | Remove unused dependencies after installation is complete (default `true`).
-| `--pull string` | Specify an [update strategy](#update-strategy): `full`, `latest`, `development`, `minimal` (default `minimal`)
+| `--pull string` | Specify an [update strategy](#update-strategy): `full`, `latest`, `development`, `minimal` (default is `latest` if there is a target, `minimal` if no target is given).
 
 
 #### Update Strategy
