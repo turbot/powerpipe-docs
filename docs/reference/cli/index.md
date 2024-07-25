@@ -20,15 +20,6 @@ sidebar_label: Powerpipe CLI
 | [powerpipe variable](reference/cli/variable)| List and view Powerpipe variables.
 
 
-
-
-<!--
-
-
-
-| [powerpipe completion](reference/cli/completion)| Generate the autocompletion script for the specified shell
-
--->
 ## Global Flags
 
 <table>
@@ -92,3 +83,26 @@ sidebar_label: Powerpipe CLI
 
 ---
 
+## Exit Codes
+
+|  Value  |   Name                                | Description
+|---------|---------------------------------------|----------------------------------------
+|   **0** | `ExitCodeSuccessful`                  | Powerpipe ran successfully, with no runtime errors, control errors, or alarms
+|   **1** | `ExitCodeControlsAlarm`               | `powerpipe benchmark run` or `powerpipe control run` completed with no runtime or control errors, but there were one or more alarms
+|   **2** | `ExitCodeControlsError`               | `powerpipe benchmark run` or `powerpipe control run` completed with no runtime errors,  but one or more control errors occurred
+|  **21** | `ExitCodeSnapshotCreationFailed`      | Snapshot creation failed
+|  **22** | `ExitCodeSnapshotUploadFailed`        | Snapshot upload failed
+|  **31** | `ExitCodeServiceSetupFailure`         | Service setup failed
+|  **32** | `ExitCodeServiceStartupFailure`       | Service start failed
+|  **33** | `ExitCodeServiceStopFailure`          | Service stop failed
+|  **41** | `ExitCodeQueryExecutionFailed`        | One or more queries failed for `powerpipe query run` 
+|  **51** | `ExitCodeLoginCloudConnectionFailed`  | Connecting to Pipes failed
+|  **61** | `ExitCodeModInitFailed`               | Mod init failed
+|  **62** | `ExitCodeModInstallFailed`            | Mod install failed
+| **249** | `ExitCodeInvalidExecutionEnvironment` | Powerpipe was run in an unsupported environment
+| **250** | `ExitCodeInitializationFailed`        | Initialization failed
+| **251** | `ExitCodeBindPortUnavailable`         | Network port binding failed
+| **252** | `ExitCodeNoModFile`                   | The command requires a mod, but no mod file was found
+| **253** | `ExitCodeFileSystemAccessFailure`     | File system access failed
+| **254** | `ExitCodeInsufficientOrWrongInputs`   | Runtime error - insufficient or incorrect input
+| **255** | `ExitCodeUnknownErrorPanic`           | Runtime error - an unknown panic occurred
