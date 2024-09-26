@@ -31,7 +31,7 @@ sidebar_label: Powerpipe CLI
   <tr> 
     <td nowrap="true"> <inlineCode>--config-path</inlineCode> </td> 
     <td>  
-    Sets the search path for <a href = "/docs/reference/config-files/index">configuration files</a>. This argument accepts a colon-separated list of directories.  All configuration files (<inlineCode>*.ppc</inlineCode>) will be loaded from each path, with decreasing precedence.  The default is <inlineCode>.:$POWERPIPE_INSTALL_DIR/config</inlineCode> (<inlineCode>.:~/.powerpipe/config</inlineCode>).  This allows you to manage your <a href="/docs/reference/config-files/workspace"> workspaces </a> and <a href="/docs/reference/config-files/credential/index">credentials</a> centrally in the <inlineCode>~/.powerpipe/config</inlineCode> directory, but override them in the mod location if desired.
+    Sets the search path for <a href = "/docs/reference/config-files">configuration files</a>. This argument accepts a colon-separated list of directories.  All configuration files (<inlineCode>*.ppc</inlineCode>) will be loaded from each path, with decreasing precedence.  The default is <inlineCode>.:$POWERPIPE_INSTALL_DIR/config</inlineCode> (<inlineCode>.:~/.powerpipe/config</inlineCode>).  This allows you to manage your <a href="/docs/reference/config-files/workspace"> workspaces </a> and credentials centrally in the <inlineCode>~/.powerpipe/config</inlineCode> directory, but override them in the mod location if desired.
     </td> 
   </tr>   
 

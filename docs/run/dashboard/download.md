@@ -12,4 +12,4 @@ The Powerpipe dashboard elements allow you to download the backing data in CSV f
 
 Click the download button to download the CSV file.
 
-You can also download the results from the [Data tab in the Panel View](http://localhost:3000/docs/run/dashboard/panel#data).
+You can also download the results from the [Data tab in the Panel View](/docs/run/dashboard/panel#data).
