@@ -52,4 +52,4 @@ The console will show progress as it runs, and will print the results to the scr
 
 You can find controls and benchmarks in the  [Powerpipe Hub](https://hub.powerpipe.io), or by searching [Github](https://github.com/topics/powerpipe-mod) directly.  
 
-You can also [create your own controls and benchmarks](/docs/mods/writing-controls), and package them into a [mod](/docs/powerpipe-hcl/overview).  
+You can also [create your own controls and benchmarks](/docs/build/writing-controls), and package them into a [mod](/docs/powerpipe-hcl/mod).
