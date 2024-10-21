@@ -40,7 +40,7 @@ input "vpc_id" {
 |---------------|---------|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `args` | Map | Optional| A map of arguments to pass to the query. 
 | `base`        | String	 | Optional  | A reference to a named `input` resource that this `input` should source its definition from. `title`, `sql`, `type`, `options` and `width` can be overridden after sourcing via `base`. |
-| `database` | String |  Optional| A [database connection string](/docs/powerpipe-hcl/query#connection-strings) for the database you wish to query.  If not specified, the [active database](/docs/run#selecting-a-database ) will be used.
+| `database` | String |  Optional| A database [connection reference](/docs/reference/config-files/connection), [connection string](/docs/powerpipe-hcl/query#connection-strings), or [Pipes workspace](/docs/run/workspaces#implicit-workspaces) to query.  If not specified, the [default database](/docs/run#selecting-a-database ) will be used.
 | `option`     | Block	 | Optional  | [option](#option) block to add static values to the input                            |
 | `placeholder` | String	 | Optional  | Placeholder text to display.  If a `placeholder` is set for a `combo`, `multicombo`, `select` or `multiselect`, then dependent resources will not run until a selection is made.  If no `placeholder` is set, the first item in the list will be selected by default.
 | `param` | Block | Optional| A [param](/docs/powerpipe-hcl/query#param) block that defines the parameters that can be passed in to the query.  `param` blocks may only be specified for inputs that specify the `sql` argument. 

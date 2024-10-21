@@ -26,7 +26,7 @@ $ powerpipe query run plus_size_instances
 
 | Argument |Type | Required? | Description
 |-|-|-|-
-| `database` | String |  Optional| A [database connection string](#connection-string) for the database you wish to query.  If not specified, the [active database](/docs/run#selecting-a-database ) will be used.
+| `database` | String |  Optional| A database [connection reference](/docs/reference/config-files/connection), [connection string](/docs/powerpipe-hcl/query#connection-strings), or [Pipes workspace](/docs/run/workspaces#implicit-workspaces) to query.  If not specified, the [default database](/docs/run#selecting-a-database ) will be used.
 | `description` | String |  Optional| A description of the query.
 | `documentation` | String (Markdown)| Optional | A markdown string containing a long form description, used as documentation for the mod on hub.powerpipe.io. 
 | `param` | Block | Optional| A [param](#param) block that defines the parameters that can be passed in to the query.  
@@ -38,26 +38,26 @@ $ powerpipe query run plus_size_instances
 
 
 
-### Connection Strings
+### Database
+Mods are typically written for a specific database engine and schema.  Powerpipe allows you to set a [default database connection](/docs/build/mod-database) for your mod.  Any `query`, `control`, `chart`, or other query-provider resource that does not specifically set the `database` argument will use this database.  Because the majority of mods are currently written for [Steampipe](https://steampipe.io) databases, the default database is set to the local Steampipe instance if it is not specified for the mod (`postgres://steampipe@localhost:9193/steampipe`). It is generally advisable *not* to set the `database` on the mod resources in the code, and instead use the mod default.  
 
-Mods are typically written for a specific database engine and schema.  Powerpipe allows you to set the database connection string at run time, using the [`--database` CLI argument](/docs/run#selecting-a-database), the [`database` workspace argument](/docs/reference/config-files/workspace#arguments), or the [POWERPIPE_DATABASE](/docs/reference/env-vars/powerpipe_database) environment variable.  Any `query`, `control`, `chart`, or other query-provider resource that does not specifically set the `database` argument will use this connection string.  Because the majority of mods are currently written for [Steampipe](https://steampipe.io) databases, the default database is set to the local Steampipe instance (`postgres://steampipe@localhost:9193/steampipe`).
+As with the [default database connection](/docs/build/mod-database),  the `database` may be:
+  - A database [connection reference](/docs/reference/config-files/connection), eg `connection.steampipe.default`.
+  - A [connection string](/docs/powerpipe-hcl/query#connection-strings), eg `sqlite://myfile.db`
+  - A [Pipes workspace](/docs/run/workspaces#implicit-workspaces), eg `acme/anvils`
 
-As a result, it is generally advisable *not* to set the `database` on the mod resources in the code, and instead allow the user to pass the value at run time.  
 
-The connection string syntax is the same whether you set it in the `database` or pass it in the `--database` argument.  
+#### Connection Strings
 
-#### Postgres
+The connection string syntax for `database` argument is the same whether you set it in the `mod` or the `query`, `card`, `chart`, etc.  
+
+##### Postgres
 Powerpipe can connect to any Postgres database.  The Postgres `database` follows the standard URI syntax supported by `psql` and `pgcli`:
 ```bash
 postgresql://[user[:password]@][host][:port][/dbname][?param1=value1&...]
 ```
 
 For example:
-```bash
-powerpipe server --database 'postgresql://myusername:mypassword@acme-prod.apse1.db.cloud.turbot.io:9193/aaa000'
-```
-
-or
 ```hcl
 query "my_query" {
   database = "postgresql://myusername:mypassword@acme-prod.apse1.db.cloud.turbot.io:9193/aaa000"
@@ -66,19 +66,13 @@ query "my_query" {
 ```
 
 
-#### MySQL
+##### MySQL
 The MySQL connection string supports the syntax of the [GO SQL driver for MySQL](https://github.com/go-sql-driver/mysql?tab=readme-ov-file#examples):
 
 ```bash
 mysql://[user[:password]@]network-location[:port][/dbname][?param1=value1&...]
 ```
 
-For example:
-```bash
-powerpipe server --database 'mysql://root:my_pass@tcp(localhost)/mysql'
-```
-
-or
 ```hcl
 query "my_query" {
   database = "mysql://root:my_pass@tcp(localhost)/mysql"
@@ -87,7 +81,7 @@ query "my_query" {
 ```
 
 
-#### SQLite
+##### SQLite
 The SQLite `database` connection string is the path to a SQLite database file:
 
 ```bash
@@ -102,11 +96,6 @@ database = "sqlite://my_sqlite_db.db"
 ```
 
 For example:
-```bash
-powerpipe server --database 'sqlite:./my_sqlite_db.db'
-```
-
-or
 ```hcl
 query "my_query" {
   database = "sqlite:./my_sqlite_db.db"
@@ -114,7 +103,7 @@ query "my_query" {
 }
 ```
 
-#### DuckDB
+##### DuckDB
 
 The DuckDB connection string is the path to a DuckDB database file:
 ```bash
@@ -130,11 +119,6 @@ database = "duckdb://my_ducks.db"
 
 
 For example:
-```bash
-powerpipe server --database 'duckdb:./my_ducks.db'
-```
-
-or
 ```hcl
 query "my_query" {
   database = "duckdb:./my_ducks.db

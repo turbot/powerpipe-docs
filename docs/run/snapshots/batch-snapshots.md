@@ -68,28 +68,11 @@ powerpipe benchmark run benchmark.cis_v140 \
   --snapshot-location vandelay-industries/latex
 ```
 
-Note that the previous command ran the benchmark against the *local* database, but saved the snapshot to the `vandelay-industries/latex` workspace.  If you want to run the benchmark against the remote `vandelay-industries/latex` database AND store the snapshot there, you can also add the `--database-location` argument:
-
-```bash
-powerpipe benchmark run benchmark.cis_v140  \
-  --snapshot \
-  --snapshot-location vandelay-industries/latex \
-  --database vandelay-industries/latex
-```
-
-Powerpipe provides a shortcut for this though.  The `--workspace` flag supports [passing the cloud workspace](/docs/run/workspaces#implicit-workspaces):
+Note that the previous command ran the benchmark against the *local* database, but saved the snapshot to the `vandelay-industries/latex` workspace.  If you want to run the benchmark against the remote `vandelay-industries/latex` database AND store the snapshot there, you can use the`--workspace` flag instead - Powerpipe supports [passing the cloud workspace implicitly](/docs/run/workspaces#implicit-workspaces):
 ```bash
 powerpipe benchmark run benchmark.cis_v140 \
   --snapshot \
   --workspace vandelay-industries/latex
-```
-
-While not a common case, you can even run a benchmark against a Turbot Pipes workspace database, but store the snapshot in an entirely different Turbot Pipes workspace:
-```bash
-powerpipe benchmark run benchmark.cis_v140  
-  --snapshot \
-  --database vandelay-industries/latex-dev \
-  --snapshot-location  vandelay-industries/latex-prod 
 ```
 
 ## Passing Args

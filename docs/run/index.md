@@ -18,67 +18,33 @@ Powerpipe will load [configuration files](/docs/reference/config-files) (`*.ppc`
 
 ## Selecting a database
 
-Most public mods are written without specifying a `database` on each query.  As a result, all queries in the mod run against the 'active' database. By default, the active database is `postgres://steampipe@localhost:9193/steampipe`, thus Powerpipe will run against a local Steampipe instance.  
+Most public mods are written without specifying a `database` on each query.  As a result, all queries in the mod run against the 'active' database. By default, the active database is `postgres://steampipe@localhost:9193/steampipe`, thus Powerpipe will run against a local Steampipe instance.
 
-You may instead run Powerpipe against a specific database by passing the `--database` argument.  This works with batch commands:
-
-```bash
-powerpipe benchmark run cis_v120 --database  postgres://myusername:passworrd@mydbserver.mydomain.com:9193/steampipe
-```
-
-and with the dashboard server:
+Some mods allow you to [set the database via a variable](/docs/build/mod-database). In this case, you can pass the connection to the variable when you run a powerpipe command:
 
 ```bash
-powerpipe server --database  postgres://myusername:passworrd@mydbserver.mydomain.com:9193/steampipe
+powerpipe benchmark run cis_v120 --var database=connection.steampipe.my_connection
 ```
 
-You may instead set the database with the [POWERPIPE_DATABASE](/docs/reference/env-vars/powerpipe_database) environment variable:
+or start the dashboard server:
 
 ```bash
-export POWERPIPE_DATABASE=postgres://myusername:passworrd@mydbserver.mydomain.com:9193/steampipe
-powerpipe benchmark run cis_v120
-powerpipe server
-
+powerpipe server --var database=connection.steampipe.my_connection
 ```
 
-Or you can set it in a [workspace](/docs/run/workspaces) and then pass the workspace name to the command:
-```bash
-powerpipe benchmark run cis_v120 --workspace my_workspace
-powerpipe server --workspace my_workspace
-
-```
-
-You can even change the default by [setting it in your `default` workspace](/docs/run/workspaces#using-workspaces).
-
-
-If you use [Turbot Pipes](http://pipes.turbot.com), you can run Powerpipe against the Pipes workspace database (you will need to [log in](/docs/reference/cli/login) first):
-```bash
-powerpipe benchmark run cis_v120 --workspace acme/anvils
-powerpipe server --workspace acme/anvils
-
-```
-
-While most Powerpipe mods are written for Steampipe databases, Powerpipe can also connect to other engines, including Postgres:
+<!--
+For the database connection types ([connection.steampipe](/docs/reference/config-files/connection/steampipe),  [connection.postgres](/docs/reference/config-files/connection/postgres), [connection.mysql](/docs/reference/config-files/connection/mysql), ,[connection.duckdb](/docs/reference/config-files/connection/duckdb), [connection.sqlite](/docs/reference/config-files/connection/sqlite)). Powerpipe even supports passing them as connection strings:
 
 ```bash
-powerpipe server --database 'postgresql://myusername:mypassword@acme-prod.apse1.db.cloud.turbot.io:9193/aaa000'
+powerpipe benchmark run cis_v120 --var database="postgres://steampipe@127.0.0.1:9193/steampipe"
 ```
 
-MySQL:
-
+or pipes workspaces (you will need to [log in](/docs/reference/cli/login) first)!
 ```bash
-powerpipe server --database 'mysql://root:my_pass@tcp(localhost)/mysql'
+powerpipe benchmark run cis_v120 --var database=tnt/fireworks
 ```
+-->
 
-SQLite:
-```bash
-powerpipe server --database 'sqlite:./my_sqlite_db.db'
-```
-
-and DuckDB :
-```bash
-powerpipe server --database 'duckdb:./my_ducks.db'
-```
 
 ## Targeting specific schemas/connections (Postgres/Steampipe)
 

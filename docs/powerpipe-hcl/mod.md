@@ -57,7 +57,8 @@ mod "aws_cis" {
 | Name | Type | Required? | Description
 |-|-|-|-
 | `categories` | List(String) | Optional | A list of labels, used to categorize mods (such as on the Powerpipe Hub).
-| `color` | String |Optional |  A hexadecimal RGB value to use as the color scheme for the mod on hub.powerpipe.io.  
+| `color` | String |Optional |  A hexadecimal RGB value to use as the color scheme for the mod on hub.powerpipe.io.
+| `database`    | String | Optional | The database to use as the default. The `database` may be a connection reference (`connection.steampipe.default`), a connection string (`postgres://steampipe@127.0.0.1:9193/steampipe`), or a Pipes workspace (`acme/anvils`). If not set, the default is the local Steampipe database instance.
 | `description` |  String | Optional | A string containing a short description. 
 | `documentation` | String (Markdown)| Optional | A markdown string containing a long form description, used as documentation for the mod on hub.powerpipe.io. 
 | `icon` |  String | Optional | The url of an icon to use for the mod on hub.powerpipe.io.
@@ -187,34 +188,32 @@ mod "aws_well_architected" {
 ```
 
 
-You may also override the [default database](/docs/run#selecting-a-database) and [search_path / search_path_prefix](/docs/run/benchmark#targeting-specific-connections-postgres-only) for the dependency mod if you want.  Note that if you override the `database` in the mod `require` block, the setting will take precedence; the `STEAMPIPE_DATABASE` variable, `database` workspace argument and `--database` command line argument will be ignored for resources in the dependency mod. Likewise, overriding the `database`, `search_path` or `search_path_prefix` will cause the `search_path` and `search_path_prefix`	workspaces arguments and `--search-path` and `--search-path-prefix` CLI arguments to be ignored for the dependency mod.
+You may also override the [search_path / search_path_prefix](/docs/run/benchmark#targeting-specific-connections-postgres-only) for the dependency mod if you want.  Note that if you override `search_path` or `search_path_prefix`, the `search_path` and `search_path_prefix`	workspace arguments and `--search-path` and `--search-path-prefix` CLI arguments will be ignored for the dependency mod.
 
 ```hcl
 variable "duckdb_database" {
   default = "duckdb:/home/ducks/mallard.db"
 }
 
-variable "flowpipe_database" {
-  default = "sqlite:/./my_mod/flowpipe.db"
+variable "steampipe_database" {
+  type    = connection.steampipe
+  default = connection.steampipe.default
 }
 
 mod "local" {
   require {
     mod "github.com/turbot/my-duckdb-mod" {
-      version     = ">=0.1.0"
-      database    = var.duckdb_database
+      version = ">=0.1.0"
       args = {
-        foo = "bar"
+        database    = var.duckdb_database
       }
     }
 
-    mod "github.com/turbot/my-flowpipe-mod" {
-      version   = ">=0.1.0"
-      database  = var.flowpipe_database,
-    }
-
     mod "github.com/turbot/steampipe-mod-aws-compliance" {
-      version            = ">=0.66.0"
+      version = ">=0.66.0"
+      args = {
+        database    = var.steampipe_database
+      }
       search_path_prefix = "aws_01"
     }
   }

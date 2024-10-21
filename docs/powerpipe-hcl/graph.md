@@ -118,7 +118,7 @@ category "table" {
 | `args` | Map | Optional| A map of arguments to pass to the query. 
 | `base` |  Graph Reference		| Optional | A reference to a named `graph` resource that this `graph` should source its definition from.
 | `category` | Block | Optional| [category](/docs/powerpipe-hcl/category) blocks that specify display options for nodes and edges with that category.
-| `database` | String |  Optional| A [database connection string](/docs/powerpipe-hcl/query#connection-strings) for the database you wish to query.  If not specified, the [active database](/docs/run#selecting-a-database ) will be used.
+| `database` | String |  Optional| A database [connection reference](/docs/reference/config-files/connection), [connection string](/docs/powerpipe-hcl/query#connection-strings), or [Pipes workspace](/docs/run/workspaces#implicit-workspaces) to query.  If not specified, the [default database](/docs/run#selecting-a-database ) will be used.
 | `direction` | String | Optional | The direction of the graph layout. Valid options are `left_right` and `top_down`.  The default is  `top_down`.
 | `edge` | Block | Optional| [edge](/docs/powerpipe-hcl/edge) blocks that define the edges in the graph.
 | `node` | Block | Optional| [node](/docs/powerpipe-hcl/node) blocks that define the nodes in the graph.

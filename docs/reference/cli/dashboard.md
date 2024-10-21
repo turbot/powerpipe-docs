@@ -89,7 +89,7 @@ Run a dashboard from the current mod or its direct dependents.
 |-|-
 | `--arg string=string`           | Specify the value for a dashboard input. Multiple `--arg` arguments may be passed. 
 | `--dashboard-timeout int`       | Set the dashboard execution timeout, in seconds. The default is `0` (no timeout).
-|  `--database`         | Sets the [database that Powerpipe will connect to](/docs/run#selecting-a-database). This defaults to the local Steampipe database, but can be any PostgreSQL, MySQL, DuckDB, or SQLite database. See [POWERPIPE_DATABASE](/docs/reference/env-vars/powerpipe_database) for details.
+|  `--database`         | ***DEPRECATED - See [Setting the Database](/docs/build/mod-database) for the new syntax.***  Sets the [database that Powerpipe will connect to](/docs/run#selecting-a-database). This defaults to the local Steampipe database, but can be any PostgreSQL, MySQL, DuckDB, or SQLite database.
 |  `--export string`              | Export dashboard output to a file. You may export multiple output formats for a single dashboard run by entering multiple `--export` arguments. If a file path is specified as an argument, its type will be inferred by the suffix. Supported export formats are `none`, `pps` (`snapshot`)
 |  `--input`                      | Enable/Disable interactive prompts for missing variables. To disable prompts and fail on missing variables, use  `--input=false`. This is useful when running from scripts. (default `true`)
 |  `--max-parallel int`           | Set the maximum number of database connections to open. When running dashboards, Powerpipe will attempt to run up to this many dashboards in parallel. See the `POWERPIPE_MAX_PARALLEL` environment variable documentation for details. (default `10`)
@@ -158,9 +158,4 @@ powerpipe dashboard run account_report --snapshot --snapshot-tag env=local
 Run a dashboard against a pipes workspace:
 ```bash
 powerpipe dashboard run account_report --workspace acme/anvils
-```
-
-Run a dashboard against a specific database:
-```bash
-powerpipe dashboard run account_report --database  postgres://myusername:passworrd@mydbserver.mydomain.com:9193/steampipe
 ```

@@ -88,49 +88,10 @@ workspace "prod" {
 ```
 
 
-The `database` defaults to a local Steampipe instance (`postgres://steampipe@127.0.0.1:9193/steampipe`) because most Powerpipe mods are written for a Steampipe database instance, but you can change it to be another Postgres database:
-
-```hcl
-workspace "my_workspace" {
-  database = "postgres://my_username:passsord@db1.jpeterman.com:5432/steampipe"
-}
-```
-
-or MySQL:
-```hcl
-workspace "my_workspace" {
-  database = "mysql://root:my_pass@tcp(db1.jpeterman.com)/mydb"
-}
-```
-
-or SQLite:
-
-```hcl
-workspace "my_workspace" {
-  database = "sqlite:./my_sqlite.db"
-}
-```
-
-or DuckDB:
-```hcl
-workspace "my_workspace" {
-  database = "duckdb:./my_ducks.db"
-}
-```
-
-
-or a Turbot Pipes workspace, in the form of `{identity_handle}/{workspace_handle}`:
-```hcl
-workspace "acme_prod" {
-  database = "acme/prod"
-}
-```
-
-The `snapshot_location` can also be a Turbot Pipes workspace, in the form 
+The `snapshot_location` can be a Turbot Pipes workspace, in the form 
 of `{identity_handle}/{workspace_handle}`: 
 ```hcl
 workspace "acme_prod" {
-  database          = "acme/prod"
   snapshot_location = "acme/prod"
 }
 ```
@@ -211,13 +172,7 @@ the slash (`/`) character.  If you pass a value to `--workspace` or `POWERPIPE_W
 in the form of `{identity_handle}/{workspace_handle}`, it will be interpreted as
 an **implicit workspace**.  Implicit workspaces, as the name suggests, do not
 need to be specified in the `workspaces.ppc` file.  Instead, they will be assumed
-to refer to a Powerpipe Cloud workspace, which will be used as both the database (`database`)
-and snapshot location (`snapshot_location`).
+to refer to a Powerpipe Cloud workspace, which will be used as both the database and snapshot location (`snapshot_location`).
 
-Essentially, `--workspace acme/dev` is equivalent to:
-```hcl
-workspace "acme/dev" {
-  database          = "acme/dev"
-  snapshot_location = "acme/dev"
-}
-```
+
+
