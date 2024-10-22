@@ -38,7 +38,7 @@ card {
 |-|-|-|-
 | `args` | Map | Optional| A map of arguments to pass to the query. 
 | `base` |  Card Reference		| Optional | A reference to a named `card` resource that this `card` should source its definition from. `label`, `title`, `value`, `type` and `width` can be overridden after sourcing via `base`.
-| `database` | String |  Optional| A [database connection string](/docs/powerpipe-hcl/query#connection-strings) for the database you wish to query.  If not specified, the [active database](/docs/run#selecting-a-database ) will be used.
+| `database` | String |  Optional| A database [connection reference](/docs/reference/config-files/connection), [connection string](/docs/powerpipe-hcl/query#connection-strings), or [Pipes workspace](/docs/run/workspaces#implicit-workspaces) to query.  If not specified, the [default database](/docs/run#selecting-a-database ) will be used.
 | `icon` |  String	| Optional | An [icon](/docs/powerpipe-hcl/dashboard#icon) to use for the elements with this category. 
 | `href`    | String |Optional | A url that the card should link to.  The `href` may use a [jq template](#jq-templates) to dynamically generate the link the card.  |
 | `label` |  String	| Optional | Inferred from the first column name in simple data format. Else can be set explicitly in HCL, or returned by the query in the `label` column in the formal data format.

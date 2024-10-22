@@ -63,6 +63,7 @@
       "build/writing-dashboards",
       "build/param-query",
       "build/mod-variables",
+      "build/mod-database",
       "build/mod-dependencies"
     ]
   },
@@ -155,7 +156,21 @@
         "id": "config-files",
         "label": "Configuration Files",
         "link": "reference/config-files",
-        "items": ["reference/config-files/workspace"]
+        "items": [
+          {
+            "type": "category",
+            "id": "connection",
+            "link": "reference/config-files/connection",
+            "items": [
+              "reference/config-files/connection/duckdb",
+              "reference/config-files/connection/mysql",
+              "reference/config-files/connection/postgres",
+              "reference/config-files/connection/sqlite",
+              "reference/config-files/connection/steampipe"
+              ]
+          },
+          "reference/config-files/workspace"
+        ]
       }
     ]
   },
