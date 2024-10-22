@@ -20,7 +20,7 @@ connection "duckdb" "duckdb_connection" {
 | `filename` |  String | Optional | Path to a DuckDB database file to open. The filename is relative to the [mod location](/docs/run#mod-location)
 
 
-All arguments are optional, and a `postgres` connection with no arguments will behave the same as the [default connection](#default-connection).
+All arguments are optional, and a `duckdb` connection with no arguments will behave the same as the [default connection](#default-connection).
 
 ## Attributes (Read-Only)
 

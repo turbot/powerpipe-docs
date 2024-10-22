@@ -58,7 +58,7 @@ mod "aws_cis" {
 |-|-|-|-
 | `categories` | List(String) | Optional | A list of labels, used to categorize mods (such as on the Powerpipe Hub).
 | `color` | String |Optional |  A hexadecimal RGB value to use as the color scheme for the mod on hub.powerpipe.io.
-| `database`    | String | Optional | The database to use as the default. The `database` may be a connection reference (`connection.steampipe.default`), a connection string (`postgres://steampipe@127.0.0.1:9193/steampipe`), or a Pipes workspace (`acme/anvils`). If not set, the default is the local Steampipe database instance.
+| `database`    | String | Optional | The database to use as the [default database](/docs/run#selecting-a-database) for the mod. The `database` may be a [connection reference](/docs/reference/config-files/connection), [connection string](/docs/powerpipe-hcl/query#connection-strings), or [Pipes workspace](/docs/run/workspaces#implicit-workspaces). If not set, the default is the local Steampipe database instance.
 | `description` |  String | Optional | A string containing a short description. 
 | `documentation` | String (Markdown)| Optional | A markdown string containing a long form description, used as documentation for the mod on hub.powerpipe.io. 
 | `icon` |  String | Optional | The url of an icon to use for the mod on hub.powerpipe.io.
@@ -209,8 +209,8 @@ mod "local" {
       }
     }
 
-    mod "github.com/turbot/steampipe-mod-aws-compliance" {
-      version = ">=0.66.0"
+    mod "github.com/turbot/steampipe-mod-aws-custom" {
+      version = "~1.0.0"
       args = {
         database    = var.steampipe_database
       }
