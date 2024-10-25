@@ -7,6 +7,7 @@ sidebar_label: POWERPIPE_DATABASE
 # POWERPIPE_DATABASE
 
 
+> [!IMPORTANT]
 > ***As of Powerpipe 1.0.0, `POWERPIPE_DATABASE` has been deprecated and will be removed in a future version of Powerpipe. See [Setting the Database](/docs/build/mod-database) for the new syntax.***
 
 
