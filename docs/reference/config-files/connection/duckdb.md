@@ -9,7 +9,7 @@ The `duckdb` connection can be used to access a [DuckDB](https://duckdb.org/) da
 
 ```hcl
 connection "duckdb" "duckdb_connection" {
-   file = "my_ducks.db"
+   filename = "my_ducks.db"
 }
 ```
 
@@ -36,6 +36,6 @@ The `duckdb` connection type includes an implicit, default connection (`connecti
 
 ```hcl
 connection "duckcb" "default" {
-   file = env("DUCKDB_FILENAME")
+   filename = env("DUCKDB_FILENAME")
 }
 ```
