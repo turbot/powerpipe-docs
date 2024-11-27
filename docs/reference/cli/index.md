@@ -1,6 +1,5 @@
 ---
 title: Powerpipe CLI
-sidebar_label: Powerpipe CLI
 ---
 
 # Powerpipe CLI

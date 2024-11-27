@@ -1,6 +1,5 @@
 ---
 title:  mysql
-sidebar_label: mysql
 ---
 
 # mysql

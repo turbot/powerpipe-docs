@@ -1,6 +1,5 @@
 ---
 title: powerpipe mod
-sidebar_label: powerpipe mod
 ---
 
 

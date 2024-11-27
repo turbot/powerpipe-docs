@@ -1,6 +1,5 @@
 ---
 title: powerpipe login
-sidebar_label: powerpipe login
 ---
 
 

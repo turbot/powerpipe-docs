@@ -1,6 +1,5 @@
 ---
 title: powerpipe query
-sidebar_label: powerpipe query
 ---
 
 
