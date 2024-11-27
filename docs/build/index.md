@@ -1,6 +1,5 @@
 ---
 title: Build
-sidebar_label: Build
 ---
 
 # Build Mods

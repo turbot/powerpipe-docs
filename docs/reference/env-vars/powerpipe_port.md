@@ -1,6 +1,5 @@
 ---
 title: POWERPIPE_PORT
-sidebar_label: POWERPIPE_PORT
 ---
 
 # POWERPIPE_PORT

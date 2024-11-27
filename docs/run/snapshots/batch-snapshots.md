@@ -1,6 +1,5 @@
 ---
 title: Batch Snapshots
-sidebar_label: Batch Snapshots
 ---
 
 # Taking Snapshots from the Command Line

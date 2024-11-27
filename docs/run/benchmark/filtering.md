@@ -1,6 +1,5 @@
 ---
 title: Filtering Controls
-sidebar_label: Filtering Controls
 ---
 
 

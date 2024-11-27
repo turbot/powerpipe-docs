@@ -1,6 +1,5 @@
 ---
 title: PIPES_TOKEN
-sidebar_label: PIPES_TOKEN
 ---
 
 

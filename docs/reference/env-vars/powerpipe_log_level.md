@@ -1,6 +1,5 @@
 ---
 title: POWERPIPE_LOG_LEVEL
-sidebar_label: POWERPIPE_LOG_LEVEL
 ---
 # POWERPIPE_LOG_LEVEL
 Sets the output logging level.  Standard log levels are supported (`DEBUG`, `INFO`, `WARN`, `ERROR`). Logs are written to STDERR.  By default, logging is off.

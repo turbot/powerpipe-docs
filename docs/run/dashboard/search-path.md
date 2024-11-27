@@ -1,6 +1,5 @@
 ---
 title: Change the Search Path
-sidebar_label: Change the Search Path
 ---
 
 # Change the Search Path

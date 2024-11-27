@@ -1,6 +1,5 @@
 ---
 title: Run Benchmarks
-sidebar_label: Run Benchmarks
 ---
 
 # Running Benchmarks

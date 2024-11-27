@@ -1,6 +1,5 @@
 ---
 title: Setting the Database
-sidebar_label: Setting the Database
 ---
 
 # Setting the Database
