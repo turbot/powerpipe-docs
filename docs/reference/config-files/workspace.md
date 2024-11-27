@@ -1,6 +1,5 @@
 ---
 title:  workspace
-sidebar_label: workspace
 ---
 # workspace 
 

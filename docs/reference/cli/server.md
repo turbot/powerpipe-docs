@@ -1,6 +1,5 @@
 ---
 title: powerpipe server
-sidebar_label: powerpipe server
 ---
 
 

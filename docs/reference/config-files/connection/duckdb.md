@@ -1,6 +1,5 @@
 ---
 title:  duckdb
-sidebar_label: duckdb
 ---
 
 # duckdb

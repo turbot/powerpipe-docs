@@ -1,6 +1,5 @@
 ---
 title: powerpipe control
-sidebar_label: powerpipe control
 ---
 
 

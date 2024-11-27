@@ -1,6 +1,5 @@
 ---
 title: powerpipe help
-sidebar_label: powerpipe help
 ---
 
 # powerpipe help

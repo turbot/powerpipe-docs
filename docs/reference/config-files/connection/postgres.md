@@ -1,6 +1,5 @@
 ---
 title:  postgres
-sidebar_label: postgres
 ---
 
 # postgres

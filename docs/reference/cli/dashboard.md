@@ -1,6 +1,5 @@
 ---
 title: powerpipe dashboard
-sidebar_label: powerpipe dashboard
 ---
 
 

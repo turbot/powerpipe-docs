@@ -1,6 +1,5 @@
 ---
 title: powerpipe variable
-sidebar_label: powerpipe variable
 ---
 
 # powerpipe variable
