@@ -58,34 +58,16 @@
     "label": "Build Mods",
     "link": "build",
     "items": [
-      {
-        "type": "category",
-        "id": "steampipe-mods",
-        "label": "Steampipe",
-        "link": "build/steampipe",
-        "items": [
-          "build/steampipe/create-mod",
-          "build/steampipe/writing-controls",
-          "build/steampipe/writing-dashboards",
-          "build/steampipe/param-query",
-          "build/steampipe/mod-variables",
-          "build/steampipe/mod-database",
-          "build/steampipe/mod-dependencies"
-        ]
-      },
-      {
-        "type": "category",
-        "id": "tailpipe-mods",
-        "label": "Tailpipe",
-        "link": "build/tailpipe",
-        "items": [
-          "build/tailpipe/create-mod",
-          "build/tailpipe/writing-detections"
-        ]
-      }
+      "build/create-mod",
+      "build/writing-controls",
+      "build/writing-dashboards",
+      "build/param-query",
+      "build/mod-variables",
+      "build/mod-database",
+      "build/mod-dependencies"
     ]
   },
-  
+
   {
     "type": "category",
     "id": "powerpipe-hcl",
