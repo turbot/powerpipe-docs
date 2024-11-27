@@ -1,6 +1,5 @@
 ---
 title: Build Steampipe Mods
-sidebar_label: Build Steampipe Mods
 ---
 # Build Steampipe Mods
 

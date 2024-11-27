@@ -1,6 +1,5 @@
 ---
 title: Managing Workspaces
-sidebar_label: Workspaces
 ---
 
 # Managing Workspaces

@@ -1,6 +1,5 @@
 ---
 title: Dashboard View
-sidebar_label: Dashboard View
 ---
 
 

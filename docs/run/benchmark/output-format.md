@@ -1,6 +1,5 @@
 ---
 title: Formatting Output
-sidebar_label: Formatting Output
 ---
 
 

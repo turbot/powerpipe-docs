@@ -1,6 +1,5 @@
 ---
 title: benchmark
-sidebar_label: benchmark
 ---
 
 

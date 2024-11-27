@@ -1,6 +1,5 @@
 ---
 title: View Dashboards
-sidebar_label: View Dashboards
 ---
 
 # Powerpipe Dashboards

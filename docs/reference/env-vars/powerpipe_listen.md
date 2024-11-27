@@ -1,6 +1,5 @@
 ---
 title: POWERPIPE_LISTEN
-sidebar_label: POWERPIPE_LISTEN
 ---
 
 # POWERPIPE_LISTEN

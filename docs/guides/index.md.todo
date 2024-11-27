@@ -1,6 +1,5 @@
 ---
 title: Guides
-sidebar_label: Guides
 ---
 
 # Guides

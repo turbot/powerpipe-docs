@@ -1,6 +1,5 @@
 ---
 title: PIPES_HOST
-sidebar_label: PIPES_HOST
 ---
 
 # PIPES_HOST

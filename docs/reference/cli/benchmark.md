@@ -1,6 +1,5 @@
 ---
 title: powerpipe benchmark
-sidebar_label: powerpipe benchmark
 ---
 
 

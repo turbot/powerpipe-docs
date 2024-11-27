@@ -1,6 +1,5 @@
 ---
 title: Run Powerpipe
-sidebar_label: Run Powerpipe
 ---
 
 # Run Powerpipe

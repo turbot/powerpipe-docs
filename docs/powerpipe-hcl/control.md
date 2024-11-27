@@ -1,5 +1,5 @@
 ---
-title: control
+title: Control
 sidebar_label: control
 ---
 

@@ -1,6 +1,5 @@
 ---
 title: Writing Dashboards
-sidebar_label: Writing Dashboards
 ---
 
 # Powerpipe Dashboards

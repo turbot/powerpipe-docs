@@ -1,6 +1,5 @@
 ---
 title: Writing Controls
-sidebar_label: Writing Controls
 ---
 
 # Custom Controls

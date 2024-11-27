@@ -1,6 +1,5 @@
 ---
 title: Take Snapshots
-sidebar_label: Take Snapshots
 ---
 
 # Take Snapshots

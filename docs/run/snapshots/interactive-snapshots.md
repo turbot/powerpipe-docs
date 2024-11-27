@@ -1,6 +1,5 @@
 ---
 title: Interactive Snapshots
-sidebar_label:  Interactive Snapshots
 ---
 
 # Interactive Snapshots

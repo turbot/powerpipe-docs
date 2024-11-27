@@ -1,6 +1,5 @@
 ---
 title: POWERPIPE_SNAPSHOT_LOCATION
-sidebar_label: POWERPIPE_SNAPSHOT_LOCATION
 ---
 
 

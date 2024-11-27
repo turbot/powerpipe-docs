@@ -1,6 +1,5 @@
 ---
 title: PIPES_INSTALL_DIR
-sidebar_label: PIPES_INSTALL_DIR
 ---
 
 # PIPES_INSTALL_DIR
