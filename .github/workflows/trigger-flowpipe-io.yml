@@ -1,0 +1,21 @@
+name: Trigger the preview build in powerpipe.io
+
+on:
+  workflow_dispatch:
+
+  push:
+    branches-ignore: 
+      - "main"
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'push' }}
+    steps:
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.G_PERSONAL_ACCESS_TOKEN }}
+          repository: turbotio/powerpipe.io
+          event-type: build-preview
+          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}", "ref_name": "${{ github.ref_name }}"}'
