@@ -6,9 +6,9 @@ title: Writing Dashboards
 
 A Powerpipe [dashboard](/docs/powerpipe-hcl/dashboard) uses a combination of HCL and SQL to visualize data in a variety of ways. This *dashboards as code* approach makes it easy to create and combine charts and tables, style them, and make them interactive. Use your favorite text editor, receive immediate feedback as you type, and manage your dashboards on GitHub with all your other code artifacts.
 
-## Tutorial
+## Steampipe tutorial
 
-Let's walk through building a simple dashboard that will introduce the key concepts as we go along.
+Let's walk through building a simple Steampipe-backed dashboard that will introduce the key concepts as we go along.
 
 ### Prerequisites
 For this tutorial, we'll be using [Steampipe](https://steampipe.io) with the [RSS plugin](https://hub.steampipe.io/plugins/turbot/rss):
@@ -277,6 +277,30 @@ dashboard "dashboard_tutorial_containers" {
 
 By wrapping the related components in a `container` we are able to show side-by-side sections while keeping the title+chart together as the page resizes.
 
+## Tailpipe Tutorial
+
+  tbd
+  
+  Should Steampipe Tutorial and Tailpipe Tutorial be subcategories? It makes sense to have a tutorial for each, and doing that in this single page would be a lot.
+
+  Either way, there is material common to both, so the structure could be:
+
+```
+  Writing Dashboards
+    Steampipe Tutorial (folder)
+    Tailpipe Tutorial (folder)
+    Chart some data
+    Re-use a chart
+    Layout control
+    Nesting components
+```    
+
 ### Wrap-up
 
 We've only scratched the surface of what's possible here. For the full story on dashboard components and their options please check out the [reference docs](/docs/powerpipe-hcl#dashboards).
+
+
+
+
+
+

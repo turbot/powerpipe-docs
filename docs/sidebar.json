@@ -60,6 +60,7 @@
     "items": [
       "build/create-mod",
       "build/writing-controls",
+      "build/writing-detections",
       "build/writing-dashboards",
       "build/param-query",
       "build/mod-variables",
