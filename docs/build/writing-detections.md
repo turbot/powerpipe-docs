@@ -4,85 +4,95 @@ title: Writing Detections
 
 # Writing Detections
 
-Many detections and benchmarks are available in [mods on the Tailpipe Hub](https://hub.tailpipe.io/). However, if these don't meet your needs, Tailpipe makes it easy to create your own **detections** and **benchmarks** to tailor solutions to *your* organization. These can reflect your specific monitoring and security requirements while integrating seamlessly with your dashboards.
+Many detections and benchmarks are available in [mods on the Tailpipe Hub](https://hub.tailpipe.io/). However, if these don't meet your needs, Tailpipe makes it easy to create your own detections and benchmarks to tailor solutions to *your* organization.
 
-This guide introduces the core concepts for creating detections.
+This guide introduces the core concepts for creating detections and benchmarks
 
 ---
 
 ## What are Detections?
 
-Detections in Tailpipe serve as queries that analyze logs or other data sources to identify patterns, anomalies, or issues of interest. Detections return **all relevant columns**, providing a complete context for interpretation.
+Detections in Tailpipe serve as queries that analyze logs or other data sources to identify patterns, anomalies, or issues of interest. Detections return all selected columns as context for filter-enabled analyis in Powerpipe.
 
 ---
 
 ## Example Detection
 
-Letâ€™s build a simple detection for monitoring AWS CloudTrail logs.
+Let's build a simple detection for monitoring AWS CloudTrail logs, and wrap it in a benchmark.
 
 ### Prerequisites
 
-To follow this example, ensure you have:
-
 1. [Download and install Tailpipe](https://tailpipe.io/downloads).
-2. Access to the CloudTrail logs you want to analyze, either locally or via a cloud service.
-3. An active Tailpipe instance with your logs configured as a data source.
+2. A download of the CloudTrail logs you want to analyze.
+3. A `~/.tailpipe/config/aws.tpc` your logs configured as a data source. For example, assuming you have downloaded events to `~/tailpipe`
 
----
+```
+partition "cloudtrail" "cloudtrail_log" {
+    source "file_system" {
+        paths = ["~/tailpipe"]
+        extensions = [".json"]
+    }
+}
+```
 
 ### Create a Detection
 
 1. **Create a Mod**  
-   Tailpipe resources are packaged into mods. First, [create a mod](https://docs.tailpipe.io/create-mod) to house your detection and benchmarks.
+   Tailpipe resources are packaged into mods. First, [create a mod](https://docs.tailpipe.io/create-mod) for benchmark and the detections it wraps.
 
-2. **Write a Detection Query**  
-   Create a new file in your mod folder called `unauthorized_access.pp` and add the following code:
+2. **Define a benchmark and a detection**
 
-   ```hcl
-   detection "unauthorized_access" {
-     title = "Unauthorized Access Attempts"
-
-     sql = <<EOT
-       select
-         event_time,
-         event_source,
-         event_name,
-         user_identity,
-         aws_region,
-         source_ip_address,
-         error_code,
-         request_parameters
-       from
-         cloudtrail_logs
-       where
-         error_code is not null
-         and error_code like '%Unauthorized%'
-       order by
-         event_time desc
-     EOT
-   }
-   ```
-
-   - **Purpose**: This detection identifies unauthorized access attempts by querying `cloudtrail_logs` for events with error codes containing "Unauthorized."
-   - **Query Output**: All columns from `cloudtrail_logs` are returned, offering a complete view of the event, including user identity, source IP, and the full error code.
-
-3. **Run Your Detection**  
-   Use the following command to run the detection:
-
-   ```bash
-   tailpipe detection run unauthorized_access
-   ```
-
-   This outputs the raw query results, which can be piped into a dashboard or further filtered as needed.
-
----
-
-### Organize Detections in a Benchmark
-
-Benchmarks allow grouping detections logically. For example, letâ€™s add another detection and create a benchmark:
+Create a new file in your mod folder called `cloudtrail.pp` and add the following code:
 
 ```hcl
-detection "suspicious_ip" {
+detection_benchmark "cloudtrail_log_detections" {
+  title       = "Cloudtrail Log Detections"
+  description = "This detection benchmark contains recommendations when scanning Cloudtrail logs."
+  type        = "detection"
+  children = [
+    detection.cloudtrail_logs_detect_unauthorized_access,
+  ]
+  
+detection "cloudtrail_logs_detect_unauthorized_access" {
+  title = "Unauthorized Access Attempts"
+
+  sql = <<EOT
+    select
+      *
+    from
+      cloudtrail_logs
+    where
+      error_code is not null
+      and error_code like '%Unauthorized%'
+    order by
+      event_time desc
+  EOT
+}
+```
+
+To view the mod:
+
+```
+powerpipe server
+```
+
+### Add a detection. 
+
+Let's add another detection.
+
+```hcl
+
+detection_benchmark "cloudtrail_log_detections" {
+  title       = "Cloudtrail Log Detections"
+  description = "This detection benchmark contains recommendations when scanning Cloudtrail logs."
+  type        = "detection"
+  children = [
+    detection.cloudtrail_logs_detect_unauthorized_access,
+    detection.cloudtrail_logs_detect_suspicious_ips,
+
+  ]
+
+detection "cloudtrail_logs_detect_suspicious_ips" {
   title = "Suspicious IP Activity"
   sql = <<EOT
     select
@@ -101,27 +111,5 @@ detection "suspicious_ip" {
     EOT
 }
 
-benchmark "security_monitoring" {
-  title = "Security Monitoring"
-  children = [
-    detection.unauthorized_access,
-    detection.suspicious_ip,
-  ]
-}
-```
-
-Run the benchmark to execute all child detections:
-
-```bash
-tailpipe benchmark run security_monitoring
-```
-
----
-
-### Detections in Dashboards
-
-The unfiltered results from detections make them ideal for dashboards. Users can apply filters dynamically, isolating relevant columns or drilling down into specific events.
-
----
 
 This guide is a starting point. Explore the [Tailpipe Hub](https://hub.tailpipe.io/) for more examples and best practices to maximize your use of detections and benchmarks.
