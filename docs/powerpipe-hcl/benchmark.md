@@ -5,16 +5,18 @@ title: benchmark
 
 # benchmark
 
-The benchmark block provides a mechanism for grouping controls into control benchmarks, and into sections within a control benchmark.  For instance, the AWS mod has separate top-level benchmarks for CIS, NIST, PCI, etc.  Each of these benchmarks may have sub-level benchmarks to organize controls in a way that reflects that particular control framework - one for each section or subsection in CIS, one for each CSF Core Function and subcategory for NIST, etc.
+The benchmark block provides a mechanism for grouping controls or detections into benchmarks, and into sections within a  benchmark.  For instance, the Powerpipe AWS mod has separate top-level benchmarks for CIS, NIST, PCI, etc.  Each of these benchmarks may have sub-level benchmarks to organize controls in a way that reflects that particular control framework — one for each section or subsection in CIS, one for each CSF Core Function and subcategory for NIST, etc. The Tailpipe AWS mod works similarly for detections.
 
-A `benchmark` may specify `control` or `benchmark` resources as children, enabling you to create flexible hierarchies of any depth.  By default, controls will be grouped with aggregated totals at each benchmark. 
+A `benchmark` may specify `control` or `detection` or `benchmark` resources as children, enabling you to create flexible hierarchies of any depth.  By default, controls will be grouped with aggregated totals at each benchmark. [[Not true for detections, right?]]
 
-You can run benchmarks or refer to them with HCL syntax as `{mod}.benchmark.{name}`.  The name must be unique in the namespace (mod). Typically, controls and benchmarks in a given benchmark should be named in a way that mimics the hierarchy in order to provide an easy-to-follow structure.  This is a convention that should be followed, but not a strict requirement.  
+You can run benchmarks or refer to them with HCL syntax as `{mod}.benchmark.{name}`.  The name must be unique in the namespace 
+(mod). Typically, controls, detection, and benchmarks in a given benchmark should be named in a way that mimics the hierarchy in order to provide an easy-to-follow structure.  This is a convention that should be followed, but not a strict requirement.  
 
+You can run controls, detections, and benchmarks with the [powerpipe benchmark run](/docs/reference/cli/benchmark#powerpipe-benchmark-run) and [powerpipe control run](/docs/reference/cli/control#powerpipe-control-run) commands.
 
-You can [run controls and benchmarks](/docs/run/benchmark) with the [powerpipe benchmark run](/docs/reference/cli/benchmark#powerpipe-benchmark-run) and [powerpipe control run](/docs/reference/cli/control#powerpipe-control-run) commands.
+You can [view benchmarks as dashboards](/docs/run/dashboard) with the [powerpipe server](/docs/reference/cli/server) command.
 
-You can also [view benchmarks as dashboards](/docs/run/dashboard) with the [powerpipe server](/docs/reference/cli/server) command.
+And you can run individual controls or detections with `powerpipe control run` or `powerpipe detection run`.
 
 ## Example Usage
 
@@ -78,7 +80,6 @@ control "cisv130_1_4" {
 }
 
 ```
-
 
 ## Argument Reference
 | Argument |Type | Required? | Description

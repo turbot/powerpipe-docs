@@ -8,13 +8,9 @@ Many detections and benchmarks are available in [mods on the Tailpipe Hub](https
 
 This guide introduces the core concepts for creating detections and benchmarks
 
----
-
 ## What are Detections?
 
 Detections in Tailpipe serve as queries that analyze logs or other data sources to identify patterns, anomalies, or issues of interest. Detections return all selected columns as context for filter-enabled analyis in Powerpipe.
-
----
 
 ## Example Detection
 
@@ -40,7 +36,7 @@ partition "cloudtrail" "cloudtrail_log" {
 1. **Create a Mod**  
    Tailpipe resources are packaged into mods. First, [create a mod](https://docs.tailpipe.io/create-mod) for benchmark and the detections it wraps.
 
-2. **Define a benchmark and a detection**
+2. **Define a detection**
 
 Create a new file in your mod folder called `cloudtrail.pp` and add the following code:
 
@@ -70,15 +66,54 @@ detection "cloudtrail_logs_detect_unauthorized_access" {
 }
 ```
 
+To run the detection in the Powerpipe CLI:
+
+```
+powerpipe detection run cloudtrail_logs_detect_unauthorized_access
+```
+
 To view the mod:
 
 ```
 powerpipe server
 ```
 
-### Add a detection. 
+Then open localhost:9033 in a browser.
 
-Let's add another detection.
+### Wrap the detection in a benchmark
+
+The benchmark block enables you to [group detections](/docs/powerpipe-hcl/benchmark).
+
+
+```hcl
+benchmark "cloudtrail_log_detections"
+  title       = "Cloudtrail Log Detections"
+  description = "This detection benchmark contains recommendations when scanning Cloudtrail logs."
+  type        = "detection"
+  children = [
+    detection.cloudtrail_logs_detect_unauthorized_access,
+  ]
+  
+detection "cloudtrail_logs_detect_unauthorized_access" {
+  title = "Unauthorized Access Attempts"
+
+  sql = <<EOT
+    select
+      *
+    from
+      cloudtrail_logs
+    where
+      error_code is not null
+      and error_code like '%Unauthorized%'
+    order by
+      event_time desc
+  EOT
+}
+```
+
+### Add a detection
+
+Let's add another detection to the benchmark.
 
 ```hcl
 
