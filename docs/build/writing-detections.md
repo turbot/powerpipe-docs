@@ -145,6 +145,7 @@ detection "cloudtrail_logs_detect_suspicious_ips" {
       event_time desc
     EOT
 }
+```
 
 
 This guide is a starting point. Explore the [Tailpipe Hub](https://hub.tailpipe.io/) for more examples and best practices to maximize your use of detections and benchmarks.
