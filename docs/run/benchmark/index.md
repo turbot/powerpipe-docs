@@ -51,13 +51,6 @@ The console will show progress as it runs, and will print the results to the scr
 ![](/images/docs/learn/benchmark_run.webp)
 
 
-You can find controls and related benchmarks in the  [Powerpipe Hub](https://hub.powerpipe.io), or by searching [Github](https://github.com/topics/powerpipe-mod) directly.
+You can find controls, detections, and related benchmarks in the [Powerpipe Hub](https://hub.powerpipe.io), or by searching either the [powerpipe-mod](https://github.com/topics/tailpipe-mod) or [tailpipe-mod](https://github.com/topics/powerpipe-mod) topics on GitHub.
 
-You can find detections and related benchmarks in the  [Tailpipe Hub](https://hub.tailpipe.io), or by searching [Github](https://github.com/topics/tailpipe-mod) directly.
-
-You can also [create your own controls and benchmarks](/docs/build/writing-controls), and package them into a [mod](/docs/powerpipe-hcl/mod).
-
-And you can [create your own detections and benchmarks](/docs/build/writing-detections).
-
-You can package controls or detections into a   xa [mod](/docs/powerpipe-hcl/mod).
-
+You can also [create your own controls and benchmarks](/docs/build/writing-controls), or [create your own detections and benchmarks](/docs/build/writing-detections), and package them into [mods](/docs/powerpipe-hcl/mod).

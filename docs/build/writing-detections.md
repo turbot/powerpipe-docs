@@ -4,7 +4,7 @@ title: Writing Detections
 
 # Writing Detections
 
-Many detections and benchmarks are available in [mods on the Tailpipe Hub](https://hub.tailpipe.io/). However, if these don't meet your needs, Tailpipe makes it easy to create your own detections and benchmarks to tailor solutions to *your* organization.
+Many detections and benchmarks are available in [mods on the Powerpipe Hub](https://hub.powerpipe.io/). However, if these don't meet your needs, Tailpipe makes it easy to create your own detections and benchmarks to tailor solutions to *your* organization.
 
 This guide introduces the core concepts for creating detections and benchmarks
 
@@ -148,4 +148,4 @@ detection "cloudtrail_logs_detect_suspicious_ips" {
 ```
 
 
-This guide is a starting point. Explore the [Tailpipe Hub](https://hub.tailpipe.io/) for more examples and best practices to maximize your use of detections and benchmarks.
+This guide is a starting point. Explore the [Powerpipe Hub](https://hub.powerpipe.io/) for more examples and best practices to maximize your use of detections and benchmarks.
