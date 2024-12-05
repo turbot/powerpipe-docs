@@ -1,6 +1,6 @@
 ---
 id: learn
-title: Learn Powerpipe
+title: X Learn Powerpipe
 slug: /
 ---
 
