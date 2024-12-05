@@ -80,6 +80,7 @@
       "powerpipe-hcl/chart",
       "powerpipe-hcl/container",
       "powerpipe-hcl/control",
+      "powerpipe-hcl/detection",
       "powerpipe-hcl/dashboard",
       "powerpipe-hcl/edge",
       "powerpipe-hcl/flow",
