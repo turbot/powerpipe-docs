@@ -115,6 +115,7 @@
           "reference/cli/benchmark",
           "reference/cli/control",
           "reference/cli/dashboard",
+          "reference/cli/detection",
           "reference/cli/help",
           "reference/cli/login",
           "reference/cli/mod",

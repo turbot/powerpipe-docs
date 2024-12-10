@@ -109,7 +109,6 @@ Run a dashboard from the current mod or its direct dependents.
 | `--var-file strings`            | Specify a `.ppvar` file containing variable values.
 
 
-
 ### Examples
 
 Run a dashboard and output the snapshot data:
