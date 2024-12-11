@@ -68,7 +68,7 @@ powerpipe detection show audit_logs_detect_failed_workflow_actions --output json
 
 Show details of a detection using settings from a workspace:
 ```bash
-powerpipe detection show audit_logs_detect_failed_workflow_actionst --workspace my_workspace
+powerpipe detection show audit_logs_detect_failed_workflow_actions --workspace my_workspace
 ```
 
 ## powerpipe detection run
@@ -82,7 +82,7 @@ Usage:
 >[!NOTE]
 >strikethroughs == maybe not for lw7?
 >
-> snapshots:  you can save/load locally but not to pipes yet until tailpipe is there, right?
+> snapshots:  you can save/load locally. you can also snap to pipes but nothing to see until tailpipe is up there, right? 
 >
 > other thoughts on what to keep/toss/modify?
 
