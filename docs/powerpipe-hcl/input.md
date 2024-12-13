@@ -274,12 +274,16 @@ input "cost_centers" {
 
 ### Date range
 
+>[NOTE]
+> per https://turbothq.slack.com/archives/C0704CTK8GY/p1734033923781379, tl;dr this is currently a noop in a tailpipe dashboard but does (+1) work in a steampipe dashboard.
+> (i'm also hoping for type="date_slider" and type="numeric_slider", https://github.com/turbot/powerpipe/issues/627)
+
 <img src="/images/docs/reference_examples/input_daterange.png" width="200pt" />
 
 <br />
 
 ```hcl
-    input "detection_range" {
+    input "date_range" {
       title = "Select the date range:"
       type  = "date_range"
       width = 4
