@@ -4,7 +4,10 @@
     "id": "learn",
     "label": "Learn Powerpipe",
     "link": "learn",
-    "items": []
+    "items": [
+      "learn/steampipe",
+      "learn/tailpipe"
+    ]
   },
 
   {

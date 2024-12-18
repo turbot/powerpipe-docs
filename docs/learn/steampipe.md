@@ -1,21 +1,12 @@
 ---
-id: learn
-title: Learn Powerpipe
-slug: /
+title: Using Powerpipe with Steampipe
+sidebar_label: With Steampipe
 ---
 
-# Learn Powerpipe: Dashboards for DevOps!
-
-Powerpipe is an open-source tool from Turbot that enables DevOps teams to: 
-
-- [Visualize cloud infrastructure](#visualize-cloud-infrastructure). Use pre-built dashboards — for AWS, Azure, GCP, Kubernetes, and more — to visualize your cloud resources and answer common questions about resource quantity, cost, usage, and relationships.
-
-- [Run security and compliance benchmarks](#run-security-and-compliance-benchmarks). Use pre-built benchmarks to assess how well your clouds comply with the standard frameworks including CIS, GDPR, NIST, PCI, SOC 2, and more.
-
-- [Create your own dashboards and benchmarks](#create-your-own-dashboards-and-benchmarks). Build from scratch, using HCL in a live coding environment, or compose with the prebuilt dashboards and benchmarks.
+# Using Powerpipe with Steampipe
 
 
-## Pre-requisites
+## Prerequisites
 
 To get started, you will need to install Powerpipe, Steampipe, and the AWS plugin for Steampipe.
 
@@ -73,8 +64,8 @@ Powerpipe always runs in the context of a [mod](/docs/build/).  A Powerpipe mod 
 Let's create a new directory for our mod:
 
 ```bash
-mkdir learn_powerpipe
-cd learn_powerpipe
+mkdir learn_powerpipe_steampipe
+cd learn_powerpipe_steampipe
 ```
 
 Now initialize this mod:
