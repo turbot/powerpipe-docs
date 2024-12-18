@@ -172,7 +172,8 @@
               "reference/config-files/connection/mysql",
               "reference/config-files/connection/postgres",
               "reference/config-files/connection/sqlite",
-              "reference/config-files/connection/steampipe"
+              "reference/config-files/connection/steampipe",
+              "reference/config-files/connection/tailpipe"
               ]
           },
           "reference/config-files/workspace"
