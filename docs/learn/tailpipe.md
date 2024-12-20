@@ -1,5 +1,5 @@
 ---
-title: Using Powerpipe 
+title: Using Powerpipe with Tailpipe
 sidebar_label: With Tailpipe
 ---
 
@@ -32,7 +32,7 @@ brew install turbot/tap/tailpipe
 sudo /bin/sh -c "$(curl -fsSL https://tailpipe.io/install/tailpipe.sh)"
 ```
 
-Now that Tailpipe is installed, install & configure the [AWS plugin for Tailpipe](https://hub.tailpipe.io/plugins/turbot/aws)
+Now that Tailpipe is installed, install the [AWS plugin for Tailpipe](https://hub.tailpipe.io/plugins/turbot/aws)
 
 ```bash
 tailpipe plugin install aws
@@ -40,29 +40,82 @@ tailpipe plugin install aws
 
 Out of the box, Tailpipe will use the default AWS credentials from your credential file and/or environment variables; if you can run `aws ec2 describe-vpcs`, for example, then you should be able to run the examples. 
 
->[!NOTE]
-> will we refer to the steampipe plugin here, and explain credential_import?
-
 The AWS plugin documentation provides additional examples to [configure your credentials](https://hub.tailpipe.io/plugins/turbot/aws#configuring-aws-credentials), and you can even configure Tailpipe to query [multiple accounts](https://tailpipe.io/docs#:~:text=tailpipe%20to%20query-,multiple%20accounts,-and%20multiple%20regions) and [multiple regions](https://tailpipe.io/docs#:~:text=multiple%20accounts%20and-,multiple%20regions).
 
 
 ## Run a collection against AWS Cloudtrail logs
 
-> [!NOTE]
-> Bit of a speed bump here. Should we provide a sample log, show a `.tpc` configured for file source, and explain that doing this for real is just a matter of switching the tpc to an api source (example shown)?
+Here's a configuration that uses the `aws_s3_bucket` source, and assumes you have the correct AWS credentials to access the bucket.
 
-## Run a log analysis benchmark
+```
+ connection "aws" "dev" {
+  profile = "SSO-Admin-605...13981"
+  regions = ["*"]
+}
 
-> [!NOTE]
-> Currently tailpipe-mod-aws-detections has no dashboards. Will it, or should we use a different mod to illustrate both dashboards and detections? I am guessing for this doc should we focus on detections and benchmarks? 
+partition "aws_cloudtrail_log" "dev" {
+  source "aws_s3_bucket" {
+    connection = connection.aws.dev
+    bucket     = "aws-cloudtrail-logs-6054...81-fe67"
+    prefix     = "AWSLogs/6054...81/CloudTrail/us-east-1/2024/12"
+    region     = "us-east-1"
+    extensions = [".gz"]
+  }
+}
+```
+
+Run the command:
+
+```
+tailpipe collect aws_cloudtrail_log.dev
+```
+
+Observe the output:
+
+```
+Collection complete.
+
+Artifacts discovered: 1031. Artifacts downloaded: 1031. Artifacts extracted: 1031. Rows enriched: 5456. Rows converted: 5456. Errors: 0.
+
+Compacted 2 files into 1 files. (232 files did not need compaction.)
+```
+
+**Artifacts discovered**: the number of `.gz` files added to the bucket since the last collection.
+
+**Rows enriched**: the number of log lines in the unzipped `.gz` files.
+
+**Compacted 2 files**: when collection results in more than 1 parquet file for a given day, Tailpipe compacts to a single file for that day.
+
+### Multiple sources and partitions
+
+If you had also downloaded some logs, you could collect them into another partition using the `file_system` source. The collection command would be `tailpipe collect aws_cloudtrail_log.dev-file`.
+
+```
+ connection "aws" "dev" {
+   ...
+}
+
+partition "aws_cloudtrail_log" "dev" {
+  ...
+}
+
+partition "aws_cloudtrail_log" "dev-file" {
+     source "file_system"  {  # i think will be this not file_system?
+        paths = ["/path/to/logs"]
+        extensions = [".gz"]
+    }
+}
+```
+
+ You can define many of these partition/source combinations.
+
+
+## Run a benchmark in the CLI
 
 
 Powerpipe [benchmarks](/docs/run/benchmarks) provide a mechanism for defining and running log detections to evaluate threat and error patterns, system performance, and user behavior. Benchmarks are written in simple HCL, and packaged in mods.  It is simple to create your own, but there are also many benchmarks available on the [Powerpipe Hub](https://hub.powerpipe.io/). 
 
 Powerpipe always runs in the context of a [mod](/docs/build/).  A Powerpipe mod is a portable, versioned collection of related Powerpipe resources such as dashboards, benchmarks, and detections defined in HCL, and distributed as simple text files.  Powerpipe loads the mod from the [mod location](/docs/run#mod-location) which defaults to the current directory.
-
-> [!NOTE]
-> Will this be the recommended install protocol?
 
 Let's create a new directory for our mod:
 
@@ -71,24 +124,36 @@ mkdir learn_powerpipe_tailpipe
 cd learn_powerpipe_tailpipe
 ```
 
-Now initialize this mod:
-```bash
-powerpipe mod init
-```
-
-Powerpipe mods may depend on other mods.  When running Powerpipe from a mod, all dashboards in the mod and its direct dependencies will be available to run. Let's install the AWS Detections.
+Now install the [Tailpipe AWS Detections](https://hub.tailpipe.io/mods/turbot/tailpipe-mod-aws_detections) mod.
 
 ```bash
 powerpipe mod install github.com/turbot/tailpipe-mod-aws-detections
 ```
 
-Let's run the XXX benchmark:
+Let's run the `cloudtrail_logs_cloudtrail_detection` benchmark.
 ```bash
-powerpipe benchmark run aws_detections.benchmark.mitre_v151_ta0001
+powerpipe benchmark run aws_detections.cloudtrail_logs_cloudtrail_detection
 ```
 
 >[!NOTE]
-> redo for tp
+> output now json, will be ???
+
+## Run a benchmark in a browser.
+
+Start the server:
+```
+powerpipe server
+```
+
+Visit `localhost:9033` in a browser. 
+
+![](/images/docs/learn/tailpipe-benchmark-detect-kms-key-updated.png)
+
+The Tailpipe mod has detected 14 potential issues, of which 5 are detectionsd related to updates to KMS keys. If you know that *ExampleUser* is non-malicious you can exclude those 5 rows with a single click on any row in the `actor` column. 
+
+![](/images/docs/learn/tailpipe-benchmark-detect-kms-key-updated-2.png)
+
+Then you can continue to explore the remaining potential issues in other detection categories.
 
 ## Create your own dashboards and benchmarks
 
