@@ -91,7 +91,7 @@ prohibited_tags =[
 
 Powerpipe *automatically* reads in the file named `powerpipe.ppvars` as well as any file ending in `.auto.ppvars` from the working directory if they exist.  You can also specify a variable file by name on the command line:
 ```bash
-powerpipe cbenchmark run aws_tags.benchmark.mandatory --var-file='tags.ppvars'
+powerpipe benchmark run aws_tags.benchmark.mandatory --var-file='tags.ppvars'
 ```
 
 You may also set variable values via environment variables.  Simply prefix the Powerpipe variable name with `PP_VAR_`:
