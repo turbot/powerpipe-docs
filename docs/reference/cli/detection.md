@@ -19,7 +19,7 @@ powerpipe detection run [args]
 
 | Command | Description
 |-|-
-| [list](#powerpipe-detection-list) | List detections from the current mod and its direct dependents **[[true about dependents? or will be true?]]**.
+| [list](#powerpipe-detection-list) | List detections from the current mod and its direct dependents.
 | [run](#powerpipe-detection-run)  | Run a detection from the current mod or its direct dependents.
 | [show](#powerpipe-detection) | Show details of a detection from the current mod or its direct dependents.
 
