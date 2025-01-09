@@ -24,6 +24,9 @@
         "items": [
           "run/dashboard/panel",
           "run/dashboard/download",
+          "run/dashboard/filter-group",
+          "run/dashboard/visible-columns",
+          "run/dashboard/visible-rows",
           "run/dashboard/search-path"
 
         ]

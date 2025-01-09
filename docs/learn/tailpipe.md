@@ -43,9 +43,9 @@ Out of the box, Tailpipe will use the default AWS credentials from your credenti
 The AWS plugin documentation provides additional examples to [configure your credentials](https://hub.tailpipe.io/plugins/turbot/aws#configuring-aws-credentials), and you can even configure Tailpipe to query [multiple accounts](https://tailpipe.io/docs#:~:text=tailpipe%20to%20query-,multiple%20accounts,-and%20multiple%20regions) and [multiple regions](https://tailpipe.io/docs#:~:text=multiple%20accounts%20and-,multiple%20regions).
 
 
-## Run a collection against AWS Cloudtrail logs
+## Configure Data Collection
 
-Here's a configuration that uses the `aws_s3_bucket` source, and assumes you have the correct AWS credentials to access the bucket.
+Tailpipe uses HCL configuration files to define what data to collect. Here's a configuration that uses the `aws_s3_bucket` source, and assumes you have the correct AWS credentials to access the bucket.
 
 ```
  connection "aws" "dev" {
@@ -63,6 +63,8 @@ partition "aws_cloudtrail_log" "dev" {
   }
 }
 ```
+
+Put this in a file, e.g. `aws.tpc`, and save it to `~/.tailpipe/config`.
 
 Run the command:
 
