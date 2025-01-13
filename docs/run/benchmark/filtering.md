@@ -2,6 +2,8 @@
 title: Filtering Controls
 ---
 
+>[!NOTE]
+> should this be filtering controls and detections?
 
 # Filtering Controls
 

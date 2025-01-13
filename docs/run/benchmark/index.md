@@ -1,6 +1,8 @@
 ---
 title: Run Benchmarks
 ---
+>[!NOTE]
+> i think this page is generic to sp/tp and doesn't require specific subsections, but maybe add a tp example?
 
 # Running Benchmarks
 
