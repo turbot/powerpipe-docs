@@ -5,7 +5,7 @@ sidebar_label: detection
 
 # detection
 
-**Detections** provide a defined structure and interface for queries against logs [collected by Tailpipe](). These queries look for patterns and anomalies in logs.
+**Detections** provide a defined structure and interface for queries against logs [collected by Tailpipe](https://tailpipe.io/docs). These queries look for patterns and anomalies in logs.
 
 ## Example Usage
 
