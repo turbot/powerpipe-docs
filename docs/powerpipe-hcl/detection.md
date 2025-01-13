@@ -34,13 +34,13 @@ query "audit_logs_detect_failed_workflow_actions" {
 You can run a detection from the command line:
 
 ```bash
-tailpipe detection run audit_logs_detect_failed_workflow_actions
+powerpipe detection run audit_logs_detect_failed_workflow_actions
 ```
 
-Detections can be organized into [benchmarks](https://powerpipe.io/docs/powerpipe-hcl/benchmark). benchmarks. You can run all detections for a benchmark
+Detections can be organized into [benchmarks](https://powerpipe.io/docs/powerpipe-hcl/benchmark). You can run all detections for a benchmark:
 
 ```bash
-tailpipe benchmark run audit_logs
+powerpipe benchmark run audit_logs
 ```
 
 ## Argument Reference

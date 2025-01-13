@@ -19,27 +19,25 @@
 
       {
         "type": "category",
-        "id": "run-dashboard",
-        "link": "run/dashboard",
-        "items": [
-          "run/dashboard/panel",
-          "run/dashboard/download",
-          "run/dashboard/filter-group",
-          "run/dashboard/visible-columns",
-          "run/dashboard/visible-rows",
-          "run/dashboard/search-path"
-
-        ]
-      },
-
-      {
-        "type": "category",
         "id": "run-benchmark",
         "link": "run/benchmark",
         "items": [
           "run/benchmark/filtering",
-          "run/benchmark/output-format",
-          "run/benchmark/benchmark-dashboard"
+          "run/benchmark/output-format"
+        ]
+      },
+    
+          {
+        "type": "category",
+        "id": "run-dashboard",
+        "link": "run/dashboard",
+        "items": [
+          "run/dashboard/panel",
+          "run/dashboard/filter-group",
+          "run/dashboard/visible-columns",
+          "run/dashboard/visible-rows",
+          "run/dashboard/download",
+          "run/dashboard/search-path"
 
         ]
       },
