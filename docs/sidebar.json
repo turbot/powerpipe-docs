@@ -9,14 +9,23 @@
       "learn/tailpipe"
     ]
   },
-
   {
     "type": "category",
     "id": "run",
     "label": "Run Powerpipe",
     "link": "run",
     "items": [
-
+      {
+        "type": "category",
+        "id": "run-dashboard",
+        "link": "run/dashboard",
+        "items": [
+          "run/dashboard/panel",
+          "run/dashboard/filter-group",
+          "run/dashboard/download",
+          "run/dashboard/search-path"
+        ]
+      },
       {
         "type": "category",
         "id": "run-benchmark",
@@ -24,21 +33,6 @@
         "items": [
           "run/benchmark/filtering",
           "run/benchmark/output-format"
-        ]
-      },
-    
-          {
-        "type": "category",
-        "id": "run-dashboard",
-        "link": "run/dashboard",
-        "items": [
-          "run/dashboard/panel",
-          "run/dashboard/filter-group",
-          "run/dashboard/visible-columns",
-          "run/dashboard/visible-rows",
-          "run/dashboard/download",
-          "run/dashboard/search-path"
-
         ]
       },
       {
@@ -51,11 +45,9 @@
         ]
       },
       "run/server",
-      "run/workspaces"]
+      "run/workspaces"
+    ]
   },
-
-
-
   {
     "type": "category",
     "id": "working-with-mods",
@@ -72,7 +64,6 @@
       "build/mod-dependencies"
     ]
   },
-
   {
     "type": "category",
     "id": "powerpipe-hcl",
@@ -103,7 +94,6 @@
       "powerpipe-hcl/with"
     ]
   },
-
   {
     "type": "category",
     "id": "reference",
@@ -128,7 +118,6 @@
           "reference/cli/variable"
         ]
       },
-
       {
         "type": "category",
         "id": "env-vars",
@@ -157,7 +146,6 @@
           "reference/env-vars/powerpipe_workspace"
         ]
       },
-
       {
         "type": "category",
         "id": "config-files",
@@ -175,14 +163,13 @@
               "reference/config-files/connection/sqlite",
               "reference/config-files/connection/steampipe",
               "reference/config-files/connection/tailpipe"
-              ]
+            ]
           },
           "reference/config-files/workspace"
         ]
       }
     ]
   },
-
   {
     "type": "category",
     "id": "faq",
