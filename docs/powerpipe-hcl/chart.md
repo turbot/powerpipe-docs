@@ -132,7 +132,6 @@ Alternative values are `none`, which applies no data transforms, or `crosstab` w
 | Property  | Type   | Default | Values                                | Description                                                                                                                                                                                                        |
 | --------- | ------ | ------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `display` | string | `auto`  | `auto` (default), `always` or `none`. | `auto` will display as many labels as possible for the size of the chart. `always` will always show all labels, but will truncate them with an ellipsis as necessary. `none` will never show labels for this axis. |
-| `format`  | TBD    |         |                                       |                                                                                                                                                                                                                    |
 
 ### legend
 
