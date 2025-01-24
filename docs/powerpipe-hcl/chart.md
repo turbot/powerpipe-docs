@@ -56,7 +56,7 @@ chart {
 | `sql` |  String	| Optional |  An SQL string to provide data for the chart.  A chart may either specify the `query` argument or the `sql` argument, but not both.
 | `title` |  String	| Optional | A plain text [title](/docs/powerpipe-hcl/dashboard#title) to display for this chart.
 | `transform` |  String	| Optional | See [transform](#transform). 
-| `type` |  String	| Optional | The type of the chart. Can be `bar`, `column`, `donut`, `line` or `pie`. You can also use `table` to review the raw data.
+| `type` |  String	| Optional | The type of the chart. Can be `bar`, `column`, `donut`, `line`, `pie`, or `heatmap`. You can also use `table` to review the raw data.
 | `width` |  Number	| Optional | The [width](/docs/powerpipe-hcl/dashboard#width) as a number of grid units that this item should consume from its parent.
 
 
@@ -404,3 +404,25 @@ chart {
   EOQ
 }
 ```
+
+### Heatmap Chart
+<img src="/images/docs/reference_examples/heatmap_chart.png" width="100%" />
+
+```hcl
+chart {
+  type  = "heatmap"
+  title = "Log entries by hour"
+  sql = <<-EOQ
+    select
+      date_trunc('hour', tp_timestamp) as log_date,
+      count(*)
+    from
+      aws_cloudtrail_log
+    where
+      tp_timestamp > cast('2025-01-01' as date)
+    group by
+      log_date
+    order by
+      log_date;
+  -EOQ
+}
