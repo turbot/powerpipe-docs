@@ -47,19 +47,17 @@ The AWS plugin documentation provides additional examples to [configure your cre
 
 Tailpipe uses HCL configuration files to define what data to collect. Here's a configuration that uses the `aws_s3_bucket` source, and assumes you have the correct AWS credentials to access the bucket.
 
-```
- connection "aws" "dev" {
+```hcl
+ connection "aws" "admin" {
   profile = "SSO-Admin-605...13981"
   regions = ["*"]
 }
 
-partition "aws_cloudtrail_log" "dev" {
+partition "aws_cloudtrail_log" "prod" {
   source "aws_s3_bucket" {
-    connection = connection.aws.dev
-    bucket     = "aws-cloudtrail-logs-6054...81-fe67"
-    prefix     = "AWSLogs/6054...81/CloudTrail/us-east-1/2024/12"
-    region     = "us-east-1"
-    extensions = [".gz"]
+    connection  = connection.aws.admin
+    bucket      = "aws-cloudtrail-logs-6054...81-fe67"
+    file_layout = "AWSLogs/%{NUMBER:account_id}/%{DATA}.json.gz"
   }
 }
 ```
@@ -69,10 +67,13 @@ Put this in a file, e.g. `aws.tpc`, and save it to `~/.tailpipe/config`.
 Run the command:
 
 ```
-tailpipe collect aws_cloudtrail_log.dev
+tailpipe collect aws_cloudtrail_log
 ```
 
 Observe the output:
+
+>[!NOTE]
+> update with new ui
 
 ```
 Collection complete.
@@ -90,22 +91,14 @@ Compacted 2 files into 1 files. (232 files did not need compaction.)
 
 ### Multiple sources and partitions
 
-If you had also downloaded some logs, you could collect them into another partition using the `file_system` source. The collection command would be `tailpipe collect aws_cloudtrail_log.dev-file`.
+If you had also downloaded some logs, you could collect them into another partition using the `file` source.
 
-```
- connection "aws" "dev" {
-   ...
-}
-
-partition "aws_cloudtrail_log" "dev" {
-  ...
-}
-
-partition "aws_cloudtrail_log" "dev-file" {
-     source "file_system"  {  # i think will be this not file_system?
-        paths = ["/path/to/logs"]
-        extensions = [".gz"]
-    }
+```hcl
+partition "aws_cloudtrail_log" "flaws" {
+ source "file" {
+    paths       = ["~/flaws"]
+    file_layout = "%{DATA}.json.gz"
+  }
 }
 ```
 
