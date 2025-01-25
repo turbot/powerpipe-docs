@@ -148,6 +148,9 @@ As with any dashboard, you can [change the search path](/docs/run/dashboard/sear
 
 The [Powerpipe Hub](https://hub.powerpipe.io/) contains hundreds of ready-made dashboards and benchmarks that you can simply install and run. But Powerpipe also makes it simple to [write your controls and benchmarks](/docs/build/writing-controls), and [build dashboards](/docs/build/writing-dashboards) to analyze your data and share with others! 
 
+<!--
+remove in favor of writing-dashboards and -controls
+---------------------------------------------------
 
 We've already [created our own mod](/docs/build/create-mod) and installed 2 dependency mods (AWS Insights and AWS Compliance).  Now let's add our own dashboard and benchmark.  Create a file named `learn.pp` in your mod's directory, and paste in the following HCL code:
 
@@ -219,3 +222,5 @@ Now use the button at the top to **Group by: Mod** and scroll down to your custo
 You can click and run them like any other dashboard!
 
 ![](/images/docs/learn/custom_dashboard.png)
+
+-->

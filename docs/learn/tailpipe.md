@@ -150,12 +150,6 @@ The Tailpipe mod has detected 14 potential issues, of which 5 are detectionsd re
 
 Then you can continue to explore the remaining potential issues in other detection categories.
 
-## Create your own dashboards and benchmarks
+## Create your own benchmarks, detections, and dashboards
 
-The [Powerpipe Hub](https://hub.powerpipe.io/) contains ready-made [[dashboards and]]? benchmarks that you can simply install and run. But Powerpipe also makes it simple to [write your detections and benchmarks](/docs/build/writing-detections), and [build dashboards](/docs/build/writing-dashboards) to analyze your data and share with others! 
-
-We've already [created our own mod](/docs/build/create-mod) and installed a dependency mod, AWS Detections.  Now let's add our own dashboard and benchmark.  Create a file named `learn.pp` in your mod's directory, and paste in the following HCL code:
-
->[!NOTE]
-> redo for tp
-
+The [Powerpipe Hub](https://hub.powerpipe.io/) contains ready-made benchmarks with sets of detections that you can simply install and run. But Powerpipe also makes it simple to [write your detections and benchmarks](/docs/build/writing-detections), and [build dashboards](/docs/build/writing-dashboards) to analyze your log data and share with others! 
