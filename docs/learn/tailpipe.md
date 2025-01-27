@@ -5,6 +5,8 @@ sidebar_label: With Tailpipe
 
 #  Using Powerpipe with Tailpipe
 
+Powerpipe is the engine for visualizing Tailpipe [detections](/docs/powerpipe-hcl/detection). Let's see how that works.
+
 ## Prerequisites
 
 To get started, you will need to install Powerpipe, Tailpipe, and the AWS plugin for Tailpipe.
@@ -43,70 +45,12 @@ Out of the box, Tailpipe will use the default AWS credentials from your credenti
 The AWS plugin documentation provides additional examples to [configure your credentials](https://hub.tailpipe.io/plugins/turbot/aws#configuring-aws-credentials), and you can even configure Tailpipe to query [multiple accounts](https://tailpipe.io/docs#:~:text=tailpipe%20to%20query-,multiple%20accounts,-and%20multiple%20regions) and [multiple regions](https://tailpipe.io/docs#:~:text=multiple%20accounts%20and-,multiple%20regions).
 
 
-## Configure Data Collection
+## Collect log data
 
-Tailpipe uses HCL configuration files to define what data to collect. Here's a configuration that uses the `aws_s3_bucket` source, and assumes you have the correct AWS credentials to access the bucket.
-
-```hcl
- connection "aws" "admin" {
-  profile = "SSO-Admin-605...13981"
-  regions = ["*"]
-}
-
-partition "aws_cloudtrail_log" "prod" {
-  source "aws_s3_bucket" {
-    connection  = connection.aws.admin
-    bucket      = "aws-cloudtrail-logs-6054...81-fe67"
-    file_layout = "AWSLogs/%{NUMBER:account_id}/%{DATA}.json.gz"
-  }
-}
-```
-
-Put this in a file, e.g. `aws.tpc`, and save it to `~/.tailpipe/config`.
-
-Run the command:
-
-```
-tailpipe collect aws_cloudtrail_log
-```
-
-Observe the output:
-
->[!NOTE]
-> update with new ui
-
-```
-Collection complete.
-
-Artifacts discovered: 1031. Artifacts downloaded: 1031. Artifacts extracted: 1031. Rows enriched: 5456. Rows converted: 5456. Errors: 0.
-
-Compacted 2 files into 1 files. (232 files did not need compaction.)
-```
-
-**Artifacts discovered**: the number of `.gz` files added to the bucket since the last collection.
-
-**Rows enriched**: the number of log lines in the unzipped `.gz` files.
-
-**Compacted 2 files**: when collection results in more than 1 parquet file for a given day, Tailpipe compacts to a single file for that day.
-
-### Multiple sources and partitions
-
-If you had also downloaded some logs, you could collect them into another partition using the `file` source.
-
-```hcl
-partition "aws_cloudtrail_log" "flaws" {
- source "file" {
-    paths       = ["~/flaws"]
-    file_layout = "%{DATA}.json.gz"
-  }
-}
-```
-
- You can define many of these partition/source combinations.
+Powerpipe mods for Tailpipe work with tables built from log data collected by Tailpipe. The Tailpipe docs show you how to [configure](https://tailpipe.io/docs#configure-data-collection) to configure the AWS plugin for Tailpipe and then [collect](https://tailpipe-io.vercel.app/docs#configure-data-collection) log data. Follow those steps create the table `aws_cloudtrail_log`, and verify that you can run the sample queries shown there.
 
 
-## Run a benchmark in the CLI
-
+## Run a benchmark
 
 Powerpipe [benchmarks](/docs/run/benchmarks) provide a mechanism for defining and running log detections to evaluate threat and error patterns, system performance, and user behavior. Benchmarks are written in simple HCL, and packaged in mods.  It is simple to create your own, but there are also many benchmarks available on the [Powerpipe Hub](https://hub.powerpipe.io/). 
 
@@ -124,16 +68,6 @@ Now install the [Tailpipe AWS Detections](https://hub.tailpipe.io/mods/turbot/ta
 ```bash
 powerpipe mod install github.com/turbot/tailpipe-mod-aws-detections
 ```
-
-Let's run the `cloudtrail_logs_cloudtrail_detection` benchmark.
-```bash
-powerpipe benchmark run aws_detections.cloudtrail_logs_cloudtrail_detection
-```
-
->[!NOTE]
-> output now json, will be ???
-
-## Run a benchmark in a browser.
 
 Start the server:
 ```

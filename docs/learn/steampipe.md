@@ -5,7 +5,7 @@ sidebar_label: With Steampipe
 
 # Using Powerpipe with Steampipe
 
-
+Powerpipe is the engine for visualizing Steampipe [controls](/docs/powerpipe-hcl/control). Let's see how that works.
 ## Prerequisites
 
 To get started, you will need to install Powerpipe, Steampipe, and the AWS plugin for Steampipe.
