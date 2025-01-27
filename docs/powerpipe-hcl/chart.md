@@ -410,19 +410,17 @@ chart {
 
 ```hcl
 chart {
-  type  = "heatmap"
-  title = "Log entries by hour"
-  sql = <<-EOQ
-    select
-      date_trunc('hour', tp_timestamp) as log_date,
+  type = "heatmap"
+  sql = <<EOQ
+    select 
+      date_trunc('day', tp_date), 
       count(*)
-    from
+    from 
       aws_cloudtrail_log
-    where
-      tp_timestamp > cast('2025-01-01' as date)
     group by
-      log_date
+        tp_date
     order by
-      log_date;
-  -EOQ
+      tp_date
+  EOQ
 }
+``` 
