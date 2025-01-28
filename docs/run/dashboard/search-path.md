@@ -2,9 +2,6 @@
 title: Change the Search Path
 ---
 
-> [!NOTE]
-> out of scope for tailpipe in lw7? if so should the search_path button go away for tp dashboards?
-
 # Change the Postgres Search Path
 
 Many Powerpipe mods use [Steampipe](http://steampipe.io) as the database.  Steampipe leverages PostgreSQL foreign data wrappers to provide an SQL interface to external services and systems. 
