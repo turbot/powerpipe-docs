@@ -26,10 +26,7 @@ And again we can adjust the hierarchy. The default is **Benchmark / Detection / 
 
 ## Row-level filtering
 
->[!NOTE]
-> tailpipe only?
-
-When a dashboard displays tablular data, you can filter on a per-row basis too. You can include only rows that match the value shown in a column.
+When a dashboard displays tabular data, you can filter on a per-row basis too. You can include only rows that match the value shown in a column.
 
 ![](/images/docs/run/view/row-level-filter-1.png)
 
