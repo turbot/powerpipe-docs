@@ -2,9 +2,6 @@
 title: Filtering Controls
 ---
 
->[!NOTE]
-> should this be filtering controls and detections?
-
 # Filtering Controls
 
 While you will most commonly want to run all the controls in a benchmark, there are times when you want to only run single control, or filter the controls to run in a benchmark.
