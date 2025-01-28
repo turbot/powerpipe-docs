@@ -61,7 +61,7 @@ input "vpc_id" {
 | [multiselect](#multi-select-with-dynamic-options) | Select one or more items from a dropdown list
 | [combo](#combo-box)                               | Select a single item from a dropdown list, or enter a new value
 | [multicombo](#multi-select-combo-box)             | Select one or more items from a dropdown list, or enter new values
-| [date_range](#date-range)                               | Choose a start and end date to filter a query. Applies only to dashboards that use [Tailpipe](https://tailpipe.io)
+| [date_range](#date-range)                         | Choose a start and end date to filter a query. 
 
 
 
@@ -274,11 +274,7 @@ input "cost_centers" {
 
 ### Date range
 
->[NOTE]
-> per https://turbothq.slack.com/archives/C0704CTK8GY/p1734033923781379, tl;dr this is currently a noop in a tailpipe dashboard but does (+1) work in a steampipe dashboard.
-> (i'm also hoping for type="date_slider" and type="numeric_slider", https://github.com/turbot/powerpipe/issues/627)
-
-<img src="/images/docs/reference_examples/input_daterange.png" width="200pt" />
+<img src="/images/docs/reference_examples/input_daterange.png" width="300pt" />
 
 <br />
 
