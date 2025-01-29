@@ -15,7 +15,7 @@ We can also adjust the hierarchy. For compliance benchmarks the grouping is **Be
 
 ![](/images/docs/run/view/filter-group-controls-2.png)
 
-Similarly, we can filter the Cloudtrail Log Detections benchmark to just detections related to one MITRE attack id.
+Similarly, we can filter the Cloudtrail Log Detections benchmark to just detections related to one MITRE ATT&CK id.
 
 ![](/images/docs/run/view/filter-group-detections-1.png)
 
