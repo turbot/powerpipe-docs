@@ -61,8 +61,6 @@ input "vpc_id" {
 | [multiselect](#multi-select-with-dynamic-options) | Select one or more items from a dropdown list
 | [combo](#combo-box)                               | Select a single item from a dropdown list, or enter a new value
 | [multicombo](#multi-select-combo-box)             | Select one or more items from a dropdown list, or enter new values
-| [date_range](#date-range)                         | Choose a start and end date to filter a query. 
-
 
 
 ## Common Input Properties
@@ -271,21 +269,6 @@ input "cost_centers" {
   EOQ
 }
 ```
-
-### Date range
-
-<img src="/images/docs/reference_examples/input_daterange.png" width="300pt" />
-
-<br />
-
-```hcl
-    input "date_range" {
-      title = "Select the date range:"
-      type  = "date_range"
-      width = 4
-    }
-```
-
 
 ### Example dashboard using an input
 
