@@ -1,6 +1,5 @@
 ---
 title: Panel View
-sidebar_label: Panel View
 ---
 
 

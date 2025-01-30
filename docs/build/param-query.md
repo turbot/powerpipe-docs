@@ -1,6 +1,5 @@
 ---
 title: Passing Parameters
-sidebar_label: Passing Parameters
 ---
 
 # Passing Parameters to Queries & Controls

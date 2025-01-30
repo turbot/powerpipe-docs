@@ -1,6 +1,5 @@
 ---
 title: Creating a Mod
-sidebar_label: Creating a Mod
 ---
 
 # Create a Mod
@@ -35,4 +34,4 @@ mod "powerpipe_demo" {
 
 ```
 
-Your mod is initialized! You can add [dashboards](/docs/powerpipe-hcl/dashboard), [benchmarks](/docs/powerpipe-hcl/benchmark) and other resources to your mod using [Powerpipe HCL](/docs/powerpipe-hcl/). You can even [use resources from other mods](/docs/build/mod-dependencies); explore the available mods on the [Powerpipe Hub](https://hub.powerpipe.io)!
+Your mod is initialized! You can add [dashboards](/docs/powerpipe-hcl/dashboard), [benchmarks](/docs/powerpipe-hcl/benchmark) and other resources to your mod using [Powerpipe HCL](/docs/powerpipe-hcl/). You can even [use resources from other mods](/docs/build/mod-dependencies). Explore the available mods on the [Powerpipe Hub](https://hub.powerpipe.io)!

@@ -4,11 +4,13 @@ sidebar_label: query
 ---
 
 # query
-Queries define common SQL statements that may be used alone, or referenced in other blocks like controls and charts.
+Queries are defined in [mods](/docs/build). They define common SQL statements that may be used alone, or referenced in other blocks like controls and charts. Powerpipe mods may use Steampipe's Postgres engine or Tailpipe's DuckDB engine.
 
-Note that a Powerpipe `query` is NOT a database resource. It does not create a view, stored procedure, etc. `query` blocks are interpreted by and executed by Powerpipe, and are only available from Powerpipe, not from 3rd party tools.
+Note that a Powerpipe `query` is NOT a database resource. It does not create a view, stored procedure, etc. `query` blocks are interpreted by and executed by Powerpipe, and are only available by way of these engines, not with 3rd party tools.
 
 ## Example Usage
+
+### In a Powerpipe mod using Steampipe
 
 ```hcl
 query "plus_size_instances" {
@@ -16,6 +18,24 @@ query "plus_size_instances" {
   sql   = "select * from aws_ec2_instance where instance_type like '%xlarge'"
 }
 ```
+
+### In a Powerpipe mod using Tailpipe
+
+```hcl
+query "audit_logs_detect_failed_workflow_actions" {
+  sql = <<-EOQ
+    select
+      *
+    from
+      github_audit_log
+    where
+      action = 'workflows.completed_workflow_run'
+    order by
+      tp_timestamp desc;
+  EOQ
+}
+```
+
 
 You can run a query by its name with the `powerpipe query run` command:
 ```bash 
@@ -51,8 +71,10 @@ As with the [default database connection](/docs/build/mod-database),  the `datab
 
 The connection string syntax for `database` argument is the same whether you set it in the `mod` or the `query`, `card`, `chart`, etc.  
 
-##### Postgres
-Powerpipe can connect to any Postgres database.  The Postgres `database` follows the standard URI syntax supported by `psql` and `pgcli`:
+[[ do we want to update these to show generic connections like these, and steampipe/tailpipe connections like steampipee.connection.default / tailpipe connection default? is it not going to possible with powerpipe to use literal connection strings, and if so should there be 4 sections: steampipe-backed mod, any postgres, tailpipe-backed mod, any duckdb ]]
+
+##### Steampipe, or any Postgres db.
+Powerpipe can connect to any Postgres database, including the one bundled with Steampipe.  The Postgres `database` follows the standard URI syntax supported by `psql` and `pgcli`:
 ```bash
 postgresql://[user[:password]@][host][:port][/dbname][?param1=value1&...]
 ```
@@ -65,6 +87,28 @@ query "my_query" {
 }
 ```
 
+##### Tailpipe, or any DuckDB db.
+
+The DuckDB connection string is the path to a DuckDB database file:
+```bash
+duckdb:path/to/file
+```
+
+The path is relative to the [mod location](/docs/run#mod-location), and `//` is optional after the scheme, thus the following are equivalent:
+```hcl
+database = "duckdb:./my_ducks.db"
+database = "duckdb://./my_ducks.db"
+database = "duckdb://my_ducks.db"
+```
+
+
+For example:
+```hcl
+query "my_query" {
+  database = "duckdb:./my_ducks.db
+  sql      = "select * from my_table;" 
+}
+```
 
 ##### MySQL
 The MySQL connection string supports the syntax of the [GO SQL driver for MySQL](https://github.com/go-sql-driver/mysql?tab=readme-ov-file#examples):
@@ -103,28 +147,6 @@ query "my_query" {
 }
 ```
 
-##### DuckDB
-
-The DuckDB connection string is the path to a DuckDB database file:
-```bash
-duckdb:path/to/file
-```
-
-The path is relative to the [mod location](/docs/run#mod-location), and `//` is optional after the scheme, thus the following are equivalent:
-```hcl
-database = "duckdb:./my_ducks.db"
-database = "duckdb://./my_ducks.db"
-database = "duckdb://my_ducks.db"
-```
-
-
-For example:
-```hcl
-query "my_query" {
-  database = "duckdb:./my_ducks.db
-  sql      = "select * from my_table;" 
-}
-```
 
 ### param
 One or more `param` blocks may optionally be used in a query to define parameters that the query accepts.  Note that the SQL statement only supports positional arguments (`$1`, `$2`, ...) and that the param blocks are assigned in order -- the first param block describes `$1`, the second describes `$2`, etc.
@@ -273,6 +295,8 @@ query "bucket_count_for_region" {
 
 Note that most query-based resources can be defined as top-level resources and reused with `base`, and you can pass arguments to them in the same manner:
 
+[[ I have added a tailpipe example. should we have these in 2 sections? and what will our terminology be? (steampipe|tailpipe)-backed mods? something else?]]
+
 ```hcl
 dashboard "s3_buckets" {
 
@@ -307,6 +331,16 @@ card "bucket_count_for_region" {
 
   width = 2
 }
+
+card "failed_workflow_actions
+
+  sql = <<-EOQ
+    select
+      count(*)
+    from
+      github_audit_log
+    where
+      action = 'workflows.completed_workflow_run'
 ```
 
 While `param` blocks are ***recommended*** when SQL statements define parameters, they are not required -- you won't be able to pass arguments by name, but you can still pass them positionally using the array format of the `args` argument:

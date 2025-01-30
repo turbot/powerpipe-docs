@@ -1,6 +1,5 @@
 ---
 title: Download Data
-sidebar_label: Download Data
 ---
 
 # Download Data

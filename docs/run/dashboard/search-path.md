@@ -1,9 +1,8 @@
 ---
 title: Change the Search Path
-sidebar_label: Change the Search Path
 ---
 
-# Change the Search Path
+# Change the Postgres Search Path
 
 Many Powerpipe mods use [Steampipe](http://steampipe.io) as the database.  Steampipe leverages PostgreSQL foreign data wrappers to provide an SQL interface to external services and systems. 
 

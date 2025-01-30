@@ -1,6 +1,5 @@
 ---
 title: Using Variables
-sidebar_label: Using Variables
 ---
 
 # Using Variables

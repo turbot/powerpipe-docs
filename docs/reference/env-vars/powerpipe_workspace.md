@@ -1,6 +1,5 @@
 ---
 title: POWERPIPE_WORKSPACE
-sidebar_label: POWERPIPE_WORKSPACE
 ---
 
 

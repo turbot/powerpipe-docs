@@ -1,6 +1,5 @@
 ---
 title: Powerpipe HCL
-sidebar_label: Powerpipe HCL
 ---
 
 # Powerpipe HCL

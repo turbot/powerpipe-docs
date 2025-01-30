@@ -1,6 +1,5 @@
 ---
 title: POWERPIPE_GIT_TOKEN
-sidebar_label: POWERPIPE_GIT_TOKEN
 ---
 
 

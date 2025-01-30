@@ -1,6 +1,5 @@
 ---
 title: powerpipe dashboard
-sidebar_label: powerpipe dashboard
 ---
 
 
@@ -108,7 +107,6 @@ Run a dashboard from the current mod or its direct dependents.
 |  `--snapshot-title string=string` | The title to give a snapshot when uploading to Turbot Pipes.
 | `--var string=string`           | Specify the value of a variable.  Multiple `--var` arguments may be passed. 
 | `--var-file strings`            | Specify a `.ppvar` file containing variable values.
-
 
 
 ### Examples

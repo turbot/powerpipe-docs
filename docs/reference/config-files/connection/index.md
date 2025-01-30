@@ -1,6 +1,5 @@
 ---
 title: connection
-sidebar_label: connection
 ---
 
 # Connection

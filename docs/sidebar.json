@@ -4,37 +4,35 @@
     "id": "learn",
     "label": "Learn Powerpipe",
     "link": "learn",
-    "items": []
+    "items": [
+      "learn/steampipe",
+      "learn/tailpipe"
+    ]
   },
-
   {
     "type": "category",
     "id": "run",
     "label": "Run Powerpipe",
     "link": "run",
     "items": [
-
       {
         "type": "category",
         "id": "run-dashboard",
         "link": "run/dashboard",
         "items": [
           "run/dashboard/panel",
+          "run/dashboard/filter-group",
           "run/dashboard/download",
           "run/dashboard/search-path"
-
         ]
       },
-
       {
         "type": "category",
         "id": "run-benchmark",
         "link": "run/benchmark",
         "items": [
           "run/benchmark/filtering",
-          "run/benchmark/output-format",
-          "run/benchmark/benchmark-dashboard"
-
+          "run/benchmark/output-format"
         ]
       },
       {
@@ -47,11 +45,9 @@
         ]
       },
       "run/server",
-      "run/workspaces"]
+      "run/workspaces"
+    ]
   },
-
-
-
   {
     "type": "category",
     "id": "working-with-mods",
@@ -60,6 +56,7 @@
     "items": [
       "build/create-mod",
       "build/writing-controls",
+      "build/writing-detections",
       "build/writing-dashboards",
       "build/param-query",
       "build/mod-variables",
@@ -67,7 +64,6 @@
       "build/mod-dependencies"
     ]
   },
-
   {
     "type": "category",
     "id": "powerpipe-hcl",
@@ -79,6 +75,7 @@
       "powerpipe-hcl/chart",
       "powerpipe-hcl/container",
       "powerpipe-hcl/control",
+      "powerpipe-hcl/detection",
       "powerpipe-hcl/dashboard",
       "powerpipe-hcl/edge",
       "powerpipe-hcl/flow",
@@ -97,7 +94,6 @@
       "powerpipe-hcl/with"
     ]
   },
-
   {
     "type": "category",
     "id": "reference",
@@ -113,6 +109,7 @@
           "reference/cli/benchmark",
           "reference/cli/control",
           "reference/cli/dashboard",
+          "reference/cli/detection",
           "reference/cli/help",
           "reference/cli/login",
           "reference/cli/mod",
@@ -121,7 +118,6 @@
           "reference/cli/variable"
         ]
       },
-
       {
         "type": "category",
         "id": "env-vars",
@@ -150,7 +146,6 @@
           "reference/env-vars/powerpipe_workspace"
         ]
       },
-
       {
         "type": "category",
         "id": "config-files",
@@ -166,15 +161,15 @@
               "reference/config-files/connection/mysql",
               "reference/config-files/connection/postgres",
               "reference/config-files/connection/sqlite",
-              "reference/config-files/connection/steampipe"
-              ]
+              "reference/config-files/connection/steampipe",
+              "reference/config-files/connection/tailpipe"
+            ]
           },
           "reference/config-files/workspace"
         ]
       }
     ]
   },
-
   {
     "type": "category",
     "id": "faq",

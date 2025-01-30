@@ -1,6 +1,5 @@
 ---
 title: Powerpipe CLI
-sidebar_label: Powerpipe CLI
 ---
 
 # Powerpipe CLI
@@ -10,6 +9,7 @@ sidebar_label: Powerpipe CLI
 | Command | Description
 |-|-
 | [powerpipe help](reference/cli/help)      | Help about any command.
+| [powerpipe detection](reference/cli/detection)    | List, view, and run Powerpipe detections.
 | [powerpipe login](reference/cli/login)    | Log in to Turbot Pipes.
 | [powerpipe mod](reference/cli/mod)        | Powerpipe mod management.
 | [powerpipe benchmark](reference/cli/benchmark) | List, view, and run Powerpipe benchmarks.

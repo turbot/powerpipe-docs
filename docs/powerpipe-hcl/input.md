@@ -270,7 +270,6 @@ input "cost_centers" {
 }
 ```
 
-
 ### Example dashboard using an input
 
 <img src="/images/docs/reference_examples/inputs_example_dashboard_1.png"  />

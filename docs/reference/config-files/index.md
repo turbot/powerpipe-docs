@@ -1,6 +1,5 @@
 ---
 title: Configuration Files
-sidebar_label: Configuration Files
 ---
 
 # Configuration Files

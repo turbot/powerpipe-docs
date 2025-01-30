@@ -1,11 +1,10 @@
 ---
 title: Writing Controls
-sidebar_label: Writing Controls
 ---
 
 # Custom Controls
 
-Powerpipe makes it easy to create your own [controls](/docs/powerpipe-hcl/control) and [benchmarks](/docs/powerpipe-hcl/benchmark).  This allows you to define the controls that are important to *you* and *your organization*, and organize them in a way that reflects your organization's standards and practices.  (Of course, there are controls and benchmarks already available in [mods on the Powerpipe Hub](https://hub.powerpipe.io/) as well if you don't want to write your own).
+Many controls and benchmarks are available in [mods on the Powerpipe Hub](https://hub.powerpipe.io/). But if these don't meet your needs, Powerpipe makes it easy to create your own [controls](/docs/powerpipe-hcl/control) and [benchmarks](/docs/powerpipe-hcl/benchmark) that are important to *you* and *your organization*, and organize them in a way that reflects your organization's standards and practices.  
 
 ## Tutorial
 

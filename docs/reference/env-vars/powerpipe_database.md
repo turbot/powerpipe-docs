@@ -1,6 +1,5 @@
 ---
 title: POWERPIPE_DATABASE
-sidebar_label: POWERPIPE_DATABASE
 ---
 
 
