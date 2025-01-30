@@ -6,7 +6,7 @@ title: Writing Detections
 
 Many detections and benchmarks are available in [mods on the Powerpipe Hub](https://hub.powerpipe.io/). However, if these don't meet your needs, Tailpipe makes it easy to create your own detections and benchmarks to tailor solutions to *your* organization.
 
-This guide introduces the core concepts for creating detections and benchmarks
+This guide introduces the core concepts for creating detections and benchmarks.
 
 ## What are Detections?
 
@@ -18,18 +18,8 @@ Let's build a simple detection for monitoring AWS CloudTrail logs, and wrap it i
 
 ### Prerequisites
 
-1. [Download and install Tailpipe](https://tailpipe.io/downloads).
-2. A download of the CloudTrail logs you want to analyze.
-3. A `~/.tailpipe/config/aws.tpc` your logs configured as a data source. For example, assuming you have downloaded events to `~/tailpipe`
-
-```
-partition "cloudtrail" "cloudtrail_log" {
-    source "file_system" {
-        paths = ["~/tailpipe"]
-        extensions = [".json"]
-    }
-}
-```
+1. [Tailpipe](https://tailpipe.io/downloads)
+2. A [configuration](https://tailpipe.io.vercel.app/docs#configure-data-collection) for CloudTrail logs
 
 ### Create a Detection
 

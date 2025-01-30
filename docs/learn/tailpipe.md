@@ -47,14 +47,14 @@ The AWS plugin documentation provides additional examples to [configure your cre
 
 ## Collect log data
 
-Powerpipe mods for Tailpipe work with tables built from log data collected by Tailpipe. The Tailpipe docs show you how to [configure](https://tailpipe.io/docs#configure-data-collection) to configure the AWS plugin for Tailpipe and then [collect](https://tailpipe-io.vercel.app/docs#configure-data-collection) log data. Follow those steps create the table `aws_cloudtrail_log`, and verify that you can run the sample queries shown there.
+Powerpipe mods for Tailpipe work with tables built from log data collected by Tailpipe. The Tailpipe docs show you how to [configure](https://tailpipe.io/docs#configure-data-collection) the AWS plugin for Tailpipe and then [collect](https://tailpipe-io.vercel.app/docs#configure-data-collection) log data. Follow those steps create the table `aws_cloudtrail_log`, and verify that you can run the sample queries shown there.
 
 
 ## Run a benchmark
 
 Powerpipe [benchmarks](/docs/run/benchmarks) provide a mechanism for defining and running log detections to evaluate threat and error patterns, system performance, and user behavior. Benchmarks are written in simple HCL, and packaged in mods.  It is simple to create your own, but there are also many benchmarks available on the [Powerpipe Hub](https://hub.powerpipe.io/). 
 
-Powerpipe always runs in the context of a [mod](/docs/build/).  A Powerpipe mod is a portable, versioned collection of related Powerpipe resources such as dashboards, benchmarks, and detections defined in HCL, and distributed as simple text files.  Powerpipe loads the mod from the [mod location](/docs/run#mod-location) which defaults to the current directory.
+Powerpipe always runs in the context of a [mod](/docs/build/).  A Powerpipe mod is a portable, versioned collection of related Powerpipe resources (dashboards, benchmarks, detections) defined in HCL and distributed as simple text files.  Powerpipe loads the mod from the [mod location](/docs/run#mod-location) which defaults to the current directory.
 
 Let's create a new directory for our mod:
 
@@ -78,7 +78,7 @@ Visit `localhost:9033` in a browser.
 
 ![](/images/docs/learn/tailpipe-benchmark-detect-kms-key-updated.png)
 
-The Tailpipe mod has detected 14 potential issues, of which 5 are detectionsd related to updates to KMS keys. If you know that *ExampleUser* is non-malicious you can exclude those 5 rows with a single click on any row in the `actor` column that matches *ExampleUser*.
+The Tailpipe mod has detected 14 potential issues, of which 5 are detections related to updates to KMS keys. If you know that *ExampleUser* is non-malicious you can exclude those 5 rows with a single click on any row in the `actor` column that matches *ExampleUser*.
 
 ![](/images/docs/learn/tailpipe-benchmark-detect-kms-key-updated-2.png)
 

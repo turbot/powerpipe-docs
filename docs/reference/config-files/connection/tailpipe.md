@@ -21,10 +21,6 @@ The `tailpipe` connection is used to pre-filter the default database, scoping th
 | `from`       |  String | Optional | Set the earliest date. Default: unbounded.
 | `to`         |  String | Optional | Set the latest date. Default: unbounded.
 
-## Attributes (Read-Only)
-
-TBD
-
 ## Default Connection
 
 The `tailpipe` connection type includes an implicit, default connection (`connection.tailpipe.default`) that includes all collected data.
