@@ -71,9 +71,7 @@ As with the [default database connection](/docs/build/mod-database),  the `datab
 
 The connection string syntax for `database` argument is the same whether you set it in the `mod` or the `query`, `card`, `chart`, etc.  
 
-[[ do we want to update these to show generic connections like these, and steampipe/tailpipe connections like steampipee.connection.default / tailpipe connection default? is it not going to possible with powerpipe to use literal connection strings, and if so should there be 4 sections: steampipe-backed mod, any postgres, tailpipe-backed mod, any duckdb ]]
-
-##### Steampipe, or any Postgres db.
+##### Steampipe or any Postgres DB
 Powerpipe can connect to any Postgres database, including the one bundled with Steampipe.  The Postgres `database` follows the standard URI syntax supported by `psql` and `pgcli`:
 ```bash
 postgresql://[user[:password]@][host][:port][/dbname][?param1=value1&...]
@@ -87,7 +85,7 @@ query "my_query" {
 }
 ```
 
-##### Tailpipe, or any DuckDB db.
+##### Tailpipe or any DuckDB DB
 
 The DuckDB connection string is the path to a DuckDB database file:
 ```bash
@@ -195,7 +193,7 @@ There are many Powerpipe mod elements that execute a query, including `control` 
   - They have an optional `args` argument to specify what arguments to pass to the `query` or `sql`
 
 
-## Query v/s SQL
+## Query vs. SQL
 
 When using a query-based resource, you **must** specify either the `sql` or `query` argument, but not both.
 
@@ -294,8 +292,6 @@ query "bucket_count_for_region" {
 ```
 
 Note that most query-based resources can be defined as top-level resources and reused with `base`, and you can pass arguments to them in the same manner:
-
-[[ I have added a tailpipe example. should we have these in 2 sections? and what will our terminology be? (steampipe|tailpipe)-backed mods? something else?]]
 
 ```hcl
 dashboard "s3_buckets" {
