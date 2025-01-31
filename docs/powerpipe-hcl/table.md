@@ -108,7 +108,7 @@ table {
 }
 ```
 
-Refer to [JQ [Escaping & Interpolation](/docs/powerpipe-hcl/dashboard#jq-escaping--interpolation) for more advanced examples.
+Refer to [JQ Escaping & Interpolation](/docs/powerpipe-hcl/dashboard#jq-escaping--interpolation) for more advanced examples.
 ## More Examples
 
 
