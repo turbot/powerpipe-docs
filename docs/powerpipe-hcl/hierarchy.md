@@ -12,7 +12,7 @@ Hierarchy blocks can be declared as named resources at the top level of a mod, o
 
 ## Example Usage
 
-<img src="/images/docs/reference_examples/tree_ex_1.png" width="100%" />
+<img src="/reference_examples/tree_ex_1.png" width="100%" />
 
 ```hcl
 dashboard "tree_ex_nodeonly" {
@@ -169,7 +169,7 @@ Alternatively, you may specify nodes and edges as separate rows.  In this case, 
 ### Tree via monolithic query
 
 
-<img src="/images/docs/reference_examples/tree_ex_1.png" width="100%" />
+<img src="/reference_examples/tree_ex_1.png" width="100%" />
 
 
 ```hcl
@@ -227,7 +227,7 @@ hierarchy {
 
 ### Tree with color by category [monolithic]
 
-<img src="/images/docs/reference_examples/tree_ex_color.png" width="100%" />
+<img src="/reference_examples/tree_ex_color.png" width="100%" />
 
 ```hcl
 

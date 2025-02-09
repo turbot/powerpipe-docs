@@ -12,13 +12,13 @@ Benchmarks are also available as [dashboards](/docs/run/dashboard), providing a 
 
 When you run `powerpipe server` from a mod that includes benchmarks, they will appear in the list of dashboards.  Simply click to run them, like any other dashboard.  You will see the results update as the benchmark runs, but you can interact with it even while the benchmark is running.
 
-![](/images/docs/learn/benchmark_dashboard.png)
+![](/learn/benchmark_dashboard.png)
 
 
 ## Filtering & Grouping
 By default, the benchmark follows the grouping that is defined in the Benchmark HCL definition, but the dashboard display allows you to filter the results and customize the groupings if you prefer.  Hover over the benchmark and you will see action buttons appear at the top right of the page.  Click **Filter & Group** to open the **Filter & Group** panel.  For instance, to group by Service and Region, change the **Group** to group by `Control Tag = service`, then `Dimension = region` and `Result`.  Click apply.
 
-![](/images/docs/learn/benchmark_by_service_region.png)
+![](/learn/benchmark_by_service_region.png)
 
 As with any dashboard, you can [change the search path](/docs/run/dashboard/search-path), [take a snapshot](/docs/run/snapshots/interactive-snapshots) once the benchmark is complete, see details in the [panel view](/docs/run/dashboard#panel-view), and [download the results](/docs/run/dashboard/download) in a CSV file!
 

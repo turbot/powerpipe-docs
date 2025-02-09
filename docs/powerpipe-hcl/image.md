@@ -12,7 +12,7 @@ Image blocks can be declared as named resources at the top level of a mod, or th
 
 ## Example Usage
 
-<img src="/images/docs/reference_examples/image_ex_1.png" width="200pt" />
+<img src="/reference_examples/image_ex_1.png" width="200pt" />
 
 ```hcl
 image {
@@ -63,7 +63,7 @@ Formal data structure:
 
 
 ### Via query
-<img src="/images/docs/reference_examples/image_ex_torvalds.png" width="200pt" />
+<img src="/reference_examples/image_ex_torvalds.png" width="200pt" />
 
 ```hcl
 image {
@@ -81,7 +81,7 @@ image {
 
 
 ### Dynamic Styling via formal query data structure
-<img src="/images/docs/reference_examples/image_ex_ken.png" width="200pt" />
+<img src="/reference_examples/image_ex_ken.png" width="200pt" />
 
 ```hcl
 image {

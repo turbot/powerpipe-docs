@@ -76,11 +76,11 @@ powerpipe server
 
 Visit `localhost:9033` in a browser. 
 
-![](/images/docs/learn/tailpipe-benchmark-detect-kms-key-updated.png)
+![](/learn/tailpipe-benchmark-detect-kms-key-updated.png)
 
 The Tailpipe mod has detected 14 potential issues, of which 5 are detections related to updates to KMS keys. If you know that *ExampleUser* is non-malicious you can exclude those 5 rows with a single click on any row in the `actor` column that matches *ExampleUser*.
 
-![](/images/docs/learn/tailpipe-benchmark-detect-kms-key-updated-2.png)
+![](/learn/tailpipe-benchmark-detect-kms-key-updated-2.png)
 
 Then you can continue to explore the remaining potential issues in other detection categories.
 

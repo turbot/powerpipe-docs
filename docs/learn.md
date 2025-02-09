@@ -1,12 +1,22 @@
 ---
-title: Using Powerpipe with Steampipe
-sidebar_label: With Steampipe
+id: learn
+title: Learn Powerpipe
+sidebar_label: Learn Powerpipe
+slug: /
 ---
 
-# Using Powerpipe with Steampipe
+# Learn Powerpipe: Dashboards for DevOps!
 
-Powerpipe is the engine for visualizing Steampipe [controls](/docs/powerpipe-hcl/control). Let's see how that works.
-## Prerequisites
+Powerpipe is an open-source tool from Turbot that enables DevOps teams to:
+
+- [Visualize cloud infrastructure](#visualize-cloud-infrastructure). Use pre-built dashboards — for AWS, Azure, GCP, Kubernetes, and more — to visualize your cloud resources and answer common questions about resource quantity, cost, usage, and relationships.
+
+- [Run security and compliance benchmarks](#run-security-and-compliance-benchmarks). Use pre-built benchmarks to assess how well your clouds comply with the standard frameworks including CIS, GDPR, NIST, PCI, SOC 2, and more.
+
+- [Create your own dashboards and benchmarks](#create-your-own-dashboards-and-benchmarks). Build from scratch, using HCL in a live coding environment, or compose with the prebuilt dashboards and benchmarks.
+
+
+## Pre-requisites
 
 To get started, you will need to install Powerpipe, Steampipe, and the AWS plugin for Steampipe.
 
@@ -64,8 +74,8 @@ Powerpipe always runs in the context of a [mod](/docs/build/).  A Powerpipe mod 
 Let's create a new directory for our mod:
 
 ```bash
-mkdir learn_powerpipe_steampipe
-cd learn_powerpipe_steampipe
+mkdir learn_powerpipe
+cd learn_powerpipe
 ```
 
 Now initialize this mod:
@@ -148,9 +158,6 @@ As with any dashboard, you can [change the search path](/docs/run/dashboard/sear
 
 The [Powerpipe Hub](https://hub.powerpipe.io/) contains hundreds of ready-made dashboards and benchmarks that you can simply install and run. But Powerpipe also makes it simple to [write your controls and benchmarks](/docs/build/writing-controls), and [build dashboards](/docs/build/writing-dashboards) to analyze your data and share with others! 
 
-<!--
-remove in favor of writing-dashboards and -controls
----------------------------------------------------
 
 We've already [created our own mod](/docs/build/create-mod) and installed 2 dependency mods (AWS Insights and AWS Compliance).  Now let's add our own dashboard and benchmark.  Create a file named `learn.pp` in your mod's directory, and paste in the following HCL code:
 
@@ -222,5 +229,3 @@ Now use the button at the top to **Group by: Mod** and scroll down to your custo
 You can click and run them like any other dashboard!
 
 ![](/learn/custom_dashboard.png)
-
--->

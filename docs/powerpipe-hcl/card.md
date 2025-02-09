@@ -13,7 +13,7 @@ Cards can be declared as named resources at the top level of a mod, or they can 
 
 ## Example Usage
 
-<img src="/images/docs/reference_examples/card_ex_1.png" width="200pt" />
+<img src="/reference_examples/card_ex_1.png" width="200pt" />
 
 <br />
 
@@ -143,7 +143,7 @@ Refer to [JQ Escaping & Interpolation](/docs/powerpipe-hcl/dashboard#jq-escaping
 
 ### Alert Card
 
-<img src="/images/docs/reference_examples/card_ex_alert.png" width="200pt" />
+<img src="/reference_examples/card_ex_alert.png" width="200pt" />
 
 <br />
 
@@ -157,7 +157,7 @@ card {
 
 ### OK Card
 
-<img src="/images/docs/reference_examples/card_ex_ok.png" width="200pt" />
+<img src="/reference_examples/card_ex_ok.png" width="200pt" />
 
 <br />
 
@@ -172,7 +172,7 @@ card {
 
 ### Info Card
 
-<img src="/images/docs/reference_examples/card_ex_info.png" width="200pt" />
+<img src="/reference_examples/card_ex_info.png" width="200pt" />
 
 <br />
 
@@ -188,7 +188,7 @@ card {
 
 ### Dynamic Styling via formal query data structure
 
-<img src="/images/docs/reference_examples/card_ex_dynamic.png" width="200pt" />
+<img src="/reference_examples/card_ex_dynamic.png" width="200pt" />
 
 <br />
 
@@ -215,7 +215,7 @@ card {
 
 ### Static data and static (external) link
 
-<img src="/images/docs/reference_examples/card_ex_static_link.png" width="200pt" />
+<img src="/reference_examples/card_ex_static_link.png" width="200pt" />
 
 <br />
 
@@ -230,7 +230,7 @@ card {
 
 
 ### Dynamic data and static (internal) link
-<img src="/images/docs/reference_examples/card_ex_internal_link.png" width="200pt" />
+<img src="/reference_examples/card_ex_internal_link.png" width="200pt" />
 
 <br />
 
@@ -259,7 +259,7 @@ card {
 
 
 ### Dynamic link with JQ template
-<img src="/images/docs/reference_examples/card_ex_dynamic_link.png" width="300pt" />
+<img src="/reference_examples/card_ex_dynamic_link.png" width="300pt" />
 
 <br />
 

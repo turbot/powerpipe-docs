@@ -22,13 +22,13 @@ powerpipe server
 
 Powerpipe will start the dashboard server.  Open `http://localhost:9033/` in your web browser to view the dashboards in the mod. 
 
-![](/images/docs/dashboard_home.png)
+![](/dashboard_home.png)
 
 The home page lists the available dashboards and is searchable by title or tags.  By default, the dashboards are grouped by **Category**, but you may select another grouping if you prefer.
 
 Click on the title of a report to view it.  For example, click the `AWS CloudTrail Trail Dashboard` to view it.
 
-![](/images/docs/cloudtrail_dash_ex.png)
+![](/cloudtrail_dash_ex.png)
 
 You can type in the search bar at the top of any page to navigate to another dashboard.  Alternatively, you can click the Powerpipe logo in the top left to return to the home page.  When you are finished, you can return to the terminal console and type `Ctrl+c` to exit.
 

@@ -39,12 +39,12 @@ powerpipe login
 
 The `powerpipe login` command will launch your web browser to continue the login process. Verify the request.
 
-![](/images/docs/powerpipe-login/powerpipe-login-1.png)
+![](/powerpipe-login/powerpipe-login-1.png)
 
 
 After you have verified the request, the browser will display a verification code. 
 
-![](/images/docs/powerpipe-login/powerpipe-login-2.png)
+![](/powerpipe-login/powerpipe-login-2.png)
 
 Paste the code into the CLI and hit enter to complete the login process:
 

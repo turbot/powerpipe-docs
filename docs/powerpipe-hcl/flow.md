@@ -13,7 +13,7 @@ Flow blocks can be declared as named resources at the top level of a mod, or the
 
 ## Example Usage
 
-<img src="/images/docs/reference_examples/flow_sankey_ex_1.png" width="100%" />
+<img src="/reference_examples/flow_sankey_ex_1.png" width="100%" />
 
 
 ```hcl
@@ -191,7 +191,7 @@ For flows that do not conform to a single-parent hierarchical structure, it's' u
 
 ### Sankey with color by category
 
-<img src="/images/docs/reference_examples/flow_sankey_ex_category.png" width="100%" />
+<img src="/reference_examples/flow_sankey_ex_category.png" width="100%" />
 
 ```hcl
 dashboard "flow_sankey_ex_category" {
@@ -308,7 +308,7 @@ category "aws_vpc_subnet" {
 
 ### sankey with monolithic query
 
-<img src="/images/docs/reference_examples/flow_sankey_ex_1_mono.png" width="100%" />
+<img src="/reference_examples/flow_sankey_ex_1_mono.png" width="100%" />
 
 ```hcl
 dashboard "flow_sankey_ex_1_mono" {
@@ -366,7 +366,7 @@ dashboard "flow_sankey_ex_1_mono" {
 
 ### Sankey with color by category (monolithic query)
 
-<img src="/images/docs/reference_examples/flow_sankey_ex_category_mono.png" width="100%" />
+<img src="/reference_examples/flow_sankey_ex_category_mono.png" width="100%" />
 
 ```hcl
   dashboard "flow_sankey_ex_category_mono" {
@@ -436,7 +436,7 @@ dashboard "flow_sankey_ex_1_mono" {
 
 ### Sankey with node/edge data format, color by category, depth
 
-<img src="/images/docs/reference_examples/flow_sankey_ex_2.png" width="100%" />
+<img src="/reference_examples/flow_sankey_ex_2.png" width="100%" />
 
 ```hcl
 
