@@ -6,7 +6,7 @@ title: Download Data
 
 The Powerpipe dashboard elements allow you to download the backing data in CSV format. Hover over the element and the download button will appear at the top of the chart or table:   
 
-![](/images/docs/cost_chart_with_expander.png)
+![](/cost_chart_with_expander.png)
 
 
 Click the download button to download the CSV file.

@@ -39,7 +39,7 @@ powerpipe benchmark run all
 
 The console will show progress as it runs, and will print the results to the screen when it is complete:
 
-![](/images/docs/learn/benchmark_run.webp)
+![](/learn/benchmark_run.webp)
 
 
 You can find controls and related benchmarks in the [Powerpipe Hub](https://hub.powerpipe.io), or by searching the [powerpipe-mod](https://github.com/topics/tailpipe-mod) topic on GitHub.
@@ -50,7 +50,7 @@ You can also [create your own controls and benchmarks](/docs/build/writing-contr
 
 Powerpipe benchmarks automatically appear as [dashboards](/docs/run/dashboard) when you run `powerpipe server` in the mod.  From the dashboard home, you can select any benchmark to run it and view it in an interactive HTML format. 
 
-![](/images/docs/learn/benchmark_dashboard.png)
+![](/learn/benchmark_dashboard.png)
 
 You can [change the search path](/docs/run/dashboard/search-path), [take a snapshot](/docs/run/snapshots/interactive-snapshots) once the benchmark is complete, see details in the [panel view](/docs/run/dashboard#panel-view), and [download the results](/docs/run/dashboard/download) to a CSV file.
 <br />

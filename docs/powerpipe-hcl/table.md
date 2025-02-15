@@ -11,7 +11,7 @@ Table blocks can be declared as named resources at the top level of a mod, or th
 
 
 ## Example Usage
-<img src="/images/docs/reference_examples/table_ex_1.png"  />
+<img src="/reference_examples/table_ex_1.png"  />
 
 ```hcl
 table {
@@ -113,7 +113,7 @@ Refer to [JQ Escaping & Interpolation](/docs/powerpipe-hcl/dashboard#jq-escaping
 
 
 ### Table with options for columns
-<img src="/images/docs/reference_examples/table_ex_columns.png" width="400pt"/>
+<img src="/reference_examples/table_ex_columns.png" width="400pt"/>
 
 ```hcl
 table {
@@ -144,7 +144,7 @@ table {
 
 
 ### Table in line mode
-<img src="/images/docs/reference_examples/table_ex_line.png" width="300pt"/>
+<img src="/reference_examples/table_ex_line.png" width="300pt"/>
 
 ```hcl
 table {
@@ -170,7 +170,7 @@ table {
 
 
 ### Table with links
-<img src="/images/docs/reference_examples/table_with_links_ex.png" />
+<img src="/reference_examples/table_with_links_ex.png" />
 
 ```hcl
 table {

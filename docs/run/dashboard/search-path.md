@@ -15,7 +15,7 @@ When running Powerpipe from the command line, you can pass the `--search-path` o
 When running a dashboard, you can change the search path on the fly!  At the top of the page, click the **Search Path** button.  
 
 
-![](/images/docs/search_path.png)
+![](/search_path.png)
 
 
 Select a connection from the list.  Click **Add** to add as many connections as you like, and drag and drop them with the handles (6 dots to the right of the connection name) to reorder them.  When you are done, click **Save**.  The dashboard will run again, using the new search path.

@@ -13,7 +13,7 @@ Input blocks can be declared as named resources at the top level of a mod, or be
 
 ## Example Usage
 
-<img src="/images/docs/reference_examples/input_select_open_ex_1.png" width="200pt" />
+<img src="/reference_examples/input_select_open_ex_1.png" width="200pt" />
 
 <br />
 
@@ -84,7 +84,7 @@ The data structure for an `input` will depend on the `type`.
 | label               | value                 | tags                             |
 | ------------------- | --------------------- |----------------------------------|
 | default             | vpc-05657e5bef9676266 | null                             |
-| acme @ 10.84.0.0/16 | vpc-03656e5eef967f366 | { "account_id": "123456789012" } |
+| acme @ 10.84.0.0/16 | vpc-03656e5eef967f366 | &#123; "account_id": "123456789012" &#125; |
 
 `tags` is an optional JSONB object of key/value pairs. Any tag values will be displayed in the list of available options, along with the selected option(s). This will allow you to identify resources across multi-account queries for example.  When a user types to search in the input, the labels and tags will be searched.
 
@@ -92,7 +92,7 @@ The data structure for an `input` will depend on the `type`.
 
 ### Single-select with tags
 
-<img src="/images/docs/reference_examples/input_ex_tags.png" width="400pt" />
+<img src="/reference_examples/input_ex_tags.png" width="400pt" />
 
 <br />
 
@@ -121,7 +121,7 @@ input "instance_arn" {
 
 ### Single-select with fixed options
 
-<img src="/images/docs/reference_examples/input_ex_static_1.png" width="200pt" />
+<img src="/reference_examples/input_ex_static_1.png" width="200pt" />
 
 
 ```hcl
@@ -137,7 +137,7 @@ input "regions" {
 
 ### Single-select with fixed options, using labels
 
-<img src="/images/docs/reference_examples/input_ex_static_2.png" width="200pt" />
+<img src="/reference_examples/input_ex_static_2.png" width="200pt" />
 
 
 ```hcl
@@ -157,7 +157,7 @@ input "vpc_id" {
 
 ### Multi-select with dynamic options
 
-<img src="/images/docs/reference_examples/input_multiselect_open_ex_1.png" width="200pt" />
+<img src="/reference_examples/input_multiselect_open_ex_1.png" width="200pt" />
 
 <br />
 
@@ -181,7 +181,7 @@ input "policy_arns" {
 
 ### Select with dynamic options
 
-<img src="/images/docs/reference_examples/input_select_open_ex_1.png" width="200pt" />
+<img src="/reference_examples/input_select_open_ex_1.png" width="200pt" />
 
 <br />
 
@@ -206,7 +206,7 @@ input "vpc_id" {
 
 ### Text input
 
-<img src="/images/docs/reference_examples/input_text.png" width="200pt" />
+<img src="/reference_examples/input_text.png" width="200pt" />
 
 <br />
 
@@ -224,7 +224,7 @@ input "search_string" {
 
 ### Combo box
 
-<img src="/images/docs/reference_examples/input_combo.png" width="200pt" />
+<img src="/reference_examples/input_combo.png" width="200pt" />
 
 <br />
 
@@ -248,7 +248,7 @@ input "cost_center" {
 
 ### Multi-select combo box
 
-<img src="/images/docs/reference_examples/input_multicombo.png" width="200pt" />
+<img src="/reference_examples/input_multicombo.png" width="200pt" />
 
 <br />
 
@@ -272,7 +272,7 @@ input "cost_centers" {
 
 ### Example dashboard using an input
 
-<img src="/images/docs/reference_examples/inputs_example_dashboard_1.png"  />
+<img src="/reference_examples/inputs_example_dashboard_1.png"  />
 
 <br />
 

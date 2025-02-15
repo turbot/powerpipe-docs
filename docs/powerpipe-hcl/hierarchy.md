@@ -12,7 +12,7 @@ Hierarchy blocks can be declared as named resources at the top level of a mod, o
 
 ## Example Usage
 
-<img src="/images/docs/reference_examples/tree_ex_1.png" width="100%" />
+<img src="/reference_examples/tree_ex_1.png" width="100%" />
 
 ```hcl
 dashboard "tree_ex_nodeonly" {
@@ -134,7 +134,7 @@ Generally speaking, there are 2 data formats commonly used for hierarchies.  It 
 
 | from_id | id               | title            | category         |
 |---------|------------------|------------------|------------------|
-| <null\> | 1                | foo              | root             |
+| &lt;null&gt; | 1                | foo              | root             |
 | 1       | 2                | bar              | widget           |
 | 1       | 3                | baz              | widget           |
 | 2       | 4                | foobar           | fidget           |
@@ -144,13 +144,13 @@ Alternatively, you may specify nodes and edges as separate rows.  In this case, 
 
 | from_id | to_id     | id               | title            | category         |
 |---------|-----------|------------------|------------------|------------------|
-| <null\> |  <null\>  | 1                | foo              | root             |
-| <null\> |  <null\>  | 2                | bar              | widget           |
-| <null\> |  <null\>  | 3                | baz              | widget           |
-| <null\> |  <null\>  | 4                | foobar           | fidget           |
-| 1       |  2        |  <null\>         | <null\>          | widget           |
-| 1       |  3        |  <null\>         | <null\>          | widget           |
-| 2       |  4        |  <null\>         | <null\>          | fidget           |
+| &lt;null&gt; |  &lt;null&gt;  | 1                | foo              | root             |
+| &lt;null&gt; |  &lt;null&gt;  | 2                | bar              | widget           |
+| &lt;null&gt; |  &lt;null&gt;  | 3                | baz              | widget           |
+| &lt;null&gt; |  &lt;null&gt;  | 4                | foobar           | fidget           |
+| 1       |  2        |  &lt;null&gt;         | &lt;null&gt;          | widget           |
+| 1       |  3        |  &lt;null&gt;         | &lt;null&gt;          | widget           |
+| 2       |  4        |  &lt;null&gt;         | &lt;null&gt;          | fidget           |
 
 
 ## Common Hierarchy Properties
@@ -169,7 +169,7 @@ Alternatively, you may specify nodes and edges as separate rows.  In this case, 
 ### Tree via monolithic query
 
 
-<img src="/images/docs/reference_examples/tree_ex_1.png" width="100%" />
+<img src="/reference_examples/tree_ex_1.png" width="100%" />
 
 
 ```hcl
@@ -227,7 +227,7 @@ hierarchy {
 
 ### Tree with color by category [monolithic]
 
-<img src="/images/docs/reference_examples/tree_ex_color.png" width="100%" />
+<img src="/reference_examples/tree_ex_color.png" width="100%" />
 
 ```hcl
 
