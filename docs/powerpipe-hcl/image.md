@@ -48,9 +48,9 @@ If an image provides a `sql` query, it supports 2 data structures.
 
 Simple data structure:
 
-| <alt\> |
+| &lt;alt\ &gt; |
 |--------|
-| <src\> |
+| &lt;src\ &gt; |
 
 Formal data structure:
 

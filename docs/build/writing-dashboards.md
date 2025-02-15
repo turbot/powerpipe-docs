@@ -238,7 +238,7 @@ We've utilized the built-in grid system. A dashboard has 12 grid columns and by 
 
 If you make your browser narrower you'll notice that the two charts go full-width.
 
-We start at the smallest screen size with components being full-width. Between 768-1023px any component with a width of <6 becomes 6 grid units. At >=1024px we respect the width specified. For a more detailed explanation see [width](/docs/powerpipe-hcl/dashboard#width).
+We start at the smallest screen size with components being full-width. Between 768-1023px any component with a width of &lt;6 becomes 6 grid units. At &gt;=1024px we respect the width specified. For a more detailed explanation see [width](/docs/powerpipe-hcl/dashboard#width).
 
 ### Nesting components
 

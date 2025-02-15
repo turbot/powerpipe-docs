@@ -486,21 +486,21 @@ Most commonly, you should specify nodes and edges as separate rows.  In this cas
 
 | from_id | to_id     | id               | title            | category         |
 |---------|-----------|------------------|------------------|------------------|
-| <null\> |  <null\>  | 1                | foo              | root             |
-| <null\> |  <null\>  | 2                | bar              | widget           |
-| <null\> |  <null\>  | 3                | baz              | widget           |
-| <null\> |  <null\>  | 4                | foobar           | fidget           |
-| 1       |  2        |  <null\>         | <null\>          | widget           |
-| 1       |  3        |  <null\>         | <null\>          | widget           |
-| 2       |  4        |  <null\>         | <null\>          | fidget           |
-| 3       |  4        |  <null\>         | <null\>          | fidget           |
+| &lt;null&gt; |  &lt;null&gt;  | 1                | foo              | root             |
+| &lt;null&gt; |  &lt;null&gt;  | 2                | bar              | widget           |
+| &lt;null&gt; |  &lt;null&gt;  | 3                | baz              | widget           |
+| &lt;null&gt; |  &lt;null&gt;  | 4                | foobar           | fidget           |
+| 1       |  2        |  &lt;null&gt;         | &lt;null&gt;          | widget           |
+| 1       |  3        |  &lt;null&gt;         | &lt;null&gt;          | widget           |
+| 2       |  4        |  &lt;null&gt;         | &lt;null&gt;          | fidget           |
+| 3       |  4        |  &lt;null&gt;         | &lt;null&gt;          | fidget           |
 
 
 If the data is strictly hierarchical (where each node can only have a single parent, as for a `hierarchy`), it may be simpler to format the results such that each row species a node (with an `id`, and optionally `title`, `category`, and/or `depth`) and an edge, by specifying a `from_id`:
 
 | from_id | id               | title            | category         |
 |---------|------------------|------------------|------------------|
-| <null\> | 1                | foo              | root             |
+| &lt;null&gt; | 1                | foo              | root             |
 | 1       | 2                | bar              | widget           |
 | 1       | 3                | baz              | widget           |
 | 2       | 4                | foobar           | fidget           |

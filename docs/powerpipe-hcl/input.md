@@ -84,7 +84,7 @@ The data structure for an `input` will depend on the `type`.
 | label               | value                 | tags                             |
 | ------------------- | --------------------- |----------------------------------|
 | default             | vpc-05657e5bef9676266 | null                             |
-| acme @ 10.84.0.0/16 | vpc-03656e5eef967f366 | { "account_id": "123456789012" } |
+| acme @ 10.84.0.0/16 | vpc-03656e5eef967f366 | &#123; "account_id": "123456789012" &#125; |
 
 `tags` is an optional JSONB object of key/value pairs. Any tag values will be displayed in the list of available options, along with the selected option(s). This will allow you to identify resources across multi-account queries for example.  When a user types to search in the input, the labels and tags will be searched.
 

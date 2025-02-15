@@ -166,7 +166,7 @@ Generally speaking, there are 2 data formats commonly used for flows.  If the da
 
 | from_id | id               | title            | category         |
 |---------|------------------|------------------|------------------|
-| <null\> | 1                | foo              | root             |
+| &lt;null&gt; | 1                | foo              | root             |
 | 1       | 2                | bar              | widget           |
 | 1       | 3                | baz              | widget           |
 | 2       | 4                | foobar           | fidget           |
@@ -176,14 +176,14 @@ For flows that do not conform to a single-parent hierarchical structure, it's' u
 
 | from_id | to_id     | id               | title            | category         |
 |---------|-----------|------------------|------------------|------------------|
-| <null\> |  <null\>  | 1                | foo              | root             |
-| <null\> |  <null\>  | 2                | bar              | widget           |
-| <null\> |  <null\>  | 3                | baz              | widget           |
-| <null\> |  <null\>  | 4                | foobar           | fidget           |
-| 1       |  2        |  <null\>         | <null\>          | widget           |
-| 1       |  3        |  <null\>         | <null\>          | widget           |
-| 2       |  4        |  <null\>         | <null\>          | fidget           |
-| 3       |  4        |  <null\>         | <null\>          | fidget           |
+| &lt;null&gt; |  &lt;null&gt;  | 1                | foo              | root             |
+| &lt;null&gt; |  &lt;null&gt;  | 2                | bar              | widget           |
+| &lt;null&gt; |  &lt;null&gt;  | 3                | baz              | widget           |
+| &lt;null&gt; |  &lt;null&gt;  | 4                | foobar           | fidget           |
+| 1       |  2        |  &lt;null&gt;         | &lt;null&gt;          | widget           |
+| 1       |  3        |  &lt;null&gt;         | &lt;null&gt;          | widget           |
+| 2       |  4        |  &lt;null&gt;         | &lt;null&gt;          | fidget           |
+| 3       |  4        |  &lt;null&gt;         | &lt;null&gt;          | fidget           |
 
 
 

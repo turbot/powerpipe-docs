@@ -61,9 +61,9 @@ A card supports 2 data structures.
 
 Simple data structure:
 
-| <label\> |
-|----------|
-| <value\> |
+| label |
+|-------|
+| value |
 
 For example:
 
