@@ -7,7 +7,7 @@ slug: /
 
 # Learn Powerpipe: Dashboards for DevOps!
 
-Powerpipe is an open-source tool from Turbot that enables DevOps teams to:
+Powerpipeee is an open-source tool from Turbot that enables DevOps teams to:
 
 - [Visualize cloud infrastructure](#visualize-cloud-infrastructure). Use pre-built dashboards — for AWS, Azure, GCP, Kubernetes, and more — to visualize your cloud resources and answer common questions about resource quantity, cost, usage, and relationships.
 
