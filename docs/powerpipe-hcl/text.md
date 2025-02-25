@@ -12,7 +12,7 @@ Text blocks can be declared as named resources at the top level of a mod, or the
 
 ## Example Usage
 
-<img src="/reference_examples/text_ex_1.png" width="200pt" />
+<img src="../../images/reference_examples/text_ex_1.png" width="200pt" />
 
 ```hcl
 text {
@@ -41,7 +41,7 @@ text {
 
  ### Plain Text
 
-<img src="/reference_examples/text_raw.png" width="200pt" />
+<img src="../../images/reference_examples/text_raw.png" width="200pt" />
 
 ```hcl
 text {
