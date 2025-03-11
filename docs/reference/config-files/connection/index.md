@@ -25,7 +25,7 @@ Each connection has a type label and a name. There is a type for each service: [
 
 ### Default connections
 
-Powerpipe also creates a single **implicit default** connection for each connection type. The connection is named `default` (`connection.steampipe.default`, `connection.postgres.default`, etc). The intent of the default connection is that Powerpipe can "just work" with your existing setup, and is similar to the default connection that Steampipe creates for each plugin. For example, the Postgres default connection will use the standard [libpq environment variables](https://www.postgresql.org/docs/current/libpq-envars.html) to create a Powerpipe connection that will use the same connection that the `psql` CLI would use, the Steampipe default connection will connect to the local Steampipe instance on `postgres://steampipe@127.0.0.1:9193/steampipe`, etc.
+Powerpipe also creates a single **implicit default** connection for each connection type. The connection is named `default` (`connection.steampipe.default`, `connection.postgres.default`, etc). The intent of the default connection is that Powerpipe can "just work" with your existing setup, and is similar to the default connection that Steampipe creates for each plugin. For example, the Postgres default connection will use the standard [libpq environment variables](https://www.postgresql.org/docs/current/libpq-envars.html) to create a Powerpipe connection that will use the same connection that the `psql` CLI would use, the Steampipe default connection will connect to the local Steampipe instance on `postgres://steampipe@localhost:9193/steampipe`, etc.
 
 You can override the default by simply creating a connection for that type that is named `default`:
 
