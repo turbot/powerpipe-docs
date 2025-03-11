@@ -39,7 +39,7 @@ To learn more, see **[Managing Workspaces →](/docs/run/workspaces)**
 | `base`              | none                         | A reference to a named workspace resource that this workspace should source its definition from. Any argument can be overridden after sourcing via base.
 | `benchmark_timeout` | `0` (no timeout)             | Set the benchmark execution timeout, in seconds.
 | `dashboard_timeout` | `0` (no timeout)             | Set the dashboard execution timeout, in seconds.
-| `database`          | `postgres://steampipe@` <br /> `127.0.0.1:9193/steampipe`|  ***DEPRECATED - See [Setting the Database](/docs/build/mod-database) for the new syntax.*** A database connection string or [Turbot Pipes workspace](https://pipes.turbot.com) to use as the default database.  The default is a local [Steampipe](https://steampipe.io) instance.
+| `database`          | `postgres://steampipe@` <br /> `localhost:9193/steampipe`|  ***DEPRECATED - See [Setting the Database](/docs/build/mod-database) for the new syntax.*** A database connection string or [Turbot Pipes workspace](https://pipes.turbot.com) to use as the default database.  The default is a local [Steampipe](https://steampipe.io) instance.
 | `header`            | `true`                       | Enable or disable column headers.
 | `input`             | `true`                       | Enable/Disable interactive prompts for missing variables.  To disable prompts and fail on missing variables, set it to `false`. This is useful when running from scripts.
 | `listen`            | `network`                    | Specifies the IP addresses on which `powerpipe server` will listen for connections from clients. Currently supported values are `local` (localhost only) or `network` (all IP addresses).

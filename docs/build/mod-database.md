@@ -74,7 +74,7 @@ powerpipe benchmark run cis_v120 --var database=connection.steampipe.my_other_co
 For the database connection types ([connection.steampipe](/docs/reference/config-files/connection/steampipe), [connection.postgres](/docs/reference/config-files/connection/postgres), [connection.mysql](/docs/reference/config-files/connection/mysql), [connection.duckdb](/docs/reference/config-files/connection/duckdb), [connection.sqlite](/docs/reference/config-files/connection/sqlite)), Powerpipe even supports passing them as connection strings:
 
 ```bash
-powerpipe benchmark run cis_v120 --var database="postgres://steampipe@127.0.0.1:9193/steampipe"
+powerpipe benchmark run cis_v120 --var database="postgres://steampipe@localhost:9193/steampipe"
 ```
 
 or pipes workspaces (you will need to [log in](/docs/reference/cli/login) first)!

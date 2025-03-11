@@ -22,7 +22,7 @@ connection "steampipe" "steampipe_connection" {
 | Name                | Type    | Required?| Description
 |---------------------|---------|----------|-------------------
 | `db`                |  String | Optional | Database name.  Defaults to `steampipe`.
-| `host`              |  String | Optional | Database hostname.  Defaults to `127.0.0.1`.
+| `host`              |  String | Optional | Database hostname.  Defaults to `localhost`.
 | `password`          |  String | Optional | Database password.
 | `port`              |  Number | Optional | Database port.  Defaults to `9193`.
 | `search_path`       |  String | Optional | Database search path.
