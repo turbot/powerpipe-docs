@@ -90,7 +90,7 @@ Run a query from the current mod or its direct dependents.
 |-|-
 | `--arg string=string`           | Specify the value for a query param. Multiple `--arg` arguments may be passed. 
 |  `--database`                   |  ***DEPRECATED - See [Setting the Database](/docs/build/mod-database) for the new syntax.***  Sets the [database that Powerpipe will connect to](/docs/run#selecting-a-database). This defaults to the local Steampipe database, but can be any PostgreSQL, MySQL, DuckDB, or SQLite database.
-|  `--export string`              | Export query output to a file. You may export multiple output formats for a single query run by entering multiple `--export` arguments. If a file path is specified as an argument, its type will be inferred by the suffix. Supported export formats are  `csv`, `line`, `json`,`pps` (snapshot), `pretty`, `plain`.
+|  `--export string`              | Export query output to a file. You may export multiple output formats for a single query run by entering multiple `--export` arguments. If a file path is specified as an argument, its type will be inferred by the suffix. Supported export formats are  `csv`, `json`,`pps` (snapshot).
 |  `--header string`              | Specify whether to include column headers in csv output/export (default `true`).
 |  `--input`                      | Enable/Disable interactive prompts for missing variables. To disable prompts and fail on missing variables, use  `--input=false`. This is useful when running from scripts. (default `true`)
 |  `--mod-install`                | Specify whether to install mod dependencies before running the query (default `true`)
