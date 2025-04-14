@@ -14,7 +14,7 @@ Chart blocks can be declared as named resources at the top level of a mod, or th
 
 ## Example Usage
 
-<img src="/reference_examples/bar_chart_ex_1.png" width="100%" />
+<img src="../../images/reference_examples/bar_chart_ex_1.png" width="100%" />
 
 
 ```hcl
@@ -161,7 +161,7 @@ Alternative values are `none`, which applies no data transforms, or `crosstab` w
 #### Multi-series bar chart with custom properties 
 
 
-<img src="/reference_examples/multi-bar_ex_1.png" width="100%" />
+<img src="../../images/reference_examples/multi-bar_ex_1.png" width="100%" />
 
 ```hcl
 chart {
@@ -238,7 +238,7 @@ chart {
 
 ### Bar Chart
 
-<img src="/reference_examples/bar_chart_ex_1.png" width="100%" />
+<img src="../../images/reference_examples/bar_chart_ex_1.png" width="100%" />
 
 ```hcl
 
@@ -263,7 +263,7 @@ chart {
 ```
 
 ### Column Chart
-<img src="/reference_examples/column_chart_ex_1.png" width="100%" />
+<img src="../../images/reference_examples/column_chart_ex_1.png" width="100%" />
 
 ```hcl
 chart {
@@ -287,7 +287,7 @@ chart {
 
 ### Donut Chart
 
-<img src="/reference_examples/donut_chart_ex_1.png" width="100%" />
+<img src="../../images/reference_examples/donut_chart_ex_1.png" width="100%" />
 
 ```hcl
 chart {
@@ -311,7 +311,7 @@ chart {
 
 
 ### Line Chart
-<img src="/reference_examples/line_chart_ex_1.png" width="100%" />
+<img src="../../images/reference_examples/line_chart_ex_1.png" width="100%" />
 
 ```hcl
 chart {
@@ -334,7 +334,7 @@ chart {
 ```
 
 ### Pie Chart
-<img src="/reference_examples/pie_chart_ex_1.png" width="100%" />
+<img src="../../images/reference_examples/pie_chart_ex_1.png" width="100%" />
 
 ```hcl
 chart {
@@ -358,7 +358,7 @@ chart {
 
 
 ### Stack Chart
-<img src="/reference_examples/column_chart_ex_stack.png" width="100%" />
+<img src="../../images/reference_examples/column_chart_ex_stack.png" width="100%" />
 
 ```hcl
 chart {
@@ -382,7 +382,7 @@ chart {
 
 
 ### Comparison Chart
-<img src="/reference_examples/column_chart_ex_compare.png" width="100%" />
+<img src="../../images/reference_examples/column_chart_ex_compare.png" width="100%" />
 
 ```hcl
 chart {
@@ -406,7 +406,7 @@ chart {
 ```
 
 ### Heatmap Chart
-<img src="/reference_examples/heatmap_chart.png" width="100%" />
+<img src="../../images/reference_examples/heatmap_chart.png" width="100%" />
 
 ```hcl
 chart {
