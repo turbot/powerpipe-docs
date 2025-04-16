@@ -45,7 +45,8 @@
         ]
       },
       "run/server",
-      "run/workspaces"
+      "run/workspaces",
+      "run/mcp"
     ]
   },
   {
