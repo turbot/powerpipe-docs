@@ -34,7 +34,7 @@ All arguments are optional, and a `duckdb` connection with no arguments will beh
 The `duckdb` connection type includes an implicit, default connection (`connection.duckdb.default`), which will use the `DUCKDB_FILENAME` environment variable unless overridden.
 
 ```hcl
-connection "duckcb" "default" {
+connection "duckdb" "default" {
    filename = env("DUCKDB_FILENAME")
 }
 ```
