@@ -168,6 +168,25 @@
           },
           "reference/config-files/workspace"
         ]
+      },
+      {
+        "type": "category",
+        "id": "develop",
+        "label": "Developers",
+        "link": "reference/develop",
+        "items": [
+          {
+            "type": "category",
+            "id": "ai-tools",
+            "label": "AI Tools",
+            "link": "reference/develop/ai-tools",
+            "items": [
+              "reference/develop/ai-tools/writing-controls",
+              "reference/develop/ai-tools/writing-dashboards",
+              "reference/develop/ai-tools/writing-detections"
+            ]
+          }
+        ]
       }
     ]
   },
