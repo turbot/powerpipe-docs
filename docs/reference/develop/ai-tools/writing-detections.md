@@ -43,7 +43,6 @@ You are an expert in Powerpipe, Tailpipe, and SQL. Use the following guidelines 
 
 - Example:
 
-```hcl
 detection "ec2_ami_shared_publicly" {
   title           = "EC2 AMI Shared Publicly"
   description     = "Detect when an EC2 AMI was shared publicly. Sharing an AMI publicly may expose the image to unauthorized users, potentially leading to data leakage or security vulnerabilities."
@@ -55,7 +54,6 @@ detection "ec2_ami_shared_publicly" {
     mitre_attack_ids = "TA0001:T1078.004"
   })
 }
-```
 
 ## Implementation Patterns
 
@@ -119,24 +117,16 @@ alwaysApply: false
 
 You are an expert in Powerpipe and SQL. Use the following steps when testing detections:
 
-## Build
-- Build the mod locally and ensure all dependencies are installed.
-
 ## Create Resources
 - Use the provider's CLI or API to generate log events that will be detected.
-- Populate as many properties as possible to ensure all detection logic is tested.
-
-## Start Powerpipe Service
-- Start or restart the Powerpipe service as needed.
+- Populate the required properties to ensure detection logic is tested.
 
 ## Run and Verify
-- Use the Powerpipe CLI or MCP server to run the detection:
-  - `powerpipe detection run <detection_name>`
+- You MUST use the Powerpipe MCP server to run the detection.
 - Verify:
   - All required columns are returned.
   - Detection logic correctly identifies relevant events.
   - All edge cases (e.g., missing values, multiple accounts) are handled.
-- Run all example queries in the detection documentation.
 ```
 
 ## Cleanup

@@ -41,7 +41,6 @@ You are an expert in Powerpipe, Steampipe, and SQL. Use the following guidelines
 
 - Example:
 
-```hcl
 control "ec2_instance_in_vpc" {
   title       = "EC2 instances should be in a VPC"
   description = "Deploy EC2 instances within a VPC to enable secure communication between an instance and other services within the VPC, without requiring an internet gateway, NAT device, or VPN connection."
@@ -67,7 +66,6 @@ control "ec2_instance_in_vpc" {
     service = "AWS/EC2"
   })
 }
-```
 
 ## Implementation Patterns
 
@@ -104,7 +102,6 @@ See [Powerpipe control documentation](/docs/powerpipe-hcl/control#required-contr
 - Reference variables using `var.<name>` for defaults.
 - Example:
 
-```hcl
 control "vpc_peering_connection_cross_account_shared" {
   ...
   param "trusted_accounts" {
@@ -113,7 +110,7 @@ control "vpc_peering_connection_cross_account_shared" {
   }
   ...
 }
-```
+
 ```
 
 ## Documentation
@@ -143,24 +140,16 @@ alwaysApply: false
 
 You are an expert in Powerpipe and SQL. Use the following steps when testing controls:
 
-## Build
-- Build the mod locally and ensure all dependencies are installed.
-
 ## Create Resources
 - Use the provider's CLI or API to create resources that will be evaluated by the control.
-- Populate as many properties as possible to ensure all columns are tested.
+- Populate the required properties to ensure the control logic is tested.
 
-## Start Powerpipe Service
-- Start or restart the Powerpipe service as needed.
-
-## Query
-- Use the Powerpipe CLI or MCP server to run the control:
-  - `powerpipe control run <control_name>`
+## Run and Verify
+- You MUST use the Powerpipe MCP server to run the control.
 - Verify:
   - All required columns are returned.
   - Status and reason values are correct for all test cases.
   - All edge cases (e.g., missing values, multiple accounts) are handled.
-- Run all example queries in the control documentation.
 ```
 
 ## Cleanup

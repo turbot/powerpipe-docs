@@ -40,7 +40,6 @@ You are an expert in Powerpipe, Steampipe, and SQL. Use the following guidelines
 
 - Example:
 
-```hcl
 dashboard "ec2_instance_dashboard" {
   title         = "AWS EC2 Instance Dashboard"
   documentation = file("./dashboards/ec2/docs/ec2_instance_dashboard.md")
@@ -55,7 +54,6 @@ dashboard "ec2_instance_dashboard" {
   }
   # ... more containers ...
 }
-```
 
 ## Implementation Patterns
 
@@ -131,24 +129,17 @@ alwaysApply: false
 
 You are an expert in Powerpipe and SQL. Use the following steps when testing dashboards:
 
-## Build
-- Build the mod locally and ensure all dependencies are installed.
-
 ## Create Resources
 - Use the provider's CLI or API to create resources that will be visualized in the dashboard.
 - Populate as many properties as possible to ensure all dashboard elements are tested.
 
-## Start Powerpipe Service
-- Start or restart the Powerpipe service as needed.
-
-## View and Interact
-- Open the dashboard in the Powerpipe UI or run `powerpipe server` and browse to the dashboard.
+## Run Dashboards
+- You MUST use the Powerpipe MCP server to run the dashboard.
 - Verify:
-  - All cards, charts, tables, and inputs render correctly.
+  - All cards, charts, tables, inputs, and other dashboard elements run correctly.
   - Data is accurate and up to date.
-  - Layout is responsive and visually clear.
-  - All links and interactions work as expected.
 - Test all input-driven scenarios and edge cases.
+```
 
 ## Cleanup
 
