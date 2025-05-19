@@ -8,16 +8,16 @@ title: Powerpipe CLI
 
 | Command | Description
 |-|-
-| [powerpipe help](reference/cli/help)      | Help about any command.
-| [powerpipe detection](reference/cli/detection)    | List, view, and run Powerpipe detections.
-| [powerpipe login](reference/cli/login)    | Log in to Turbot Pipes.
-| [powerpipe mod](reference/cli/mod)        | Powerpipe mod management.
-| [powerpipe benchmark](reference/cli/benchmark) | List, view, and run Powerpipe benchmarks.
-| [powerpipe control](reference/cli/control)| List and view Powerpipe controls.
-| [powerpipe dashboard](reference/cli/dashboard) | List and view Powerpipe dashboards.
-| [powerpipe query](reference/cli/query)    | List and view Powerpipe queries.
-| [powerpipe server](reference/cli/server)  | Run Powerpipe server, including triggers and integrations.
-| [powerpipe variable](reference/cli/variable)| List and view Powerpipe variables.
+| [powerpipe help](cli/help)      | Help about any command.
+| [powerpipe detection](cli/detection)    | List, view, and run Powerpipe detections.
+| [powerpipe login](cli/login)    | Log in to Turbot Pipes.
+| [powerpipe mod](cli/mod)        | Powerpipe mod management.
+| [powerpipe benchmark](cli/benchmark) | List, view, and run Powerpipe benchmarks.
+| [powerpipe control](cli/control)| List and view Powerpipe controls.
+| [powerpipe dashboard](cli/dashboard) | List and view Powerpipe dashboards.
+| [powerpipe query](cli/query)    | List and view Powerpipe queries.
+| [powerpipe server](cli/server)  | Run Powerpipe server, including triggers and integrations.
+| [powerpipe variable](cli/variable)| List and view Powerpipe variables.
 
 
 ## Global Flags
