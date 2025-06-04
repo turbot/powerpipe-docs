@@ -16,17 +16,31 @@ detection "repository_visibility_set_public" {
   documentation   = file("./detections/docs/repository_visibility_set_public.md")
   severity        = "high"
   query           = query.repository_visibility_set_public
-  display_columns = local.detection_display_columns_repository
-
-  tags = merge(local.repository_common_tags, {
-    mitre_attack_ids = "TA0001:T1195.002"
-  })
+  display_columns = [
+    "timestamp",
+    "operation",
+    "resource",
+    "actor",
+    "source_ip",
+    "organization",
+    "repository",
+    "source_id"
+  ]
 }
 
 query "repository_visibility_set_public" {
   sql = <<-EOQ
     select
-      ${local.detection_sql_resource_column_repository}
+      tp_timestamp as timestamp,
+      action as operation,
+      __RESOURCE_SQL__ as resource,
+      actor,
+      tp_source_ip as source_ip,
+      tp_index as organization,
+      split_part(repo, '/', 2) as repository,
+      tp_id as source_id,
+      *
+      exclude (actor, timestamp)
     from
       github_audit_log
     where
