@@ -27,30 +27,6 @@ detection "repository_visibility_set_public" {
     "source_id"
   ]
 }
-
-query "repository_visibility_set_public" {
-  sql = <<-EOQ
-    select
-      tp_timestamp as timestamp,
-      action as operation,
-      __RESOURCE_SQL__ as resource,
-      actor,
-      tp_source_ip as source_ip,
-      tp_index as organization,
-      split_part(repo, '/', 2) as repository,
-      tp_id as source_id,
-      *
-      exclude (actor, timestamp)
-    from
-      github_audit_log
-    where
-      action = 'repo.access'
-      and (additional_fields ->> 'visibility') = 'public'
-      and (additional_fields ->> 'previous_visibility') = 'private'
-    order by
-      tp_timestamp desc;
-  EOQ
-}
 ```
 
 You can run a detection from the command line:
