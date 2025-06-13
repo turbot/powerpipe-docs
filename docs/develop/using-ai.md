@@ -126,23 +126,4 @@ Your goal is to verify your control works correctly end-to-end.
 3. Make any necessary adjustments and retest until everything works perfectly.
 ```
 
-## Best Practices
-
-1. **Start Small**: Begin with simple controls and gradually add complexity as needed.
-2. **Test Thoroughly**: Always test your query independently before implementing the control.
-3. **Follow Patterns**: Stick to established conventions from existing controls.
-4. **Document Clearly**: Write documentation that helps users understand both what the control does and why it's important.
-5. **Consider Performance**: Optimize queries for large-scale environments.
-6. **Use Variables**: Make controls flexible with variables, but keep defaults sensible.
-7. **Think Modular**: Design controls that can be reused across different benchmarks.
-
-## Common Pitfalls to Avoid
-
-1. **Overly Complex Queries**: Keep queries focused and simple when possible.
-2. **Missing Edge Cases**: Test with various resource configurations.
-3. **Hardcoded Values**: Use variables for configurable thresholds.
-4. **Incomplete Documentation**: Always include examples and remediation steps.
-5. **Inconsistent Naming**: Follow established naming patterns.
-6. **Poor Error Handling**: Consider and handle potential error conditions.
-
 Remember that AI tools work best when they can see the full context of your mod repository. Always open the entire repository in your IDE and use the Powerpipe MCP server when available for the most efficient development experience. 
