@@ -1,9 +1,9 @@
 ---
-title: Using AI to Create Controls
-sidebar_label: Using AI for Controls
+title: Using AI
+sidebar_label: Using AI
 ---
 
-# Using AI to Create Controls
+# Using AI
 
 Creating new controls for Powerpipe mods with AI tools and IDEs works remarkably well. At Turbot, we develop controls frequently and use AI for almost every new control we create. We've found that AI typically produces excellent results when working with existing mod repositories, as it can learn from established patterns and conventions.
 
@@ -13,16 +13,16 @@ If you're looking to use AI to run Powerpipe controls rather than develop new on
 
 ## Getting Started
 
-While AI often works well with simple requests like "Create a control for [requirement]", here are some structured prompts and workflows we use at Turbot that you may find helpful as starting points.
+While AI often works well with simple requests like "Create a control for [requirement]", here are some prompts we use at Turbot that you may find helpful as starting points.
 
 ### Prerequisites
 
 1. Open the mod repository in your IDE (Cursor, VS Code, Windsurf, etc.) to give AI tools access to all existing code and documentation.
 2. Ensure you have Powerpipe installed with all necessary plugins configured.
 3. Set up access to the cloud providers or systems you'll be evaluating.
-4. Configure the [Powerpipe MCP server](https://github.com/turbot/steampipe-mcp) which allows the agent to inspect and run controls.
+4. Configure the [Powerpipe MCP server](https://github.com/turbot/powerpipe-mcp) which allows the agent to inspect and run controls.
 
-### Step 1: Understand Conventions
+### Understand Conventions
 
 First, review existing controls and conventions to ensure consistency:
 
@@ -41,14 +41,14 @@ Your goal is to understand the conventions for creating a new Powerpipe control.
 3. Document the key conventions you've identified to ensure your new control will be consistent.
 ```
 
-### Step 2: Create and Test the Query
+### Create and Test the Query
 
 Next, develop the SQL query that will power your control:
 
 ```md
 Your goal is to create a working SQL query for your new control.
 
-1. Follow the query structure conventions identified in Step 1.
+1. Follow the query structure conventions identified earlier.
 
 2. Test the query using one of these methods:
    - Powerpipe MCP server's steampipe_query tool (preferred)
@@ -63,7 +63,7 @@ Your goal is to create a working SQL query for your new control.
 4. Do not proceed until you have a fully working and tested query.
 ```
 
-### Step 3: Create the Control
+### Create the Control
 
 With a working query, create the control definition:
 
@@ -85,7 +85,7 @@ Your goal is to implement the control using your tested query.
    - Set appropriate default values
 ```
 
-### Step 4: Add Documentation
+### Add Documentation
 
 Document your new control thoroughly:
 
@@ -105,7 +105,7 @@ Your goal is to create comprehensive documentation for your control.
 3. Follow existing documentation format and style.
 ```
 
-### Step 5: Test the Control
+### Test the Control
 
 Finally, test your complete control implementation:
 
