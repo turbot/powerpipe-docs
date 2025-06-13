@@ -69,7 +69,6 @@
     "type": "category",
     "id": "develop",
     "label": "Developers",
-    "link": "develop/overview",
     "items": [
       "develop/using-ai"
     ]
