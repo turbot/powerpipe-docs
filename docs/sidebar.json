@@ -67,6 +67,14 @@
   },
   {
     "type": "category",
+    "id": "develop",
+    "label": "Developers",
+    "items": [
+      "develop/using-ai"
+    ]
+  },
+  {
+    "type": "category",
     "id": "powerpipe-hcl",
     "link": "powerpipe-hcl",
     "items": [
