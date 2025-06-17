@@ -24,8 +24,8 @@ If you run Powerpipe in **Server Mode** mode, Powerpipe will run a dashboard ser
 
 ## Selecting a database
 
-Most public mods are written without specifying a `database` on each query.  As a result, all queries in the mod run against the 'active' database. For Steampipe, the active database is `postgres://steampipe@localhost:9193/steampipe`, thus Powerpipe will run against a local Steampipe instance. For Powerpipe, it's `duckdb:~/.tailpipe/data/default/tailpipe.db`.
-`
+Most public mods are written without specifying a `database` on each query.  As a result, all queries in the mod run against the 'active' database. For Steampipe, the active database is `postgres://steampipe@localhost:9193/steampipe`, thus Powerpipe will run against a local Steampipe instance. For Tailpipe, it's `duckdb:~/.tailpipe/data/default/tailpipe.db`.
+
 Some mods allow you to [set the database via a variable](/docs/build/mod-database). In this case, you can pass the connection to the variable when you run a powerpipe command:
 
 ```bash
@@ -76,5 +76,3 @@ powerpipe benchmark run cis_v150 --search-path-prefix aws_connection_2
 ```
 
 [Steampipe](https://steampipe.io) creates a schema for each connection and aggregator, and understanding how the search path works is important when using Steampipe and Powerpipe. See the [Using search_path to target connections and aggregators](https://steampipe.io/docs/guides/search-path) guide for more information.
-
-
