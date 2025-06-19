@@ -34,15 +34,11 @@ Your goal is to create a new control for <resource type> and <check condition> w
 
 2. Create the control definition with:
    - Descriptive name that reflects the requirement
-   - Severity based on potential impact (info, low, medium, high, critical)
    - Required variables with meaningful defaults
    - SQL query following plugin-specific patterns
    - Assignments to service and category benchmarks
 
-3. Add documentation:
-   - Clear purpose and security/compliance importance
-   - Variable definitions with example values
-   - Remediation steps with specific actions
+3. Add documentation as per the structure of the other controls in the mod.
 ```
 
 ### Run Control
@@ -54,13 +50,11 @@ Your goal is to verify the control runs without errors.
 
 1. Using MCP server (preferred):
    - Set mod-location to your repository
-   - Run control and verify successful registration
-   - Check query execution time and resource usage
+   - Run control and check for errors
 
 2. Using CLI:
    - Run 'powerpipe control run <control_name>'
-   - Verify no syntax or configuration errors
-   - Check variable resolution
+   - Check for syntax or configuration errors
 ```
 
 ### Create Test Resources
@@ -70,16 +64,12 @@ To test the control's functionality, you'll need resources that will trigger bot
 ```md
 Your goal is to create test resources for validation.
 
-1. Create resources using provider's CLI, Terraform, or API:
-   - Compliant resources meeting all requirements
-   - Non-compliant resources with common misconfigurations
-   - Edge cases testing boundary conditions
-   - Minimum set to validate all control logic
+1. Create resources using provider's CLI, Terraform, or API that are:
+- Compliant with all requirements
+- Non-compliant with common misconfigurations
+- Testing edge cases and boundary conditions
 
-2. Document test setup:
-   - Resource identifiers and configurations
-   - Expected results with rationale
-   - Estimated running costs
+2. Verify that all resources were created successfully using the same tool or method used for creation.
 ```
 
 ### Validate Results
