@@ -22,10 +22,10 @@ Like all Powerpipe commands, `powerpipe server` will load the mod from the curre
 powerpipe server --mod-location ~/my_powerpipe_mod
 ```
 
-By default, Powerpipe will listen on all network interfaces, but you can pass `--listen local` if you only want to listen on the loopback addresses:
+By default, Powerpipe will accept connections from local (localhost only), but you can pass `--listen network` if you only want to listen on all network interfaces:
 
 ```bash
-powerpipe server --listen local
+powerpipe server --listen network
 ```
 
 Powerpipe listens on port 9033 by default, but you can use the `--port` argument to use a different one:
