@@ -67,14 +67,6 @@
   },
   {
     "type": "category",
-    "id": "develop",
-    "label": "Developers",
-    "items": [
-      "develop/using-ai"
-    ]
-  },
-  {
-    "type": "category",
     "id": "powerpipe-hcl",
     "link": "powerpipe-hcl",
     "items": [
@@ -101,6 +93,14 @@
       "powerpipe-hcl/text",
       "powerpipe-hcl/variable",
       "powerpipe-hcl/with"
+    ]
+  },
+  {
+    "type": "category",
+    "id": "develop",
+    "label": "Developers",
+    "items": [
+      "develop/using-ai-for-mod-development"
     ]
   },
   {

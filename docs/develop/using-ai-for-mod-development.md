@@ -1,13 +1,13 @@
 ---
-title: Using AI for Control Development
-sidebar_label: Using AI for Control Development
+title: Using AI for Mod Development
+sidebar_label: Using AI for Mod Development
 ---
 
-# Using AI for Control Development
+# Using AI for Mod Development
 
 Creating new benchmarks, dashboards, and controls for Powerpipe mods with AI tools and IDEs works remarkably well. At Turbot, we develop these components frequently and use AI for almost every new implementation. The key is working within existing mod repositories - this gives AI tools access to established patterns and conventions to generate consistent, high-quality results.
 
-If you're looking to use AI to run Powerpipe controls rather than develop new ones, you can use the [Powerpipe MCP server](../run/mcp), which provides powerful tools for AI agents to inspect and run controls, benchmarks, and queries.
+If you're looking to use AI to run Powerpipe benchmarks, dashboards, and controls rather than develop new ones, you can use the [Powerpipe MCP server](../run/mcp), which provides powerful tools for AI agents to inspect and run controls, benchmarks, and queries.
 
 ## Getting Started
 
@@ -22,17 +22,16 @@ While AI often works well with simple requests like "Create a control for [requi
 
 ### Create Control
 
-First, create the new control using existing controls and docs as reference.
+First, create the complete control and its documentation, using existing controls and documentation as reference.
 
 #### Prompt
 
 ```md
-Your goal is to create a new Powerpipe control for <service> <resource type> and <check condition>.
+Your goal is to create a new Powerpipe control for <resource type> to check for <condition>.
 
 1. Review existing benchmarks and controls and their documentation in the mod to understand the established patterns, naming conventions, and query structure.
 
 2. Create the control and add it to any benchmark with similar controls in it.
-
 ```
 
 ### Run Control
@@ -42,7 +41,7 @@ Next, verify your control is properly configured and can be executed without err
 #### Prompt
 
 ```md
-Your goal is to verify the <service> <resource type> control compiles and runs correctly.
+Your goal is to verify the <resource type> control compiles and runs correctly.
 
 1. Check the Steampipe service status with `steampipe service status`. Start it with `steampipe service start` if not running, or restart it with `steampipe service restart` if already running.
 
@@ -60,30 +59,35 @@ To test the control's functionality, you'll need resources to query. You can eit
 
 #### Prompt
 
-To test the control's functionality, you'll need resources that will trigger both passing and failing results.
-
 ```md
-Your goal is to create test resources for validation.
+Your goal is to create test resources for <resource_type> to check for <condition> to validate your Powerpipe control implementation.
 
-1. Create resources using provider's CLI, Terraform, or API.
-   - Use the most cost-effective configuration. If the estimated cost is high, e.g., $50, warn about the expense rather than proceeding.
+1. Create test resources with as many properties set as possible.
+  - Use the provider's CLI if available, Terraform configuration if CLI isn't available, or API calls via shell script as a last resort.
+  - Create any dependent resources needed.
+  - Use the most cost-effective configuration. If the estimated cost is high, e.g., $50, warn about the expense rather than proceeding.
 
 2. Verify that all resources were created successfully using the same tool or method used for creation.
 ```
 
 ### Validate Results
 
-Next, run the control to verify it correctly identifies the test resources.
+Next, run the control to verify it correctly identifies and evaluates resources.
 
 #### Prompt
 
 ```md
-Your goal is to verify the control correctly identifies compliant and non-compliant resources.
+Your goal is to verify the control correctly evaluates the test resources.
 
-1. Run the control using the MCP server or `powerpipe control run <control_name>`.
+Use the Powerpipe MCP server for running controls if available, otherwise use the `powerpipe` CLI commands directly.
 
-2. Verify the control returns expected results.
+1. Run the control against your test resources.
 
+2. Verify the control returns the expected state for each resource.
+
+3. Confirm the control's reason field accurately describes the current state of the resource.
+
+4. Share the validation results in raw Markdown format, including the full control output showing resource evaluation.
 ```
 
 ### Cleanup Test Resources
@@ -93,9 +97,9 @@ After testing is completed, remove any resources created for testing.
 #### Prompt
 
 ```md
-Your goal is to remove all test resources created for this control.
+Your goal is to clean up all test resources created for <resource type> validation to avoid ongoing costs.
 
-1. Delete all test resources using the same tool used to create them (CLI, Terraform, API).
+1. Delete all resources created for testing, including any dependent resources, using the same method that was used to create them.
 
-2. Run the control again to verify no resources are returned.
+2. Verify that all resources were successfully deleted, using the same method that was used to delete them.
 ```
