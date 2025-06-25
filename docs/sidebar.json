@@ -97,6 +97,14 @@
   },
   {
     "type": "category",
+    "id": "develop",
+    "label": "Developers",
+    "items": [
+      "develop/using-ai-for-mod-development"
+    ]
+  },
+  {
+    "type": "category",
     "id": "reference",
     "label": "Reference",
     "link": "reference",
