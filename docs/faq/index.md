@@ -17,7 +17,7 @@ We welcome users to create and share open-source container definitions for Power
 
 ## What Linux distributions and versions are officially supported by Powerpipe?
 
-Powerpipe requires glibc version 2.29 or higher and libstdc++ (GCC runtime) with symbol version GLIBCXX_3.4.30 or higher. It will not function on systems with an older glibc or an older libstdc++ runtime.
+Powerpipe requires glibc version 2.29 or higher and libstdc++ (GCC runtime) with symbol version GLIBCXX_3.4.29 or higher. It will not function on systems with an older glibc or an older libstdc++ runtime.
 
 Powerpipe is tested on the latest versions of Linux LTS distributions. While it may work on other distributions with the required glibc and libstdc++ versions, official support and testing are limited to the following:
 
@@ -26,6 +26,6 @@ Powerpipe is tested on the latest versions of Linux LTS distributions. While it 
 |--------------------|---------|---------------|---------------------------------------------------------|
 | Ubuntu LTS         | 24.04   | 2.39          |                                                         |
 | Ubuntu             | 22      | 2.35          | To cover Windows WSL2, which may be behind              |
-| CentOS (Stream)    | 10      | 2.39          |                                                         |
-| RHEL               | 10      | 2.39          |                                                         |
+| CentOS (Stream)    | 9       | 2.34          |                                                         |
+| RHEL               | 9       | 2.34          |                                                         |
 | Amazon Linux       | 2023    | 2.34          |                                                         |
