@@ -92,6 +92,7 @@ Run a benchmark from the current mod or its direct dependents.
 |  `--dry-run`                    | If specified, prints the controls that would be run by the command, but does not execute them.
 |  `--export string`              | Export control output to a file. You may export multiple output formats for a single control run by entering multiple `--export` arguments. If a file path is specified as an argument, its type will be inferred by the suffix. Supported export formats are `asff`, `csv`, `html`, `json`, `md`,`nunit3`, `pps` (snapshot)
 |  `--header string`              | Specify whether to include column headers in csv output/export (default `true`).
+|  `--host string`                | Run the benchmark on the [Powerpipe server](/docs/run/benchmark/server-runs) at this URL, for example `--host http://localhost:9033`, instead of in this process. Only snapshot output and export are supported.
 |  `--input`                      | Enable/Disable interactive prompts for missing variables. To disable prompts and fail on missing variables, use  `--input=false`. This is useful when running from scripts. (default `true`)
 |  `--max-parallel int`           | Set the maximum number of database connections to open. When running benchmarks, Powerpipe will attempt to run up to this many controls in parallel. See the `POWERPIPE_MAX_PARALLEL` environment variable documentation for details. (default `10`)
 |  `--mod-install`                | Specify whether to install mod dependencies before running the benchmark (default `true`)
@@ -181,4 +182,9 @@ powerpipe benchmark run cis_v120 --share  --snapshot-location vandelay-industrie
 Run a benchmark, upload a snapshot with `workspace` visibility in your user workspace, and tag the snapshot:
 ```bash
 powerpipe benchmark run -cis_v120 -snapshot --snapshot-tag env=local 
+```
+
+Run a benchmark on a [Powerpipe server](/docs/run/benchmark/server-runs) that runs on this machine, and export a snapshot:
+```bash
+powerpipe benchmark run cis_v120 --host http://localhost:9033 --output none --export cis_v120.pps
 ```

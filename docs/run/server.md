@@ -49,3 +49,7 @@ workspace "default" {
   watch  = false
 }
 ```
+
+## Run benchmarks on the server
+
+The server can also run benchmarks for other clients, with `powerpipe benchmark run --host` or with its HTTP API. Each run uses the mod that the server has loaded, so it does not load the mod again. See [Run Benchmarks on a Server](/docs/run/benchmark/server-runs).

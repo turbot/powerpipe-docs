@@ -92,6 +92,7 @@ title: Powerpipe CLI
 |  **51** | `ExitCodeLoginCloudConnectionFailed`  | Connecting to Pipes failed
 |  **61** | `ExitCodeModInitFailed`               | Mod init failed
 |  **62** | `ExitCodeModInstallFailed`            | Mod install failed
+|  **91** | `ExitCodeOperationCancelled`          | The operation was cancelled, for example `powerpipe benchmark run --host` stopped with Ctrl-C
 | **249** | `ExitCodeInvalidExecutionEnvironment` | Powerpipe was run in an unsupported environment
 | **250** | `ExitCodeInitializationFailed`        | Initialization failed
 | **251** | `ExitCodeBindPortUnavailable`         | Network port binding failed
