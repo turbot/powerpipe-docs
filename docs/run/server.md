@@ -13,7 +13,7 @@ But Powerpipe also allows you to browse and view interactive [dashboards](/docs/
 powerpipe server
 ```
 
-Once it is running you can view the the dashboards in your web browser by navigating to `http://locahost:9033`.
+Once it is running you can view the the dashboards in your web browser by navigating to `http://localhost:9033`.
 
 
 Like all Powerpipe commands, `powerpipe server` will load the mod from the current directory by default, but you can specify a different directory with `--mod-location`:
@@ -26,6 +26,12 @@ By default, Powerpipe will accept connections from local (localhost only), but y
 
 ```bash
 powerpipe server --listen network
+```
+
+The server only accepts requests for `localhost` and WebSocket connections from its own pages, so other web pages that you visit cannot read your dashboards. If you reach the server by another name, for example through a reverse proxy at `https://powerpipe.example.com`, add that name with `--allowed-hosts`:
+
+```bash
+powerpipe server --allowed-hosts powerpipe.example.com
 ```
 
 Powerpipe listens on port 9033 by default, but you can use the `--port` argument to use a different one:
