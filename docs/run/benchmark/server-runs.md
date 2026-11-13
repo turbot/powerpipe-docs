@@ -43,24 +43,29 @@ The server loads the mod and runs the controls, so with `--host` you can use onl
 | `--export` | A snapshot file, for example `--export cis_v300.pps`, or `--export pps` for the default file name. Other export formats are not supported.
 | `--benchmark-timeout` | The timeout for the run, in seconds.
 | `--progress` | Show or hide the progress information.
-| `--snapshot-title` | The title of the snapshot.
 
 You can run one benchmark at a time. Arguments that change the mod, the database or the controls, for example `--mod-location`, `--database`, `--var`, `--where`, `--tag`, `--max-parallel` and `--share`, give an error with `--host`. To change these, change the server.
 
-If you stop the command with Ctrl-C, Powerpipe cancels and removes the run on the server, and exits with code `91`.
+If you stop the command with Ctrl-C while the run is running, Powerpipe cancels and removes the run on the server, and exits with code `91`.
+
+The server must run Powerpipe v1.6.0 or later. An older server gives an error that it cannot run benchmarks.
 
 ## Run a benchmark with the HTTP API
+
+The API has no authentication: anyone who can reach the server can start, read and remove runs. Keep the server on `--listen local` (the default), or put it behind a proxy that authenticates requests.
 
 The server has these endpoints:
 
 | Request | Response
 |-|-
-| `POST /api/v0/benchmark/{benchmark}/run` | `202`: the run starts. The `Location` header is the URL of the run.
-| `GET /api/v0/benchmark/{benchmark}/run/{run_id}` | `200`: the state of the run.
-| `GET /api/v0/benchmark/{benchmark}/run/{run_id}/snapshot` | `200`: the snapshot of the run, the same as `--export <file>.pps`. `409` if the run has not completed.
-| `DELETE /api/v0/benchmark/{benchmark}/run/{run_id}` | `204`: the run is removed. If the run is running, it is cancelled.
+| `POST /api/v0/benchmark/{benchmark}/run` | `202`: the run starts. The `Location` header is the URL of the run. `400` if the request does not have `Content-Type: application/json`, or the body is not valid. `404` if `{benchmark}` is not a benchmark. `413` if the body is larger than 64 KiB. `429` if 10 runs are already running: try again when one has finished.
+| `GET /api/v0/benchmark/{benchmark}/run/{run_id}` | `200`: the state of the run. `404` if there is no such run.
+| `GET /api/v0/benchmark/{benchmark}/run/{run_id}/snapshot` | `200`: the snapshot of the run, the same as `--export <file>.pps`. `404` if there is no such run. `409` if the run is still running.
+| `DELETE /api/v0/benchmark/{benchmark}/run/{run_id}` | `204`: the run is removed. If the run is running, it is cancelled. `404` if there is no such run.
 
-`{benchmark}` is the name of the benchmark, in any form that `powerpipe benchmark run` accepts: `cis_v300`, `benchmark.cis_v300`, `aws_compliance.benchmark.cis_v300` or `all`. The URL of the run uses the full name, for example `aws_compliance.benchmark.cis_v300`. A name that is not a benchmark gives `404`.
+`{benchmark}` is the name of the benchmark, in any form that `powerpipe benchmark run` accepts: `cis_v300`, `benchmark.cis_v300`, `aws_compliance.benchmark.cis_v300` or `all`. The URL of the run uses the full name, for example `aws_compliance.benchmark.cis_v300`.
+
+Errors other than `413` have a JSON body that describes the error.
 
 ### Example
 
@@ -115,7 +120,7 @@ curl -X DELETE http://localhost:9033/api/v0/benchmark/aws_compliance.benchmark.c
 |-|-
 | `id` | The ID of the run.
 | `benchmark` | The full name of the benchmark.
-| `status` | `running`, `complete`, `error` or `cancelled`.
+| `status` | `running`, `complete` or `error`.
 | `error` | The error, if the status is `error`.
 | `start_time` | The time the run started.
 | `end_time` | The time the run stopped. Not set while the run is running.
