@@ -32,7 +32,8 @@
         "link": "run/benchmark",
         "items": [
           "run/benchmark/filtering",
-          "run/benchmark/output-format"
+          "run/benchmark/output-format",
+          "run/benchmark/server-runs"
         ]
       },
       {
