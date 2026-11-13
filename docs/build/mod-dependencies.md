@@ -69,6 +69,8 @@ When running `powerpipe server` from a mod, all dashboards in your mod and its d
 
 ## Installing Mods
 
+Only `powerpipe mod install` and `powerpipe mod update` install or update mods. Commands that run a mod, such as `powerpipe server`, `powerpipe benchmark run` and `powerpipe dashboard run`, do not. After you clone a mod that has dependencies, run `powerpipe mod install` in its directory before you run it.
+
 ### Git URLs & Private Repos
 
 Powerpipe uses `git` to install and update mods. When you run `powerpipe mod install` or `powerpipe mod update`, Powerpipe will first try using HTTPS and if that does not work it will try SSH.  If your SSH keys are configured properly for `git`, you should be able to pull from private repos that you have access to, as well as public ones.  Alternatively, you can authenticate with a GitHub personal access token or application token.  Set the [POWERPIPE_GIT_TOKEN](/docs/reference/env-vars/powerpipe_git_token) environment variable to your token and Powerpipe will use the token when installing and updating mods.
@@ -110,7 +112,7 @@ powerpipe  mod install ../steampipe-mod-aws-insights
 
 ### Update Strategy
 
-It is also possible to have more granular control of the update behavior - e.g. when to check for new commits. The `--pull` argument can be used to specify the update strategy when running `powerpipe update` or `powerpipe install`:
+It is also possible to have more granular control of the update behavior - e.g. when to check for new commits. The `--pull` argument can be used to specify the update strategy when running `powerpipe mod update` or `powerpipe mod install`:
 
 | Strategy | Description
 |----------|---------------------------------------------------

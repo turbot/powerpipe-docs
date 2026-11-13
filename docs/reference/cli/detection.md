@@ -89,13 +89,11 @@ Usage:
 | `-h, --help`             | Help for detection. |
 | `--input`                | Enable interactive prompts. (default: `true`) |
 | `--max-parallel int`     | The maximum number of concurrent database connections to open. (default: `10`) |
-| `--mod-install`          | Specify whether to install mod dependencies before running the detection. (default: `true`) |
 | `--mod-location string`  | Sets the workspace working directory. If not specified, the workspace directory will be set to the current working directory. (default: `/home/jon/tailpipe-mod-github-detections`) |
 | `--output output`        | Output format: `snapshot`, `pps`, `none`. (default: `pps`) |
 | `--pipes-host string`    | Turbot Pipes host. (default: `pipes.turbot.com`) |
 | `--pipes-token string`   | Turbot Pipes authentication token. |
 | `--progress`             | Display detection execution progress when a detection name argument is passed. (default: `true`) |
-| `--pull pull`            | Update strategy: `full`, `latest`, `development`, `minimal`. (default: `minimal`) |
 | `--query-timeout int`    | The query timeout in seconds. (default: `300`) |
 | `--share`                | Create snapshot in Turbot Pipes with `anyone_with_link` visibility. |
 | `--snapshot`             | Create snapshot in Turbot Pipes with the default (workspace) visibility. |
