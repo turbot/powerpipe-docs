@@ -97,7 +97,7 @@ powerpipe  mod install ../steampipe-mod-aws-insights
 
 #### Update Strategy
 
-It is also possible to have more granular control of the update behavior - e.g. when to check for new commits. The -`-pull` argument can be used to specify the update strategy when running `powerpipe update` or `powerpipe install`:
+It is also possible to have more granular control of the update behavior - e.g. when to check for new commits. The `--pull` argument can be used to specify the update strategy when running `powerpipe mod update` or `powerpipe mod install`:
 
 | Strategy | Description
 |----------|---------------------------------------------------
