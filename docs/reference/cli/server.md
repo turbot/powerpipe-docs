@@ -17,6 +17,7 @@ powerpipe server
 
 | Flag | Description
 |-|-
+|  `--allowed-hosts string` | Set the host names of the server besides `localhost`, as a comma-separated list; `.example.com` also matches subdomains. Set it when you reach the server through a proxy or by another name. See [POWERPIPE_ALLOWED_HOSTS](/docs/reference/env-vars/powerpipe_allowed_hosts).
 |  `--dashboard-timeout int` | Set the dashboard execution timeout, in seconds. The default is `0` (no timeout).
 |  `--database`         |  ***DEPRECATED - See [Setting the Database](/docs/build/mod-database) for the new syntax.***  Sets the [database that Powerpipe will connect to](/docs/run#selecting-a-database). This defaults to the local Steampipe database, but can be any PostgreSQL, MySQL, DuckDB, or SQLite database.
 | `--listen string`   | Accept connections from `local` (localhost only) or `network` (all interfaces / IP addresses) (default `local`).
@@ -41,6 +42,11 @@ powerpipe server --port 9195
 Start Powerpipe on `localhost` only
 ```bash
 powerpipe server  --listen local
+```
+
+Start Powerpipe behind a proxy that serves it at `https://powerpipe.example.com`
+```bash
+powerpipe server --allowed-hosts powerpipe.example.com
 ```
 
 Start Powerpipe using settings from a workspace
