@@ -1,7 +1,7 @@
 # The gate manifest — turbot/powerpipe-docs
 #
 # What a change to this repo must run and show before an agent's PR counts as done.
-# The reference is kits/inbox/GATES.md in the kit repo; `agent-fleet gates check`
+# The reference is kits/fleet/GATES.md in the kit repo; `agent-fleet gates check`
 # validates this file.
 #
 # This repo is Markdown and images only, with nothing to build or test. turbot/powerpipe.io
