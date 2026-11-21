@@ -95,7 +95,6 @@ Run a benchmark from the current mod or its direct dependents.
 |  `--host string`                | Run the benchmark on the [Powerpipe server](/docs/run/benchmark/server-runs) at this URL, for example `--host http://localhost:9033`, instead of in this process. Only snapshot output and export are supported.
 |  `--input`                      | Enable/Disable interactive prompts for missing variables. To disable prompts and fail on missing variables, use  `--input=false`. This is useful when running from scripts. (default `true`)
 |  `--max-parallel int`           | Set the maximum number of database connections to open. When running benchmarks, Powerpipe will attempt to run up to this many controls in parallel. See the `POWERPIPE_MAX_PARALLEL` environment variable documentation for details. (default `10`)
-|  `--mod-install`                | Specify whether to install mod dependencies before running the benchmark (default `true`)
 |  `--output string`              | Select the console output format. Defaults to text. Possible values are `brief`, `csv`, `html`, `json`, `md`, `pps` (snapshot), `pretty`, `plain`, `none`
 |  `--pipes-host`                 | Sets the Turbot Pipes host used when connecting to Turbot Pipes workspaces. See  [PIPES_HOST](/docs/reference/env-vars/pipes_host) for details.
 |  `--pipes-token`                | Sets the Turbot Pipes authentication token used when connecting to Turbot Pipes workspaces. See  [PIPES_TOKEN](/docs/reference/env-vars/pipes_token) for details.
