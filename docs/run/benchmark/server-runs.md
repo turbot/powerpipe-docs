@@ -44,7 +44,7 @@ The server loads the mod and runs the controls, so with `--host` you can use onl
 | `--benchmark-timeout` | The timeout for the run, in seconds.
 | `--progress` | Show or hide the progress information.
 
-You can run one benchmark at a time. Arguments that change the mod, the database or the controls, for example `--mod-location`, `--database`, `--var`, `--where`, `--tag`, `--max-parallel` and `--share`, give an error with `--host`. To change these, change the server.
+You can run one benchmark at a time. Arguments that change the mod, the database or the controls, for example `--mod-location`, `--database`, `--var`, `--where`, `--tag`, `--max-parallel` and `--share`, give an error with `--host`. So do `--var-file` and a `PP_VAR_<name>` environment variable: the run always uses the variable values that the server loaded. To change these, change the server.
 
 If the server is reloading the mod when the command starts the run, the command waits and tries again until the reload is complete. See [When the server reloads the mod](#when-the-server-reloads-the-mod).
 
