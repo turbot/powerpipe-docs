@@ -40,7 +40,7 @@ Powerpipe listens on port 9033 by default, but you can use the `--port` argument
 powerpipe server --port 9034
 ```
 
-While the server is running, Powerpipe will watch your mod files for changes and automatically update the server. It also updates the server when you install, update or uninstall mods in the mod directory, for example with `powerpipe mod update`.  You can disable this with the `--watch` argument if you prefer not to update the server instance as the files change:
+While the server is running, Powerpipe will watch your mod files for changes and automatically update the server. It also updates the server when you install, update or uninstall mods in the mod directory, for example with `powerpipe mod update`. While the server reloads, the dashboard shows a "Reloading the workspace…" message, also in a browser tab that you open during the reload. You can disable this with the `--watch` argument if you prefer not to update the server instance as the files change:
 
 ```bash
 powerpipe server --watch=false
