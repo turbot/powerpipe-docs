@@ -171,7 +171,7 @@ Property blocks are defined within a `category` block and are identified by the 
 | `href`    | String | Optional | A url that the property value should link to.  The `href` may use a [jq template](/docs/powerpipe-hcl/dashboard#jq-templates) to dynamically generate the link. The jq template has direct access to all properties in the node or edge (without needing the `.properties.` prefix used in category-level hrefs). |
 | `wrap`    | String | Optional | Controls text wrapping for the property value. Valid values are `none` (default, truncate long text) or `all` (wrap text to multiple lines). |
 
-In this example, we define a category for AWS VPCs with a property block for the `vpc_id` property. The `href` uses a jq template to create a link to the AWS Console VPC details page, dynamically incorporating both the `region` and `vpc_id` properties:
+In this example, we define a category for AWS VPCs with a property block for the `vpc_id` property. The `href` uses a jq template to create a link to the AWS Console VPC details page, dynamically incorporating both the `region` and `vpc_id` properties. The `node` block sets `category = category.aws_vpc`, so the property block applies to its nodes:
 
 ```hcl
 category "aws_vpc" {
@@ -185,14 +185,13 @@ category "aws_vpc" {
 
 dashboard "vpc_graph" {
   graph {
-    category = category.aws_vpc
-
     node {
+      category = category.aws_vpc
+
       sql = <<-EOQ
         select
           vpc_id as id,
           title,
-          'aws_vpc' as category,
           jsonb_build_object(
             'vpc_id', vpc_id,
             'region', region,
