@@ -159,7 +159,7 @@ By default, folding is enabled with a threshold of `3`.  This means that if ther
 
 ## Property Blocks
 
-The `property` block allows you to customize how individual properties are displayed in the properties pane of nodes and edges in [node/edge visualizations](/docs/powerpipe-hcl/graph#nodeedge-visualizations) (`graph`, `flow`, and `hierarchy`). You can use property blocks to add hyperlinks to specific property values, making it easy to navigate to related resources.
+The `property` block allows you to customize how individual properties are displayed in the properties pane of nodes and edges in a [`graph`](/docs/powerpipe-hcl/graph). A `flow` or `hierarchy` has no properties pane, so property blocks do not change it. You can use property blocks to add hyperlinks to specific property values, making it easy to navigate to related resources.
 
 Property blocks are defined within a `category` block and are identified by the property name. The property name must match a key in the `properties` column returned by your SQL query.
 
