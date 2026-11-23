@@ -4,7 +4,7 @@ title: AI Tools (MCP)
 
 # AI Tools (MCP)
 
-The [Powerpipe MCP server](https://github.com/turbot/powerpipe-mcp) (Model Control Protocol) transforms how you interact with your cloud infrastructure and compliance data.  It brings the power of conversational AI to your cloud resources, enabling natural language exploration and analysis of your cloud security posture:
+The [Powerpipe MCP server](https://github.com/turbot/powerpipe-mcp) (Model Context Protocol) transforms how you interact with your cloud infrastructure and compliance data.  It brings the power of conversational AI to your cloud resources, enabling natural language exploration and analysis of your cloud security posture:
 - Exploration of security benchmarks and compliance frameworks
 - Analysis of compliance status and findings
 - Development and customization of controls
