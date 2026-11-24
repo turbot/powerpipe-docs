@@ -149,6 +149,7 @@
           "reference/env-vars/powerpipe_max_parallel",
           "reference/env-vars/powerpipe_memory_max_mb",
           "reference/env-vars/powerpipe_mod_location",
+          "reference/env-vars/powerpipe_permitted_root_paths",
           "reference/env-vars/powerpipe_port",
           "reference/env-vars/powerpipe_query_timeout",
           "reference/env-vars/powerpipe_snapshot_location",

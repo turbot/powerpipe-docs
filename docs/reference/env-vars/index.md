@@ -25,6 +25,7 @@ Powerpipe supports environment variables to allow you to change its default beha
 | [POWERPIPE_MAX_PARALLEL](/docs/reference/env-vars/powerpipe_max_parallel)  | `10` | Set the maximum number of parallel executions.
 | [POWERPIPE_MEMORY_MAX_MB](/docs/reference/env-vars/powerpipe_memory_max_mb)  | `1024` | Set a soft memory limit for the `powerpipe` process. 
 | [POWERPIPE_MOD_LOCATION](/docs/reference/env-vars/powerpipe_mod_location)  | current working directory | Set the workspace working directory.
+| [POWERPIPE_PERMITTED_ROOT_PATHS](/docs/reference/env-vars/powerpipe_permitted_root_paths)  | none | Set the folders that mods can use files from, as a comma-separated list of absolute paths.
 | [POWERPIPE_PORT](/docs/reference/env-vars/powerpipe_port)  | `9033` | Specifies the TCP port on which `powerpipe server` will listen for connections from clients. 
 | [POWERPIPE_QUERY_TIMEOUT](/docs/reference/env-vars/powerpipe_query_timeout)  |  `300` | Set the amount of time to wait for a query to complete before timing out, in seconds.
 | [POWERPIPE_SNAPSHOT_LOCATION](/docs/reference/env-vars/powerpipe_snapshot_location) | The Turbot Pipes user's personal workspace | Set the Turbot Pipes workspace or filesystem path for writing snapshots.
